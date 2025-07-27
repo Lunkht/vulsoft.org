@@ -29,10 +29,24 @@
             border-bottom: 1px solid #333;
         }
         
+        .admin-title-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .admin-logo {
+            width: 40px;
+            height: 40px;
+            filter: invert(1);
+            opacity: 0.9;
+        }
+        
         .admin-title {
             font-size: 2rem;
             font-weight: 600;
             color: #fff;
+            margin: 0;
         }
         
         .admin-user-info {
@@ -287,7 +301,10 @@
 <body>
     <div class="admin-container">
         <div class="admin-header">
-            <h1 class="admin-title">Administration Vulsoft</h1>
+            <div class="admin-title-container">
+                <img src="images/icone.svg" alt="Vulsoft" class="admin-logo">
+                <h1 class="admin-title">Administration Vulsoft</h1>
+            </div>
             <div class="admin-user-info">
                 <span data-user="name">Chargement...</span>
                 <button class="admin-logout-btn" id="logout-btn">Déconnexion</button>

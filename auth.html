@@ -38,6 +38,16 @@
             flex-direction: column;
             align-items: stretch;
         }
+        
+        .auth-card .auth-logo {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .auth-card .auth-logo img {
+            filter: invert(1);
+            opacity: 0.9;
+        }
         .auth-title {
             text-align: center;
             font-size: 1.5rem;
@@ -167,6 +177,9 @@
         </svg>
     </div>
     <div class="auth-card">
+        <div class="auth-logo">
+            <img src="images/icone.svg" alt="Vulsoft" width="60" height="60">
+        </div>
         <div class="auth-title" id="auth-title">Sign in</div>
         <form id="login-form">
             <label class="auth-label" for="login-email">Email</label>
