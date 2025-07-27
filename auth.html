@@ -153,10 +153,8 @@
         .auth-error { color: #ff4d4f; font-size: 0.95rem; min-height: 1.2em; text-align: center; }
         .auth-success { color: #3ecf8e; font-size: 0.95rem; min-height: 1.2em; text-align: center; }
     </style>
-    <!-- Firebase App (the core Firebase SDK) -->
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <!-- Firebase Auth -->
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <!-- Vulsoft Auth API Client -->
+    <script src="js/vulsoft-auth.js"></script>
 </head>
 <body>
     <div class="auth-logo">
@@ -172,20 +170,26 @@
         <div class="auth-title" id="auth-title">Sign in</div>
         <form id="login-form">
             <label class="auth-label" for="login-email">Email</label>
-            <input type="email" id="login-email" class="auth-input" placeholder="Your email address" required>
+            <input type="email" name="email" id="login-email" class="auth-input" placeholder="Votre adresse email" required>
+            <label class="auth-label" for="login-password">Mot de passe</label>
+            <input type="password" name="password" id="login-password" class="auth-input" placeholder="Votre mot de passe" required>
             <div class="auth-error" id="login-error"></div>
-            <button type="submit" class="auth-btn-main" id="login-btn">Continue</button>
+            <button type="submit" class="auth-btn-main" id="login-btn">Se connecter</button>
         </form>
         <form id="register-form" style="display:none;">
+            <label class="auth-label" for="register-firstName">Prénom</label>
+            <input type="text" name="firstName" id="register-firstName" class="auth-input" placeholder="Votre prénom" required>
+            <label class="auth-label" for="register-lastName">Nom</label>
+            <input type="text" name="lastName" id="register-lastName" class="auth-input" placeholder="Votre nom" required>
             <label class="auth-label" for="register-email">Email</label>
-            <input type="email" id="register-email" class="auth-input" placeholder="Your email address" required>
-            <label class="auth-label" for="register-password">Password</label>
-            <input type="password" id="register-password" class="auth-input" placeholder="Password (6+ characters)" required>
-            <label class="auth-label" for="register-password2">Confirm Password</label>
-            <input type="password" id="register-password2" class="auth-input" placeholder="Confirm password" required>
+            <input type="email" name="email" id="register-email" class="auth-input" placeholder="Votre adresse email" required>
+            <label class="auth-label" for="register-password">Mot de passe</label>
+            <input type="password" name="password" id="register-password" class="auth-input" placeholder="Mot de passe (8+ caractères)" required>
+            <label class="auth-label" for="register-password2">Confirmer le mot de passe</label>
+            <input type="password" name="confirmPassword" id="register-password2" class="auth-input" placeholder="Confirmez le mot de passe" required>
             <div class="auth-error" id="register-error"></div>
             <div class="auth-success" id="register-success"></div>
-            <button type="submit" class="auth-btn-main" id="register-btn">Sign up</button>
+            <button type="submit" class="auth-btn-main" id="register-btn">S'inscrire</button>
         </form>
         <div class="auth-separator"><span>OR</span></div>
         <button class="auth-btn-provider" id="google-login">
@@ -204,6 +208,89 @@
     <div class="auth-legal">
         Terms of Service and Privacy Policy
     </div>
-    <script src="js/auth.js"></script>
+    <script>
+        // Initialisation de l'authentification Vulsoft
+        const auth = new VulsoftAuth({
+            apiUrl: 'http://localhost:3000/api',
+            onAuthStateChanged: (user) => {
+                if (user) {
+                    // Rediriger vers la page d'accueil après connexion
+                    window.location.href = 'index.html';
+                }
+            }
+        });
+        
+        const authUI = new VulsoftAuthUI(auth);
+        
+        // Gestion des onglets
+        const tabLogin = document.getElementById('tab-login');
+        const tabRegister = document.getElementById('tab-register');
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+        const authTitle = document.getElementById('auth-title');
+        const authBottom = document.getElementById('auth-bottom');
+        const signupLink = document.getElementById('signup-link');
+        
+        let isSignIn = true;
+        
+        function showSignIn() {
+            loginForm.style.display = 'block';
+            registerForm.style.display = 'none';
+            authTitle.textContent = 'Connexion';
+            authBottom.innerHTML = 'Pas de compte ? <a id="signup-link">S\'inscrire</a>';
+            isSignIn = true;
+            attachSwitchLink();
+        }
+        
+        function showSignUp() {
+            loginForm.style.display = 'none';
+            registerForm.style.display = 'block';
+            authTitle.textContent = 'Inscription';
+            authBottom.innerHTML = 'Déjà un compte ? <a id="signup-link">Se connecter</a>';
+            isSignIn = false;
+            attachSwitchLink();
+        }
+        
+        function attachSwitchLink() {
+            const link = document.getElementById('signup-link');
+            if (link) {
+                link.onclick = (e) => {
+                    e.preventDefault();
+                    if (isSignIn) showSignUp(); 
+                    else showSignIn();
+                };
+            }
+        }
+        
+        // Initialiser l'interface
+        attachSwitchLink();
+        
+        // Gérer les formulaires
+        authUI.handleLoginForm('login-form', {
+            errorElement: 'login-error',
+            redirectUrl: 'index.html'
+        });
+        
+        authUI.handleRegisterForm('register-form', {
+            errorElement: 'register-error',
+            successElement: 'register-success',
+            onSuccess: () => {
+                setTimeout(() => {
+                    showSignIn();
+                }, 2000);
+            }
+        });
+        
+        // Désactiver temporairement les boutons de connexion sociale
+        document.getElementById('google-login').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Connexion Google bientôt disponible');
+        });
+        
+        document.getElementById('github-login').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Connexion GitHub bientôt disponible');
+        });
+    </script>
 </body>
-</html> 
+</html>
