@@ -502,21 +502,7 @@
     }
 }
 
-/* Styles pour les boutons CTA */
-.cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1rem 2rem;
-    background: #6366f1;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    margin: 0 0.5rem;
-}
-
+/* Styles pour l'icône de bouton */
 .button-icon {
     width: 16px;
     height: 16px;
