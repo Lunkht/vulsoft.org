@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Académie Vulsoft - Formation en Ligne</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/academie.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <span>Vulsoft Académie</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="#cours">Cours</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#inscription" class="cta-button">S'inscrire</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero academie-hero" id="accueil">
+        <div class="hero-content">
+            <h1>Académie Vulsoft</h1>
+            <p class="hero-subtitle">Votre plateforme de formation en ligne complète</p>
+            <p class="hero-description">
+                Développez vos compétences avec nos cours d'alphabétisation, de langues, d'informatique, 
+                de programmation et de design. Une formation accessible à tous, partout en Afrique de l'Ouest.
+            </p>
+            <div class="hero-actions">
+                <a href="#cours" class="cta-button primary">Explorer les cours</a>
+                <a href="#inscription" class="cta-button secondary">Commencer gratuitement</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistiques -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Étudiants actifs</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Domaines de formation</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Cours disponibles</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Taux de satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cours Section -->
+    <section class="courses" id="cours">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nos Formations</h2>
+                <p>Des cours structurés pour tous les niveaux, de l'alphabétisation aux technologies avancées</p>
+            </div>
+            <div class="courses-grid">
+                <!-- Alphabétisation -->
+                <div class="course-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10,9 9,9 8,9"/>
+                            </svg>
+                        </div>
+                        <h3>Alphabétisation</h3>
+                        <p>Apprendre à lire et écrire en français</p>
+                    </div>
+                    <div class="course-list">
+                        <div class="course-item">
+                            <h4>Niveau Débutant</h4>
+                            <p>Les bases de la lecture et de l'écriture</p>
+                            <span class="course-duration">8 semaines</span>
+                        </div>
+                        <div class="course-item">
+                            <h4>Niveau Intermédiaire</h4>
+                            <p>Amélioration de la compréhension écrite</p>
+                            <span class="course-duration">6 semaines</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Français -->
+                <div class="course-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                                <line x1="9" y1="9" x2="9.01" y2="9"/>
+                                <line x1="15" y1="9" x2="15.01" y2="9"/>
+                            </svg>
+                        </div>
+                        <h3>Français</h3>
+                        <p>Maîtriser la langue française</p>
+                    </div>
+                    <div class="course-list">
+                        <div class="course-item">
+                            <h4>Français Oral</h4>
+                            <p>Expression et compréhension orale</p>
+                            <span class="course-duration">10 semaines</span>
+                        </div>
+                        <div class="course-item">
+                            <h4>Grammaire Française</h4>
+                            <p>Règles et structures grammaticales</p>
+                            <span class="course-duration">12 semaines</span>
+                        </div>
+                        <div class="course-item">
+                            <h4>Littérature Française</h4>
+                            <p>Découverte des œuvres classiques</p>
+                            <span class="course-duration">8 semaines</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Anglais -->
+                <div class="course-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <h3>Anglais</h3>
+                        <p>Apprendre l'anglais international</p>
+                    </div>
+                    <div class="course-list">
+                        <div class="course-item">
+                            <h4>English Basics</h4>
+                            <p>Les fondamentaux de l'anglais</p>
+                            <span class="course-duration">10 semaines</span>
+                        </div>
+                        <div class="course-item">
+                            <h4>Business English</h4>
+                            <p>Anglais professionnel et commercial</p>
+                            <span class="course-duration">8 semaines</span>
+                        </div>
+                        <div class="course-item">
+                            <h4>English Conversation</h4>
+                            <p>Pratique de la conversation anglaise</p>
+                            <span class="course-duration">6 semaines</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informatique -->
+                <div class="course-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                        </div>
+                        <h3>Informatique</h3>
+                        <p>Maîtriser les outils numériques</p>
+                    </div>
+                    <div class="course-list">
+                        <div class="course-item">
+                            <h4>Initiation Informatique</h4>
+                            <p>Découverte de l'ordinateur et internet</p>
+                            <span class="course-duration">6 semaines</span>
+                        </div>
+                        <div class="course-item">
+                            <h4>Bureautique</h4>
+                            <p>Word, Excel, PowerPoint</p>
+                            <span class="course-duration">8 semaines</span>
+                        </div>
+                        <div class="course-item">
+                            <h4>Internet et Réseaux</h4>
+                            <p>Navigation web et sécurité</p>
+                            <span class="course-duration">4 semaines</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programmation -->
+                <div class="course-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16,18 22,12 16,6"/>
+                                <polyline points="8,6 2,12 8,18"/>
+                            </svg>
+                        </div>
+                        <h3>Programmation</h3>
+                        <p>Développement logiciel moderne</p>
+                    </div>
+                    <div class="course-list">
+                        <div class="course-item">
+                            <h4>Python pour Débutants</h4>
+                            <p>Premiers pas en programmation</p>
+                            <span class="course-duration">12 semaines</span>
+                        </div>
+                        <div class="course-item">
+                            <h4>Développement Web</h4>
+                            <p>HTML, CSS, JavaScript</p>
+                            <span class="course-duration">16 semaines</span>
+                        </div>
+                        <div class="course-item">
+                            <h4>Applications Mobiles</h4>
+                            <p>Création d'apps Android/iOS</p>
+                            <span class="course-duration">20 semaines</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design -->
+                <div class="course-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                                <path d="M2 2l7.586 7.586"/>
+                                <circle cx="11" cy="11" r="2"/>
+                            </svg>
+                        </div>
+                        <h3>Design</h3>
+                        <p>Créativité et design numérique</p>
+                    </div>
+                    <div class="course-list">
+                        <div class="course-item">
+                            <h4>Design Graphique</h4>
+                            <p>Photoshop, Illustrator, InDesign</p>
+                            <span class="course-duration">14 semaines</span>
+                        </div>
+                        <div class="course-item">
+                            <h4>UI/UX Design</h4>
+                            <p>Design d'interfaces utilisateur</p>
+                            <span class="course-duration">12 semaines</span>
+                        </div>
+                        <div class="course-item">
+                            <h4>Design Web</h4>
+                            <p>Création de sites web attractifs</p>
+                            <span class="course-duration">10 semaines</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avantages -->
+    <section class="advantages">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pourquoi choisir Vulsoft Académie ?</h2>
+                <p>Une approche pédagogique adaptée au contexte africain</p>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3>Formation de Qualité</h3>
+                    <p>Contenus pédagogiques développés par des experts locaux et internationaux</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12,6 12,12 16,14"/>
+                        </svg>
+                    </div>
+                    <h3>Flexibilité Horaire</h3>
+                    <p>Apprenez à votre rythme, quand vous voulez, où vous voulez</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Accompagnement Personnalisé</h3>
+                    <p>Tuteurs dédiés et support technique en français</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h3>Tarifs Accessibles</h3>
+                    <p>Formation de qualité à des prix adaptés au marché local</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10,9 9,9 8,9"/>
+                        </svg>
+                    </div>
+                    <h3>Certification Reconnue</h3>
+                    <p>Certificats validés par Vulsoft et partenaires académiques</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
+                    <h3>Plateforme Moderne</h3>
+                    <p>Interface intuitive accessible même avec une connexion limitée</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inscription -->
+    <section class="inscription" id="inscription">
+        <div class="container">
+            <div class="inscription-content">
+                <div class="inscription-text">
+                    <h2>Commencez votre formation dès aujourd'hui</h2>
+                    <p>Rejoignez des centaines d'étudiants qui transforment leur avenir grâce à nos formations en ligne.</p>
+                    <ul class="inscription-benefits">
+                        <li>✓ Accès immédiat aux cours</li>
+                        <li>✓ 7 jours d'essai gratuit</li>
+                        <li>✓ Support technique inclus</li>
+                        <li>✓ Certificat de fin de formation</li>
+                    </ul>
+                </div>
+                <div class="inscription-form">
+                    <form class="signup-form">
+                        <h3>Inscription Gratuite</h3>
+                        <div class="form-group">
+                            <input type="text" placeholder="Nom complet" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Adresse email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Numéro de téléphone" required>
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="">Choisir un domaine d'intérêt</option>
+                                <option value="alphabetisation">Alphabétisation</option>
+                                <option value="francais">Français</option>
+                                <option value="anglais">Anglais</option>
+                                <option value="informatique">Informatique</option>
+                                <option value="programmation">Programmation</option>
+                                <option value="design">Design</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="cta-button primary full-width">Commencer l'essai gratuit</button>
+                        <p class="form-note">Aucune carte de crédit requise</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">Vulsoft Académie</div>
+                    <p>Votre partenaire pour l'éducation numérique en Afrique de l'Ouest.</p>
+                    <div class="footer-contact">
+                        <p>📞 +224 627 87 84 79</p>
+                        <p>✉️ academie@vulsoft.com</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Formations</h4>
+                        <ul>
+                            <li><a href="#cours">Alphabétisation</a></li>
+                            <li><a href="#cours">Langues</a></li>
+                            <li><a href="#cours">Informatique</a></li>
+                            <li><a href="#cours">Programmation</a></li>
+                            <li><a href="#cours">Design</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#">Centre d'aide</a></li>
+                            <li><a href="#">Tutoriels</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Vulsoft</h4>
+                        <ul>
+                            <li><a href="index.html">Site principal</a></li>
+                            <li><a href="#">À propos</a></li>
+                            <li><a href="#">Carrières</a></li>
+                            <li><a href="#">Partenaires</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Vulsoft Académie. Tous droits réservés. Une initiative de Hakim Lunkht.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.course-category, .advantage-item, .inscription-content');
+            animateElements.forEach(el => observer.observe(el));
+        });
+
+        // Form submission
+        document.querySelector('.signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre inscription ! Vous recevrez un email de confirmation dans quelques minutes.');
+        });
+    </script>
+</body>
+</html>

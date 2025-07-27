@@ -1,0 +1,500 @@
+/* Styles spécifiques pour l'Académie Vulsoft */
+
+/* Hero Section Académie */
+.academie-hero {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #ffffff 100%);
+    position: relative;
+}
+
+.academie-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23000000" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>') repeat;
+    opacity: 0.3;
+}
+
+.academie-hero .hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Section Statistiques */
+.stats-section {
+    padding: 4rem 0;
+    background: #ffffff;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    border-color: #000000;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 0.5rem;
+}
+
+.stat-item .stat-label {
+    color: #666666;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* Section Cours */
+.courses {
+    padding: 8rem 0;
+    background: #ffffff;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+}
+
+.course-category {
+    background: #ffffff;
+    border: 2px solid #f0f0f0;
+    border-radius: 16px;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.course-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.03), transparent);
+    transition: left 0.5s ease;
+}
+
+.course-category:hover::before {
+    left: 100%;
+}
+
+.course-category:hover {
+    border-color: #000000;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.category-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.category-icon {
+    width: 80px;
+    height: 80px;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.course-category:hover .category-icon {
+    background: #000000;
+    border-color: #000000;
+}
+
+.category-icon svg {
+    color: #666666;
+    transition: color 0.3s ease;
+}
+
+.course-category:hover .category-icon svg {
+    color: #ffffff;
+}
+
+.category-header h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 0.5rem;
+}
+
+.category-header p {
+    color: #666666;
+    font-size: 1rem;
+}
+
+.course-list {
+    position: relative;
+    z-index: 1;
+}
+
+.course-item {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.course-item:last-child {
+    margin-bottom: 0;
+}
+
+.course-item:hover {
+    background: #ffffff;
+    border-color: #000000;
+    transform: translateX(5px);
+}
+
+.course-item h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 0.5rem;
+}
+
+.course-item p {
+    color: #666666;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.course-duration {
+    display: inline-block;
+    background: #000000;
+    color: #ffffff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Section Avantages */
+.advantages {
+    padding: 8rem 0;
+    background: #f8f9fa;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.advantage-item {
+    background: #ffffff;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.advantage-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+    transition: left 0.5s ease;
+}
+
+.advantage-item:hover::before {
+    left: 100%;
+}
+
+.advantage-item:hover {
+    border-color: #000000;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.advantage-icon {
+    width: 80px;
+    height: 80px;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.advantage-item:hover .advantage-icon {
+    background: #000000;
+    border-color: #000000;
+}
+
+.advantage-icon svg {
+    color: #666666;
+    transition: color 0.3s ease;
+}
+
+.advantage-item:hover .advantage-icon svg {
+    color: #ffffff;
+}
+
+.advantage-item h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.advantage-item p {
+    color: #666666;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+}
+
+/* Section Inscription */
+.inscription {
+    padding: 8rem 0;
+    background: linear-gradient(135deg, #000000 0%, #333333 100%);
+    color: #ffffff;
+}
+
+.inscription-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.inscription-text h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+.inscription-text p {
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.inscription-benefits {
+    list-style: none;
+    padding: 0;
+}
+
+.inscription-benefits li {
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.inscription-benefits li::before {
+    content: '✓';
+    color: #4CAF50;
+    font-weight: bold;
+    margin-right: 0.75rem;
+    font-size: 1.2rem;
+}
+
+.inscription-form {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.signup-form h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.signup-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.signup-form input,
+.signup-form select {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    background: #ffffff;
+    color: #333333;
+}
+
+.signup-form input:focus,
+.signup-form select:focus {
+    outline: none;
+    border-color: #000000;
+}
+
+.signup-form select {
+    cursor: pointer;
+}
+
+.full-width {
+    width: 100%;
+    justify-content: center;
+}
+
+.form-note {
+    text-align: center;
+    color: #666666;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+/* Animations pour l'Académie */
+.course-category,
+.advantage-item,
+.inscription-content {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.course-category.animate,
+.advantage-item.animate,
+.inscription-content.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation des cours avec délai */
+.course-category:nth-child(1) { animation-delay: 0.1s; }
+.course-category:nth-child(2) { animation-delay: 0.2s; }
+.course-category:nth-child(3) { animation-delay: 0.3s; }
+.course-category:nth-child(4) { animation-delay: 0.4s; }
+.course-category:nth-child(5) { animation-delay: 0.5s; }
+.course-category:nth-child(6) { animation-delay: 0.6s; }
+
+/* Animation des avantages avec délai */
+.advantage-item:nth-child(1) { animation-delay: 0.1s; }
+.advantage-item:nth-child(2) { animation-delay: 0.2s; }
+.advantage-item:nth-child(3) { animation-delay: 0.3s; }
+.advantage-item:nth-child(4) { animation-delay: 0.4s; }
+.advantage-item:nth-child(5) { animation-delay: 0.5s; }
+.advantage-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* Responsive Design pour l'Académie */
+@media (max-width: 768px) {
+    .courses-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .course-category {
+        padding: 2rem;
+    }
+    
+    .advantages-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .inscription-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .inscription-form {
+        padding: 2rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .stat-item {
+        padding: 1.5rem 1rem;
+    }
+    
+    .stat-item .stat-number {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .course-category {
+        padding: 1.5rem;
+    }
+    
+    .advantage-item {
+        padding: 2rem;
+    }
+    
+    .inscription-text h2 {
+        font-size: 2rem;
+    }
+    
+    .signup-form {
+        padding: 1.5rem;
+    }
+}
+
+/* Pour les utilisateurs qui préfèrent les animations réduites */
+@media (prefers-reduced-motion: reduce) {
+    .course-category,
+    .advantage-item,
+    .inscription-content {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    
+    .course-category::before,
+    .advantage-item::before {
+        display: none;
+    }
+}
