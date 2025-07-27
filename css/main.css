@@ -617,19 +617,28 @@ body {
 .service-card:nth-child(6) { animation-delay: 0.6s; }
 
 /* Scroll animations */
-@media (prefers-reduced-motion: no-preference) {
+.service-card,
+.about-content,
+.contact-content {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.service-card.animate,
+.about-content.animate,
+.contact-content.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Pour les utilisateurs qui préfèrent les animations réduites */
+@media (prefers-reduced-motion: reduce) {
     .service-card,
     .about-content,
     .contact-content {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s ease-out;
-    }
-    
-    .service-card.animate,
-    .about-content.animate,
-    .contact-content.animate {
         opacity: 1;
-        transform: translateY(0);
+        transform: none;
+        transition: none;
     }
 }
