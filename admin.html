@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="css/main.css">
     <style>
         body {
-            background: #000;
-            color: #fff;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
@@ -26,7 +26,7 @@
             align-items: center;
             margin-bottom: 2rem;
             padding-bottom: 1rem;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--border-color);
         }
         
         .admin-title-container {
@@ -38,14 +38,14 @@
         .admin-logo {
             width: 40px;
             height: 40px;
-            filter: invert(1);
+            filter: var(--logo-filter);
             opacity: 0.9;
         }
         
         .admin-title {
             font-size: 2rem;
             font-weight: 600;
-            color: #fff;
+            color: var(--text-primary);
             margin: 0;
         }
         
@@ -78,15 +78,15 @@
         }
         
         .stat-card {
-            background: #18181b;
+            background: var(--bg-secondary);
             border-radius: 12px;
             padding: 1.5rem;
-            border: 1px solid #333;
+            border: 1px solid var(--border-color);
         }
         
         .stat-title {
             font-size: 0.9rem;
-            color: #888;
+            color: var(--text-secondary);
             margin-bottom: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -95,27 +95,27 @@
         .stat-value {
             font-size: 2rem;
             font-weight: 700;
-            color: #6366f1;
+            color: var(--accent-color);
             margin-bottom: 0.5rem;
         }
         
         .stat-description {
             font-size: 0.85rem;
-            color: #aaa;
+            color: var(--text-tertiary);
         }
         
         .users-section {
-            background: #18181b;
+            background: var(--bg-secondary);
             border-radius: 12px;
             padding: 1.5rem;
-            border: 1px solid #333;
+            border: 1px solid var(--border-color);
         }
         
         .section-title {
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
-            color: #fff;
+            color: var(--text-primary);
         }
         
         .users-controls {
@@ -128,9 +128,9 @@
         }
         
         .search-input {
-            background: #111;
-            border: 1px solid #333;
-            color: #fff;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
             padding: 0.5rem 1rem;
             border-radius: 6px;
             width: 300px;
@@ -139,7 +139,7 @@
         
         .search-input:focus {
             outline: none;
-            border-color: #6366f1;
+            border-color: var(--accent-color);
         }
         
         .pagination {
@@ -149,8 +149,8 @@
         }
         
         .pagination button {
-            background: #333;
-            color: #fff;
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
             border: none;
             padding: 0.5rem 1rem;
             border-radius: 6px;
@@ -159,7 +159,7 @@
         }
         
         .pagination button:hover:not(:disabled) {
-            background: #6366f1;
+            background: var(--accent-color);
         }
         
         .pagination button:disabled {
@@ -168,7 +168,7 @@
         }
         
         .pagination .active {
-            background: #6366f1;
+            background: var(--accent-color);
         }
         
         .users-table {
@@ -181,19 +181,19 @@
         .users-table td {
             text-align: left;
             padding: 1rem;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--border-color);
         }
         
         .users-table th {
-            background: #111;
+            background: var(--input-bg);
             font-weight: 600;
-            color: #fff;
+            color: var(--text-primary);
             position: sticky;
             top: 0;
         }
         
         .users-table td {
-            color: #ccc;
+            color: var(--text-secondary);
         }
         
         .user-role {

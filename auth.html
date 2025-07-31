@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="css/main.css">
     <style>
         body {
-            background: #000;
-            color: #fff;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -27,9 +27,9 @@
             display: block;
         }
         .auth-card {
-            background: #18181b;
+            background: var(--bg-secondary);
             border-radius: 18px;
-            box-shadow: 0 8px 32px #000a;
+            box-shadow: 0 8px 32px var(--shadow-color);
             padding: 2.5rem 2rem 2rem 2rem;
             max-width: 370px;
             width: 100%;
@@ -37,6 +37,7 @@
             display: flex;
             flex-direction: column;
             align-items: stretch;
+            border: 1px solid var(--border-color);
         }
         
         .auth-card .auth-logo {
@@ -45,7 +46,7 @@
         }
         
         .auth-card .auth-logo img {
-            filter: invert(1);
+            filter: var(--logo-filter);
             opacity: 0.9;
         }
         .auth-title {
@@ -53,32 +54,33 @@
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 2rem;
+            color: var(--text-primary);
         }
         .auth-label {
             font-size: 1rem;
             margin-bottom: 0.5rem;
-            color: #fff;
+            color: var(--text-primary);
             font-weight: 500;
         }
         .auth-input {
             width: 100%;
             padding: 0.9rem 1rem;
             border-radius: 8px;
-            border: 1.5px solid #333;
-            background: #111;
-            color: #fff;
+            border: 1.5px solid var(--border-color);
+            background: var(--input-bg);
+            color: var(--text-primary);
             font-size: 1rem;
             margin-bottom: 1.2rem;
             outline: none;
             transition: border 0.2s;
         }
         .auth-input:focus {
-            border-color: #6366f1;
+            border-color: var(--accent-color);
         }
         .auth-btn-main {
             width: 100%;
-            background: #fff;
-            color: #111;
+            background: var(--button-primary-bg);
+            color: var(--button-primary-text);
             border: none;
             border-radius: 8px;
             font-weight: 600;
@@ -89,8 +91,8 @@
             transition: background 0.2s, color 0.2s;
         }
         .auth-btn-main:hover {
-            background: #111;
-            color: #fff;
+            background: var(--button-primary-hover-bg);
+            color: var(--button-primary-hover-text);
         }
         .auth-separator {
             display: flex;
@@ -99,20 +101,20 @@
             margin: 1.2rem 0 1.2rem 0;
         }
         .auth-separator span {
-            color: #888;
+            color: var(--text-secondary);
             font-size: 0.95rem;
             padding: 0 1rem;
         }
         .auth-separator::before, .auth-separator::after {
             content: '';
             flex: 1;
-            border-bottom: 1px solid #222;
+            border-bottom: 1px solid var(--border-color);
         }
         .auth-btn-provider {
             width: 100%;
-            background: #18181b;
-            color: #fff;
-            border: 1.5px solid #222;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1.5px solid var(--border-color);
             border-radius: 8px;
             font-weight: 600;
             font-size: 1.08rem;
@@ -126,9 +128,9 @@
             transition: background 0.2s, color 0.2s, border 0.2s;
         }
         .auth-btn-provider:hover {
-            background: #232326;
-            border-color: #6366f1;
-            color: #fff;
+            background: var(--bg-tertiary);
+            border-color: var(--accent-color);
+            color: var(--text-primary);
         }
         .auth-btn-provider svg {
             width: 20px;
@@ -138,11 +140,11 @@
         .auth-bottom {
             text-align: center;
             margin-top: 1.2rem;
-            color: #888;
+            color: var(--text-secondary);
             font-size: 1rem;
         }
         .auth-bottom a {
-            color: #6366f1;
+            color: var(--accent-color);
             text-decoration: none;
             margin-left: 0.3rem;
             font-weight: 500;
@@ -157,7 +159,7 @@
             left: 0;
             right: 0;
             text-align: center;
-            color: #888;
+            color: var(--text-secondary);
             font-size: 0.95rem;
         }
         .auth-error { color: #ff4d4f; font-size: 0.95rem; min-height: 1.2em; text-align: center; }
