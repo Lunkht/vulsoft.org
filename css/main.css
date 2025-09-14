@@ -28,11 +28,13 @@
 /* Mode sombre automatique */
 @media (prefers-color-scheme: dark) {
     .partner-logo img {
-        filter: grayscale(100%) invert(1) brightness(1.5);
+        filter: grayscale(100%) invert(1) brightness(0.8);
+        opacity: 0.8;
     }
 
     .partner-logo img:hover {
         filter: grayscale(0%) invert(1) brightness(1);
+        opacity: 1;
     }
     :root {
         --bg-primary: #0a0a0a;
@@ -219,17 +221,33 @@ body {
     overflow: hidden;
     white-space: nowrap;
     gap: 4rem;
+    animation: scroll 30s linear infinite;
 }
 
-.partners-grid {
-    animation: scroll 30s linear infinite;
+.partner-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 8px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    min-width: 120px;
+    height: 80px;
+}
+
+.partner-logo:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transform: translateY(-2px);
 }
 
 .partner-logo img {
     height: 40px;
-    opacity: 0.6;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    filter: grayscale(100%) brightness(0%);
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(100%) brightness(0.3);
 }
 
 .partner-logo img:hover {

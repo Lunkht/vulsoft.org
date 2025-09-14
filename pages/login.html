@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/auth.css">
 </head>
+
 <body>
     <div class="auth-container">
         <!-- Section Contenu (Gauche) -->
@@ -15,7 +17,7 @@
                 <div class="logo-container">
                     <img src="../images/logo-Vulsoft-1.svg" alt="Vulsoft" class="auth-logo">
                 </div>
-                
+
                 <div class="content-text">
                     <h2>Bienvenue sur Vulsoft</h2>
                     <p>Connectez-vous pour accéder à votre espace et gérer vos projets.</p>
@@ -38,7 +40,7 @@
                             <label for="email">Adresse e-mail</label>
                             <input type="email" id="email" name="email" required placeholder="votre@email.com">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="password">Mot de passe</label>
                             <input type="password" id="password" name="password" required placeholder="••••••••">
@@ -70,7 +72,7 @@
                 }
             }
         });
-        
+
         const authUI = new VulsoftAuthUI(auth);
 
         authUI.handleLoginForm('login-form', {
@@ -84,4 +86,5 @@
         });
     </script>
 </body>
+
 </html>
