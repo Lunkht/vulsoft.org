@@ -352,7 +352,7 @@ class VulsoftAuth {
             'Une lettre majuscule',
             'Une lettre minuscule',
             'Un chiffre',
-            'Un caractère spécial (@$!%*?&)'
+            'Un caractère spécial'
         ];
     }
 }

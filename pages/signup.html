@@ -48,7 +48,7 @@
                         </div>
                         <div class="form-group">
                             <label for="register-password">Mot de passe</label>
-                            <input type.password" name="password" id="register-password" class="auth-input" placeholder="Mot de passe (8+ caractères)" required>
+                            <input type="password" name="password" id="register-password" class="auth-input" placeholder="Mot de passe (8+ caractères)" required>
                         </div>
                         <div class="form-group">
                             <label for="register-password2">Confirmer le mot de passe</label>
@@ -83,6 +83,11 @@
                     window.location.href = 'login.html';
                 }, 2000);
             }
+        });
+
+        document.getElementById('google-login').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Connexion Google bientôt disponible');
         });
     </script>
 </body>

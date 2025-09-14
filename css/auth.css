@@ -9,36 +9,10 @@
     --auth-button-bg: #1877f2;
     --auth-button-text: #ffffff;
     --auth-button-hover-bg: #166fe5;
-    --auth-icon-filter: none;
-    --auth-logo-filter: none;
-    --auth-feature-icon-bg: #000000;
-    --auth-feature-icon-color: #ffffff;
-    --auth-social-icon-filter: none;
-}
-
-/* Mode sombre automatique */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --auth-bg-color: #0a0a0a;
-        --auth-form-bg: #1a1a1a;
-        --auth-text-primary: #ffffff;
-        --auth-text-secondary: #a0a0a0;
-        --auth-border-color: #333333;
-        --auth-button-bg: #ffffff;
-        --auth-button-text: #000000;
-        --auth-button-hover-bg: #cccccc;
-        --auth-icon-filter: invert(1) brightness(1.2);
-        --auth-logo-filter: invert(1);
-        --auth-feature-icon-bg: #ffffff;
-        --auth-feature-icon-color: #000000;
-        --auth-social-icon-filter: invert(1);
-    }
 }
 
 body {
     background-color: var(--auth-bg-color);
-    color: var(--auth-text-primary);
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .auth-container {
@@ -65,8 +39,6 @@ body {
 .auth-logo {
     max-width: 200px;
     margin-bottom: 1rem;
-    filter: var(--auth-logo-filter);
-    transition: filter 0.3s ease;
 }
 
 .content-text h2 {
@@ -95,8 +67,6 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
     width: 100%;
     max-width: 400px;
-    border: 1px solid var(--auth-border-color);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .auth-header {
@@ -131,19 +101,6 @@ body {
     border: 1px solid var(--auth-border-color);
     border-radius: 6px;
     font-size: 1rem;
-    background: var(--auth-form-bg);
-    color: var(--auth-text-primary);
-    transition: all 0.3s ease;
-}
-
-.form-group input:focus {
-    outline: none;
-    border-color: var(--auth-button-bg);
-    box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
-}
-
-.form-group input::placeholder {
-    color: var(--auth-text-secondary);
 }
 
 .form-options {
@@ -201,6 +158,50 @@ body {
     text-align: center;
 }
 
+.social-auth {
+    margin-top: 1rem;
+}
+
+.social-button {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--auth-border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    background: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.social-button:hover {
+    background: #f5f5f5;
+}
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.auth-divider span {
+    color: var(--auth-text-secondary);
+    font-size: 0.9rem;
+    padding: 0 1rem;
+}
+
+.auth-divider::before, .auth-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--auth-border-color);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .auth-container {
@@ -214,314 +215,5 @@ body {
     .auth-form-section {
         width: 100%;
         padding: 1rem;
-    }
-}
-
-/* Onglets d'authentification */
-.auth-tabs {
-    display: flex;
-    background: var(--auth-bg-color);
-    border-radius: 12px;
-    padding: 4px;
-    margin-bottom: 2rem;
-    border: 1px solid var(--auth-border-color);
-}
-
-.auth-tab {
-    flex: 1;
-    padding: 0.75rem 1rem;
-    border: none;
-    background: transparent;
-    color: var(--auth-text-secondary);
-    font-weight: 500;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.95rem;
-}
-
-.auth-tab.active {
-    background: var(--auth-button-bg);
-    color: var(--auth-button-text);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.auth-tab:hover:not(.active) {
-    color: var(--auth-text-primary);
-    background: var(--auth-border-color);
-}
-
-/* Formulaires avec onglets */
-.auth-form-wrapper {
-    display: none;
-}
-
-.auth-form-wrapper.active {
-    display: block;
-    animation: fadeInUp 0.4s ease-out;
-}
-
-/* Options de formulaire */
-.checkbox-container {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    font-size: 0.9rem;
-    color: var(--auth-text-secondary);
-}
-
-.checkbox-container input[type="checkbox"] {
-    display: none;
-}
-
-.checkmark {
-    width: 18px;
-    height: 18px;
-    border: 2px solid var(--auth-border-color);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    background: var(--auth-form-bg);
-}
-
-.checkbox-container input[type="checkbox"]:checked + .checkmark {
-    background: var(--auth-button-bg);
-    border-color: var(--auth-button-bg);
-}
-
-.checkbox-container input[type="checkbox"]:checked + .checkmark::after {
-    content: '✓';
-    color: var(--auth-button-text);
-    font-size: 12px;
-    font-weight: bold;
-}
-
-/* Séparateur */
-.auth-divider {
-    display: flex;
-    align-items: center;
-    margin: 2rem 0;
-    color: var(--auth-text-secondary);
-    font-size: 0.9rem;
-}
-
-.auth-divider::before,
-.auth-divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--auth-border-color);
-}
-
-.auth-divider span {
-    padding: 0 1rem;
-}
-
-/* Connexion sociale */
-.social-auth {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.social-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    padding: 1rem;
-    border: 2px solid var(--auth-border-color);
-    border-radius: 8px;
-    background: var(--auth-form-bg);
-    color: var(--auth-text-primary);
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.95rem;
-}
-
-.social-button:hover {
-    border-color: var(--auth-button-bg);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.social-button svg {
-    width: 20px;
-    height: 20px;
-    filter: var(--auth-social-icon-filter);
-    transition: filter 0.3s ease;
-}
-
-/* Icônes des fonctionnalités */
-.features-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-bottom: 3rem;
-    text-align: left;
-}
-
-.feature-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-}
-
-.feature-icon {
-    font-size: 1.2rem;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--auth-feature-icon-bg);
-    color: var(--auth-feature-icon-color);
-    border-radius: 50%;
-    flex-shrink: 0;
-    transition: all 0.3s ease;
-}
-
-.feature-text h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--auth-text-primary);
-    margin-bottom: 0.25rem;
-}
-
-.feature-text p {
-    color: var(--auth-text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-/* Témoignage */
-.testimonial {
-    background: var(--auth-form-bg);
-    padding: 2rem;
-    border-radius: 12px;
-    border: 1px solid var(--auth-border-color);
-    text-align: left;
-    transition: all 0.3s ease;
-}
-
-.testimonial blockquote {
-    font-size: 1rem;
-    color: var(--auth-text-primary);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    font-style: italic;
-}
-
-.testimonial cite {
-    color: var(--auth-text-secondary);
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-/* Messages d'erreur et de succès avec icônes */
-.error-message {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: #fee;
-    color: #c53030;
-    padding: 0.75rem;
-    border-radius: 6px;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    border: 1px solid #fed7d7;
-}
-
-.error-message::before {
-    content: '⚠️';
-    font-size: 1rem;
-}
-
-.success-message {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: #f0fff4;
-    color: #2d7d32;
-    padding: 0.75rem;
-    border-radius: 6px;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    border: 1px solid #c6f6d5;
-}
-
-.success-message::before {
-    content: '✅';
-    font-size: 1rem;
-}
-
-/* Adaptations pour le mode sombre */
-@media (prefers-color-scheme: dark) {
-    .error-message {
-        background: #2d1b1b;
-        color: #ff6b6b;
-        border-color: #4a2c2c;
-    }
-    
-    .success-message {
-        background: #1b2d1b;
-        color: #51cf66;
-        border-color: #2c4a2c;
-    }
-    
-    .social-button svg path {
-        filter: var(--auth-social-icon-filter);
-    }
-    
-    /* Adaptation spécifique pour l'icône Google en mode sombre */
-    .social-button.google svg path[fill="#4285F4"] {
-        fill: #4285F4 !important;
-    }
-    
-    .social-button.google svg path[fill="#34A853"] {
-        fill: #34A853 !important;
-    }
-    
-    .social-button.google svg path[fill="#FBBC05"] {
-        fill: #FBBC05 !important;
-    }
-    
-    .social-button.google svg path[fill="#EA4335"] {
-        fill: #EA4335 !important;
-    }
-}
-
-/* Animation pour les transitions */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive pour les icônes */
-@media (max-width: 768px) {
-    .features-list {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    
-    .feature-icon {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
-    }
-    
-    .social-button svg {
-        width: 18px;
-        height: 18px;
     }
 }
