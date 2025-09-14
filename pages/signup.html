@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Vulsoft</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <!-- Section Contenu (Gauche) -->
+        <div class="auth-content-section">
+            <div class="auth-content">
+                <div class="logo-container">
+                    <img src="images/logo-Vulsoft-1.svg" alt="Vulsoft" class="auth-logo">
+                </div>
+                
+                <div class="content-text">
+                    <h2>Rejoignez Vulsoft</h2>
+                    <p>Créez un compte pour commencer à transformer vos idées en réalité.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Formulaire (Droite) -->
+        <div class="auth-form-section">
+            <div class="auth-form-container">
+                <div class="auth-header">
+                    <h1 class="auth-title">Inscription</h1>
+                    <p class="auth-subtitle">Créez votre compte en quelques secondes.</p>
+                </div>
+
+                <!-- Formulaire d'inscription -->
+                <div class="auth-form-wrapper active" id="register-form-wrapper">
+                    <form id="register-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="register-firstName">Prénom</label>
+                            <input type="text" name="firstName" id="register-firstName" class="auth-input" placeholder="Votre prénom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-lastName">Nom</label>
+                            <input type="text" name="lastName" id="register-lastName" class="auth-input" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email">Email</label>
+                            <input type="email" name="email" id="register-email" class="auth-input" placeholder="Votre adresse email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">Mot de passe</label>
+                            <input type="password" name="password" id="register-password" class="auth-input" placeholder="Mot de passe (8+ caractères)" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password2">Confirmer le mot de passe</label>
+                            <input type="password" name="confirmPassword" id="register-password2" class="auth-input" placeholder="Confirmez le mot de passe" required>
+                        </div>
+                        <div id="register-error" class="auth-error"></div>
+                        <div id="register-success" class="auth-success"></div>
+                        <button type="submit" class="auth-button">S'inscrire</button>
+                    </form>
+                </div>
+
+                <div class="auth-bottom">
+                    Déjà un compte ? <a href="login.html">Connectez-vous</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/vulsoft-auth.js"></script>
+    <script>
+        const auth = new VulsoftAuth({
+            apiUrl: 'http://localhost:3000/api',
+        });
+        
+        const authUI = new VulsoftAuthUI(auth);
+
+        authUI.handleRegisterForm('register-form', {
+            errorElement: 'register-error',
+            successElement: 'register-success',
+            onSuccess: () => {
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>
