@@ -1,13 +1,13 @@
 /* Styles pour Vulsoft Academy - Version moderne */
 
-/* Variables spécifiques à l'Academy */
+/* Variables spécifiques à l'Academy - Utilise les variables du thème principal */
 :root {
-    --academy-primary: #6366f1;
-    --academy-secondary: #8b5cf6;
-    --academy-accent: #06b6d4;
-    --academy-success: #10b981;
-    --academy-warning: #f59e0b;
-    --academy-gradient: linear-gradient(135deg, var(--academy-primary) 0%, var(--academy-secondary) 100%);
+    --academy-primary: var(--accent-color);
+    --academy-secondary: var(--text-primary);
+    --academy-accent: var(--text-secondary);
+    --academy-success: var(--accent-color);
+    --academy-warning: var(--text-primary);
+    --academy-gradient: linear-gradient(135deg, var(--accent-color) 0%, var(--text-primary) 100%);
 }
 
 /* Navigation spécifique */
@@ -55,8 +55,8 @@
     width: 200%;
     height: 200%;
     background-image: 
-        linear-gradient(90deg, transparent 24%, rgba(99, 102, 241, 0.05) 25%, rgba(99, 102, 241, 0.05) 26%, transparent 27%),
-        linear-gradient(0deg, transparent 24%, rgba(99, 102, 241, 0.05) 25%, rgba(99, 102, 241, 0.05) 26%, transparent 27%);
+        linear-gradient(90deg, transparent 24%, var(--shimmer-color) 25%, var(--shimmer-color) 26%, transparent 27%),
+        linear-gradient(0deg, transparent 24%, var(--shimmer-color) 25%, var(--shimmer-color) 26%, transparent 27%);
     background-size: 50px 50px;
     animation: gridMove 20s linear infinite;
 }
@@ -131,7 +131,7 @@
     display: block;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--academy-primary);
+    color: var(--text-primary);
     margin-bottom: 0.25rem;
 }
 
@@ -216,12 +216,12 @@
 .path-card:hover {
     border-color: var(--academy-primary);
     transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(99, 102, 241, 0.15);
+    box-shadow: 0 20px 50px var(--shadow-color);
 }
 
 .path-card.featured {
     border-color: var(--academy-primary);
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+    background: var(--bg-secondary);
 }
 
 .path-badge {
@@ -307,7 +307,7 @@
 .price-amount {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--academy-primary);
+    color: var(--text-primary);
 }
 
 .price-period {
@@ -330,7 +330,7 @@
 
 .path-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+    box-shadow: 0 8px 25px var(--shadow-color);
 }
 
 /* Formations Categories */
@@ -383,7 +383,7 @@
 .formation-card:hover {
     border-color: var(--academy-primary);
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 15px 40px var(--shadow-color);
 }
 
 .formation-image {
@@ -399,8 +399,8 @@
     position: absolute;
     top: 1rem;
     left: 1rem;
-    background: var(--academy-success);
-    color: white;
+    background: var(--accent-color);
+    color: var(--bg-primary);
     padding: 0.25rem 0.75rem;
     border-radius: 12px;
     font-size: 0.8rem;
@@ -463,7 +463,7 @@
 }
 
 .stars {
-    color: var(--academy-warning);
+    color: var(--text-primary);
     font-size: 0.9rem;
 }
 
@@ -481,7 +481,7 @@
 .price {
     font-size: 1.2rem;
     font-weight: 700;
-    color: var(--academy-primary);
+    color: var(--text-primary);
 }
 
 .price-old {
@@ -517,11 +517,11 @@
 .testimonial-card:hover {
     border-color: var(--academy-primary);
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 15px 40px var(--shadow-color);
 }
 
 .testimonial-rating {
-    color: var(--academy-warning);
+    color: var(--text-primary);
     font-size: 1.2rem;
     margin-bottom: 1rem;
 }
@@ -659,7 +659,7 @@
 .signup-form select:focus {
     outline: none;
     border-color: var(--academy-primary);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 0 0 3px var(--shadow-light);
 }
 
 .signup-button {
@@ -681,7 +681,7 @@
 
 .signup-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+    box-shadow: 0 8px 25px var(--shadow-color);
 }
 
 .form-note {
