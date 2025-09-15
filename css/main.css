@@ -688,9 +688,9 @@ body {
 }
 
 .footer-column h4 {
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -701,14 +701,14 @@ body {
 }
 
 .footer-column li {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.6rem;
 }
 
 .footer-column a {
     color: var(--footer-text);
     text-decoration: none;
     transition: color 0.3s ease;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     line-height: 1.4;
 }
 
@@ -760,7 +760,7 @@ body {
     align-items: center;
     gap: 0.5rem;
     color: var(--footer-text);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     cursor: pointer;
     transition: color 0.3s ease;
 }
@@ -793,7 +793,7 @@ body {
 .footer-legal a {
     color: var(--footer-text);
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     transition: color 0.3s ease;
 }
 
@@ -807,7 +807,7 @@ body {
 
 .footer-copyright p {
     color: var(--footer-text);
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     margin-bottom: 0.25rem;
 }
 
