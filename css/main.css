@@ -386,13 +386,6 @@ body {
 
 }
 
-.hero-actions {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
 /* Section Headers */
 .section-header {
     text-align: start;
