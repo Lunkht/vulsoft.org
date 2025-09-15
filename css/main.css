@@ -28,12 +28,12 @@
 /* Mode sombre automatique */
 @media (prefers-color-scheme: dark) {
     .partner-logo img {
-        filter: grayscale(100%) invert(1) brightness(0.8);
+        filter: brightness(0) invert(1);
         opacity: 0.8;
     }
 
     .partner-logo img:hover {
-        filter: grayscale(0%) invert(1) brightness(1);
+        filter: brightness(0) invert(1);
         opacity: 1;
     }
 
@@ -246,15 +246,15 @@ body {
 
 .partner-logo img {
     height: 40px;
-    opacity: 0.7;
+    opacity: 0.8;
     transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
-    filter: grayscale(100%) brightness(0.3);
+    filter: brightness(0) invert(1);
 }
 
 .partner-logo img:hover {
     opacity: 1;
     transform: scale(1.1);
-    filter: grayscale(0%) brightness(1);
+    filter: brightness(0) invert(1);
 }
 
 @keyframes scroll {
@@ -339,7 +339,7 @@ body {
 }
 
 .hero .container {
-    max-width: 900px;
+    max-width: 1300px;
     position: relative;
     display: flex;
     align-items: center;
