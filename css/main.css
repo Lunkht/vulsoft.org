@@ -219,10 +219,10 @@ body {
 .partners-grid {
     display: flex;
     align-items: center;
-    overflow: hidden;
-    white-space: nowrap;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 4rem;
-    animation: scroll 30s linear infinite;
+    /* animation: scroll 30s linear infinite; */
 }
 
 .partner-logo {
