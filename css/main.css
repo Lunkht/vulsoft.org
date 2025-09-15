@@ -36,6 +36,7 @@
         filter: grayscale(0%) invert(1) brightness(1);
         opacity: 1;
     }
+
     :root {
         --bg-primary: #0a0a0a;
         --bg-secondary: #111111;
@@ -260,6 +261,7 @@ body {
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-100%);
     }
@@ -270,15 +272,19 @@ body {
     0% {
         transform: translate(0, 0);
     }
+
     100% {
         transform: translate(50px, 50px);
     }
 }
 
 @keyframes glow {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0.3;
     }
+
     50% {
         opacity: 0.8;
     }
@@ -290,7 +296,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    text-align: start;
     padding: 8rem 2rem 4rem;
     position: relative;
     overflow: hidden;
@@ -304,7 +310,7 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background-image: 
+    background-image:
         linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent),
         linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent);
     background-size: 50px 50px;
@@ -314,7 +320,7 @@ body {
 
 @media (prefers-color-scheme: dark) {
     .hero::before {
-        background-image: 
+        background-image:
             linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1) 76%, transparent 77%, transparent),
             linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1) 76%, transparent 77%, transparent);
     }
@@ -332,10 +338,20 @@ body {
     z-index: 2;
 }
 
-.hero-content {
+.hero .container {
     max-width: 900px;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 3;
+}
+
+.hero-imgage-box {
+    width: 400px;
+    height: 400px;
+    background-color: aquamarine;
+    border-radius: 20px;
 }
 
 .hero h1 {
@@ -361,6 +377,8 @@ body {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    text-align: start;
+
 }
 
 .hero-actions {
@@ -372,12 +390,12 @@ body {
 
 /* Section Headers */
 .section-header {
-    text-align: center;
+    text-align: start;
     margin-bottom: 4rem;
 }
 
 .section-header h2 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 1rem;
@@ -389,6 +407,7 @@ body {
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto;
+    text-align: start;
 }
 
 /* Services Section */
@@ -726,53 +745,53 @@ body {
         gap: 1rem;
         padding: 1rem;
     }
-    
+
     .nav-links {
         gap: 1.5rem;
     }
-    
+
     .hero {
         padding: 6rem 1rem 4rem;
     }
-    
+
     .hero-actions {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .services-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .about-content {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
-    
+
     .contact-content {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
-    
+
     .footer-content {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .footer-links {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
     .container {
         padding: 0 1rem;
     }
-    
+
     .section-header h2 {
         font-size: 2rem;
     }
-    
+
     .about-text h2 {
         font-size: 2rem;
     }
@@ -782,19 +801,19 @@ body {
     .nav-links {
         display: none;
     }
-    
+
     .hero h1 {
         font-size: 2rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1.1rem;
     }
-    
+
     .service-card {
         padding: 2rem;
     }
-    
+
     .contact-form {
         padding: 2rem;
     }
@@ -806,6 +825,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -820,12 +840,29 @@ body {
     animation: fadeInUp 0.8s ease-out;
 }
 
-.service-card:nth-child(1) { animation-delay: 0.1s; }
-.service-card:nth-child(2) { animation-delay: 0.2s; }
-.service-card:nth-child(3) { animation-delay: 0.3s; }
-.service-card:nth-child(4) { animation-delay: 0.4s; }
-.service-card:nth-child(5) { animation-delay: 0.5s; }
-.service-card:nth-child(6) { animation-delay: 0.6s; }
+.service-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.service-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.service-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.service-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.service-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.service-card:nth-child(6) {
+    animation-delay: 0.6s;
+}
 
 /* Scroll animations */
 .service-card,
@@ -845,6 +882,7 @@ body {
 
 /* Pour les utilisateurs qui préfèrent les animations réduites */
 @media (prefers-reduced-motion: reduce) {
+
     .service-card,
     .about-content,
     .contact-content {
