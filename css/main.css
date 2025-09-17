@@ -717,6 +717,15 @@ body {
     border-bottom: 1px solid var(--footer-border);
 }
 
+.footer-secondary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--footer-border);
+}
+
 .footer-column h4 {
     font-size: 0.9rem;
     font-weight: 600;
