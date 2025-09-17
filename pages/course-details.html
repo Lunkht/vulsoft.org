@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Moderne - Vulsoft Academy</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/course-details.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="../images/logo-Vulsoft-1.svg" alt="Vulsoft Academy">
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="../academie.html#formations">Formations</a></li>
+                <li><a href="../academie.html#parcours">Parcours</a></li>
+                <li><a href="../pages/about.html">À propos</a></li>
+                <li><a href="../pages/contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="nav-login">Connexion</a>
+                <a href="#inscription" class="cta-button">S'inscrire</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Course Hero -->
+    <section class="course-hero">
+        <div class="container">
+            <div class="course-hero-content">
+                <div class="course-breadcrumb">
+                    <a href="../academie.html">Academy</a>
+                    <span>›</span>
+                    <a href="../academie.html#formations">Développement</a>
+                    <span>›</span>
+                    <span>JavaScript Moderne</span>
+                </div>
+                
+                <div class="course-header">
+                    <div class="course-info">
+                        <div class="course-badges">
+                            <span class="course-badge new">Nouveau</span>
+                            <span class="course-badge level">Débutant</span>
+                        </div>
+                        <h1>JavaScript Moderne ES6+</h1>
+                        <p class="course-subtitle">Maîtrisez JavaScript moderne, les frameworks et les bonnes pratiques pour devenir un développeur web compétent</p>
+                        
+                        <div class="course-meta">
+                            <div class="meta-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12,6 12,12 16,14"/>
+                                </svg>
+                                <span>8 semaines</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                                <span>245 étudiants</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14,2 14,8 20,8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                </svg>
+                                <span>Certificat inclus</span>
+                            </div>
+                        </div>
+
+                        <div class="course-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.8 (32 avis)</span>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-preview">
+                            <div class="preview-placeholder">
+                                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="5,3 19,12 5,21 5,3"/>
+                                </svg>
+                                <span>Aperçu du cours</span>
+                            </div>
+                        </div>
+                        
+                        <div class="course-pricing">
+                            <div class="price-section">
+                                <span class="current-price">75 000 GNF</span>
+                                <span class="original-price">100 000 GNF</span>
+                                <span class="discount">-25%</span>
+                            </div>
+                            <p class="price-note">Offre limitée jusqu'au 31 décembre</p>
+                        </div>
+
+                        <div class="course-actions">
+                            <a href="payment.html?course=javascript-moderne" class="btn-primary">
+                                <span>S'inscrire maintenant</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                            <button class="btn-secondary" id="add-to-wishlist">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                </svg>
+                                <span>Ajouter aux favoris</span>
+                            </button>
+                        </div>
+
+                        <div class="course-includes">
+                            <h4>Ce cours inclut :</h4>
+                            <ul>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12"/>
+                                    </svg>
+                                    <span>8 heures de vidéo</span>
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12"/>
+                                    </svg>
+                                    <span>15 exercices pratiques</span>
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12"/>
+                                    </svg>
+                                    <span>3 projets complets</span>
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12"/>
+                                    </svg>
+                                    <span>Accès à vie</span>
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12"/>
+                                    </svg>
+                                    <span>Support instructeur</span>
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12"/>
+                                    </svg>
+                                    <span>Certificat de fin</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Content -->
+    <section class="course-content">
+        <div class="container">
+            <div class="content-tabs">
+                <button class="tab-button active" data-tab="overview">Aperçu</button>
+                <button class="tab-button" data-tab="curriculum">Programme</button>
+                <button class="tab-button" data-tab="instructor">Instructeur</button>
+                <button class="tab-button" data-tab="reviews">Avis (32)</button>
+            </div>
+
+            <div class="tab-content">
+                <!-- Overview Tab -->
+                <div class="tab-panel active" id="overview">
+                    <div class="overview-content">
+                        <div class="overview-main">
+                            <h2>Description du cours</h2>
+                            <p>Ce cours complet vous permettra de maîtriser JavaScript moderne (ES6+) et les concepts avancés nécessaires pour devenir un développeur web compétent. Vous apprendrez les dernières fonctionnalités du langage, les bonnes pratiques et comment construire des applications web interactives.</p>
+                            
+                            <h3>Ce que vous allez apprendre</h3>
+                            <div class="learning-objectives">
+                                <div class="objective-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12"/>
+                                    </svg>
+                                    <span>Maîtriser les fonctionnalités ES6+ (let/const, arrow functions, destructuring)</span>
+                                </div>
+                                <div class="objective-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12"/>
+                                    </svg>
+                                    <span>Comprendre la programmation asynchrone (Promises, async/await)</span>
+                                </div>
+                                <div class="objective-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12"/>
+                                    </svg>
+                                    <span>Manipuler le DOM et gérer les événements</span>
+                                </div>
+                                <div class="objective-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12"/>
+                                    </svg>
+                                    <span>Utiliser les modules JavaScript et les outils de build</span>
+                                </div>
+                                <div class="objective-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12"/>
+                                    </svg>
+                                    <span>Construire des applications web interactives</span>
+                                </div>
+                                <div class="objective-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12"/>
+                                    </svg>
+                                    <span>Appliquer les bonnes pratiques et patterns de développement</span>
+                                </div>
+                            </div>
+
+                            <h3>Prérequis</h3>
+                            <ul class="prerequisites">
+                                <li>Connaissances de base en HTML et CSS</li>
+                                <li>Notions de programmation (variables, fonctions, conditions)</li>
+                                <li>Motivation pour apprendre et pratiquer</li>
+                            </ul>
+                        </div>
+
+                        <div class="overview-sidebar">
+                            <div class="course-stats">
+                                <h4>Statistiques du cours</h4>
+                                <div class="stat-item">
+                                    <span class="stat-label">Niveau</span>
+                                    <span class="stat-value">Débutant à Intermédiaire</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Durée totale</span>
+                                    <span class="stat-value">8 heures de vidéo</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Exercices</span>
+                                    <span class="stat-value">15 exercices pratiques</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Projets</span>
+                                    <span class="stat-value">3 projets complets</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Langue</span>
+                                    <span class="stat-value">Français</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Mise à jour</span>
+                                    <span class="stat-value">Décembre 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Curriculum Tab -->
+                <div class="tab-panel" id="curriculum">
+                    <div class="curriculum-content">
+                        <h2>Programme du cours</h2>
+                        <p class="curriculum-intro">8 sections • 45 leçons • 8h de contenu vidéo</p>
+                        
+                        <div class="curriculum-sections">
+                            <div class="curriculum-section">
+                                <div class="section-header">
+                                    <h3>
+                                        <span class="section-number">1.</span>
+                                        Introduction à JavaScript Moderne
+                                    </h3>
+                                    <span class="section-duration">45 min • 6 leçons</span>
+                                </div>
+                                <div class="section-lessons">
+                                    <div class="lesson-item">
+                                        <div class="lesson-info">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <polygon points="5,3 19,12 5,21 5,3"/>
+                                            </svg>
+                                            <span>Bienvenue dans le cours</span>
+                                        </div>
+                                        <span class="lesson-duration">5 min</span>
+                                    </div>
+                                    <div class="lesson-item">
+                                        <div class="lesson-info">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <polygon points="5,3 19,12 5,21 5,3"/>
+                                            </svg>
+                                            <span>Configuration de l'environnement</span>
+                                        </div>
+                                        <span class="lesson-duration">8 min</span>
+                                    </div>
+                                    <div class="lesson-item">
+                                        <div class="lesson-info">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <polygon points="5,3 19,12 5,21 5,3"/>
+                                            </svg>
+                                            <span>Les nouveautés ES6+</span>
+                                        </div>
+                                        <span class="lesson-duration">12 min</span>
+                                    </div>
+                                    <div class="lesson-item">
+                                        <div class="lesson-info">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <polygon points="5,3 19,12 5,21 5,3"/>
+                                            </svg>
+                                            <span>Let, const et portée des variables</span>
+                                        </div>
+                                        <span class="lesson-duration">10 min</span>
+                                    </div>
+                                    <div class="lesson-item">
+                                        <div class="lesson-info">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <polygon points="5,3 19,12 5,21 5,3"/>
+                                            </svg>
+                                            <span>Arrow functions</span>
+                                        </div>
+                                        <span class="lesson-duration">8 min</span>
+                                    </div>
+                                    <div class="lesson-item exercise">
+                                        <div class="lesson-info">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14,2 14,8 20,8"/>
+                                            </svg>
+                                            <span>Exercice : Refactoring avec ES6</span>
+                                        </div>
+                                        <span class="lesson-duration">2 min</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="curriculum-section">
+                                <div class="section-header">
+                                    <h3>
+                                        <span class="section-number">2.</span>
+                                        Destructuring et Template Literals
+                                    </h3>
+                                    <span class="section-duration">1h 10min • 5 leçons</span>
+                                </div>
+                                <div class="section-lessons collapsed">
+                                    <div class="lesson-item">
+                                        <div class="lesson-info">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <polygon points="5,3 19,12 5,21 5,3"/>
+                                            </svg>
+                                            <span>Destructuring d'objets</span>
+                                        </div>
+                                        <span class="lesson-duration">15 min</span>
+                                    </div>
+                                    <div class="lesson-item">
+                                        <div class="lesson-info">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <polygon points="5,3 19,12 5,21 5,3"/>
+                                            </svg>
+                                            <span>Destructuring d'arrays</span>
+                                        </div>
+                                        <span class="lesson-duration">12 min</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="curriculum-section">
+                                <div class="section-header">
+                                    <h3>
+                                        <span class="section-number">3.</span>
+                                        Programmation Asynchrone
+                                    </h3>
+                                    <span class="section-duration">1h 30min • 7 leçons</span>
+                                </div>
+                                <div class="section-lessons collapsed">
+                                    <p class="section-preview">Promises, async/await, fetch API...</p>
+                                </div>
+                            </div>
+
+                            <div class="curriculum-section">
+                                <div class="section-header">
+                                    <h3>
+                                        <span class="section-number">4.</span>
+                                        Manipulation du DOM
+                                    </h3>
+                                    <span class="section-duration">1h 45min • 8 leçons</span>
+                                </div>
+                                <div class="section-lessons collapsed">
+                                    <p class="section-preview">Sélection d'éléments, événements, création dynamique...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instructor Tab -->
+                <div class="tab-panel" id="instructor">
+                    <div class="instructor-content">
+                        <div class="instructor-profile">
+                            <div class="instructor-avatar">
+                                <span>HL</span>
+                            </div>
+                            <div class="instructor-info">
+                                <h2>Hakim Lunkht</h2>
+                                <p class="instructor-title">Développeur Full Stack Senior & Fondateur de Vulsoft</p>
+                                <div class="instructor-stats">
+                                    <div class="stat">
+                                        <span class="stat-number">4.9</span>
+                                        <span class="stat-label">Note instructeur</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">1,245</span>
+                                        <span class="stat-label">Avis</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">5,678</span>
+                                        <span class="stat-label">Étudiants</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">12</span>
+                                        <span class="stat-label">Cours</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instructor-bio">
+                            <h3>À propos de l'instructeur</h3>
+                            <p>Hakim Lunkht est un développeur full stack passionné avec plus de 8 ans d'expérience dans le développement web. Fondateur de Vulsoft, il a accompagné de nombreuses entreprises dans leur transformation digitale en Afrique de l'Ouest.</p>
+                            
+                            <p>Expert en JavaScript, React, Node.js et technologies modernes, Hakim partage sa passion pour le code à travers des formations pratiques et accessibles. Il croit fermement que la technologie peut transformer l'Afrique et s'engage à former la prochaine génération de développeurs africains.</p>
+
+                            <h4>Expertise</h4>
+                            <div class="instructor-skills">
+                                <span class="skill-tag">JavaScript ES6+</span>
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">MongoDB</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">DevOps</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Tab -->
+                <div class="tab-panel" id="reviews">
+                    <div class="reviews-content">
+                        <div class="reviews-summary">
+                            <div class="rating-overview">
+                                <div class="overall-rating">
+                                    <span class="rating-number">4.8</span>
+                                    <div class="rating-stars">★★★★★</div>
+                                    <span class="rating-text">Note du cours</span>
+                                </div>
+                                <div class="rating-breakdown">
+                                    <div class="rating-bar">
+                                        <span>5 étoiles</span>
+                                        <div class="bar">
+                                            <div class="fill" style="width: 75%"></div>
+                                        </div>
+                                        <span>75%</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span>4 étoiles</span>
+                                        <div class="bar">
+                                            <div class="fill" style="width: 20%"></div>
+                                        </div>
+                                        <span>20%</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span>3 étoiles</span>
+                                        <div class="bar">
+                                            <div class="fill" style="width: 5%"></div>
+                                        </div>
+                                        <span>5%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="reviews-list">
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-avatar">AM</div>
+                                    <div class="reviewer-info">
+                                        <h4>Amadou Diallo</h4>
+                                        <div class="review-rating">★★★★★</div>
+                                        <span class="review-date">Il y a 2 semaines</span>
+                                    </div>
+                                </div>
+                                <p class="review-text">Excellent cours ! Les explications sont claires et les exercices pratiques permettent de bien assimiler les concepts. Hakim est un très bon pédagogue.</p>
+                            </div>
+
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-avatar">FK</div>
+                                    <div class="reviewer-info">
+                                        <h4>Fatoumata Konaté</h4>
+                                        <div class="review-rating">★★★★★</div>
+                                        <span class="review-date">Il y a 1 mois</span>
+                                    </div>
+                                </div>
+                                <p class="review-text">Parfait pour débuter avec JavaScript moderne. Le rythme est adapté et les projets sont motivants. Je recommande vivement !</p>
+                            </div>
+
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-avatar">IB</div>
+                                    <div class="reviewer-info">
+                                        <h4>Ibrahim Bah</h4>
+                                        <div class="review-rating">★★★★☆</div>
+                                        <span class="review-date">Il y a 1 mois</span>
+                                    </div>
+                                </div>
+                                <p class="review-text">Très bon contenu, j'aurais aimé plus d'exercices sur les concepts avancés mais dans l'ensemble c'est une formation de qualité.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Courses -->
+    <section class="related-courses">
+        <div class="container">
+            <h2>Cours similaires</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image">
+                        <div class="course-badge">Populaire</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>React pour Débutants</h3>
+                        <p>Créez des applications web modernes avec React</p>
+                        <div class="course-rating">★★★★★ 4.9 (28 avis)</div>
+                        <div class="course-price">90 000 GNF</div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image">
+                        <div class="course-badge">Nouveau</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Node.js & Express</h3>
+                        <p>Développement backend avec Node.js</p>
+                        <div class="course-rating">★★★★★ 4.7 (15 avis)</div>
+                        <div class="course-price">85 000 GNF</div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image"></div>
+                    <div class="course-content">
+                        <h3>HTML & CSS Avancé</h3>
+                        <p>Maîtrisez les techniques avancées de mise en page</p>
+                        <div class="course-rating">★★★★☆ 4.6 (42 avis)</div>
+                        <div class="course-price">60 000 GNF</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Academy</h4>
+                    <ul>
+                        <li><a href="../academie.html#formations">Toutes les formations</a></li>
+                        <li><a href="../academie.html#parcours">Parcours d'apprentissage</a></li>
+                        <li><a href="#">Certificats</a></li>
+                        <li><a href="#">Projets étudiants</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Centre d'aide</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Entreprise</h4>
+                    <ul>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="#">Carrières</a></li>
+                        <li><a href="#">Partenaires</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Vulsoft</h4>
+                    <ul>
+                        <li><a href="../index.html">Site principal</a></li>
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="#">Consulting</a></li>
+                        <li><a href="#">Solutions</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="#">Conditions d'utilisation</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">RGPD</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+224627878479">+224 627 87 84 79</a></li>
+                        <li><a href="mailto:academy@vulsoft.com">academy@vulsoft.com</a></li>
+                        <li><a href="#">Conakry, Guinée</a></li>
+                        <li><a href="#">Support 24/7</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <a href="#">Privacy and Security</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Legal</a>
+                </div>
+                <div class="footer-copyright">
+                    <p>Copyright © 2024 Vulsoft Academy</p>
+                    <p>Developed with passion in Guinea</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion des onglets
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetTab = button.dataset.tab;
+                
+                // Remove active class from all buttons and panels
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabPanels.forEach(panel => panel.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding panel
+                button.classList.add('active');
+                document.getElementById(targetTab).classList.add('active');
+            });
+        });
+
+        // Gestion des sections du curriculum
+        document.querySelectorAll('.section-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const section = header.parentElement;
+                const lessons = section.querySelector('.section-lessons');
+                
+                if (lessons.classList.contains('collapsed')) {
+                    lessons.classList.remove('collapsed');
+                } else {
+                    lessons.classList.add('collapsed');
+                }
+            });
+        });
+
+        // Gestion des favoris
+        document.getElementById('add-to-wishlist').addEventListener('click', function() {
+            const icon = this.querySelector('svg path');
+            const text = this.querySelector('span');
+            
+            if (this.classList.contains('added')) {
+                this.classList.remove('added');
+                text.textContent = 'Ajouter aux favoris';
+                icon.setAttribute('fill', 'none');
+            } else {
+                this.classList.add('added');
+                text.textContent = 'Ajouté aux favoris';
+                icon.setAttribute('fill', 'currentColor');
+            }
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
