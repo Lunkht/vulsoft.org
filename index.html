@@ -407,11 +407,14 @@
             animateElements.forEach(el => observer.observe(el));
         });
 
-        // Form submission
-        document.querySelector('.contact-form form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.');
-        });
+        // Form submission (si le formulaire existe)
+        const contactForm = document.querySelector('.contact-form form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.');
+            });
+        }
     </script>
 </body>
 

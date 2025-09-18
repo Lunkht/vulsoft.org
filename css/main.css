@@ -859,7 +859,7 @@ body {
 /* Footer - Style Spaceship */
 .footer {
     background: var(--bg-secondary);
-    color: var(--footer-text);
+    color: var(--text-secondary);
     padding: 8rem 0 3rem;
     position: relative;
     border-top: 1px solid var(--border-color);
@@ -1015,15 +1015,15 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--footer-text);
-    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
 .locale-selector:hover,
 .language-selector:hover {
-    color: #ffffff;
+    color: var(--text-primary);
 }
 
 .locale-selector svg,
@@ -1261,10 +1261,8 @@ body {
     }
 }
 
-/* Effet shimmer pour les cartes */
-.service-card::after,
-.contact-item::after,
-.stat::after {
+/* Effet shimmer pour les cartes - Simplifié */
+.service-card::after {
     content: '';
     position: absolute;
     top: 0;
@@ -1282,9 +1280,7 @@ body {
     pointer-events: none;
 }
 
-.service-card:hover::after,
-.contact-item:hover::after,
-.stat:hover::after {
+.service-card:hover::after {
     opacity: 1;
 }
 
