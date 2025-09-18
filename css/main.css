@@ -2099,6 +2099,7 @@ body {
 .submit-button:hover svg {
     transform: translateX(3px);
 }
+}
 
 .contact-faq {
     padding: 10rem 0;
@@ -2168,12 +2169,13 @@ body {
 
 /* Pour les utilisateurs qui préfèrent les animations réduites */
 @media (prefers-reduced-motion: reduce) {
-
     .service-card,
     .about-content,
     .contact-content,
-    .pricing-card,
-
+    .pricing-card {
+        transition: none !important;
+        transform: none !important;
+    }
 }
 
 .footer-logo {
@@ -2209,4 +2211,92 @@ body {
     background: var(--accent-color);
     color: var(--bg-primary);
     transform: translateY(-2px);
+}
+}
+/* Conta
+ct FAQ Section */
+.contact-faq {
+    padding: 10rem 0;
+    background: var(--bg-secondary);
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.faq-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.faq-header p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1), 0 3px 10px rgba(0, 0, 0, 0.05);
+    border-color: var(--text-secondary);
+}
+
+.faq-item h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+}
+
+.faq-item p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Responsive Design pour Contact */
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .contact-form .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form-section {
+        padding: 2rem;
+    }
+    
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .faq-item {
+        padding: 2rem;
+    }
 }
