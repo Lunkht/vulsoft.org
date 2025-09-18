@@ -37,8 +37,15 @@
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 /* Section Statistiques */
@@ -237,20 +244,20 @@
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .course-category {
         padding: 2rem;
     }
-    
+
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
     }
-    
+
     .stat-item {
         padding: 1.5rem 1rem;
     }
-    
+
     .stat-item .stat-number {
         font-size: 2rem;
     }
@@ -260,16 +267,16 @@
     .stats-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .course-category {
         padding: 1.5rem;
     }
-    
+
     .category-icon {
         width: 60px;
         height: 60px;
     }
-    
+
     .category-header h3 {
         font-size: 1.4rem;
     }
@@ -285,6 +292,7 @@
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
