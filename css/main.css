@@ -345,7 +345,7 @@ body {
 
 /* Hero Section avec fond animé */
 .hero {
-    min-height: 100vh;
+    min-height: 85vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -847,9 +847,9 @@ body {
 .footer-content {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 3rem;
-    margin-bottom: 5rem;
-    padding-bottom: 4rem;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
     border-bottom: 1px solid var(--border-color);
     max-width: 1300px;
     margin-left: auto;
@@ -859,9 +859,9 @@ body {
 .footer-secondary {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
-    margin-bottom: 4rem;
-    padding-bottom: 3rem;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
     border-bottom: 1px solid var(--border-color);
     max-width: 1300px;
     margin-left: auto;
@@ -869,9 +869,9 @@ body {
 }
 
 .footer-column h4 {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
     color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -882,7 +882,7 @@ body {
 }
 
 .footer-column li {
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 .footer-column a {
@@ -921,8 +921,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 3rem;
-    padding-bottom: 3rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
     border-bottom: 1px solid var(--border-color);
     max-width: 1300px;
     margin-left: auto;
@@ -1005,15 +1005,15 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1.5rem;
     max-width: 1300px;
     margin: 0 auto;
-    padding: 2rem 0;
+    padding: 1.5rem 0;
 }
 
 .footer-legal {
     display: flex;
-    gap: 2.5rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
 }
 
@@ -1053,7 +1053,7 @@ body {
 .footer-copyright p {
     color: var(--text-secondary);
     font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     font-weight: 500;
 }
 
