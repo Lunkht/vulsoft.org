@@ -23,19 +23,11 @@ body {
     justify-content: center;
     align-items: center;
     padding: 3rem;
-    background: var(--bg-secondary);
 }
 
 .auth-content {
     max-width: 500px;
-    text-align: left;
-}
-
-.auth-logo {
-    max-width: 180px;
-    margin-bottom: 2rem;
-    filter: var(--logo-filter);
-    opacity: 0.9;
+    text-align: center;
 }
 
 .content-text h2 {
@@ -69,7 +61,7 @@ body {
     border: 1px solid var(--border-color);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
     width: 100%;
-    max-width: 450px;
+    max-width: 550px;
     position: relative;
     overflow: hidden;
 }
@@ -108,16 +100,29 @@ body {
     position: relative;
 }
 
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
 .form-group label {
     display: block;
     font-weight: 600;
     margin-bottom: 0.75rem;
     color: var(--text-primary);
-    font-size: 0.95rem;
+    font-size: 0.80rem;
     letter-spacing: -0.01em;
 }
 
-.form-group input {
+.form-group input,
+.form-group select,
+.form-group textarea {
     width: 100%;
     padding: 1.25rem;
     border: 1px solid var(--border-color);
@@ -130,11 +135,30 @@ body {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
-.form-group input:focus {
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
     outline: none;
     border-color: var(--accent-color);
     box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
+}
+
+.form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 1rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 3rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.6;
+    font-family: inherit;
 }
 
 .form-options {
@@ -183,7 +207,6 @@ body {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     font-family: inherit;
     letter-spacing: -0.01em;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
 .auth-button:hover {
@@ -263,7 +286,6 @@ body {
     justify-content: center;
     gap: 0.75rem;
     font-family: inherit;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
 .social-button:hover {
@@ -326,8 +348,19 @@ body {
     }
 
     .form-group input,
+    .form-group select,
+    .form-group textarea,
     .auth-button,
     .social-button {
         padding: 1rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .form-row .form-group {
+        margin-bottom: 1.5rem;
     }
 }

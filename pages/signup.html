@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,13 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/auth.css">
 </head>
+
 <body>
     <div class="auth-container">
         <!-- Section Contenu (Gauche) -->
         <div class="auth-content-section">
             <div class="auth-content">
-                <div class="logo-container">
-                    <img src="../images/logo-Vulsoft-1.svg" alt="Vulsoft" class="auth-logo">
-                </div>
-                
+
                 <div class="content-text">
                     <h2>Rejoignez Vulsoft</h2>
                     <p>Créez un compte pour commencer à transformer vos idées en réalité.</p>
@@ -34,25 +33,79 @@
                 <!-- Formulaire d'inscription -->
                 <div class="auth-form-wrapper active" id="register-form-wrapper">
                     <form id="register-form" class="auth-form">
-                        <div class="form-group">
-                            <label for="register-firstName">Prénom</label>
-                            <input type="text" name="firstName" id="register-firstName" class="auth-input" placeholder="Votre prénom" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="register-lastName">Nom</label>
-                            <input type="text" name="lastName" id="register-lastName" class="auth-input" placeholder="Votre nom" required>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="register-firstName">Prénom</label>
+                                <input type="text" name="firstName" id="register-firstName" class="auth-input"
+                                    placeholder="Votre prénom" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-lastName">Nom</label>
+                                <input type="text" name="lastName" id="register-lastName" class="auth-input"
+                                    placeholder="Votre nom" required>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="register-email">Email</label>
-                            <input type="email" name="email" id="register-email" class="auth-input" placeholder="Votre adresse email" required>
+                            <input type="email" name="email" id="register-email" class="auth-input"
+                                placeholder="Votre adresse email" required>
                         </div>
-                        <div class="form-group">
-                            <label for="register-password">Mot de passe</label>
-                            <input type="password" name="password" id="register-password" class="auth-input" placeholder="Mot de passe (8+ caractères)" required>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="register-phone">Numéro de téléphone</label>
+                                <input type="tel" name="phone" id="register-phone" class="auth-input"
+                                    placeholder="+224 123 456 789" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-country">Pays</label>
+                                <select name="country" id="register-country" class="auth-input" required>
+                                    <option value="">Sélectionnez votre pays</option>
+                                    <option value="GN">Guinée</option>
+                                    <option value="CI">Côte d'Ivoire</option>
+                                    <option value="SN">Sénégal</option>
+                                    <option value="ML">Mali</option>
+                                    <option value="BF">Burkina Faso</option>
+                                    <option value="GH">Ghana</option>
+                                    <option value="NG">Nigeria</option>
+                                    <option value="FR">France</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="US">États-Unis</option>
+                                    <option value="OTHER">Autre</option>
+                                </select>
+                            </div>
                         </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="register-city">Ville</label>
+                                <input type="text" name="city" id="register-city" class="auth-input"
+                                    placeholder="Votre ville" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-province">Province/Région</label>
+                                <input type="text" name="province" id="register-province" class="auth-input"
+                                    placeholder="Votre province ou région" required>
+                            </div>
+                        </div>
+
                         <div class="form-group">
-                            <label for="register-password2">Confirmer le mot de passe</label>
-                            <input type="password" name="confirmPassword" id="register-password2" class="auth-input" placeholder="Confirmez le mot de passe" required>
+                            <label for="register-address">Adresse complète</label>
+                            <textarea name="address" id="register-address" class="auth-input auth-textarea"
+                                placeholder="Votre adresse complète" rows="3" required></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="register-password">Mot de passe</label>
+                                <input type="password" name="password" id="register-password" class="auth-input"
+                                    placeholder="Mot de passe (8+ caractères)" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-password2">Confirmer le mot de passe</label>
+                                <input type="password" name="confirmPassword" id="register-password2" class="auth-input"
+                                    placeholder="Confirmez le mot de passe" required>
+                            </div>
                         </div>
                         <div id="register-error" class="auth-error"></div>
                         <div id="register-success" class="auth-success"></div>
@@ -72,7 +125,7 @@
         const auth = new VulsoftAuth({
             apiUrl: 'http://localhost:3000/api',
         });
-        
+
         const authUI = new VulsoftAuthUI(auth);
 
         authUI.handleRegisterForm('register-form', {
@@ -91,4 +144,5 @@
         });
     </script>
 </body>
+
 </html>
