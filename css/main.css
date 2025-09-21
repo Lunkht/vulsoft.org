@@ -2099,7 +2099,6 @@ body {
 .submit-button:hover svg {
     transform: translateX(3px);
 }
-}
 
 .contact-faq {
     padding: 10rem 0;
@@ -2212,7 +2211,7 @@ body {
     color: var(--bg-primary);
     transform: translateY(-2px);
 }
-}
+
 /* Conta
 ct FAQ Section */
 .contact-faq {
