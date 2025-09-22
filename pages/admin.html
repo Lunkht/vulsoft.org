@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - Vulsoft</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .admin-container {
+            display: flex;
+            min-height: 100vh;
+            background: var(--bg-primary);
+        }
+        
+        .admin-sidebar {
+            width: 280px;
+            background: var(--card-bg);
+            border-right: 1px solid var(--border-color);
+            padding: 2rem 0;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        
+        .admin-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 2rem;
+        }
+        
+        .admin-header {
+            background: var(--card-bg);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+            margin: -2rem -2rem 2rem -2rem;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
+        
+        .admin-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+        
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar-nav li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 2rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-right: 3px solid transparent;
+        }
+        
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            background: var(--bg-secondary);
+            color: var(--accent-color);
+            border-right-color: var(--accent-color);
+        }
+        
+        .sidebar-icon {
+            font-size: 1.25rem;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-color);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+        
+        .stat-change {
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+        }
+        
+        .admin-section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        
+        .section-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .section-content {
+            padding: 0;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: 1rem 2rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .data-table th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .data-table tr:hover {
+            background: var(--bg-secondary);
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .status-badge.nouveau {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .status-badge.lu {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .status-badge.traite {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .status-badge.active {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .status-badge.inactive {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .action-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn.primary {
+            background: var(--accent-color);
+            color: white;
+        }
+        
+        .action-btn.secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .action-btn.danger {
+            background: #ef4444;
+            color: white;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .search-box {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            width: 300px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+        
+        .chart-container {
+            height: 300px;
+            padding: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .admin-sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .admin-content {
+                margin-left: 0;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div style="padding: 0 2rem 2rem 2rem;">
+                <h2 style="color: var(--accent-color); margin: 0; font-size: 1.5rem;">🔧 Admin Vulsoft</h2>
+            </div>
+            
+            <nav>
+                <ul class="sidebar-nav">
+                    <li><a href="#dashboard" class="nav-link active" data-section="dashboard">
+                        <span class="sidebar-icon">📊</span>
+                        <span>Tableau de Bord</span>
+                    </a></li>
+                    <li><a href="#users" class="nav-link" data-section="users">
+                        <span class="sidebar-icon">👥</span>
+                        <span>Utilisateurs</span>
+                    </a></li>
+                    <li><a href="#messages" class="nav-link" data-section="messages">
+                        <span class="sidebar-icon">💬</span>
+                        <span>Messages</span>
+                    </a></li>
+                    <li><a href="#projects" class="nav-link" data-section="projects">
+                        <span class="sidebar-icon">🚀</span>
+                        <span>Projets</span>
+                    </a></li>
+                    <li><a href="#analytics" class="nav-link" data-section="analytics">
+                        <span class="sidebar-icon">📈</span>
+                        <span>Analytics</span>
+                    </a></li>
+                    <li><a href="#settings" class="nav-link" data-section="settings">
+                        <span class="sidebar-icon">⚙️</span>
+                        <span>Paramètres</span>
+                    </a></li>
+                </ul>
+            </nav>
+            
+            <div style="position: absolute; bottom: 2rem; left: 2rem; right: 2rem;">
+                <button class="action-btn secondary" onclick="goToSite()" style="width: 100%;">
+                    🌐 Retour au site
+                </button>
+            </div>
+        </aside>
+
+        <!-- Contenu principal -->
+        <main class="admin-content">
+            <div class="admin-header">
+                <h1 class="admin-title">Administration Vulsoft</h1>
+                <div>
+                    <span id="admin-user">Administrateur</span>
+                    <button class="action-btn danger" onclick="logout()" style="margin-left: 1rem;">
+                        Déconnexion
+                    </button>
+                </div>
+            </div>
+
+            <!-- Section Dashboard -->
+            <div id="dashboard-section" class="admin-section-content">
+                <div class="stats-grid" id="stats-grid">
+                    <div class="loading">Chargement des statistiques...</div>
+                </div>
+                
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Activité Récente</h3>
+                    </div>
+                    <div class="section-content">
+                        <div id="recent-activity" class="loading">Chargement...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Utilisateurs -->
+            <div id="users-section" class="admin-section-content" style="display: none;">
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Gestion des Utilisateurs</h3>
+                        <input type="text" class="search-box" placeholder="Rechercher un utilisateur..." id="users-search">
+                    </div>
+                    <div class="section-content">
+                        <div id="users-table" class="loading">Chargement des utilisateurs...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Messages -->
+            <div id="messages-section" class="admin-section-content" style="display: none;">
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Messages de Contact</h3>
+                        <select id="messages-filter" class="search-box" style="width: auto;">
+                            <option value="">Tous les messages</option>
+                            <option value="nouveau">Nouveaux</option>
+                            <option value="lu">Lus</option>
+                            <option value="traite">Traités</option>
+                        </select>
+                    </div>
+                    <div class="section-content">
+                        <div id="messages-table" class="loading">Chargement des messages...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Projets -->
+            <div id="projects-section" class="admin-section-content" style="display: none;">
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Gestion des Projets</h3>
+                        <button class="action-btn primary" onclick="createProject()">
+                            + Nouveau Projet
+                        </button>
+                    </div>
+                    <div class="section-content">
+                        <div id="projects-table" class="loading">Chargement des projets...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Analytics -->
+            <div id="analytics-section" class="admin-section-content" style="display: none;">
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Croissance des Utilisateurs</h3>
+                    </div>
+                    <div class="section-content">
+                        <div id="users-chart" class="chart-container">
+                            <div class="loading">Chargement du graphique...</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Messages par Service</h3>
+                    </div>
+                    <div class="section-content">
+                        <div id="services-chart" class="chart-container">
+                            <div class="loading">Chargement du graphique...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Paramètres -->
+            <div id="settings-section" class="admin-section-content" style="display: none;">
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Paramètres du Site</h3>
+                    </div>
+                    <div class="section-content" style="padding: 2rem;">
+                        <p>Fonctionnalités de paramètres en développement...</p>
+                        
+                        <div style="margin-top: 2rem;">
+                            <h4>Actions Administrateur</h4>
+                            <button class="action-btn secondary" onclick="exportData()">
+                                📥 Exporter les données
+                            </button>
+                            <button class="action-btn secondary" onclick="viewLogs()">
+                                📋 Voir les logs
+                            </button>
+                            <button class="action-btn danger" onclick="clearCache()">
+                                🗑️ Vider le cache
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/notifications.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+</html>

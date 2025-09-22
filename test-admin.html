@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Administration - Vulsoft</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f8fafc;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        button {
+            background: #3b82f6;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+        }
+        button:hover {
+            background: #2563eb;
+        }
+        button.danger {
+            background: #ef4444;
+        }
+        button.danger:hover {
+            background: #dc2626;
+        }
+        .status {
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+        .status.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #ef4444;
+        }
+        .results {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-family: monospace;
+            font-size: 0.875rem;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Test Administration Vulsoft</h1>
+        
+        <div id="server-status" class="status">Vérification du serveur...</div>
+
+        <h3>1. Créer le premier administrateur</h3>
+        <form id="create-admin-form">
+            <div class="form-group">
+                <label for="username">Nom d'utilisateur admin</label>
+                <input type="text" id="username" name="username" value="admin" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email admin</label>
+                <input type="email" id="email" name="email" value="admin@vulsoft.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe admin</label>
+                <input type="password" id="password" name="password" value="admin123456" required>
+            </div>
+            <button type="submit">Créer Admin</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h3>2. Tests des endpoints Admin</h3>
+        <button onclick="testAdminStats()">📊 Test Statistiques</button>
+        <button onclick="testGetUsers()">👥 Test Utilisateurs</button>
+        <button onclick="testGetMessages()">💬 Test Messages</button>
+        <button onclick="testGetProjects()">🚀 Test Projets</button>
+        <button onclick="openAdminPanel()">🔧 Ouvrir Panel Admin</button>
+        
+        <div id="test-results" class="results" style="display: none;"></div>
+    </div>
+
+    <script>
+        // Client API simple
+        const API_BASE = 'http://localhost:8001/api';
+
+        async function checkServerStatus() {
+            const statusEl = document.getElementById('server-status');
+            
+            try {
+                const response = await fetch('http://localhost:8001/health');
+                if (response.ok) {
+                    statusEl.className = 'status success';
+                    statusEl.textContent = '✅ Serveur API en ligne';
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch {
+                statusEl.className = 'status error';
+                statusEl.textContent = '❌ Serveur API hors ligne - Démarrez avec: cd backend && python start.py';
+            }
+        }
+
+        // Créer un admin
+        document.getElementById('create-admin-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            try {
+                const response = await fetch(`${API_BASE}/admin/create-admin`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await response.json();
+                
+                if (response.ok) {
+                    showResult(`✅ Admin créé avec succès!\nID: ${result.user_id}\nEmail: ${data.email}`, 'success');
+                } else {
+                    showResult(`❌ Erreur: ${result.detail}`, 'error');
+                }
+            } catch (error) {
+                showResult(`❌ Erreur de connexion: ${error.message}`, 'error');
+            }
+        });
+
+        async function testAdminStats() {
+            try {
+                const response = await fetch(`${API_BASE}/admin/stats`);
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showResult(`📊 Statistiques Admin:\n${JSON.stringify(data, null, 2)}`, 'success');
+                } else {
+                    showResult(`❌ Erreur stats: ${data.detail}`, 'error');
+                }
+            } catch (error) {
+                showResult(`❌ Erreur: ${error.message}`, 'error');
+            }
+        }
+
+        async function testGetUsers() {
+            try {
+                const response = await fetch(`${API_BASE}/admin/users`);
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showResult(`👥 Utilisateurs (${data.length}):\n${JSON.stringify(data, null, 2)}`, 'success');
+                } else {
+                    showResult(`❌ Erreur users: ${data.detail}`, 'error');
+                }
+            } catch (error) {
+                showResult(`❌ Erreur: ${error.message}`, 'error');
+            }
+        }
+
+        async function testGetMessages() {
+            try {
+                const response = await fetch(`${API_BASE}/admin/messages`);
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showResult(`💬 Messages (${data.length}):\n${JSON.stringify(data, null, 2)}`, 'success');
+                } else {
+                    showResult(`❌ Erreur messages: ${data.detail}`, 'error');
+                }
+            } catch (error) {
+                showResult(`❌ Erreur: ${error.message}`, 'error');
+            }
+        }
+
+        async function testGetProjects() {
+            try {
+                const response = await fetch(`${API_BASE}/admin/projects`);
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showResult(`🚀 Projets (${data.length}):\n${JSON.stringify(data, null, 2)}`, 'success');
+                } else {
+                    showResult(`❌ Erreur projets: ${data.detail}`, 'error');
+                }
+            } catch (error) {
+                showResult(`❌ Erreur: ${error.message}`, 'error');
+            }
+        }
+
+        function openAdminPanel() {
+            window.open('pages/admin.html', '_blank');
+        }
+
+        function showResult(message, type) {
+            const resultsEl = document.getElementById('test-results');
+            resultsEl.style.display = 'block';
+            resultsEl.textContent = message;
+            resultsEl.className = `results ${type}`;
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', () => {
+            checkServerStatus();
+        });
+    </script>
+</body>
+</html>

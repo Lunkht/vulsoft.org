@@ -279,6 +279,9 @@
                         <button class="cta-button secondary" style="margin-top: 1rem;" onclick="viewSettings()">
                             Paramètres
                         </button>
+                        <button class="cta-button primary" style="margin-top: 0.5rem;" onclick="goToAdmin()">
+                            🔧 Administration
+                        </button>
                     </div>
                 </div>
             </div>
@@ -354,11 +357,15 @@
         function logout() {
             if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
                 window.vulsoftAPI.logout();
-                UIUtils.showNotification('Déconnexion réussie', 'success');
+                window.notifications?.success('Déconnexion réussie');
                 setTimeout(() => {
                     window.location.href = 'login.html';
                 }, 1500);
             }
+        }
+
+        function goToAdmin() {
+            window.location.href = 'admin.html';
         }
 
         // Charger les données au chargement de la page
