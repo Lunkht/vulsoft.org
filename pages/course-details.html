@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Moderne - Vulsoft Academy</title>
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Vulsoft">
+    <meta name="msapplication-TileColor" content="#3b82f6">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    
+    <!-- Manifest PWA -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16x16.png">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/course-details.css">
 </head>
@@ -645,7 +660,6 @@
         </div>
     </footer>
 
-    <script src="../js/pwa.js"></script>
     <script>
         // Gestion des onglets
         const tabButtons = document.querySelectorAll('.tab-button');
@@ -705,26 +719,6 @@
             }
         });
     </script>
-</body>
-</html>           this.classList.remove('added');
-                text.textContent = 'Ajouter aux favoris';
-                icon.setAttribute('fill', 'none');
-            } else {
-                this.classList.add('added');
-                text.textContent = 'Ajouté aux favoris';
-                icon.setAttribute('fill', 'currentColor');
-            }
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    </script>
+    <script src="../js/pwa.js"></script>
 </body>
 </html>

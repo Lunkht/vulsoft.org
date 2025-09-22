@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paiement - Vulsoft Academy</title>
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Vulsoft">
+    <meta name="msapplication-TileColor" content="#3b82f6">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    
+    <!-- Manifest PWA -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16x16.png">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/payment.css">
 </head>
@@ -470,7 +485,6 @@
         </div>
     </footer>
 
-    <script src="../js/pwa.js"></script>
     <script>
         let currentStep = 1;
 
@@ -607,24 +621,6 @@
             });
         });
     </script>
-</body>
-</html>classList.remove('scrolled');
-            }
-        });
-
-        // Checkbox styling
-        document.querySelectorAll('.checkbox-container input[type="checkbox"]').forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                const checkmark = this.nextElementSibling;
-                if (this.checked) {
-                    checkmark.style.background = 'var(--accent-color)';
-                    checkmark.style.borderColor = 'var(--accent-color)';
-                } else {
-                    checkmark.style.background = 'transparent';
-                    checkmark.style.borderColor = 'var(--border-color)';
-                }
-            });
-        });
-    </script>
+    <script src="../js/pwa.js"></script>
 </body>
 </html>
