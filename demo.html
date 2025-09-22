@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Démonstration Vulsoft - Stack Moderne</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .demo-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, var(--accent-color), var(--text-secondary));
+            border-radius: 24px;
+            color: white;
+        }
+        
+        .demo-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .demo-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+        
+        .demo-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+        }
+        
+        .demo-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .demo-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .demo-btn {
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .demo-btn.primary {
+            background: var(--accent-color);
+            color: white;
+        }
+        
+        .demo-btn.secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .demo-btn.success {
+            background: #10b981;
+            color: white;
+        }
+        
+        .demo-btn.error {
+            background: #ef4444;
+            color: white;
+        }
+        
+        .demo-btn.warning {
+            background: #f59e0b;
+            color: white;
+        }
+        
+        .demo-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .api-status {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        .api-status.online {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+        
+        .api-status.offline {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #ef4444;
+        }
+        
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: currentColor;
+            animation: pulse 2s infinite;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1 class="demo-title">🚀 Vulsoft Stack Moderne</h1>
+            <p class="demo-subtitle">Démonstration des fonctionnalités FastAPI + Frontend moderne</p>
+        </div>
+
+        <!-- Statut API -->
+        <div id="api-status" class="api-status offline">
+            <div class="status-dot"></div>
+            <span>Vérification du statut de l'API...</span>
+        </div>
+
+        <!-- Section Notifications -->
+        <div class="demo-section">
+            <h3>🔔 Système de Notifications Modernes</h3>
+            <p>Testez notre système de notifications avec animations fluides et design moderne.</p>
+            
+            <div class="demo-buttons">
+                <button class="demo-btn success" onclick="testNotification('success')">
+                    ✅ Notification Succès
+                </button>
+                <button class="demo-btn error" onclick="testNotification('error')">
+                    ❌ Notification Erreur
+                </button>
+                <button class="demo-btn warning" onclick="testNotification('warning')">
+                    ⚠️ Notification Avertissement
+                </button>
+                <button class="demo-btn primary" onclick="testNotification('info')">
+                    ℹ️ Notification Info
+                </button>
+                <button class="demo-btn secondary" onclick="testNotification('loading')">
+                    ⏳ Notification Chargement
+                </button>
+            </div>
+        </div>
+
+        <!-- Section API -->
+        <div class="demo-section">
+            <h3>🔗 Tests API FastAPI</h3>
+            <p>Testez les endpoints de notre API backend moderne.</p>
+            
+            <div class="demo-buttons">
+                <button class="demo-btn primary" onclick="testHealthCheck()">
+                    🏥 Health Check
+                </button>
+                <button class="demo-btn secondary" onclick="testContactSubmit()">
+                    📧 Test Contact
+                </button>
+                <button class="demo-btn secondary" onclick="testProjectStats()">
+                    📊 Statistiques Projets
+                </button>
+                <button class="demo-btn secondary" onclick="testUserRegistration()">
+                    👤 Test Inscription
+                </button>
+            </div>
+        </div>
+
+        <!-- Section Fonctionnalités -->
+        <div class="demo-section">
+            <h3>✨ Fonctionnalités Modernes</h3>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h4>Design System Moderne</h4>
+                    <p>Interface inspirée de Spaceship.com avec animations fluides et micro-interactions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h4>FastAPI Backend</h4>
+                    <p>API REST moderne avec validation automatique et documentation interactive.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h4>Authentification Sécurisée</h4>
+                    <p>Système d'auth avec hashage des mots de passe et gestion des sessions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h4>Responsive Design</h4>
+                    <p>Interface adaptative qui fonctionne parfaitement sur tous les appareils.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h4>Performance Optimisée</h4>
+                    <p>Chargement rapide avec animations CSS et JavaScript optimisé.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🛠️</div>
+                    <h4>Outils de Développement</h4>
+                    <p>Scripts de démarrage/arrêt, documentation complète et tests intégrés.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Code -->
+        <div class="demo-section">
+            <h3>💻 Exemple de Code API</h3>
+            <p>Voici comment utiliser notre client API JavaScript moderne :</p>
+            
+            <div class="code-block">
+// Utilisation simple du client API
+const api = new VulsoftAPI();
+
+// Soumettre un formulaire de contact
+await api.submitContactForm({
+    firstName: "John",
+    lastName: "Doe", 
+    email: "john@example.com",
+    message: "Hello Vulsoft!",
+    privacy: true
+});
+
+// Obtenir les statistiques des projets
+const stats = await api.getProjectStats();
+console.log(`Projets actifs: ${stats.active}`);
+
+// Inscription utilisateur
+await api.register({
+    username: "johndoe",
+    email: "john@example.com",
+    full_name: "John Doe",
+    password: "securepassword"
+});
+            </div>
+        </div>
+
+        <!-- Section Navigation -->
+        <div class="demo-section">
+            <h3>🧭 Navigation du Site</h3>
+            <p>Explorez toutes les pages de notre site moderne :</p>
+            
+            <div class="demo-buttons">
+                <button class="demo-btn primary" onclick="window.location.href='index.html'">
+                    🏠 Accueil
+                </button>
+                <button class="demo-btn secondary" onclick="window.location.href='pages/contact.html'">
+                    📞 Contact
+                </button>
+                <button class="demo-btn secondary" onclick="window.location.href='pages/about.html'">
+                    ℹ️ À Propos
+                </button>
+                <button class="demo-btn secondary" onclick="window.location.href='pages/login.html'">
+                    🔐 Connexion
+                </button>
+                <button class="demo-btn secondary" onclick="window.location.href='pages/signup.html'">
+                    📝 Inscription
+                </button>
+                <button class="demo-btn secondary" onclick="window.location.href='pages/dashboard.html'">
+                    📊 Dashboard
+                </button>
+                <button class="demo-btn secondary" onclick="window.location.href='academie.html'">
+                    🎓 Académie
+                </button>
+                <button class="demo-btn secondary" onclick="window.open('http://localhost:8001/docs', '_blank')">
+                    📚 Documentation API
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/notifications.js"></script>
+    <script src="js/api.js"></script>
+    <script>
+        // Fonctions de test
+        function testNotification(type) {
+            const messages = {
+                success: 'Opération réussie avec succès ! 🎉',
+                error: 'Une erreur est survenue. Veuillez réessayer.',
+                warning: 'Attention : cette action nécessite une confirmation.',
+                info: 'Information : le serveur API est en ligne.',
+                loading: 'Chargement en cours, veuillez patienter...'
+            };
+            
+            if (type === 'loading') {
+                const notification = window.notifications.loading(messages[type]);
+                setTimeout(() => {
+                    notification.remove();
+                    window.notifications.success('Chargement terminé !');
+                }, 3000);
+            } else {
+                window.notifications[type](messages[type]);
+            }
+        }
+
+        async function testHealthCheck() {
+            try {
+                const response = await fetch('http://localhost:8001/health');
+                const data = await response.json();
+                window.notifications.success(`API Health Check: ${data.status} ✅`);
+            } catch (error) {
+                window.notifications.error('Impossible de contacter l\'API');
+            }
+        }
+
+        async function testContactSubmit() {
+            try {
+                const response = await window.vulsoftAPI.submitContactForm({
+                    firstName: 'Demo',
+                    lastName: 'User',
+                    email: 'demo@vulsoft.com',
+                    message: 'Test depuis la page de démonstration',
+                    privacy: true
+                });
+                window.notifications.success('Message de contact envoyé !');
+            } catch (error) {
+                window.notifications.error('Erreur lors de l\'envoi du message');
+            }
+        }
+
+        async function testProjectStats() {
+            try {
+                const stats = await window.vulsoftAPI.getProjectStats();
+                window.notifications.info(`Projets: ${stats.total} total, ${stats.active} actifs`);
+            } catch (error) {
+                window.notifications.error('Erreur lors de la récupération des stats');
+            }
+        }
+
+        async function testUserRegistration() {
+            try {
+                const response = await window.vulsoftAPI.register({
+                    username: 'demo_user_' + Date.now(),
+                    email: 'demo' + Date.now() + '@vulsoft.com',
+                    full_name: 'Demo User',
+                    password: 'demopassword123'
+                });
+                window.notifications.success('Utilisateur créé avec succès !');
+            } catch (error) {
+                window.notifications.warning('Utilisateur peut-être déjà existant');
+            }
+        }
+
+        // Vérifier le statut de l'API au chargement
+        async function checkAPIStatus() {
+            const statusEl = document.getElementById('api-status');
+            
+            try {
+                const response = await fetch('http://localhost:8001/health');
+                if (response.ok) {
+                    statusEl.className = 'api-status online';
+                    statusEl.innerHTML = `
+                        <div class="status-dot"></div>
+                        <span>✅ API FastAPI en ligne sur http://localhost:8001</span>
+                    `;
+                } else {
+                    throw new Error('API error');
+                }
+            } catch {
+                statusEl.className = 'api-status offline';
+                statusEl.innerHTML = `
+                    <div class="status-dot"></div>
+                    <span>❌ API hors ligne - Démarrez le serveur avec: cd backend && python start.py</span>
+                `;
+            }
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAPIStatus();
+            
+            // Animation d'entrée
+            document.querySelectorAll('.demo-section').forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+            
+            // Message de bienvenue
+            setTimeout(() => {
+                window.notifications.info('Bienvenue dans la démonstration Vulsoft ! 🚀');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

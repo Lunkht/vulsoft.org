@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test API Vulsoft</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f8fafc;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        button {
+            background: #3b82f6;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #2563eb;
+        }
+        button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        .form-message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        .form-message.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+        .form-message.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+        }
+        .status {
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            background: #e0f2fe;
+            border: 1px solid #0891b2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Test API Vulsoft</h1>
+        
+        <div class="status">
+            <strong>Statut du serveur:</strong> <span id="server-status">Vérification...</span>
+        </div>
+
+        <h2>Test du formulaire de contact</h2>
+        <form id="contact-form">
+            <div class="form-group">
+                <label for="firstName">Prénom *</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="lastName">Nom *</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Téléphone</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            
+            <div class="form-group">
+                <label for="company">Entreprise</label>
+                <input type="text" id="company" name="company">
+            </div>
+            
+            <div class="form-group">
+                <label for="service">Service</label>
+                <select id="service" name="service">
+                    <option value="">Sélectionnez un service</option>
+                    <option value="web">Développement Web</option>
+                    <option value="mobile">Applications Mobiles</option>
+                    <option value="desktop">Applications Bureautiques</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="newsletter" name="newsletter">
+                    Je souhaite recevoir la newsletter
+                </label>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="privacy" name="privacy" required>
+                    J'accepte la politique de confidentialité *
+                </label>
+            </div>
+            
+            <button type="submit">Envoyer le message</button>
+        </form>
+    </div>
+
+    <script>
+        // API Client simple
+        class VulsoftAPI {
+            constructor() {
+                this.baseURL = 'http://localhost:8001/api';
+            }
+
+            async request(endpoint, options = {}) {
+                const url = `${this.baseURL}${endpoint}`;
+                const config = {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        ...options.headers,
+                    },
+                    ...options,
+                };
+
+                try {
+                    const response = await fetch(url, config);
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(data.detail || 'Erreur API');
+                    }
+
+                    return data;
+                } catch (error) {
+                    console.error('Erreur API:', error);
+                    throw error;
+                }
+            }
+
+            async submitContactForm(contactData) {
+                return await this.request('/contact/submit', {
+                    method: 'POST',
+                    body: JSON.stringify(contactData),
+                });
+            }
+
+            async checkHealth() {
+                try {
+                    const response = await fetch('http://localhost:8001/health');
+                    return response.ok;
+                } catch {
+                    return false;
+                }
+            }
+        }
+
+        // Initialisation
+        const api = new VulsoftAPI();
+
+        // Vérifier le statut du serveur
+        async function checkServerStatus() {
+            const statusEl = document.getElementById('server-status');
+            const isHealthy = await api.checkHealth();
+            
+            if (isHealthy) {
+                statusEl.textContent = '✅ Serveur en ligne';
+                statusEl.style.color = '#065f46';
+            } else {
+                statusEl.textContent = '❌ Serveur hors ligne';
+                statusEl.style.color = '#991b1b';
+            }
+        }
+
+        // Gestionnaire de formulaire
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitButton = e.target.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            
+            try {
+                // Désactiver le bouton
+                submitButton.disabled = true;
+                submitButton.textContent = 'Envoi en cours...';
+                
+                // Collecter les données
+                const formData = new FormData(e.target);
+                const data = Object.fromEntries(formData.entries());
+                
+                // Convertir les checkboxes
+                data.newsletter = document.getElementById('newsletter').checked;
+                data.privacy = document.getElementById('privacy').checked;
+                
+                // Envoyer via l'API
+                const response = await api.submitContactForm(data);
+                
+                // Afficher le succès
+                showMessage(response.message, 'success');
+                
+                // Réinitialiser le formulaire
+                e.target.reset();
+                
+            } catch (error) {
+                showMessage(error.message, 'error');
+            } finally {
+                // Réactiver le bouton
+                submitButton.disabled = false;
+                submitButton.textContent = originalText;
+            }
+        });
+
+        function showMessage(message, type) {
+            // Supprimer l'ancien message
+            const oldMessage = document.querySelector('.form-message');
+            if (oldMessage) {
+                oldMessage.remove();
+            }
+            
+            // Créer le nouveau message
+            const messageEl = document.createElement('div');
+            messageEl.className = `form-message ${type}`;
+            messageEl.textContent = message;
+            
+            // Ajouter après le formulaire
+            document.getElementById('contact-form').appendChild(messageEl);
+            
+            // Supprimer après 5 secondes
+            setTimeout(() => {
+                messageEl.remove();
+            }, 5000);
+        }
+
+        // Vérifier le statut au chargement
+        checkServerStatus();
+        
+        // Vérifier le statut toutes les 30 secondes
+        setInterval(checkServerStatus, 30000);
+    </script>
+</body>
+</html>
