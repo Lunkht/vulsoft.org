@@ -193,6 +193,19 @@
         }
     </style>
 </head>
+<script>
+    // Protection de la route côté client
+    const token = localStorage.getItem('vulsoft_access_token');
+    const user = JSON.parse(localStorage.getItem('vulsoft_user'));
+
+    if (!token || !user) {
+        // Rediriger vers la page de connexion si non authentifié
+        window.location.href = 'login.html';
+    } else {
+        // Optionnel : vérifier la validité du token côté serveur au chargement
+        // ou laisser le système de refresh token gérer les expirations.
+    }
+</script>
 <body>
     <!-- Header -->
     <header class="header">

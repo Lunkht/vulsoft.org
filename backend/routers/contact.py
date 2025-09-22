@@ -1,9 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
-from typing import Optional
-from database import get_db, ContactMessage
+from typing import Optional, Dict
+from ..database import get_db, ContactMessage
 from datetime import datetime
+from ..services import email_service
 
 router = APIRouter()
 
@@ -24,13 +25,6 @@ class ContactResponse(BaseModel):
     success: bool
     message: str
     id: Optional[int] = None
-
-# Fonction pour envoyer un email (simulation)
-async def send_email_notification(contact_data: ContactRequest):
-    """Envoie une notification email (à implémenter avec un service email)"""
-    print(f"📧 Nouveau message de contact de {contact_data.firstName} {contact_data.lastName}")
-    print(f"Email: {contact_data.email}")
-    print(f"Message: {contact_data.message}")
 
 @router.post("/submit", response_model=ContactResponse)
 async def submit_contact_form(
@@ -66,8 +60,15 @@ async def submit_contact_form(
         db.commit()
         db.refresh(db_contact)
         
-        # Envoyer la notification email en arrière-plan
-        background_tasks.add_task(send_email_notification, contact_data)
+        # Envoyer les emails de confirmation et de notification admin
+        background_tasks.add_task(
+            email_service.send_contact_confirmation_email,
+            email_to=contact_data.email,
+            first_name=contact_data.firstName
+        )
+        background_tasks.add_task(
+            email_service.send_contact_notification_to_admin, data=contact_data.dict()
+        )
         
         return ContactResponse(
             success=True,

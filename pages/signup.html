@@ -137,13 +137,11 @@
 
     <script>
         const auth = new VulsoftAuth({
-            apiUrl: 'http://localhost:3000/api',
             apiUrl: 'http://localhost:8001/api',
         });
 
         const authUI = new VulsoftAuthUI(auth);
 
-        authUI.handleRegisterForm('register-form', {
         authUI.handleRegisterForm('signup-form', {
             errorElement: 'register-error',
             successElement: 'register-success',
@@ -152,11 +150,6 @@
                     window.location.href = 'login.html';
                 }, 2000);
             }
-        });
-
-        document.getElementById('google-login').addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Connexion Google bientôt disponible');
         });
     </script>
     <script src="../js/vulsoft-auth.js"></script>

@@ -1,6 +1,6 @@
 /**
  * Client d'authentification Vulsoft
- * API propriétaire pour la gestion des utilisateurs
+ * API propriétaire pour la gestion des utilisateurs avec JWT et Refresh Tokens
  */
 
 class VulsoftAuth {
@@ -42,7 +42,7 @@ class VulsoftAuth {
      * Effectuer une requête HTTP avec gestion d'erreurs
      */
     async request(endpoint, options = {}) {
-        const url = `${this.apiUrl}${endpoint}`;
+        const url = `${this.apiUrl}${endpoint}`; // Assurez-vous que apiUrl est bien défini
         const config = {
             headers: {
                 'Content-Type': 'application/json',
@@ -62,8 +62,8 @@ class VulsoftAuth {
             const data = await response.json();
             
             if (!response.ok) {
-                // Tentative de refresh si token expiré
-                if (response.status === 403 && this.getRefreshToken()) {
+                // Tentative de refresh si token expiré (401 Unauthorized ou 403 Forbidden)
+                if ((response.status === 401 || response.status === 403) && this.getRefreshToken()) {
                     const refreshed = await this.refreshAccessToken();
                     if (refreshed) {
                         // Retry la requête avec le nouveau token
@@ -72,14 +72,14 @@ class VulsoftAuth {
                         const retryData = await retryResponse.json();
                         
                         if (!retryResponse.ok) {
-                            throw new Error(retryData.error || 'Erreur de requête');
+                            throw new Error(retryData.detail || 'Erreur de requête après rafraîchissement');
                         }
                         
                         return retryData;
                     }
                 }
                 
-                throw new Error(data.error || `Erreur HTTP ${response.status}`);
+                throw new Error(data.detail || `Erreur HTTP ${response.status}`);
             }
             
             return data;
@@ -101,13 +101,13 @@ class VulsoftAuth {
             
             return {
                 success: true,
-                message: response.message,
-                userId: response.userId
+                message: response.message || "Utilisateur créé avec succès",
+                user: response.user
             };
         } catch (error) {
             return {
                 success: false,
-                error: error.message
+                error: error.message || "Erreur lors de l'inscription"
             };
         }
     }
@@ -117,22 +117,23 @@ class VulsoftAuth {
      */
     async login(email, password) {
         try {
-            const response = await this.request('/auth/login', {
+            const response = await this.request('/auth/token', { // Endpoint standard pour obtenir un token
                 method: 'POST',
-                body: JSON.stringify({ email, password })
+                body: new URLSearchParams({ 'username': email, 'password': password }),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             });
             
             // Stocker les tokens et les informations utilisateur
-            this.setAccessToken(response.accessToken);
+            this.setAccessToken(response.access_token);
             this.setRefreshToken(response.refreshToken);
-            this.setCurrentUser(response.user);
-            
+            await this.getProfile(); // Récupérer le profil après connexion
+
             // Démarrer le refresh automatique
             this.startAutoRefresh();
             
             // Notifier le changement d'état
             if (this.onAuthStateChanged) {
-                this.onAuthStateChanged(response.user);
+                this.onAuthStateChanged(this.getCurrentUser());
             }
             
             return {
@@ -187,15 +188,15 @@ class VulsoftAuth {
                 throw new Error('Aucun refresh token disponible');
             }
             
-            const response = await this.request('/auth/refresh', {
+            const response = await this.request('/auth/refresh-token', {
                 method: 'POST',
-                body: JSON.stringify({ refreshToken }),
                 headers: {
-                    Authorization: '' // Ne pas inclure le token expiré
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${refreshToken}`
                 }
             });
             
-            this.setAccessToken(response.accessToken);
+            this.setAccessToken(response.access_token);
             
             if (this.onTokenRefreshed) {
                 this.onTokenRefreshed(response.accessToken);
@@ -214,11 +215,11 @@ class VulsoftAuth {
      * Obtenir le profil utilisateur
      */
     async getProfile() {
-        try {
-            const response = await this.request('/user/profile');
+        try { // L'endpoint /me est souvent utilisé pour ça
+            const user = await this.request('/auth/me');
             
             // Mettre à jour les informations utilisateur stockées
-            this.setCurrentUser(response.user);
+            this.setCurrentUser(user);
             
             return {
                 success: true,
@@ -280,12 +281,13 @@ class VulsoftAuth {
     startAutoRefresh() {
         if (!this.autoRefresh || this.refreshInterval) return;
         
-        // Refresh toutes les 10 minutes (token expire dans 15 minutes)
+        // Refresh toutes les 25 minutes (le token expire en 30 min par défaut)
         this.refreshInterval = setInterval(async () => {
             if (this.isAuthenticated()) {
+                console.log('🔄 Tentative de rafraîchissement du token...');
                 await this.refreshAccessToken();
             }
-        }, 10 * 60 * 1000);
+        }, 25 * 60 * 1000);
     }
     
     /**
@@ -421,7 +423,7 @@ class VulsoftAuthUI {
             
             const result = await this.auth.login(email, password);
             
-            if (result.success) {
+            if (result && result.success) {
                 if (options.onSuccess) {
                     options.onSuccess(result.user);
                 } else {
@@ -431,7 +433,7 @@ class VulsoftAuthUI {
                     }, 1000);
                 }
             } else {
-                this.showError(errorElement, result.error);
+                this.showError(errorElement, result.error || "Email ou mot de passe incorrect.");
             }
         });
     }
@@ -447,14 +449,15 @@ class VulsoftAuthUI {
             e.preventDefault();
             
             const formData = new FormData(form);
+            // Convertir les champs de formulaire en objet
             const userData = {
-                email: formData.get('email').trim(),
-                password: formData.get('password'),
-                firstName: formData.get('firstName').trim(),
-                lastName: formData.get('lastName').trim()
+                ...Object.fromEntries(formData.entries())
             };
-            
-            const confirmPassword = formData.get('confirmPassword');
+            userData.email = userData.email.trim();
+            userData.firstName = userData.firstName.trim();
+            userData.lastName = userData.lastName.trim();
+
+            const confirmPassword = formData.get('confirmPassword'); // Assurez-vous que le nom est correct
             const errorElement = options.errorElement || 'register-error';
             const successElement = options.successElement || 'register-success';
             
@@ -464,11 +467,6 @@ class VulsoftAuthUI {
             // Validations
             if (!this.auth.validateEmail(userData.email)) {
                 this.showError(errorElement, 'Email invalide');
-                return;
-            }
-            
-            if (!this.auth.validatePassword(userData.password)) {
-                this.showError(errorElement, 'Mot de passe trop faible');
                 return;
             }
             

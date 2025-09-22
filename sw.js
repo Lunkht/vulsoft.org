@@ -24,6 +24,8 @@ const STATIC_FILES = [
     '/pages/dashboard.html',
     '/pages/login.html',
     '/pages/payment.html',
+    '/pages/forgot-password.html',
+    '/pages/reset-password.html',
     '/pages/signup.html',
     '/css/main.css',
     '/css/about.css',
