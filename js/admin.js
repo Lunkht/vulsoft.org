@@ -57,6 +57,14 @@ class AdminAPI extends VulsoftAPI {
         return await this.request('/admin/analytics/messages-by-service');
     }
 
+    async getAnalyticsOverview(days = 7) {
+        return await this.request(`/admin/analytics/overview?days=${days}`);
+    }
+
+    async getTopPages(limit = 10) {
+        return await this.request(`/admin/analytics/top-pages?limit=${limit}`);
+    }
+
     async createAdmin(username, email, password) {
         return await this.request('/admin/create-admin', {
             method: 'POST',
@@ -384,6 +392,12 @@ class AdminNavigation {
 
     async loadAnalytics() {
         try {
+            // Charger l'aperçu des analytics
+            const overview = await window.adminAPI.getAnalyticsOverview(7);
+            this.renderAnalyticsOverview(overview);
+            const topPages = await window.adminAPI.getTopPages();
+            this.renderTopPages(topPages);
+
             // Charger les données de croissance
             const usersGrowth = await window.adminAPI.getUsersGrowth(30);
             this.renderUsersChart(usersGrowth);
@@ -394,6 +408,47 @@ class AdminNavigation {
         } catch (error) {
             window.notifications?.error('Erreur lors du chargement des analytics');
         }
+    }
+
+    renderAnalyticsOverview(overview) {
+        const overviewEl = document.getElementById('analytics-overview');
+        overviewEl.innerHTML = `
+            <div class="stat-card">
+                <div class="stat-number">${overview.total_views}</div>
+                <div class="stat-label">Pages Vues</div>
+                <div class="stat-change">sur ${overview.period_days} jours</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">${overview.unique_visitors}</div>
+                <div class="stat-label">Visiteurs Uniques</div>
+                <div class="stat-change">sur ${overview.period_days} jours</div>
+            </div>
+        `;
+    }
+
+    renderTopPages(pages) {
+        const tableEl = document.getElementById('top-pages-table');
+        if (pages.length === 0) {
+            tableEl.innerHTML = '<div class="empty-state">Aucune donnée de page vue</div>';
+            return;
+        }
+        const tableHTML = `
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>URL de la Page</th>
+                        <th>Vues</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${pages.map(page => `
+                        <tr>
+                            <td><a href="${page.url}" target="_blank">${page.url}</a></td>
+                            <td>${page.views}</td>
+                        </tr>`).join('')}
+                </tbody>
+            </table>`;
+        tableEl.innerHTML = tableHTML;
     }
 
     renderUsersChart(data) {

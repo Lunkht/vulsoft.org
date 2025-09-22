@@ -6,3 +6,5 @@ python-jose[cryptography]
 python-multipart
 pydantic-settings
 fastapi-mail
+openai
+openai
