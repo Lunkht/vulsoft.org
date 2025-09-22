@@ -32,14 +32,17 @@
                 <img src="../images/logo-Vulsoft-1.svg" alt="Vulsoft Logo">
             </div>
             <ul class="nav-links">
-                <li><a href="../index.html#accueil">Accueil</a></li>
-                <li><a href="../index.html#services">Services</a></li>
-                <li><a href="../academie.html">Académie</a></li>
-                <li><a href="#about" class="active">À propos</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="../index.html#accueil" data-i18n="nav.products">Accueil</a></li>
+                <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+                <li><a href="../academie.html" data-i18n="nav.academy">Académie</a></li>
+                <li><a href="#about" class="active" data-i18n="nav.about">À propos</a></li>
+                <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="login.html" class="connexion-btn">Connexion</a>
+                <a href="login.html" class="connexion-btn" data-i18n="nav.login">Connexion</a>
+                <div class="language-switcher">
+                    <!-- Buttons will be injected by i18n.js -->
+                </div>
             </div>
         </nav>
     </header>
@@ -48,8 +51,8 @@
     <section class="about-hero">
         <div class="container">
             <div class="about-hero-content">
-                <h1>À propos de Vulsoft</h1>
-                <p>Une société innovante spécialisée dans le développement de solutions logicielles sur mesure,
+                <h1 data-i18n="about_hero.title">À propos de Vulsoft</h1>
+                <p data-i18n="about_hero.subtitle">Une société innovante spécialisée dans le développement de solutions logicielles sur mesure,
                     transformant les défis technologiques en opportunités de croissance.</p>
             </div>
         </div>
@@ -60,8 +63,8 @@
         <div class="container">
             <div class="story-content">
                 <div class="story-text">
-                    <h2>Notre Histoire</h2>
-                    <p class="story-intro">
+                    <h2 data-i18n="about_story.title">Notre Histoire</h2>
+                    <p class="story-intro" data-i18n="about_story.intro">
                         Fondée par <strong>Hakim Lunkht</strong>, Vulsoft est née d'une vision simple mais ambitieuse :
                         démocratiser l'accès aux technologies de pointe en Afrique de l'Ouest et accompagner les
                         entreprises
@@ -531,6 +534,7 @@
     </footer>
 
     <script src="../js/pwa.js"></script>
+    <script src="../js/i18n.js" defer></script>
     <script>
         // Header scroll effect
         window.addEventListener('scroll', () => {

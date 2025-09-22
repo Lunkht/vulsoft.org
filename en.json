@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "products": "Products",
+    "services": "Services",
+    "academy": "Academy",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "start": "Get Started"
+  },
+  "index_hero": {
+    "title": "Digital<br>Innovations",
+    "subtitle": "Turn your ideas into reality with our custom development services.",
+    "discover_services": "Discover our services",
+    "contact_us": "Contact us"
+  },
+  "services_section": {
+    "title": "Solutions",
+    "subtitle": "Complete solutions for all your technological needs",
+    "desktop_apps_title": "Desktop Applications",
+    "desktop_apps_desc": "Development of custom software to optimize your business processes and improve your productivity.",
+    "mobile_apps_title": "Mobile Applications",
+    "mobile_apps_desc": "Creation of native and hybrid iOS and Android applications to extend your digital presence.",
+    "iot_title": "Connected Objects",
+    "iot_desc": "Design and development of smart IoT objects to automate and connect your environment.",
+    "web_solutions_title": "Web Solutions",
+    "web_solutions_desc": "Development of modern, responsive, and high-performance websites and web applications.",
+    "consulting_title": "Consulting & Training",
+    "consulting_desc": "Technical support, code audits, and training for your teams on new technologies.",
+    "maintenance_title": "Maintenance & Support",
+    "maintenance_desc": "Continuous technical support, and evolutionary and corrective maintenance of your existing applications."
+  },
+  "about_hero": {
+    "title": "About Vulsoft",
+    "subtitle": "An innovative company specializing in the development of custom software solutions, turning technological challenges into growth opportunities."
+  },
+  "about_story": {
+    "title": "Our Story",
+    "intro": "Founded by <strong>Hakim Lunkht</strong>, Vulsoft was born from a simple yet ambitious vision: to democratize access to cutting-edge technologies in West Africa and support companies in their digital transformation."
+  },
+  "contact_hero": {
+    "title": "Contact Us",
+    "subtitle": "Let's discuss your project and find the ideal solution together to turn your ideas into digital reality."
+  },
+  "contact_form": {
+    "title": "Send us a message",
+    "subtitle": "Describe your project to us and we will get back to you quickly.",
+    "firstname": "First Name *",
+    "lastname": "Last Name *",
+    "email": "Email *",
+    "phone": "Phone",
+    "company": "Company",
+    "service_needed": "Desired service",
+    "select_service": "Select a service",
+    "budget": "Estimated budget",
+    "select_budget": "Select a range",
+    "message": "Message *",
+    "message_placeholder": "Describe your project, your needs, and your goals...",
+    "newsletter_subscribe": "I want to receive the Vulsoft newsletter",
+    "accept_privacy": "I accept the <a href=\"#\" class=\"privacy-link\">privacy policy</a> *",
+    "send_message": "Send message"
+  }
+}

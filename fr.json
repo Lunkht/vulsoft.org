@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "products": "Produits",
+    "services": "Services",
+    "academy": "Académie",
+    "about": "À propos",
+    "contact": "Contact",
+    "login": "Connexion",
+    "start": "Commencer"
+  },
+  "index_hero": {
+    "title": "Innovations<br>Digitales",
+    "subtitle": "Transformez vos idées en réalité avec nos services de développement sur mesure.",
+    "discover_services": "Découvrir nos services",
+    "contact_us": "Nous contacter"
+  },
+  "services_section": {
+    "title": "Solutions",
+    "subtitle": "Des solutions complètes pour tous vos besoins technologiques",
+    "desktop_apps_title": "Applications Bureautiques",
+    "desktop_apps_desc": "Développement de logiciels sur mesure pour optimiser vos processus métier et améliorer votre productivité.",
+    "mobile_apps_title": "Applications Mobiles",
+    "mobile_apps_desc": "Création d'applications iOS et Android natives et hybrides pour étendre votre présence digitale.",
+    "iot_title": "Objets Connectés",
+    "iot_desc": "Conception et développement d'objets intelligents IoT pour automatiser et connecter votre environnement.",
+    "web_solutions_title": "Solutions Web",
+    "web_solutions_desc": "Développement de sites web et applications web modernes, responsives et performantes.",
+    "consulting_title": "Conseil & Formation",
+    "consulting_desc": "Accompagnement technique, audit de code, formation de vos équipes aux nouvelles technologies.",
+    "maintenance_title": "Maintenance & Support",
+    "maintenance_desc": "Support technique continu, maintenance évolutive et corrective de vos applications existantes."
+  },
+  "about_hero": {
+    "title": "À propos de Vulsoft",
+    "subtitle": "Une société innovante spécialisée dans le développement de solutions logicielles sur mesure, transformant les défis technologiques en opportunités de croissance."
+  },
+  "about_story": {
+    "title": "Notre Histoire",
+    "intro": "Fondée par <strong>Hakim Lunkht</strong>, Vulsoft est née d'une vision simple mais ambitieuse : démocratiser l'accès aux technologies de pointe en Afrique de l'Ouest et accompagner les entreprises dans leur transformation digitale."
+  },
+  "contact_hero": {
+    "title": "Contactez-nous",
+    "subtitle": "Discutons de votre projet et trouvons ensemble la solution idéale pour transformer vos idées en réalité digitale."
+  },
+  "contact_form": {
+    "title": "Envoyez-nous un message",
+    "subtitle": "Décrivez-nous votre projet et nous vous recontacterons rapidement.",
+    "firstname": "Prénom *",
+    "lastname": "Nom *",
+    "email": "Email *",
+    "phone": "Téléphone",
+    "company": "Entreprise",
+    "service_needed": "Service souhaité",
+    "select_service": "Sélectionnez un service",
+    "budget": "Budget estimé",
+    "select_budget": "Sélectionnez une fourchette",
+    "message": "Message *",
+    "message_placeholder": "Décrivez votre projet, vos besoins et vos objectifs...",
+    "newsletter_subscribe": "Je souhaite recevoir la newsletter Vulsoft",
+    "accept_privacy": "J'accepte la <a href=\"#\" class=\"privacy-link\">politique de confidentialité</a> *",
+    "send_message": "Envoyer le message"
+  }
+}

@@ -31,14 +31,17 @@
                 <img src="../images/logo-Vulsoft-1.svg" alt="Vulsoft Logo">
             </div>
             <ul class="nav-links">
-                <li><a href="../index.html#accueil">Accueil</a></li>
-                <li><a href="../index.html#services">Services</a></li>
-                <li><a href="../academie.html">Académie</a></li>
-                <li><a href="about.html">À propos</a></li>
-                <li><a href="#contact" class="active">Contact</a></li>
+                <li><a href="../index.html#accueil" data-i18n="nav.products">Accueil</a></li>
+                <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+                <li><a href="../academie.html" data-i18n="nav.academy">Académie</a></li>
+                <li><a href="about.html" data-i18n="nav.about">À propos</a></li>
+                <li><a href="#contact" class="active" data-i18n="nav.contact">Contact</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="login.html" class="connexion-btn">Connexion</a>
+                <a href="login.html" class="connexion-btn" data-i18n="nav.login">Connexion</a>
+                <div class="language-switcher">
+                    <!-- Buttons will be injected by i18n.js -->
+                </div>
             </div>
         </nav>
     </header>
@@ -47,8 +50,8 @@
     <section class="contact-hero">
         <div class="container">
             <div class="contact-hero-content">
-                <h1>Contactez-nous</h1>
-                <p>Discutons de votre projet et trouvons ensemble la solution idéale pour transformer vos idées en
+                <h1 data-i18n="contact_hero.title">Contactez-nous</h1>
+                <p data-i18n="contact_hero.subtitle">Discutons de votre projet et trouvons ensemble la solution idéale pour transformer vos idées en
                     réalité digitale.</p>
             </div>
         </div>
@@ -157,42 +160,42 @@
                 <!-- Formulaire de contact -->
                 <div class="contact-form-section">
                     <div class="contact-form-header">
-                        <h2>Envoyez-nous un message</h2>
-                        <p>Décrivez-nous votre projet et nous vous recontacterons rapidement.</p>
+                        <h2 data-i18n="contact_form.title">Envoyez-nous un message</h2>
+                        <p data-i18n="contact_form.subtitle">Décrivez-nous votre projet et nous vous recontacterons rapidement.</p>
                     </div>
 
                     <form class="contact-form" id="contact-form">
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="firstName">Prénom *</label>
+                                <label for="firstName" data-i18n="contact_form.firstname">Prénom *</label>
                                 <input type="text" id="firstName" name="firstName" required>
                             </div>
                             <div class="form-group">
-                                <label for="lastName">Nom *</label>
+                                <label for="lastName" data-i18n="contact_form.lastname">Nom *</label>
                                 <input type="text" id="lastName" name="lastName" required>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="email">Email *</label>
+                                <label for="email" data-i18n="contact_form.email">Email *</label>
                                 <input type="email" id="email" name="email" required>
                             </div>
                             <div class="form-group">
-                                <label for="phone">Téléphone</label>
+                                <label for="phone" data-i18n="contact_form.phone">Téléphone</label>
                                 <input type="tel" id="phone" name="phone">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="company">Entreprise</label>
+                            <label for="company" data-i18n="contact_form.company">Entreprise</label>
                             <input type="text" id="company" name="company">
                         </div>
 
                         <div class="form-group">
-                            <label for="service">Service souhaité</label>
+                            <label for="service" data-i18n="contact_form.service_needed">Service souhaité</label>
                             <select id="service" name="service">
-                                <option value="">Sélectionnez un service</option>
+                                <option value="" data-i18n="contact_form.select_service">Sélectionnez un service</option>
                                 <option value="web">Développement Web</option>
                                 <option value="mobile">Applications Mobiles</option>
                                 <option value="desktop">Applications Bureautiques</option>
@@ -204,9 +207,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="budget">Budget estimé</label>
+                            <label for="budget" data-i18n="contact_form.budget">Budget estimé</label>
                             <select id="budget" name="budget">
-                                <option value="">Sélectionnez une fourchette</option>
+                                <option value="" data-i18n="contact_form.select_budget">Sélectionnez une fourchette</option>
                                 <option value="5k-10k">5 000€ - 10 000€</option>
                                 <option value="10k-25k">10 000€ - 25 000€</option>
                                 <option value="25k-50k">25 000€ - 50 000€</option>
@@ -216,16 +219,16 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="message">Message *</label>
+                            <label for="message" data-i18n="contact_form.message">Message *</label>
                             <textarea id="message" name="message" rows="6" required
-                                placeholder="Décrivez votre projet, vos besoins et vos objectifs..."></textarea>
+                                data-i18n-placeholder="contact_form.message_placeholder" placeholder="Décrivez votre projet, vos besoins et vos objectifs..."></textarea>
                         </div>
 
                         <div class="form-group checkbox-group">
                             <label class="checkbox-container">
                                 <input type="checkbox" id="newsletter" name="newsletter">
                                 <span class="checkmark"></span>
-                                Je souhaite recevoir la newsletter Vulsoft
+                                <span data-i18n="contact_form.newsletter_subscribe">Je souhaite recevoir la newsletter Vulsoft</span>
                             </label>
                         </div>
 
@@ -233,12 +236,12 @@
                             <label class="checkbox-container">
                                 <input type="checkbox" id="privacy" name="privacy" required>
                                 <span class="checkmark"></span>
-                                J'accepte la <a href="#" class="privacy-link">politique de confidentialité</a> *
+                                <span data-i18n="contact_form.accept_privacy">J'accepte la <a href="#" class="privacy-link">politique de confidentialité</a> *</span>
                             </label>
                         </div>
 
                         <button type="submit" class="submit-button">
-                            <span>Envoyer le message</span>
+                            <span data-i18n="contact_form.send_message">Envoyer le message</span>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
                                 <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -509,6 +512,7 @@
 
     <script src="../js/pwa.js"></script>
     <script src="../js/notifications.js"></script>
+    <script src="../js/i18n.js" defer></script>
     <script src="../js/api.js"></script>
 </body>
 
