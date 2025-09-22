@@ -316,16 +316,18 @@
 }
 
 .path-button {
-    display: block;
+    display: inline-block;
     width: 100%;
-    padding: 1rem;
-    background: var(--academy-gradient);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 600;
     text-align: center;
-    transition: all 0.3s ease;
+    margin-top: auto;
+    padding: 0.875rem 1.75rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    background: var(--accent-color);
+    color: var(--bg-primary); /* Correction: texte noir/blanc sur fond blanc/noir */
 }
 
 .path-button:hover {
