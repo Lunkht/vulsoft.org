@@ -6,7 +6,7 @@ import uvicorn
 from pathlib import Path
 
 # Import des routes
-from routers import auth, contact, projects, admin
+from routers import auth, contact, projects, admin, email
 from database import init_db
 
 # Initialisation de l'app FastAPI
@@ -33,6 +33,7 @@ app.include_router(auth.router, prefix="/api/auth", tags=["Authentication"])
 app.include_router(contact.router, prefix="/api/contact", tags=["Contact"])
 app.include_router(projects.router, prefix="/api/projects", tags=["Projects"])
 app.include_router(admin.router, prefix="/api/admin", tags=["Administration"])
+app.include_router(email.router, prefix="/api/email", tags=["Email"])
 
 @app.on_event("startup")
 async def startup_event():

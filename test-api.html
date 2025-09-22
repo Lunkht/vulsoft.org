@@ -273,5 +273,29 @@
         // Vérifier le statut toutes les 30 secondes
         setInterval(checkServerStatus, 30000);
     </script>
+    <script src="js/pwa.js"></script>
+</body>
+</html>      }
+            
+            // Créer le nouveau message
+            const messageEl = document.createElement('div');
+            messageEl.className = `form-message ${type}`;
+            messageEl.textContent = message;
+            
+            // Ajouter après le formulaire
+            document.getElementById('contact-form').appendChild(messageEl);
+            
+            // Supprimer après 5 secondes
+            setTimeout(() => {
+                messageEl.remove();
+            }, 5000);
+        }
+
+        // Vérifier le statut au chargement
+        checkServerStatus();
+        
+        // Vérifier le statut toutes les 30 secondes
+        setInterval(checkServerStatus, 30000);
+    </script>
 </body>
 </html>

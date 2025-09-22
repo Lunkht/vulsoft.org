@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test PWA - Vulsoft</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Vulsoft">
+    
+    <!-- Manifest PWA -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f8fafc;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        .status {
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+        .status.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #ef4444;
+        }
+        .status.warning {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #f59e0b;
+        }
+        button {
+            background: #3b82f6;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 0.5rem;
+        }
+        button:hover {
+            background: #2563eb;
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .test-card {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+        .test-result {
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+        .test-result.pass {
+            color: #059669;
+        }
+        .test-result.fail {
+            color: #dc2626;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .feature-status {
+            font-weight: 600;
+        }
+        .feature-status.supported {
+            color: #059669;
+        }
+        .feature-status.not-supported {
+            color: #dc2626;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Test PWA Vulsoft</h1>
+        
+        <div id="pwa-status" class="status">Vérification des fonctionnalités PWA...</div>
+        
+        <h3>Support des fonctionnalités</h3>
+        <ul class="feature-list" id="feature-list">
+            <li>Service Worker <span class="feature-status" id="sw-status">Vérification...</span></li>
+            <li>Manifest <span class="feature-status" id="manifest-status">Vérification...</span></li>
+            <li>Notifications <span class="feature-status" id="notifications-status">Vérification...</span></li>
+            <li>Installation <span class="feature-status" id="install-status">Vérification...</span></li>
+            <li>Mode hors-ligne <span class="feature-status" id="offline-status">Vérification...</span></li>
+            <li>Push Messages <span class="feature-status" id="push-status">Vérification...</span></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h3>Tests des fonctionnalités</h3>
+        
+        <div class="test-grid">
+            <div class="test-card">
+                <h4>📱 Installation</h4>
+                <p>Tester l'installation de l'app</p>
+                <button onclick="testInstall()" id="install-btn">Tester Installation</button>
+                <div class="test-result" id="install-result"></div>
+            </div>
+            
+            <div class="test-card">
+                <h4>🔔 Notifications</h4>
+                <p>Tester les notifications push</p>
+                <button onclick="testNotifications()" id="notification-btn">Tester Notifications</button>
+                <div class="test-result" id="notification-result"></div>
+            </div>
+            
+            <div class="test-card">
+                <h4>📡 Mode hors-ligne</h4>
+                <p>Simuler le mode hors-ligne</p>
+                <button onclick="testOffline()">Tester Hors-ligne</button>
+                <div class="test-result" id="offline-result"></div>
+            </div>
+            
+            <div class="test-card">
+                <h4>💾 Cache</h4>
+                <p>Vérifier le cache des ressources</p>
+                <button onclick="testCache()">Tester Cache</button>
+                <div class="test-result" id="cache-result"></div>
+            </div>
+            
+            <div class="test-card">
+                <h4>🔄 Mise à jour</h4>
+                <p>Simuler une mise à jour</p>
+                <button onclick="testUpdate()">Tester Mise à jour</button>
+                <div class="test-result" id="update-result"></div>
+            </div>
+            
+            <div class="test-card">
+                <h4>📊 Métriques</h4>
+                <p>Afficher les métriques PWA</p>
+                <button onclick="showMetrics()">Voir Métriques</button>
+                <div class="test-result" id="metrics-result"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3>Actions rapides</h3>
+        <button onclick="window.location.href='/'">🏠 Retour Accueil</button>
+        <button onclick="window.location.href='/offline.html'">📱 Page Hors-ligne</button>
+        <button onclick="window.open('/manifest.json', '_blank')">📄 Voir Manifest</button>
+        <button onclick="openDevTools()">🔧 DevTools PWA</button>
+    </div>
+
+    <script src="js/notifications.js"></script>
+    <script src="js/pwa.js"></script>
+    <script>
+        // Tests des fonctionnalités PWA
+        
+        async function checkPWASupport() {
+            const statusEl = document.getElementById('pwa-status');
+            let supported = 0;
+            let total = 6;
+            
+            // Service Worker
+            if ('serviceWorker' in navigator) {
+                document.getElementById('sw-status').textContent = '✅ Supporté';
+                document.getElementById('sw-status').className = 'feature-status supported';
+                supported++;
+            } else {
+                document.getElementById('sw-status').textContent = '❌ Non supporté';
+                document.getElementById('sw-status').className = 'feature-status not-supported';
+            }
+            
+            // Manifest
+            if ('serviceWorker' in navigator && 'PushManager' in window) {
+                document.getElementById('manifest-status').textContent = '✅ Supporté';
+                document.getElementById('manifest-status').className = 'feature-status supported';
+                supported++;
+            } else {
+                document.getElementById('manifest-status').textContent = '❌ Non supporté';
+                document.getElementById('manifest-status').className = 'feature-status not-supported';
+            }
+            
+            // Notifications
+            if ('Notification' in window) {
+                document.getElementById('notifications-status').textContent = '✅ Supporté';
+                document.getElementById('notifications-status').className = 'feature-status supported';
+                supported++;
+            } else {
+                document.getElementById('notifications-status').textContent = '❌ Non supporté';
+                document.getElementById('notifications-status').className = 'feature-status not-supported';
+            }
+            
+            // Installation
+            if ('beforeinstallprompt' in window || window.matchMedia('(display-mode: standalone)').matches) {
+                document.getElementById('install-status').textContent = '✅ Supporté';
+                document.getElementById('install-status').className = 'feature-status supported';
+                supported++;
+            } else {
+                document.getElementById('install-status').textContent = '❌ Non supporté';
+                document.getElementById('install-status').className = 'feature-status not-supported';
+            }
+            
+            // Mode hors-ligne
+            if ('serviceWorker' in navigator && 'caches' in window) {
+                document.getElementById('offline-status').textContent = '✅ Supporté';
+                document.getElementById('offline-status').className = 'feature-status supported';
+                supported++;
+            } else {
+                document.getElementById('offline-status').textContent = '❌ Non supporté';
+                document.getElementById('offline-status').className = 'feature-status not-supported';
+            }
+            
+            // Push Messages
+            if ('PushManager' in window && 'serviceWorker' in navigator) {
+                document.getElementById('push-status').textContent = '✅ Supporté';
+                document.getElementById('push-status').className = 'feature-status supported';
+                supported++;
+            } else {
+                document.getElementById('push-status').textContent = '❌ Non supporté';
+                document.getElementById('push-status').className = 'feature-status not-supported';
+            }
+            
+            // Statut global
+            const percentage = Math.round((supported / total) * 100);
+            if (percentage >= 80) {
+                statusEl.className = 'status success';
+                statusEl.textContent = `🎉 PWA entièrement supporté (${percentage}%)`;
+            } else if (percentage >= 50) {
+                statusEl.className = 'status warning';
+                statusEl.textContent = `⚠️ PWA partiellement supporté (${percentage}%)`;
+            } else {
+                statusEl.className = 'status error';
+                statusEl.textContent = `❌ PWA peu supporté (${percentage}%)`;
+            }
+        }
+        
+        async function testInstall() {
+            const btn = document.getElementById('install-btn');
+            const result = document.getElementById('install-result');
+            
+            btn.disabled = true;
+            btn.textContent = 'Test en cours...';
+            
+            try {
+                if (window.pwaManager && window.pwaManager.deferredPrompt) {
+                    result.textContent = '✅ Installation disponible';
+                    result.className = 'test-result pass';
+                    btn.textContent = 'Installer maintenant';
+                    btn.onclick = () => window.pwaManager.installPWA();
+                } else if (window.matchMedia('(display-mode: standalone)').matches) {
+                    result.textContent = '✅ Déjà installé';
+                    result.className = 'test-result pass';
+                    btn.textContent = 'Déjà installé';
+                } else {
+                    result.textContent = '⚠️ Installation non disponible';
+                    result.className = 'test-result fail';
+                    btn.textContent = 'Non disponible';
+                }
+            } catch (error) {
+                result.textContent = '❌ Erreur: ' + error.message;
+                result.className = 'test-result fail';
+                btn.textContent = 'Erreur';
+            }
+            
+            btn.disabled = false;
+        }
+        
+        async function testNotifications() {
+            const result = document.getElementById('notification-result');
+            
+            try {
+                if (!('Notification' in window)) {
+                    result.textContent = '❌ Notifications non supportées';
+                    result.className = 'test-result fail';
+                    return;
+                }
+                
+                const permission = await Notification.requestPermission();
+                
+                if (permission === 'granted') {
+                    new Notification('Test PWA Vulsoft', {
+                        body: 'Les notifications fonctionnent parfaitement !',
+                        icon: '/images/logo-Vulsoft-1.svg'
+                    });
+                    result.textContent = '✅ Notification envoyée';
+                    result.className = 'test-result pass';
+                } else {
+                    result.textContent = '❌ Permission refusée';
+                    result.className = 'test-result fail';
+                }
+            } catch (error) {
+                result.textContent = '❌ Erreur: ' + error.message;
+                result.className = 'test-result fail';
+            }
+        }
+        
+        async function testOffline() {
+            const result = document.getElementById('offline-result');
+            
+            try {
+                // Tester si le cache fonctionne
+                const cache = await caches.open('vulsoft-static-v1.0.0');
+                const cachedResponse = await cache.match('/');
+                
+                if (cachedResponse) {
+                    result.textContent = '✅ Cache fonctionnel';
+                    result.className = 'test-result pass';
+                } else {
+                    result.textContent = '⚠️ Pas de cache trouvé';
+                    result.className = 'test-result fail';
+                }
+            } catch (error) {
+                result.textContent = '❌ Erreur cache: ' + error.message;
+                result.className = 'test-result fail';
+            }
+        }
+        
+        async function testCache() {
+            const result = document.getElementById('cache-result');
+            
+            try {
+                const cacheNames = await caches.keys();
+                const totalCaches = cacheNames.length;
+                
+                let totalSize = 0;
+                for (const cacheName of cacheNames) {
+                    const cache = await caches.open(cacheName);
+                    const keys = await cache.keys();
+                    totalSize += keys.length;
+                }
+                
+                result.textContent = `✅ ${totalCaches} caches, ${totalSize} fichiers`;
+                result.className = 'test-result pass';
+            } catch (error) {
+                result.textContent = '❌ Erreur: ' + error.message;
+                result.className = 'test-result fail';
+            }
+        }
+        
+        function testUpdate() {
+            const result = document.getElementById('update-result');
+            
+            if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+                navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
+                result.textContent = '✅ Mise à jour simulée';
+                result.className = 'test-result pass';
+            } else {
+                result.textContent = '❌ Pas de Service Worker actif';
+                result.className = 'test-result fail';
+            }
+        }
+        
+        async function showMetrics() {
+            const result = document.getElementById('metrics-result');
+            
+            try {
+                const metrics = {
+                    online: navigator.onLine,
+                    standalone: window.matchMedia('(display-mode: standalone)').matches,
+                    serviceWorker: 'serviceWorker' in navigator,
+                    notifications: 'Notification' in window ? Notification.permission : 'non supporté',
+                    connection: navigator.connection ? navigator.connection.effectiveType : 'inconnu'
+                };
+                
+                result.innerHTML = `
+                    <div style="font-size: 0.875rem; text-align: left;">
+                        📡 En ligne: ${metrics.online ? '✅' : '❌'}<br>
+                        📱 Mode app: ${metrics.standalone ? '✅' : '❌'}<br>
+                        🔧 Service Worker: ${metrics.serviceWorker ? '✅' : '❌'}<br>
+                        🔔 Notifications: ${metrics.notifications}<br>
+                        🌐 Connexion: ${metrics.connection}
+                    </div>
+                `;
+                result.className = 'test-result pass';
+            } catch (error) {
+                result.textContent = '❌ Erreur: ' + error.message;
+                result.className = 'test-result fail';
+            }
+        }
+        
+        function openDevTools() {
+            alert('Ouvrez les DevTools (F12) et allez dans l\'onglet "Application" > "Service Workers" pour voir les détails PWA');
+        }
+        
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', () => {
+            checkPWASupport();
+            
+            // Vérifier périodiquement le statut
+            setInterval(() => {
+                document.getElementById('offline-result').textContent = navigator.onLine ? '🌐 En ligne' : '📡 Hors ligne';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>

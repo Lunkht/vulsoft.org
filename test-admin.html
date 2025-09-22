@@ -242,5 +242,30 @@
             checkServerStatus();
         });
     </script>
+    <script src="js/pwa.js"></script>
+</body>
+</html>t(`❌ Erreur projets: ${data.detail}`, 'error');
+                }
+            } catch (error) {
+                showResult(`❌ Erreur: ${error.message}`, 'error');
+            }
+        }
+
+        function openAdminPanel() {
+            window.open('pages/admin.html', '_blank');
+        }
+
+        function showResult(message, type) {
+            const resultsEl = document.getElementById('test-results');
+            resultsEl.style.display = 'block';
+            resultsEl.textContent = message;
+            resultsEl.className = `results ${type}`;
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', () => {
+            checkServerStatus();
+        });
+    </script>
 </body>
 </html>

@@ -251,5 +251,24 @@
             }
         });
     </script>
+    <script src="js/pwa.js"></script>
+</body>
+</html>erColor = '#ef4444';
+                
+                // Ajouter message d'erreur s'il n'existe pas
+                let errorEl = this.parentNode.querySelector('.field-error');
+                if (!errorEl) {
+                    errorEl = document.createElement('div');
+                    errorEl.className = 'field-error';
+                    this.parentNode.appendChild(errorEl);
+                }
+                errorEl.textContent = 'Les mots de passe ne correspondent pas';
+            } else {
+                this.style.borderColor = '';
+                const errorEl = this.parentNode.querySelector('.field-error');
+                if (errorEl) errorEl.remove();
+            }
+        });
+    </script>
 </body>
 </html>

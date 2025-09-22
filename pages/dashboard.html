@@ -318,6 +318,7 @@
         </div>
     </main>
 
+    <script src="../js/pwa.js"></script>
     <script src="../js/notifications.js"></script>
     <script src="../js/api.js"></script>
     <script>
@@ -366,6 +367,26 @@
 
         function goToAdmin() {
             window.location.href = 'admin.html';
+        }
+
+        // Charger les données au chargement de la page
+        document.addEventListener('DOMContentLoaded', () => {
+            loadDashboardData();
+            
+            // Animation d'entrée
+            document.querySelectorAll('.dashboard-card, .stat-card').forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>admin.html';
         }
 
         // Charger les données au chargement de la page

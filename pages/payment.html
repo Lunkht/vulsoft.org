@@ -470,6 +470,7 @@
         </div>
     </footer>
 
+    <script src="../js/pwa.js"></script>
     <script>
         let currentStep = 1;
 
@@ -589,6 +590,25 @@
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
+            }
+        });
+
+        // Checkbox styling
+        document.querySelectorAll('.checkbox-container input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const checkmark = this.nextElementSibling;
+                if (this.checked) {
+                    checkmark.style.background = 'var(--accent-color)';
+                    checkmark.style.borderColor = 'var(--accent-color)';
+                } else {
+                    checkmark.style.background = 'transparent';
+                    checkmark.style.borderColor = 'var(--border-color)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>classList.remove('scrolled');
             }
         });
 

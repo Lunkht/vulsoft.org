@@ -444,5 +444,25 @@ await api.register({
             }, 1000);
         });
     </script>
+    <script src="js/pwa.js"></script>
+</body>
+</html>         
+            // Animation d'entrée
+            document.querySelectorAll('.demo-section').forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+            
+            // Message de bienvenue
+            setTimeout(() => {
+                window.notifications.info('Bienvenue dans la démonstration Vulsoft ! 🚀');
+            }, 1000);
+        });
+    </script>
 </body>
 </html>

@@ -645,6 +645,7 @@
         </div>
     </footer>
 
+    <script src="../js/pwa.js"></script>
     <script>
         // Gestion des onglets
         const tabButtons = document.querySelectorAll('.tab-button');
@@ -685,6 +686,27 @@
             
             if (this.classList.contains('added')) {
                 this.classList.remove('added');
+                text.textContent = 'Ajouter aux favoris';
+                icon.setAttribute('fill', 'none');
+            } else {
+                this.classList.add('added');
+                text.textContent = 'Ajouté aux favoris';
+                icon.setAttribute('fill', 'currentColor');
+            }
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>           this.classList.remove('added');
                 text.textContent = 'Ajouter aux favoris';
                 icon.setAttribute('fill', 'none');
             } else {

@@ -120,10 +120,35 @@
         </div>
     </div>
 
+    <script src="../js/pwa.js"></script>
     <script src="../js/vulsoft-auth.js"></script>
     <script>
         const auth = new VulsoftAuth({
             apiUrl: 'http://localhost:3000/api',
+        });
+
+        const authUI = new VulsoftAuthUI(auth);
+
+        authUI.handleRegisterForm('register-form', {
+            errorElement: 'register-error',
+            successElement: 'register-success',
+            onSuccess: () => {
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 2000);
+            }
+        });
+
+        document.getElementById('google-login').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Connexion Google bientôt disponible');
+        });
+    </script>
+    <script src="../js/notifications.js"></script>
+    <script src="../js/api.js"></script>
+</body>
+
+</html>Url: 'http://localhost:3000/api',
         });
 
         const authUI = new VulsoftAuthUI(auth);

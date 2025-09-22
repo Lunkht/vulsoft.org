@@ -181,6 +181,7 @@
 
     </div>
 
+    <script src="../js/pwa.js"></script>
     <script>
         const chartTooltipOptions = {
             plugins: {
@@ -298,6 +299,33 @@
                     data: [6, 5, 3],
                     backgroundColor: ['#00A6FB', '#0582CA', '#006494'],
                     borderRadius: 5
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                ...chartTooltipOptions,
+                 scales: {
+                    x: {
+                        grid: { display: false },
+                         min: 0,
+                         max: 10
+                    },
+                    y: {
+                        grid: { display: false }
+                    }
+                },
+                plugins: {
+                    ...chartTooltipOptions.plugins,
+                    legend: { display: false }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+erRadius: 5
                 }]
             },
             options: {

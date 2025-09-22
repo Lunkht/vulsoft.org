@@ -1,147 +1,186 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, BackgroundTasks, Request
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
-from pydantic import BaseModel
-from datetime import datetime
+from pydantic import BaseModel, EmailStr
+from datetime import datetime, timedelta, timezone
 from typing import Optional
+
 from database import get_db, User
-import hashlib
+from ..email_utils import fm
+from fastapi_mail import MessageSchema
+
+# JWT, Passlib, and environment variables
+from jose import JWTError, jwt
+from passlib.context import CryptContext
+import os
+from dotenv import load_dotenv
 import secrets
+
+load_dotenv()
+
+# --- Configuration ---
+SECRET_KEY = os.getenv("JWT_SECRET_KEY")
+ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
+ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", 30))
+
+if not SECRET_KEY:
+    raise Exception("JWT_SECRET_KEY must be set in the environment variables")
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/auth/token")
 
 router = APIRouter()
 
-# Modèles Pydantic
+# --- Pydantic Models ---
 class UserCreate(BaseModel):
     firstName: str
     lastName: str
-    email: str
-    phone: Optional[str] = None
-    country: Optional[str] = None
-    city: Optional[str] = None
-    province: Optional[str] = None
-    address: Optional[str] = None
+    email: EmailStr
     password: str
-    confirmPassword: str
 
 class UserResponse(BaseModel):
     id: int
     username: str
-    email: str
+    email: EmailStr
     full_name: str
     is_active: bool
     created_at: datetime
 
-class LoginRequest(BaseModel):
-    username: str
-    password: str
+class Token(BaseModel):
+    access_token: str
+    token_type: str
 
-class LoginResponse(BaseModel):
-    success: bool
-    message: str
-    user_id: Optional[int] = None
+class TokenData(BaseModel):
+    username: Optional[str] = None
 
-# Fonctions utilitaires simplifiées
-def hash_password(password: str) -> str:
-    """Hash un mot de passe avec SHA-256 et un salt"""
-    salt = secrets.token_hex(16)
-    return f"{salt}:{hashlib.sha256((salt + password).encode()).hexdigest()}"
+class ForgotPasswordRequest(BaseModel):
+    email: EmailStr
 
-def verify_password(plain_password: str, hashed_password: str) -> bool:
-    """Vérifie un mot de passe"""
-    try:
-        salt, hash_part = hashed_password.split(':')
-        return hashlib.sha256((salt + plain_password).encode()).hexdigest() == hash_part
-    except:
-        return False
+class ResetPasswordRequest(BaseModel):
+    token: str
+    new_password: str
 
-def get_user_by_username(db: Session, username: str):
+# --- Utility Functions ---
+def verify_password(plain_password, hashed_password):
+    return pwd_context.verify(plain_password, hashed_password)
+
+def get_password_hash(password):
+    return pwd_context.hash(password)
+
+def get_user(db: Session, username: str):
     return db.query(User).filter(User.username == username).first()
 
 def get_user_by_email(db: Session, email: str):
     return db.query(User).filter(User.email == email).first()
 
-def authenticate_user(db: Session, username: str, password: str):
-    user = get_user_by_username(db, username)
-    if not user:
-        return False
-    if not verify_password(password, user.hashed_password):
-        return False
+def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
+    to_encode = data.copy()
+    expire = datetime.now(timezone.utc) + (expires_delta or timedelta(minutes=15))
+    to_encode.update({"exp": expire})
+    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+
+# --- Dependencies ---
+async def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+    credentials_exception = HTTPException(
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail="Could not validate credentials",
+        headers={"WWW-Authenticate": "Bearer"},
+    )
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        username: str = payload.get("sub")
+        if username is None:
+            raise credentials_exception
+        token_data = TokenData(username=username)
+    except JWTError:
+        raise credentials_exception
+    user = get_user(db, username=token_data.username)
+    if user is None:
+        raise credentials_exception
     return user
 
-# Routes d'authentification
-@router.post("/register", response_model=UserResponse)
-async def register_user(user: UserCreate, db: Session = Depends(get_db)):
-    """Inscription d'un nouvel utilisateur"""
-    
-    # Validation des mots de passe
-    if user.password != user.confirmPassword:
-        raise HTTPException(
-            status_code=400,
-            detail="Les mots de passe ne correspondent pas"
-        )
-    
-    if len(user.password) < 8:
-        raise HTTPException(
-            status_code=400,
-            detail="Le mot de passe doit contenir au moins 8 caractères"
-        )
-    
-    # Créer le nom d'utilisateur à partir de l'email
-    username = user.email.split('@')[0]
-    full_name = f"{user.firstName} {user.lastName}"
-    
-    # Vérifier si l'utilisateur existe déjà
-    if get_user_by_username(db, username):
-        # Si le nom d'utilisateur existe, ajouter un suffixe
-        counter = 1
-        original_username = username
-        while get_user_by_username(db, username):
-            username = f"{original_username}{counter}"
-            counter += 1
-    
+# --- API Routes ---
+
+@router.post("/register", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
+async def register_user(user: UserCreate, background_tasks: BackgroundTasks, db: Session = Depends(get_db)):
     if get_user_by_email(db, user.email):
-        raise HTTPException(
-            status_code=400,
-            detail="Cet email est déjà utilisé"
-        )
-    
-    # Créer le nouvel utilisateur
-    hashed_password = hash_password(user.password)
+        raise HTTPException(status_code=400, detail="Email already registered")
+
+    username = user.email.split('@')[0]
+    if get_user(db, username):
+        username = f"{username}{secrets.token_hex(2)}"
+
+    hashed_password = get_password_hash(user.password)
     db_user = User(
         username=username,
         email=user.email,
-        full_name=full_name,
+        full_name=f"{user.firstName} {user.lastName}",
         hashed_password=hashed_password
     )
-    
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
-    
+
+    welcome_email_body = f'''<h1>Bienvenue, {user.firstName} !</h1><p>Votre compte Vulsoft a été créé.</p>'''
+    message = MessageSchema(subject="Bienvenue sur Vulsoft !", recipients=[db_user.email], body=welcome_email_body, subtype="html")
+    background_tasks.add_task(fm.send_message, message)
+
     return db_user
 
-@router.post("/login", response_model=LoginResponse)
-async def login_user(
-    login_data: LoginRequest,
-    db: Session = Depends(get_db)
-):
-    """Connexion utilisateur simplifiée"""
-    user = authenticate_user(db, login_data.username, login_data.password)
-    if not user:
-        return LoginResponse(
-            success=False,
-            message="Nom d'utilisateur ou mot de passe incorrect"
-        )
+@router.post("/token", response_model=Token)
+async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
+    user = get_user(db, form_data.username)
+    if not user or not verify_password(form_data.password, user.hashed_password):
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Incorrect username or password")
     
-    return LoginResponse(
-        success=True,
-        message="Connexion réussie",
-        user_id=user.id
-    )
+    access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    access_token = create_access_token(data={"sub": user.username}, expires_delta=access_token_expires)
+    return {"access_token": access_token, "token_type": "bearer"}
 
-@router.get("/user/{user_id}", response_model=UserResponse)
-async def get_user_info(user_id: int, db: Session = Depends(get_db)):
-    """Obtenir les informations d'un utilisateur"""
-    user = db.query(User).filter(User.id == user_id).first()
+@router.post("/forgot-password")
+async def forgot_password(req: ForgotPasswordRequest, background_tasks: BackgroundTasks, request: Request, db: Session = Depends(get_db)):
+    user = get_user_by_email(db, req.email)
     if not user:
-        raise HTTPException(status_code=404, detail="Utilisateur non trouvé")
-    return user
+        # Do not reveal that the user does not exist
+        return {"message": "If an account with this email exists, a password reset link has been sent."}
+
+    reset_token_expires = timedelta(minutes=15)
+    reset_token = create_access_token(data={"sub": user.username, "type": "reset"}, expires_delta=reset_token_expires)
+    
+    # This should point to your frontend page
+    reset_link = f"{str(request.base_url)}pages/reset-password.html?token={reset_token}"
+
+    email_body = f'''<h1>Réinitialisation de mot de passe</h1><p>Cliquez sur le lien ci-dessous pour réinitialiser votre mot de passe. Ce lien expirera dans 15 minutes.</p><a href="{reset_link}">Réinitialiser le mot de passe</a>'''
+    message = MessageSchema(subject="Réinitialisation de mot de passe Vulsoft", recipients=[user.email], body=email_body, subtype="html")
+    background_tasks.add_task(fm.send_message, message)
+
+    return {"message": "If an account with this email exists, a password reset link has been sent."}
+
+@router.post("/reset-password")
+async def reset_password(req: ResetPasswordRequest, db: Session = Depends(get_db)):
+    credentials_exception = HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid or expired token")
+    try:
+        payload = jwt.decode(req.token, SECRET_KEY, algorithms=[ALGORITHM])
+        if payload.get("type") != "reset":
+            raise credentials_exception
+        username: str = payload.get("sub")
+        if username is None:
+            raise credentials_exception
+    except JWTError:
+        raise credentials_exception
+
+    user = get_user(db, username)
+    if not user:
+        raise credentials_exception
+
+    if len(req.new_password) < 8:
+        raise HTTPException(status_code=400, detail="Password must be at least 8 characters long")
+
+    user.hashed_password = get_password_hash(req.new_password)
+    db.commit()
+
+    return {"message": "Password has been reset successfully."}
+
+@router.get("/users/me", response_model=UserResponse)
+async def read_users_me(current_user: User = Depends(get_current_user)):
+    return current_user
