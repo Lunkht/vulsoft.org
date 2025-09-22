@@ -11,10 +11,16 @@ router = APIRouter()
 
 # Modèles Pydantic
 class UserCreate(BaseModel):
-    username: str
+    firstName: str
+    lastName: str
     email: str
-    full_name: str
+    phone: Optional[str] = None
+    country: Optional[str] = None
+    city: Optional[str] = None
+    province: Optional[str] = None
+    address: Optional[str] = None
     password: str
+    confirmPassword: str
 
 class UserResponse(BaseModel):
     id: int
@@ -66,12 +72,31 @@ def authenticate_user(db: Session, username: str, password: str):
 async def register_user(user: UserCreate, db: Session = Depends(get_db)):
     """Inscription d'un nouvel utilisateur"""
     
-    # Vérifier si l'utilisateur existe déjà
-    if get_user_by_username(db, user.username):
+    # Validation des mots de passe
+    if user.password != user.confirmPassword:
         raise HTTPException(
             status_code=400,
-            detail="Ce nom d'utilisateur est déjà pris"
+            detail="Les mots de passe ne correspondent pas"
         )
+    
+    if len(user.password) < 8:
+        raise HTTPException(
+            status_code=400,
+            detail="Le mot de passe doit contenir au moins 8 caractères"
+        )
+    
+    # Créer le nom d'utilisateur à partir de l'email
+    username = user.email.split('@')[0]
+    full_name = f"{user.firstName} {user.lastName}"
+    
+    # Vérifier si l'utilisateur existe déjà
+    if get_user_by_username(db, username):
+        # Si le nom d'utilisateur existe, ajouter un suffixe
+        counter = 1
+        original_username = username
+        while get_user_by_username(db, username):
+            username = f"{original_username}{counter}"
+            counter += 1
     
     if get_user_by_email(db, user.email):
         raise HTTPException(
@@ -82,9 +107,9 @@ async def register_user(user: UserCreate, db: Session = Depends(get_db)):
     # Créer le nouvel utilisateur
     hashed_password = hash_password(user.password)
     db_user = User(
-        username=user.username,
+        username=username,
         email=user.email,
-        full_name=user.full_name,
+        full_name=full_name,
         hashed_password=hashed_password
     )
     

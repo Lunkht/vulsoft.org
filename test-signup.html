@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Inscription - Vulsoft</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f8fafc;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        button {
+            background: #3b82f6;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        button:hover {
+            background: #2563eb;
+        }
+        button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        .field-error {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .status {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+        .status.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #ef4444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Test Inscription Vulsoft</h1>
+        
+        <div id="status" style="display: none;"></div>
+
+        <form id="signup-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">Prénom *</label>
+                    <input type="text" name="firstName" id="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Nom *</label>
+                    <input type="text" name="lastName" id="lastName" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input type="tel" name="phone" id="phone">
+                </div>
+                <div class="form-group">
+                    <label for="country">Pays</label>
+                    <select name="country" id="country">
+                        <option value="">Sélectionnez</option>
+                        <option value="GN">Guinée</option>
+                        <option value="CI">Côte d'Ivoire</option>
+                        <option value="FR">France</option>
+                        <option value="CA">Canada</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="city">Ville</label>
+                    <input type="text" name="city" id="city">
+                </div>
+                <div class="form-group">
+                    <label for="province">Province/Région</label>
+                    <input type="text" name="province" id="province">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="address">Adresse</label>
+                <textarea name="address" id="address" rows="3"></textarea>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="password">Mot de passe *</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmer *</label>
+                    <input type="password" name="confirmPassword" id="confirmPassword" required>
+                </div>
+            </div>
+            
+            <button type="submit">S'inscrire</button>
+        </form>
+    </div>
+
+    <script>
+        // Client API simple
+        class VulsoftAPI {
+            constructor() {
+                this.baseURL = 'http://localhost:8001/api';
+            }
+
+            async register(userData) {
+                const response = await fetch(`${this.baseURL}/auth/register`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(userData),
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.detail || 'Erreur lors de l\'inscription');
+                }
+
+                return data;
+            }
+        }
+
+        const api = new VulsoftAPI();
+
+        // Gestion du formulaire
+        document.getElementById('signup-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const statusEl = document.getElementById('status');
+            const submitButton = e.target.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            
+            try {
+                // Désactiver le bouton
+                submitButton.disabled = true;
+                submitButton.textContent = 'Inscription en cours...';
+                
+                // Collecter les données
+                const formData = new FormData(e.target);
+                const data = Object.fromEntries(formData.entries());
+                
+                // Validation côté client
+                if (data.password !== data.confirmPassword) {
+                    throw new Error('Les mots de passe ne correspondent pas');
+                }
+                
+                if (data.password.length < 8) {
+                    throw new Error('Le mot de passe doit contenir au moins 8 caractères');
+                }
+                
+                // Envoyer à l'API
+                const response = await api.register(data);
+                
+                // Afficher le succès
+                statusEl.className = 'status success';
+                statusEl.textContent = `✅ Inscription réussie ! Utilisateur créé: ${response.username}`;
+                statusEl.style.display = 'block';
+                
+                // Réinitialiser le formulaire
+                e.target.reset();
+                
+            } catch (error) {
+                // Afficher l'erreur
+                statusEl.className = 'status error';
+                statusEl.textContent = `❌ ${error.message}`;
+                statusEl.style.display = 'block';
+            } finally {
+                // Réactiver le bouton
+                submitButton.disabled = false;
+                submitButton.textContent = originalText;
+            }
+        });
+
+        // Validation en temps réel des mots de passe
+        document.getElementById('confirmPassword').addEventListener('input', function() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = this.value;
+            
+            if (confirmPassword && password !== confirmPassword) {
+                this.style.borderColor = '#ef4444';
+                
+                // Ajouter message d'erreur s'il n'existe pas
+                let errorEl = this.parentNode.querySelector('.field-error');
+                if (!errorEl) {
+                    errorEl = document.createElement('div');
+                    errorEl.className = 'field-error';
+                    this.parentNode.appendChild(errorEl);
+                }
+                errorEl.textContent = 'Les mots de passe ne correspondent pas';
+            } else {
+                this.style.borderColor = '';
+                const errorEl = this.parentNode.querySelector('.field-error');
+                if (errorEl) errorEl.remove();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -186,6 +186,17 @@ rm backend/vulsoft.db
 pip install --upgrade -r requirements.txt
 ```
 
+### Erreur "[object Object]" lors de l'inscription
+Cette erreur a été corrigée dans la version actuelle. Si elle persiste :
+1. Vérifiez que le serveur backend est démarré
+2. Testez avec `test-signup.html` pour isoler le problème
+3. Vérifiez la console du navigateur pour plus de détails
+
+### Test des fonctionnalités
+- **Test API général** : Ouvrir `test-api.html`
+- **Test inscription** : Ouvrir `test-signup.html`
+- **Démonstration complète** : Ouvrir `demo.html`
+
 ## 📞 Support
 
 Pour toute question ou problème :

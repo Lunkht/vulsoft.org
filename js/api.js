@@ -23,15 +23,45 @@ class VulsoftAPI {
 
         try {
             const response = await fetch(url, config);
-            const data = await response.json();
+            
+            // Vérifier si la réponse est du JSON
+            const contentType = response.headers.get('content-type');
+            let data;
+            
+            if (contentType && contentType.includes('application/json')) {
+                data = await response.json();
+            } else {
+                data = { message: await response.text() };
+            }
 
             if (!response.ok) {
-                throw new Error(data.detail || 'Erreur API');
+                // Gestion améliorée des erreurs
+                let errorMessage = 'Erreur API';
+                
+                if (typeof data === 'object' && data !== null) {
+                    if (data.detail) {
+                        errorMessage = data.detail;
+                    } else if (data.message) {
+                        errorMessage = data.message;
+                    } else if (data.error) {
+                        errorMessage = data.error;
+                    }
+                } else if (typeof data === 'string') {
+                    errorMessage = data;
+                }
+                
+                throw new Error(errorMessage);
             }
 
             return data;
         } catch (error) {
             console.error('Erreur API:', error);
+            
+            // S'assurer que l'erreur a un message lisible
+            if (error.message === '[object Object]' || !error.message) {
+                error.message = 'Une erreur inattendue s\'est produite';
+            }
+            
             throw error;
         }
     }
@@ -323,6 +353,23 @@ class EnhancedFormHandler extends FormHandler {
             }
         }
         
+        // Validation mot de passe
+        if (field.type === 'password' && field.name === 'password' && value) {
+            if (value.length < 8) {
+                isValid = false;
+                message = 'Le mot de passe doit contenir au moins 8 caractères';
+            }
+        }
+        
+        // Validation confirmation mot de passe
+        if (field.name === 'confirmPassword' && value) {
+            const passwordField = this.form.querySelector('[name="password"]');
+            if (passwordField && value !== passwordField.value) {
+                isValid = false;
+                message = 'Les mots de passe ne correspondent pas';
+            }
+        }
+        
         // Validation champs requis
         if (field.required && !value) {
             isValid = false;
@@ -441,10 +488,27 @@ document.addEventListener('DOMContentLoaded', () => {
         return response;
     });
     
-    // Formulaire d'inscription
+    // Formulaire d'inscription avec validation spéciale
     new EnhancedFormHandler('#signup-form', 
-        (data) => window.vulsoftAPI.register(data),
-        { validateOnInput: true }
+        async (data) => {
+            // Validation côté client
+            if (data.password !== data.confirmPassword) {
+                throw new Error('Les mots de passe ne correspondent pas');
+            }
+            
+            if (data.password.length < 8) {
+                throw new Error('Le mot de passe doit contenir au moins 8 caractères');
+            }
+            
+            // Validation email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                throw new Error('Format email invalide');
+            }
+            
+            return await window.vulsoftAPI.register(data);
+        },
+        { validateOnInput: true, showNotifications: true }
     );
     
     // Animations au scroll
