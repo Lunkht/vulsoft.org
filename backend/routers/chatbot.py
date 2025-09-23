@@ -7,7 +7,7 @@ from typing import List, Dict
 router = APIRouter()
 
 # Configure OpenAI only if the key is available and not the placeholder
-if settings.OPENAI_API_KEY and settings.OPENAI_API_KEY != "votre_clé_api_openai_ici":
+if settings.OPENAI_API_KEY and settings.OPENAI_API_KEY != "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":
     try:
         openai.api_key = settings.OPENAI_API_KEY
     except Exception as e:
