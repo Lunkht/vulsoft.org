@@ -42,7 +42,7 @@
         --shadow-color: rgba(255, 255, 255, 0.1);
         --shadow-light: rgba(255, 255, 255, 0.05);
         --input-bg: #1a1a1a;
-        --button-primary-bg: #ffffff;
+        --button-primary-bg: #3f3f3f;
         --button-primary-text: #000000;
         --button-primary-hover-bg: #cccccc;
         --button-primary-hover-text: #000000;
@@ -170,14 +170,13 @@ body {
 .connexion-btn {
     background: var(--button-primary-bg);
     color: var(--button-primary-text);
-    padding: 0.75rem 1.5rem;
-    border-radius: 16px;
+    padding: 0.5rem;
+    border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 0.95rem;
     letter-spacing: -0.01em;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
 .connexion-btn:hover {
