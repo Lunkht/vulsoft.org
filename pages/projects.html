@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Projets - Vulsoft</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/projects.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="../images/logo-Vulsoft-1.svg" alt="Vulsoft Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="#projects" class="active">Projets</a></li>
+                <li><a href="../academie.html">Académie</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="connexion-btn">Connexion</a>
+                <div class="language-switcher"></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="projects-hero">
+        <div class="container">
+            <h1>Nos Réalisations</h1>
+            <p>Découvrez une sélection de projets qui illustrent notre savoir-faire et notre passion pour l'innovation technologique.</p>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="projects-grid-section">
+        <div class="container">
+            <div id="projects-grid" class="projects-grid">
+                <!-- Les projets seront injectés ici par JavaScript -->
+                <div class="loading">Chargement des projets...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Contenu du footer standard -->
+    </footer>
+
+    <script src="../js/pwa.js"></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/projects.js" defer></script>
+</body>
+</html>
+
+```
+
+#### 2. Création de la page de détails d'un projet (`pages/project-details.html`)
+
+```diff

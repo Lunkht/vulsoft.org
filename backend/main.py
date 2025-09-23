@@ -25,8 +25,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Créer le répertoire d'uploads s'il n'existe pas
+UPLOADS_DIR = Path("uploads")
+UPLOADS_DIR.mkdir(exist_ok=True)
+
 # Servir les fichiers statiques (CSS, JS, images)
-app.mount("/static", StaticFiles(directory="../"), name="static")
+app.mount("/uploads", StaticFiles(directory=UPLOADS_DIR), name="uploads")
+app.mount("/", StaticFiles(directory="../", html=True), name="static")
 
 # Inclusion des routes
 app.include_router(auth.router, prefix="/api/auth", tags=["Authentication"])
@@ -42,21 +47,6 @@ app.include_router(payment.router, prefix="/api/payment", tags=["Payment"])
 async def startup_event():
     """Initialisation de la base de données au démarrage"""
     await init_db()
-
-@app.get("/", response_class=HTMLResponse)
-async def serve_homepage():
-    """Servir la page d'accueil"""
-    with open("../index.html", "r", encoding="utf-8") as f:
-        return HTMLResponse(content=f.read())
-
-@app.get("/pages/{page_name}", response_class=HTMLResponse)
-async def serve_page(page_name: str):
-    """Servir les pages HTML"""
-    page_path = Path(f"../pages/{page_name}")
-    if page_path.exists():
-        with open(page_path, "r", encoding="utf-8") as f:
-            return HTMLResponse(content=f.read())
-    raise HTTPException(status_code=404, detail="Page non trouvée")
 
 @app.get("/health")
 async def health_check():

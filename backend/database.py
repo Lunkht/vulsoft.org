@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine, Column, Integer, String, Boolean, DateTime, Text, ForeignKey, JSON
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
 from datetime import datetime
 from .core.config import settings
@@ -40,8 +40,18 @@ class ContactMessage(Base):
     budget = Column(String, nullable=True)
     message = Column(Text)
     newsletter = Column(Boolean, default=False)
+    file_path = Column(String, nullable=True)
     status = Column(String, default="nouveau") # nouveau, lu, traité
     created_at = Column(DateTime, default=datetime.utcnow)
+
+class ProjectImage(Base):
+    __tablename__ = "project_images"
+    id = Column(Integer, primary_key=True, index=True)
+    project_id = Column(Integer, ForeignKey("projects.id"), nullable=False)
+    file_path = Column(String, nullable=False)
+    is_primary = Column(Boolean, default=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    project = relationship("Project", back_populates="images")
 
 class Project(Base):
     __tablename__ = "projects"
@@ -53,6 +63,7 @@ class Project(Base):
     status = Column(String, default="en_cours") # en_cours, terminé, en_attente
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    images = relationship("ProjectImage", back_populates="project", cascade="all, delete-orphan")
 
 class AnalyticsEvent(Base):
     __tablename__ = "analytics_events"

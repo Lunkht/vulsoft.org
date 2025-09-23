@@ -1,10 +1,12 @@
-from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
+from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks, Form, UploadFile, File
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
 from typing import Optional, Dict
 from ..database import get_db, ContactMessage
 from datetime import datetime
 from ..services import email_service
+import uuid
+import os
 
 router = APIRouter()
 
@@ -27,32 +29,56 @@ class ContactResponse(BaseModel):
     id: Optional[int] = None
 
 @router.post("/submit", response_model=ContactResponse)
-async def submit_contact_form(
-    contact_data: ContactRequest,
+async def submit_contact_form( # Modifié pour accepter les formulaires multipart
     background_tasks: BackgroundTasks,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    firstName: str = Form(...),
+    lastName: str = Form(...),
+    email: str = Form(...),
+    phone: Optional[str] = Form(None),
+    company: Optional[str] = Form(None),
+    service: Optional[str] = Form(None),
+    budget: Optional[str] = Form(None),
+    message: str = Form(...),
+    newsletter: bool = Form(False),
+    privacy: bool = Form(...),
+    attachment: Optional[UploadFile] = File(None)
 ):
     """Traiter la soumission du formulaire de contact"""
     
     # Validation de la politique de confidentialité
-    if not contact_data.privacy:
+    if not privacy:
         raise HTTPException(
             status_code=400,
             detail="Vous devez accepter la politique de confidentialité"
         )
     
     try:
+        file_path = None
+        if attachment:
+            # Générer un nom de fichier unique pour éviter les conflits
+            file_extension = attachment.filename.split('.')[-1] if '.' in attachment.filename else ''
+            unique_filename = f"{uuid.uuid4()}.{file_extension}"
+            save_path = os.path.join("uploads", unique_filename)
+            
+            # Sauvegarder le fichier
+            with open(save_path, "wb") as buffer:
+                buffer.write(await attachment.read())
+            
+            file_path = save_path
+
         # Créer l'entrée en base de données
         db_contact = ContactMessage(
-            first_name=contact_data.firstName,
-            last_name=contact_data.lastName,
-            email=contact_data.email,
-            phone=contact_data.phone,
-            company=contact_data.company,
-            service=contact_data.service,
-            budget=contact_data.budget,
-            message=contact_data.message,
-            newsletter=contact_data.newsletter,
+            first_name=firstName,
+            last_name=lastName,
+            email=email,
+            phone=phone,
+            company=company,
+            service=service,
+            budget=budget,
+            message=message,
+            newsletter=newsletter,
+            file_path=file_path,
             created_at=datetime.utcnow()
         )
         
@@ -60,14 +86,17 @@ async def submit_contact_form(
         db.commit()
         db.refresh(db_contact)
         
+        # Préparer les données pour l'email
+        form_data_dict = locals().copy()
+
         # Envoyer les emails de confirmation et de notification admin
         background_tasks.add_task(
             email_service.send_contact_confirmation_email,
-            email_to=contact_data.email,
-            first_name=contact_data.firstName
+            email_to=email,
+            first_name=firstName
         )
         background_tasks.add_task(
-            email_service.send_contact_notification_to_admin, data=contact_data.dict()
+            email_service.send_contact_notification_to_admin, data=form_data_dict
         )
         
         return ContactResponse(

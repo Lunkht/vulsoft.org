@@ -70,6 +70,11 @@ async def send_contact_notification_to_admin(data: Dict):
     Email: {data.get('email')}
     Message: {data.get('message')}
     """
+    
+    if data.get("file_path"):
+        file_url = f"http://localhost:8001/{data.get('file_path')}"
+        body += f"\n\nPièce jointe: {file_url}"
+
     message = MessageSchema(subject="Nouveau Message de Contact", recipients=[admin_email], body=body, subtype="plain")
     try:
         await fm.send_message(message)
