@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentification en cours...</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .loading-container {
+            color: var(--text-primary);
+        }
+        .loading-spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--border-color);
+            border-top-color: var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <div class="loading-spinner"></div>
+        <h1>Finalisation de la connexion...</h1>
+        <p>Veuillez patienter.</p>
+    </div>
+
+    <script src="../js/vulsoft-auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const hash = window.location.hash.substring(1);
+            const params = new URLSearchParams(hash);
+            const accessToken = params.get('access_token');
+
+            if (accessToken) {
+                const auth = new VulsoftAuth();
+                auth.setAccessToken(accessToken);
+                await auth.getProfile(); // Récupérer et stocker les infos utilisateur
+                window.location.replace('/pages/dashboard.html'); // Rediriger vers le dashboard
+            }
+        });
+    </script>
+</body>
+</html>

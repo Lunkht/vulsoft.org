@@ -107,6 +107,14 @@ class VulsoftAPI {
         });
     }
 
+    // Méthodes pour la newsletter
+    async subscribeNewsletter(email) {
+        return await this.request('/newsletter/subscribe', {
+            method: 'POST',
+            body: JSON.stringify({ email }),
+        });
+    }
+
     async getContactMessages(params = {}) {
         const queryString = new URLSearchParams(params).toString();
         return await this.request(`/contact/messages?${queryString}`);

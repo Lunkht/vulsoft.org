@@ -8,3 +8,6 @@ pydantic-settings
 fastapi-mail
 openai
 stripe
+httpx
+pyotp
+qrcode[pil]

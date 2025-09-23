@@ -290,6 +290,79 @@
             }
         }
     </style>
+    <style>
+        /* Styles pour les modales */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background-color: var(--card-bg);
+            margin: 10% auto;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            width: 80%;
+            max-width: 600px;
+            border-radius: 16px;
+            position: relative;
+            animation: slideInModal 0.3s ease-out;
+        }
+        @keyframes slideInModal {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .close-btn {
+            color: var(--text-secondary);
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-btn:hover { color: var(--accent-color); }
+        
+        #project-images-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-top: 1rem;
+        }
+        .gallery-item {
+            position: relative;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .delete-img-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(239, 68, 68, 0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 </head>
 <body>
@@ -321,6 +394,14 @@
                     <li><a href="#analytics" class="nav-link" data-section="analytics">
                         <span class="sidebar-icon">📈</span>
                         <span>Analytics</span>
+                    </a></li>
+                    <li><a href="#newsletter" class="nav-link" data-section="newsletter">
+                        <span class="sidebar-icon">📰</span>
+                        <span>Newsletter</span>
+                    </a></li>
+                    <li><a href="#blog" class="nav-link" data-section="blog">
+                        <span class="sidebar-icon">✍️</span>
+                        <span>Blog</span>
                     </a></li>
                     <li><a href="#settings" class="nav-link" data-section="settings">
                         <span class="sidebar-icon">⚙️</span>
@@ -400,7 +481,7 @@
                 <div class="admin-section">
                     <div class="section-header">
                         <h3 class="section-title">Gestion des Projets</h3>
-                        <button class="action-btn primary" onclick="createProject()">
+                        <button class="action-btn primary" onclick="openCreateProjectModal()">
                             + Nouveau Projet
                         </button>
                     </div>
@@ -450,6 +531,51 @@
                 </div>
             </div>
 
+            <!-- Section Newsletter -->
+            <div id="newsletter-section" class="admin-section-content" style="display: none;">
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Envoyer une Newsletter</h3>
+                    </div>
+                    <div class="section-content" style="padding: 2rem;">
+                        <form id="newsletter-form">
+                            <div class="form-group">
+                                <label for="newsletter-subject">Sujet</label>
+                                <input type="text" id="newsletter-subject" required class="search-box" style="width: 100%;">
+                            </div>
+                            <div class="form-group">
+                                <label for="newsletter-content">Contenu (HTML autorisé)</label>
+                                <textarea id="newsletter-content" rows="10" required class="search-box" style="width: 100%; font-family: monospace;"></textarea>
+                            </div>
+                            <button type="submit" class="action-btn primary">Envoyer la newsletter</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Abonnés à la Newsletter</h3>
+                    </div>
+                    <div class="section-content">
+                        <div id="subscribers-table" class="loading">Chargement des abonnés...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Blog -->
+            <div id="blog-section" class="admin-section-content" style="display: none;">
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Gestion du Blog</h3>
+                        <button class="action-btn primary" onclick="openCreatePostModal()">
+                            + Nouvel Article
+                        </button>
+                    </div>
+                    <div class="section-content">
+                        <div id="blog-posts-table" class="loading">Chargement des articles...</div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Section Paramètres -->
             <div id="settings-section" class="admin-section-content" style="display: none;">
                 <div class="admin-section">
@@ -475,6 +601,110 @@
                 </div>
             </div>
         </main>
+    </div>
+
+    <!-- Modal pour créer un projet -->
+    <div id="create-project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeCreateProjectModal()">&times;</span>
+            <h2>Créer un nouveau projet</h2>
+            <form id="create-project-form" style="margin-top: 2rem;">
+                <div class="form-group">
+                    <label for="project-title">Titre</label>
+                    <input type="text" id="project-title" name="title" required class="search-box" style="width: 100%;">
+                </div>
+                <div class="form-group">
+                    <label for="project-description">Description</label>
+                    <textarea id="project-description" name="description" rows="4" class="search-box" style="width: 100%;"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="project-technology">Technologies</label>
+                    <input type="text" id="project-technology" name="technology" placeholder="React, FastAPI, ..." class="search-box" style="width: 100%;">
+                </div>
+                <div class="form-group">
+                    <label for="project-client">Client</label>
+                    <input type="text" id="project-client" name="client" class="search-box" style="width: 100%;">
+                </div>
+                <button type="submit" class="action-btn primary" style="margin-top: 1rem;">Créer le projet</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal pour gérer les images -->
+    <div id="manage-images-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeManageImagesModal()">&times;</span>
+            <h2 id="manage-images-title">Gérer les images</h2>
+            <div id="project-images-gallery">
+                <!-- Les images existantes seront injectées ici -->
+            </div>
+            <hr style="margin: 2rem 0; border-color: var(--border-color);">
+            <h3>Ajouter une nouvelle image</h3>
+            <form id="upload-image-form" style="margin-top: 1rem;">
+                <input type="hidden" id="upload-project-id" name="project_id">
+                <div class="form-group">
+                    <label for="project-image-file">Fichier image</label>
+                    <input type="file" id="project-image-file" name="file" accept="image/*" required class="search-box" style="width: 100%;">
+                </div>
+                <button type="submit" class="action-btn primary" style="margin-top: 1rem;">Télécharger l'image</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal pour modifier un projet -->
+    <div id="edit-project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeEditProjectModal()">&times;</span>
+            <h2>Modifier le projet</h2>
+            <form id="edit-project-form" style="margin-top: 2rem;">
+                <input type="hidden" id="edit-project-id">
+                <div class="form-group">
+                    <label for="edit-project-title">Titre</label>
+                    <input type="text" id="edit-project-title" name="title" required class="search-box" style="width: 100%;">
+                </div>
+                <div class="form-group">
+                    <label for="edit-project-description">Description</label>
+                    <textarea id="edit-project-description" name="description" rows="4" class="search-box" style="width: 100%;"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="edit-project-technology">Technologies</label>
+                    <input type="text" id="edit-project-technology" name="technology" placeholder="React, FastAPI, ..." class="search-box" style="width: 100%;">
+                </div>
+                <div class="form-group">
+                    <label for="edit-project-client">Client</label>
+                    <input type="text" id="edit-project-client" name="client" class="search-box" style="width: 100%;">
+                </div>
+                <div class="form-group">
+                    <label for="edit-project-status">Statut</label>
+                    <select id="edit-project-status" name="status" class="search-box" style="width: 100%;"><option value="en_cours">En cours</option><option value="terminé">Terminé</option><option value="en_attente">En attente</option></select>
+                </div>
+                <button type="submit" class="action-btn primary" style="margin-top: 1rem;">Enregistrer les modifications</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal pour créer/modifier un article de blog -->
+    <div id="blog-post-modal" class="modal">
+        <div class="modal-content" style="max-width: 800px;">
+            <span class="close-btn" onclick="closeBlogPostModal()">&times;</span>
+            <h2 id="blog-post-modal-title">Nouvel Article</h2>
+            <form id="blog-post-form" style="margin-top: 2rem;">
+                <input type="hidden" id="blog-post-id">
+                <div class="form-group">
+                    <label for="blog-post-title">Titre de l'article</label>
+                    <input type="text" id="blog-post-title" name="title" required class="search-box" style="width: 100%;">
+                </div>
+                <div class="form-group">
+                    <label for="blog-post-content">Contenu (Markdown supporté)</label>
+                    <textarea id="blog-post-content" name="content" rows="15" class="search-box" style="width: 100%; font-family: monospace;"></textarea>
+                </div>
+                <div class="form-group" style="flex-direction: row; align-items: center; gap: 1rem;">
+                    <label for="blog-post-published">Publier l'article</label>
+                    <input type="checkbox" id="blog-post-published" name="is_published" style="width: auto;">
+                </div>
+                <button type="submit" class="action-btn primary" style="margin-top: 1rem;">Enregistrer</button>
+            </form>
+        </div>
     </div>
 
     <script src="../js/notifications.js"></script>

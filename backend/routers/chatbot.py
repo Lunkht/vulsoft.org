@@ -1,44 +1,38 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 import openai
-from typing import List
-
 from ..core.config import settings
+from typing import List, Dict
 
 router = APIRouter()
 
-# Configure OpenAI
-openai.api_key = settings.OPENAI_API_KEY
+# Configure OpenAI only if the key is available and not the placeholder
+if settings.OPENAI_API_KEY and settings.OPENAI_API_KEY != "votre_clé_api_openai_ici":
+    try:
+        openai.api_key = settings.OPENAI_API_KEY
+    except Exception as e:
+        print(f"Erreur de configuration OpenAI: {e}")
+        openai.api_key = None
+else:
+    print("Avertissement: La clé API OpenAI n'est pas configurée. Le chatbot ne fonctionnera pas.")
+    openai.api_key = None
 
 class ChatRequest(BaseModel):
-    message: str
-    history: List[dict] = []
+    messages: List[Dict[str, str]]
 
 @router.post("/chat")
-async def handle_chat(chat_request: ChatRequest):
-    """
-    Gère une requête de chat et retourne une réponse de l'IA.
-    """
-    if not settings.OPENAI_API_KEY or "Ma clé API OpenAI" in settings.OPENAI_API_KEY:
-        return {"response": "La clé API OpenAI n'est pas configurée sur le serveur. Veuillez contacter l'administrateur."}
+async def chat_with_bot(request: ChatRequest):
+    """Proxy pour l'API OpenAI. Reçoit un historique de messages et retourne la réponse de l'assistant."""
+    if not openai.api_key:
+        raise HTTPException(status_code=503, detail="Le service de chatbot est actuellement indisponible.")
 
     try:
-        # Créer un contexte pour l'IA
-        messages = [
-            {"role": "system", "content": "Tu es VulsoftAI, un assistant virtuel amical et serviable pour le site Vulsoft. Tu réponds aux questions sur les services de développement, les formations et l'entreprise. Sois concis et professionnel."},
-        ]
-        messages.extend(chat_request.history)
-        messages.append({"role": "user", "content": chat_request.message})
-
-        completion = await openai.ChatCompletion.acreate(
+        response = await openai.chat.completions.create(
             model="gpt-3.5-turbo",
-            messages=messages,
+            messages=request.messages,
             max_tokens=150
         )
-        
-        ai_response = completion.choices[0].message.content.strip()
-        return {"response": ai_response}
-        
+        return {"reply": response.choices[0].message.content.strip()}
     except Exception as e:
         print(f"Erreur OpenAI: {e}")
-        raise HTTPException(status_code=500, detail="Erreur lors de la communication avec l'assistant IA.")
+        raise HTTPException(status_code=500, detail="Erreur lors de la communication avec l'assistant AI.")

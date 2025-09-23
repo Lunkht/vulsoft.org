@@ -42,14 +42,17 @@ class VulsoftAuth {
      * Effectuer une requête HTTP avec gestion d'erreurs
      */
     async request(endpoint, options = {}) {
-        const url = `${this.apiUrl}${endpoint}`; // Assurez-vous que apiUrl est bien défini
+        const url = `${this.apiUrl}${endpoint}`;
         const config = {
             headers: {
-                'Content-Type': 'application/json',
                 ...options.headers
             },
             ...options
         };
+        
+        if (!(options.body instanceof FormData)) {
+            config.headers['Content-Type'] = config.headers['Content-Type'] || 'application/json';
+        }
         
         // Ajouter le token d'authentification si disponible
         const token = this.getAccessToken();
@@ -116,37 +119,61 @@ class VulsoftAuth {
      * Connexion utilisateur
      */
     async login(email, password) {
-        try {
-            const response = await this.request('/auth/token', { // Endpoint standard pour obtenir un token
-                method: 'POST',
-                body: new URLSearchParams({ 'username': email, 'password': password }),
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-            });
-            
-            // Stocker les tokens et les informations utilisateur
-            this.setAccessToken(response.access_token);
-            this.setRefreshToken(response.refreshToken);
-            await this.getProfile(); // Récupérer le profil après connexion
+        const response = await this.request('/auth/token', {
+            method: 'POST',
+            body: new URLSearchParams({ 'username': email, 'password': password }),
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        });
 
-            // Démarrer le refresh automatique
-            this.startAutoRefresh();
-            
-            // Notifier le changement d'état
-            if (this.onAuthStateChanged) {
-                this.onAuthStateChanged(this.getCurrentUser());
-            }
-            
+        if (response.two_factor_required) {
             return {
                 success: true,
-                user: response.user,
-                message: response.message
-            };
-        } catch (error) {
-            return {
-                success: false,
-                error: error.message
+                two_factor_required: true,
+                two_factor_token: response.two_factor_token
             };
         }
+
+        this.setAccessToken(response.access_token);
+        this.setRefreshToken(response.refreshToken);
+        await this.getProfile();
+        this.startAutoRefresh();
+
+        if (this.onAuthStateChanged) {
+            this.onAuthStateChanged(this.getCurrentUser());
+        }
+
+        return {
+            success: true,
+            user: this.getCurrentUser(),
+            two_factor_required: false
+        };
+    }
+
+    /**
+     * Connexion avec code 2FA
+     */
+    async loginWith2FA(twoFactorToken, otpCode) {
+        const response = await this.request('/auth/token/2fa', {
+            method: 'POST',
+            body: JSON.stringify({
+                two_factor_token: twoFactorToken,
+                otp_code: otpCode
+            })
+        });
+
+        this.setAccessToken(response.access_token);
+        this.setRefreshToken(response.refreshToken);
+        await this.getProfile();
+        this.startAutoRefresh();
+
+        if (this.onAuthStateChanged) {
+            this.onAuthStateChanged(this.getCurrentUser());
+        }
+
+        return {
+            success: true,
+            user: this.getCurrentUser()
+        };
     }
     
     /**
@@ -249,6 +276,69 @@ class VulsoftAuth {
             return {
                 success: true,
                 message: response.message
+            };
+        } catch (error) {
+            return {
+                success: false,
+                error: error.message
+            };
+        }
+    }
+
+    // --- 2FA Methods ---
+    async generate2FASecret() {
+        return await this.request('/2fa/generate', { method: 'POST' });
+    }
+
+    async enable2FA(otpCode) {
+        return await this.request('/2fa/enable', {
+            method: 'POST',
+            body: JSON.stringify({ otp_code: otpCode })
+        });
+    }
+
+    async disable2FA(password) {
+        return await this.request('/2fa/disable', {
+            method: 'POST',
+            body: JSON.stringify({ password: password })
+        });
+    }
+
+    async login(email, password) {
+        try {
+            const response = await this.request('/auth/token', { // Endpoint standard pour obtenir un token
+                method: 'POST',
+                body: new URLSearchParams({ 'username': email, 'password': password }),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            });
+            
+            // Check if 2FA is required
+            if (response.two_factor_required) {
+                return {
+                    success: true,
+                    two_factor_required: true,
+                    two_factor_token: response.two_factor_token
+                };
+            }
+
+            // Stocker les tokens et les informations utilisateur
+            this.setAccessToken(response.access_token);
+            this.setRefreshToken(response.refreshToken);
+            await this.getProfile(); // Récupérer le profil après connexion
+
+            // Démarrer le refresh automatique
+            this.startAutoRefresh();
+            
+            // Notifier le changement d'état
+            if (this.onAuthStateChanged) {
+                this.onAuthStateChanged(this.getCurrentUser());
+            }
+            
+            return {
+                success: true,
+                user: this.getCurrentUser(),
+                message: response.message,
+                two_factor_required: false
             };
         } catch (error) {
             return {
@@ -404,38 +494,68 @@ class VulsoftAuthUI {
      * Gérer un formulaire de connexion
      */
     handleLoginForm(formId, options = {}) {
-        const form = document.getElementById(formId);
-        if (!form) return;
+        const loginForm = document.getElementById(formId);
+        if (!loginForm) return;
+
+        const twoFactorFormWrapper = document.getElementById('2fa-form-wrapper');
+        const twoFactorForm = document.getElementById('2fa-form');
+        const loginFormWrapper = document.getElementById('login-form-wrapper');
         
-        form.addEventListener('submit', async (e) => {
+        let twoFactorToken = null;
+
+        loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const email = form.querySelector('[name="email"]').value.trim();
-            const password = form.querySelector('[name="password"]').value;
+            const email = loginForm.querySelector('[name="username"]').value.trim();
+            const password = loginForm.querySelector('[name="password"]').value;
             const errorElement = options.errorElement || 'login-error';
             
             this.clearMessages(errorElement);
             
-            if (!this.auth.validateEmail(email)) {
-                this.showError(errorElement, 'Email invalide');
-                return;
-            }
-            
-            const result = await this.auth.login(email, password);
-            
-            if (result && result.success) {
-                if (options.onSuccess) {
-                    options.onSuccess(result.user);
+            try {
+                const result = await this.auth.login(email, password);
+                
+                if (result.two_factor_required) {
+                    twoFactorToken = result.two_factor_token;
+                    loginFormWrapper.style.display = 'none';
+                    twoFactorFormWrapper.style.display = 'block';
                 } else {
-                    this.showSuccess(errorElement, 'Connexion réussie !');
-                    setTimeout(() => {
-                        window.location.href = options.redirectUrl || '/';
-                    }, 1000);
+                    if (options.onSuccess) {
+                        options.onSuccess(result.user);
+                    }
                 }
-            } else {
-                this.showError(errorElement, result.error || "Email ou mot de passe incorrect.");
+            } catch (error) {
+                this.showError(errorElement, error.message || "Email ou mot de passe incorrect.");
             }
         });
+
+        if (twoFactorForm) {
+            twoFactorForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const otpCode = twoFactorForm.querySelector('[name="otp_code"]').value;
+                const errorElement = options.errorElement || 'login-error';
+
+                this.clearMessages(errorElement);
+
+                if (!twoFactorToken) {
+                    this.showError(errorElement, 'Session 2FA expirée. Veuillez vous reconnecter.');
+                    loginFormWrapper.style.display = 'block';
+                    twoFactorFormWrapper.style.display = 'none';
+                    return;
+                }
+
+                try {
+                    const result = await this.auth.loginWith2FA(twoFactorToken, otpCode);
+                    if (options.onSuccess) {
+                        options.onSuccess(result.user);
+                    }
+                } catch (error) {
+                    this.showError(errorElement, error.message || "Code 2FA invalide.");
+                    // Vider le champ OTP pour une nouvelle tentative
+                    twoFactorForm.querySelector('[name="otp_code"]').value = '';
+                }
+            });
+        }
     }
     
     /**

@@ -1,7 +1,7 @@
 // Client API Admin pour Vulsoft
-class AdminAPI extends VulsoftAPI {
+class AdminAPI extends VulsoftAuth {
     constructor() {
-        super();
+        super({ apiUrl: 'http://localhost:8001/api' });
     }
 
     // Méthodes Admin
@@ -71,6 +71,77 @@ class AdminAPI extends VulsoftAPI {
             body: JSON.stringify({ username, email, password })
         });
     }
+
+    async getSubscribers() {
+        return await this.request('/newsletter/subscribers');
+    }
+
+    async sendNewsletter(subject, content) {
+        return await this.request('/newsletter/send', {
+            method: 'POST',
+            body: JSON.stringify({ subject, content })
+        });
+    }
+
+    async createProject(projectData) {
+        return await this.request('/projects/', {
+            method: 'POST',
+            body: JSON.stringify(projectData)
+        });
+    }
+
+    async updateProject(projectId, projectData) {
+        return await this.request(`/projects/${projectId}`, {
+            method: 'PUT',
+            body: JSON.stringify(projectData)
+        });
+    }
+
+    async deleteProject(projectId) {
+        return await this.request(`/projects/${projectId}`, {
+            method: 'DELETE'
+        });
+    }
+
+    async getProjectDetails(projectId) {
+        return await this.request(`/projects/${projectId}`);
+    }
+
+    async uploadProjectImage(projectId, formData) {
+        return await this.request(`/projects/${projectId}/images`, {
+            method: 'POST',
+            body: formData,
+        });
+    }
+
+    async deleteProjectImage(imageId) {
+        return await this.request(`/projects/images/${imageId}`, {
+            method: 'DELETE'
+        });
+    }
+
+    // --- Blog Methods ---
+    async getBlogPosts() {
+        return await this.request('/blog/posts?published_only=false');
+    }
+
+    async createBlogPost(postData) {
+        return await this.request('/blog/posts', {
+            method: 'POST',
+            body: JSON.stringify(postData)
+        });
+    }
+
+    async updateBlogPost(postId, postData) {
+        return await this.request(`/blog/posts/${postId}`, {
+            method: 'PUT',
+            body: JSON.stringify(postData)
+        });
+    }
+
+    async deleteBlogPost(postId) {
+        return await this.request(`/blog/posts/${postId}`, { method: 'DELETE' });
+    }
 }
 
 // Instance globale de l'API Admin
@@ -137,6 +208,12 @@ class AdminNavigation {
                 break;
             case 'analytics':
                 await this.loadAnalytics();
+                break;
+            case 'newsletter':
+                await this.loadNewsletter();
+                break;
+            case 'blog':
+                await this.loadBlog();
                 break;
         }
     }
@@ -374,7 +451,10 @@ class AdminNavigation {
                             <td>${new Date(project.created_at).toLocaleDateString('fr-FR')}</td>
                             <td>${new Date(project.updated_at).toLocaleDateString('fr-FR')}</td>
                             <td>
-                                <button class="action-btn secondary" onclick="editProject(${project.id})">
+                                <button class="action-btn secondary" onclick="openManageImagesModal(${project.id}, '${project.title.replace(/'/g, "\\'")}')">
+                                    Images
+                                </button>
+                                <button class="action-btn secondary" onclick="openEditProjectModal(${project.id}, '${project.title.replace(/'/g, "\\'")}')">
                                     Modifier
                                 </button>
                                 <button class="action-btn danger" onclick="deleteProject(${project.id})">
@@ -501,6 +581,109 @@ class AdminNavigation {
     }
 }
 
+async function loadNewsletter() {
+    try {
+        const subscribers = await window.adminAPI.getSubscribers();
+        renderSubscribersTable(subscribers);
+    } catch (error) {
+        window.notifications?.error('Erreur lors du chargement des abonnés');
+    }
+}
+
+function renderSubscribersTable(subscribers) {
+    const tableEl = document.getElementById('subscribers-table');
+    
+    if (!subscribers || subscribers.length === 0) {
+        tableEl.innerHTML = '<div class="empty-state">Aucun abonné trouvé</div>';
+        return;
+    }
+
+    const tableHTML = `
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Date d'abonnement</th>
+                    <th>Statut</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${subscribers.map(sub => `
+                    <tr>
+                        <td>${sub.id}</td>
+                        <td>${sub.email}</td>
+                        <td>${new Date(sub.created_at).toLocaleDateString('fr-FR')}</td>
+                        <td>
+                            <span class="status-badge ${sub.is_active ? 'active' : 'inactive'}">
+                                ${sub.is_active ? 'Actif' : 'Inactif'}
+                            </span>
+                        </td>
+                    </tr>
+                `).join('')}
+            </tbody>
+        </table>
+    `;
+    
+    tableEl.innerHTML = tableHTML;
+}
+
+async function loadBlog() {
+    try {
+        const posts = await window.adminAPI.getBlogPosts();
+        renderBlogTable(posts);
+    } catch (error) {
+        window.notifications?.error('Erreur lors du chargement des articles de blog.');
+    }
+}
+
+function renderBlogTable(posts) {
+    const tableEl = document.getElementById('blog-posts-table');
+    if (!posts || posts.length === 0) {
+        tableEl.innerHTML = '<div class="empty-state">Aucun article trouvé.</div>';
+        return;
+    }
+
+    const tableHTML = `
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Titre</th>
+                    <th>Auteur</th>
+                    <th>Statut</th>
+                    <th>Créé le</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${posts.map(post => `
+                    <tr>
+                        <td>${post.id}</td>
+                        <td>${post.title}</td>
+                        <td>${post.author.full_name}</td>
+                        <td>
+                            <span class="status-badge ${post.is_published ? 'active' : 'inactive'}">
+                                ${post.is_published ? 'Publié' : 'Brouillon'}
+                            </span>
+                        </td>
+                        <td>${new Date(post.created_at).toLocaleDateString('fr-FR')}</td>
+                        <td>
+                            <button class="action-btn secondary" onclick="openEditPostModal(${post.id})">
+                                Modifier
+                            </button>
+                            <button class="action-btn danger" onclick="deleteBlogPost(${post.id})">
+                                Supprimer
+                            </button>
+                        </td>
+                    </tr>
+                `).join('')}
+            </tbody>
+        </table>
+    `;
+    tableEl.innerHTML = tableHTML;
+}
+
 // Fonctions globales pour les actions
 async function toggleUserActive(userId) {
     try {
@@ -589,5 +772,138 @@ document.addEventListener('DOMContentLoaded', () => {
     // Vérifier si l'utilisateur est admin (simulation)
     // En production, vérifier avec un token JWT
     
+    // Remplacer la fonction placeholder
+    window.editProject = (projectId, projectTitle) => {
+        openEditProjectModal(projectId, projectTitle);
+    };
+    window.createProject = () => openCreateProjectModal();
+    window.deleteProject = (projectId) => deleteProject(projectId);
+
+    // Gérer la fermeture des modales
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = "none";
+        }
+    }
+
+    // Gérer la création de projet
+    document.getElementById('create-project-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const projectData = {
+            title: form.title.value,
+            description: form.description.value,
+            technology: form.technology.value,
+            client: form.client.value,
+        };
+        try {
+            await window.adminAPI.createProject(projectData);
+            window.notifications?.success('Projet créé avec succès !');
+            closeCreateProjectModal();
+            window.adminNav.loadProjects(); // Refresh the projects list
+        } catch (error) {
+            window.notifications?.error(error.message);
+        }
+    });
+
+    // Gérer le téléchargement d'image
+    document.getElementById('upload-image-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const projectId = form.project_id.value;
+        const fileInput = form.file;
+        
+        if (fileInput.files.length === 0) {
+            window.notifications?.warning('Veuillez sélectionner un fichier.');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('file', fileInput.files[0]);
+
+        try {
+            await window.adminAPI.uploadProjectImage(projectId, formData);
+            window.notifications?.success('Image téléchargée avec succès !');
+            fileInput.value = ''; // Reset file input
+            await renderProjectImages(projectId);
+        } catch (error) {
+            window.notifications?.error(error.message);
+        }
+    });
+
+    // Gérer la modification de projet
+    document.getElementById('edit-project-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const projectId = form.querySelector('#edit-project-id').value;
+        const projectData = {
+            title: form.title.value,
+            description: form.description.value,
+            technology: form.technology.value,
+            client: form.client.value,
+            status: form.status.value,
+        };
+
+        try {
+            await window.adminAPI.updateProject(projectId, projectData);
+            window.notifications?.success('Projet mis à jour avec succès !');
+            closeEditProjectModal();
+            window.adminNav.loadProjects(); // Refresh the projects list
+        } catch (error) {
+            window.notifications?.error(error.message);
+        }
+    });
+
+    // Gérer la création/modification d'article de blog
+    document.getElementById('blog-post-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const postId = form.querySelector('#blog-post-id').value;
+        const postData = {
+            title: form.title.value,
+            content: form.content.value,
+            is_published: form.is_published.checked,
+        };
+
+        try {
+            if (postId) {
+                await window.adminAPI.updateBlogPost(postId, postData);
+                window.notifications?.success('Article mis à jour !');
+            } else {
+                await window.adminAPI.createBlogPost(postData);
+                window.notifications?.success('Article créé !');
+            }
+            closeBlogPostModal();
+            window.adminNav.loadBlog();
+        } catch (error) {
+            window.notifications?.error(error.message);
+        }
+    });
+
+    // Gérer l'envoi de la newsletter
+    document.getElementById('newsletter-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const subject = form.querySelector('#newsletter-subject').value;
+        const content = form.querySelector('#newsletter-content').value;
+
+        if (!subject || !content) {
+            window.notifications?.warning('Le sujet et le contenu sont requis.');
+            return;
+        }
+
+        if (!confirm(`Envoyer la newsletter "${subject}" à tous les abonnés ?`)) {
+            return;
+        }
+
+        try {
+            const response = await window.adminAPI.sendNewsletter(subject, content);
+            window.notifications?.success(response.message);
+            form.reset();
+        } catch (error) {
+            window.notifications?.error(error.message);
+        }
+    });
+
     window.notifications?.success('Interface d\'administration chargée');
 });

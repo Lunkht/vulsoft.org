@@ -80,3 +80,20 @@ async def send_contact_notification_to_admin(data: Dict):
         await fm.send_message(message)
     except Exception as e:
         print(f"Échec de l'envoi de la notification admin: {e}")
+
+async def send_bulk_email(recipients: List[EmailStr], subject: str, content: str):
+    """
+    Envoie un email en masse en utilisant BCC pour la confidentialité.
+    """
+    message = MessageSchema(
+        subject=subject,
+        recipients=[],  # Le champ "To" peut être vide ou contenir votre propre email
+        bcc=recipients,
+        body=content,
+        subtype="html"
+    )
+    try:
+        await fm.send_message(message)
+        print(f"Newsletter envoyée à {len(recipients)} destinataires.")
+    except Exception as e:
+        print(f"Échec de l'envoi de la newsletter: {e}")

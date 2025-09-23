@@ -266,6 +266,7 @@ body {
     margin-top: 1rem;
 }
 
+/* Social Auth */
 .social-auth {
     margin-top: 2rem;
 }
@@ -314,6 +315,11 @@ body {
     content: '';
     flex: 1;
     border-bottom: 1px solid var(--border-color);
+}
+
+.social-button svg {
+    width: 20px;
+    height: 20px;
 }
 
 /* Responsive */

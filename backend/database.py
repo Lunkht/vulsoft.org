@@ -25,8 +25,12 @@ class User(Base):
     full_name = Column(String)
     hashed_password = Column(String)
     is_active = Column(Boolean, default=True)
+    is_two_factor_enabled = Column(Boolean, default=False)
+    two_factor_secret = Column(String, nullable=True)
     is_admin = Column(Boolean, default=False)
     created_at = Column(DateTime, default=datetime.utcnow)
+
+    posts = relationship("BlogPost", back_populates="author")
 
 class ContactMessage(Base):
     __tablename__ = "contact_messages"
@@ -43,6 +47,26 @@ class ContactMessage(Base):
     file_path = Column(String, nullable=True)
     status = Column(String, default="nouveau") # nouveau, lu, traité
     created_at = Column(DateTime, default=datetime.utcnow)
+
+class NewsletterSubscriber(Base):
+    __tablename__ = "newsletter_subscribers"
+    id = Column(Integer, primary_key=True, index=True)
+    email = Column(String, unique=True, index=True, nullable=False)
+    is_active = Column(Boolean, default=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+class BlogPost(Base):
+    __tablename__ = "blog_posts"
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String, index=True, nullable=False)
+    slug = Column(String, unique=True, index=True, nullable=False)
+    content = Column(Text, nullable=True)
+    author_id = Column(Integer, ForeignKey("users.id"))
+    is_published = Column(Boolean, default=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    author = relationship("User", back_populates="posts")
+
 
 class ProjectImage(Base):
     __tablename__ = "project_images"

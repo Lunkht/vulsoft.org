@@ -102,4 +102,24 @@ class I18nManager {
 
 document.addEventListener('DOMContentLoaded', () => {
     window.i18nManager = new I18nManager();
+
+    // Handle footer newsletter form
+    const footerNewsletterForm = document.getElementById('footer-newsletter-form');
+    if (footerNewsletterForm) {
+        footerNewsletterForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const emailInput = footerNewsletterForm.querySelector('input[name="email"]');
+            const email = emailInput.value.trim();
+            if (!email) return;
+
+            try {
+                const api = new VulsoftAPI(); // Assumes js/api.js is loaded
+                const response = await api.subscribeNewsletter(email);
+                window.notifications?.success(response.message || "Merci pour votre abonnement !");
+                emailInput.value = '';
+            } catch (error) {
+                window.notifications?.error(error.message || "Une erreur est survenue.");
+            }
+        });
+    }
 });
