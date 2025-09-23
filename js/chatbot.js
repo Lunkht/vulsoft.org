@@ -2,16 +2,32 @@ document.addEventListener('DOMContentLoaded', () => {
     class Chatbot {
         constructor() {
             this.API_URL = 'http://localhost:8001/api/chatbot/chat';
+            this.storageKey = 'vulsoft_chatbot_history';
             this.isOpen = false;
             this.conversationHistory = [
                 { "role": "system", "content": "You are a helpful assistant for Vulsoft, a software development company. Your name is VulsoftAI. You answer in French." }
             ];
+            this.conversationHistory = [];
             this.init();
         }
 
         init() {
+            this.loadHistory();
             this.createElements();
+            this.renderHistory();
             this.addEventListeners();
+        }
+
+        loadHistory() {
+            const savedHistory = localStorage.getItem(this.storageKey);
+            this.conversationHistory = savedHistory ? JSON.parse(savedHistory) : [
+                { "role": "system", "content": "You are a helpful assistant for Vulsoft, a software development company. Your name is VulsoftAI. You answer in French." },
+                { "role": "assistant", "content": "Bonjour ! Je suis VulsoftAI. Comment puis-je vous aider ?" }
+            ];
+        }
+
+        saveHistory() {
+            localStorage.setItem(this.storageKey, JSON.stringify(this.conversationHistory));
         }
 
         createElements() {
@@ -28,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="message bot-message">
                             Bonjour ! Je suis VulsoftAI. Comment puis-je vous aider ?
                         </div>
+                        <!-- Les messages seront affichés ici par JavaScript -->
                     </div>
                     <div class="chat-input-area">
                         <input type="text" id="chat-input" placeholder="Posez votre question...">
@@ -45,6 +62,15 @@ document.addEventListener('DOMContentLoaded', () => {
             this.chatLog = document.getElementById('chat-log');
             this.input = document.getElementById('chat-input');
             this.submitBtn = document.getElementById('chat-submit');
+        }
+
+        renderHistory() {
+            this.chatLog.innerHTML = '';
+            this.conversationHistory.forEach(message => {
+                if (message.role === 'user' || message.role === 'assistant') {
+                    this.addMessage(message.content, message.role === 'assistant' ? 'bot' : 'user');
+                }
+            });
         }
 
         addEventListeners() {
@@ -92,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             this.addMessage(messageText, 'user');
             this.conversationHistory.push({ "role": "user", "content": messageText });
+            this.saveHistory();
 
             this.input.value = '';
             const typingIndicator = this.showTypingIndicator();
@@ -101,6 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ messages: this.conversationHistory }),
+                    body: JSON.stringify({ messages: this.conversationHistory.slice(-10) }), // Envoie les 10 derniers messages pour le contexte
                 });
 
                 typingIndicator.remove();
@@ -110,6 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const data = await response.json();
                 this.addMessage(data.reply, 'bot');
                 this.conversationHistory.push({ "role": "assistant", "content": data.reply });
+                this.saveHistory();
 
             } catch (error) {
                 console.error('Erreur du chatbot:', error);
