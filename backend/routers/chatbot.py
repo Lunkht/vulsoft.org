@@ -19,7 +19,7 @@ async def handle_chat(chat_request: ChatRequest):
     """
     Gère une requête de chat et retourne une réponse de l'IA.
     """
-    if not settings.OPENAI_API_KEY or "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" in settings.OPENAI_API_KEY:
+   # if not settings.OPENAI_API_KEY or "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" in settings.OPENAI_API_KEY:
         return {"response": "La clé API OpenAI n'est pas configurée sur le serveur. Veuillez contacter l'administrateur."}
 
     try:
