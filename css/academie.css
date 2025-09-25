@@ -323,3 +323,75 @@
     background: var(--accent-color);
     color: var(--button-primary-text);
 }
+
+/* Styles spécifiques pour la section d'inscription */
+.inscription-cta {
+    background: var(--bg-secondary);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.inscription-cta .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.inscription-cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.inscription-cta p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.cta-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Add gap between buttons */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 0 10px;
+    transition: all 0.3s ease; /* Changed to all for smoother transitions */
+}
+
+.cta-button.primary {
+    background: var(--button-primary-bg);
+    color: var(--button-primary-text);
+}
+
+.cta-button.primary:hover {
+    background: var(--button-primary-hover-bg);
+    color: var(--button-primary-hover-text);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+}
+
+.cta-button.secondary:hover {
+    background: var(--accent-color);
+    color: var(--button-primary-text);
+}
+
+/* Utility Classes */
+.container {
+    width: 80%;
+    max-width: 1100px; /* Optional: set a max-width for the container */
+    margin: auto;
+    overflow: hidden;
+    padding: 0 15px; /* Add horizontal padding */
+}

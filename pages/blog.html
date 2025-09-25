@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Vulsoft</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16x16.png">
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/blog.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="../images/logo-Vulsoft-1.svg" alt="Vulsoft Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="../academie.html">Académie</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="connexion-btn">Connexion</a>
+                <div class="language-switcher"></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>Le Blog Vulsoft</h1>
+            <p>Actualités, tutoriels et réflexions sur le monde de la technologie et du développement.</p>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="blog-grid-section">
+        <div class="container">
+            <div id="blog-grid" class="blog-grid">
+                <!-- Les articles de blog seront injectés ici par JavaScript -->
+                <div class="loading">Chargement des articles...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- ... Contenu du footer ... -->
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <a href="#">Confidentialité et Sécurité</a>
+                    <a href="#">Conditions d'Utilisation</a>
+                </div>
+                <div class="footer-copyright">
+                    <p>Copyright © 2024 Vulsoft.Inc</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/pwa.js"></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/blog.js" defer></script>
+</body>
+</html>
