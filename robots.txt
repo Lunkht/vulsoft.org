@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Pages importantes
+Allow: /pages/contact.html
+Allow: /pages/about.html
+Allow: /academie.html
+Allow: /demo.html
+
+# Interdire l'accès aux pages d'administration
+Disallow: /pages/admin.html
+Disallow: /pages/dashboard.html
+Disallow: /api/admin/
+
+# Interdire l'accès aux fichiers de configuration
+Disallow: /backend/
+Disallow: /.env
+Disallow: /config/
+
+# Autoriser les assets
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# Sitemap
+Sitemap: https://vulsoft.org/sitemap.xml
+
+# Crawl-delay pour éviter la surcharge
+Crawl-delay: 1

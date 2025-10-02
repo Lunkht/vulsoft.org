@@ -16,12 +16,18 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Configuration CORS
+# Configuration CORS pour production
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # En production, spécifier les domaines autorisés
+    allow_origins=[
+        "https://vulsoft.org",
+        "https://www.vulsoft.org",
+        "http://localhost:3000",  # Pour le développement
+        "http://localhost:8000",
+        "http://localhost:8001"
+    ],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
 )
 

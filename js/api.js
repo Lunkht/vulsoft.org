@@ -1,7 +1,16 @@
 // API Client moderne pour Vulsoft
 class VulsoftAPI {
-    constructor(baseURL = 'http://localhost:8001/api') {
-        this.baseURL = baseURL;
+    constructor(baseURL = null) {
+        // Détection automatique de l'environnement
+        if (!baseURL) {
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                this.baseURL = 'http://localhost:8001/api';
+            } else {
+                this.baseURL = `https://${window.location.hostname}/api`;
+            }
+        } else {
+            this.baseURL = baseURL;
+        }
         this.token = localStorage.getItem('vulsoft_token');
     }
 
