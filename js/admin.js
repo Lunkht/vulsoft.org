@@ -1,7 +1,7 @@
 // Client API Admin pour Vulsoft
 class AdminAPI extends VulsoftAuth {
     constructor() {
-        super({ apiUrl: 'http://localhost:8001/api' });
+        super({ apiUrl: 'http://localhost:8002/api' });
     }
 
     // Méthodes Admin
@@ -47,6 +47,32 @@ class AdminAPI extends VulsoftAuth {
     async getProjectsAdmin(params = {}) {
         const queryString = new URLSearchParams(params).toString();
         return await this.request(`/admin/projects?${queryString}`);
+    }
+
+    // Méthodes Blog
+    async getBlogPosts(params = {}) {
+        const queryString = new URLSearchParams(params).toString();
+        return await this.request(`/blog/posts?${queryString}&published_only=false`);
+    }
+
+    async createBlogPost(postData) {
+        return await this.request('/blog/posts', {
+            method: 'POST',
+            body: JSON.stringify(postData)
+        });
+    }
+
+    async updateBlogPost(postId, postData) {
+        return await this.request(`/blog/posts/${postId}`, {
+            method: 'PUT',
+            body: JSON.stringify(postData)
+        });
+    }
+
+    async deleteBlogPost(postId) {
+        return await this.request(`/blog/posts/${postId}`, {
+            method: 'DELETE'
+        });
     }
 
     async getUsersGrowth(days = 30) {
@@ -906,4 +932,324 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.notifications?.success('Interface d\'administration chargée');
-});
+});// Fonctio
+ns de gestion du blog
+async function loadBlogPosts() {
+    try {
+        const posts = await window.adminAPI.getBlogPosts();
+        renderBlogTable(posts);
+    } catch (error) {
+        console.error('Erreur lors du chargement des articles:', error);
+        document.getElementById('blog-table').innerHTML = 
+            '<div class="empty-state">Erreur lors du chargement des articles</div>';
+    }
+}
+
+function renderBlogTable(posts) {
+    const tableEl = document.getElementById('blog-table');
+    
+    if (posts.length === 0) {
+        tableEl.innerHTML = '<div class="empty-state">Aucun article trouvé</div>';
+        return;
+    }
+
+    const tableHTML = `
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Titre</th>
+                    <th>Auteur</th>
+                    <th>Statut</th>
+                    <th>Créé</th>
+                    <th>Mis à jour</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${posts.map(post => `
+                    <tr>
+                        <td>${post.id}</td>
+                        <td>${post.title}</td>
+                        <td>${post.author?.full_name || 'Inconnu'}</td>
+                        <td>
+                            <span class="status-badge ${post.is_published ? 'active' : 'inactive'}">
+                                ${post.is_published ? 'Publié' : 'Brouillon'}
+                            </span>
+                        </td>
+                        <td>${new Date(post.created_at).toLocaleDateString('fr-FR')}</td>
+                        <td>${new Date(post.updated_at).toLocaleDateString('fr-FR')}</td>
+                        <td>
+                            <button class="action-btn secondary" onclick="editBlogPost(${post.id})">
+                                Modifier
+                            </button>
+                            <button class="action-btn ${post.is_published ? 'secondary' : 'primary'}" 
+                                    onclick="togglePostStatus(${post.id}, ${!post.is_published})">
+                                ${post.is_published ? 'Dépublier' : 'Publier'}
+                            </button>
+                            <button class="action-btn danger" onclick="deleteBlogPost(${post.id})">
+                                Supprimer
+                            </button>
+                        </td>
+                    </tr>
+                `).join('')}
+            </tbody>
+        </table>
+    `;
+    
+    tableEl.innerHTML = tableHTML;
+}
+
+function openCreatePostModal() {
+    const modal = document.createElement('div');
+    modal.className = 'blog-modal';
+    modal.innerHTML = `
+        <div class="blog-modal-content" style="max-width: 900px;">
+            <div class="blog-modal-header">
+                <h2>Créer un nouvel article</h2>
+                <button class="blog-modal-close">&times;</button>
+            </div>
+            <div class="blog-modal-body">
+                <form id="create-post-form">
+                    <div class="form-group">
+                        <label for="post-title">Titre *</label>
+                        <input type="text" id="post-title" name="title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="post-content">Contenu</label>
+                        <textarea id="post-content" name="content" rows="15" 
+                                  placeholder="Écrivez votre article en HTML..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="post-published" name="is_published">
+                            <span class="checkmark"></span>
+                            Publier immédiatement
+                        </label>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="action-btn secondary" onclick="closeModal()">
+                            Annuler
+                        </button>
+                        <button type="submit" class="action-btn primary">
+                            Créer l'article
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+    addBlogModalStyles();
+
+    // Événements
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal || e.target.classList.contains('blog-modal-close')) {
+            document.body.removeChild(modal);
+        }
+    });
+
+    // Gestion du formulaire
+    document.getElementById('create-post-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(e.target);
+        const postData = {
+            title: formData.get('title'),
+            content: formData.get('content'),
+            is_published: document.getElementById('post-published').checked
+        };
+
+        try {
+            await window.adminAPI.createBlogPost(postData);
+            window.notifications?.success('Article créé avec succès !');
+            document.body.removeChild(modal);
+            loadBlogPosts(); // Recharger la liste
+        } catch (error) {
+            window.notifications?.error('Erreur lors de la création: ' + error.message);
+        }
+    });
+
+    setTimeout(() => modal.classList.add('show'), 10);
+}
+
+async function editBlogPost(postId) {
+    try {
+        // Pour l'instant, on utilise une approche simple
+        // Plus tard, on pourra récupérer l'article spécifique
+        window.notifications?.info('Fonctionnalité d\'édition en développement');
+    } catch (error) {
+        window.notifications?.error('Erreur: ' + error.message);
+    }
+}
+
+async function togglePostStatus(postId, newStatus) {
+    try {
+        await window.adminAPI.updateBlogPost(postId, { is_published: newStatus });
+        window.notifications?.success(newStatus ? 'Article publié !' : 'Article dépublié !');
+        loadBlogPosts(); // Recharger la liste
+    } catch (error) {
+        window.notifications?.error('Erreur: ' + error.message);
+    }
+}
+
+async function deleteBlogPost(postId) {
+    if (confirm('Êtes-vous sûr de vouloir supprimer cet article ?')) {
+        try {
+            await window.adminAPI.deleteBlogPost(postId);
+            window.notifications?.success('Article supprimé !');
+            loadBlogPosts(); // Recharger la liste
+        } catch (error) {
+            window.notifications?.error('Erreur: ' + error.message);
+        }
+    }
+}
+
+function addBlogModalStyles() {
+    if (document.getElementById('blog-modal-styles')) return;
+
+    const styles = document.createElement('style');
+    styles.id = 'blog-modal-styles';
+    styles.textContent = `
+        .blog-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+        
+        .blog-modal.show {
+            opacity: 1;
+        }
+        
+        .blog-modal-content {
+            background: var(--card-bg);
+            border-radius: 20px;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            width: 100%;
+        }
+        
+        .blog-modal-header {
+            padding: 2rem 2rem 1rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .blog-modal-header h2 {
+            margin: 0;
+            color: var(--text-primary);
+        }
+        
+        .blog-modal-close {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-modal-close:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+        
+        .blog-modal-body {
+            padding: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            box-sizing: border-box;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.875rem;
+        }
+        
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+        }
+        
+        .checkbox-container input[type="checkbox"] {
+            width: auto;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 2rem;
+        }
+    `;
+    document.head.appendChild(styles);
+}
+
+function closeModal() {
+    const modal = document.querySelector('.blog-modal');
+    if (modal) {
+        document.body.removeChild(modal);
+    }
+}
+
+// Ajouter le blog au gestionnaire de navigation
+const originalLoadSectionData = window.adminNav?.loadSectionData;
+if (window.adminNav && originalLoadSectionData) {
+    window.adminNav.loadSectionData = function(sectionName) {
+        if (sectionName === 'blog') {
+            loadBlogPosts();
+        } else {
+            originalLoadSectionData.call(this, sectionName);
+        }
+    };
+}

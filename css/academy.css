@@ -54,7 +54,7 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background-image: 
+    background-image:
         linear-gradient(90deg, transparent 24%, var(--shimmer-color) 25%, var(--shimmer-color) 26%, transparent 27%),
         linear-gradient(0deg, transparent 24%, var(--shimmer-color) 25%, var(--shimmer-color) 26%, transparent 27%);
     background-size: 50px 50px;
@@ -327,7 +327,8 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
     background: var(--accent-color);
-    color: var(--bg-primary); /* Correction: texte noir/blanc sur fond blanc/noir */
+    color: var(--bg-primary);
+    /* Correction: texte noir/blanc sur fond blanc/noir */
 }
 
 .path-button:hover {
@@ -806,11 +807,11 @@
         grid-template-columns: 1fr;
         gap: 3rem;
     }
-    
+
     .hero-stats {
         gap: 2rem;
     }
-    
+
     .paths-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
@@ -824,38 +825,38 @@
     .academy-hero {
         padding: 6rem 0 3rem;
     }
-    
+
     .hero-stats {
         flex-direction: column;
         gap: 1rem;
     }
-    
+
     .hero-actions {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .trust-logos {
         gap: 1rem;
     }
-    
+
     .categories-tabs {
         gap: 0.5rem;
     }
-    
+
     .category-tab {
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
     }
-    
+
     .formations-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .testimonials-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .inscription-form {
         padding: 2rem;
     }
@@ -863,7 +864,7 @@
     .pedagogy-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .learning-paths,
     .formations-categories,
     .testimonials,
@@ -876,19 +877,19 @@
     .academy-hero h1 {
         font-size: 2rem;
     }
-    
+
     .hero-description {
         font-size: 1rem;
     }
-    
+
     .path-card {
         padding: 1.5rem;
     }
-    
+
     .inscription-form {
         padding: 1.5rem;
     }
-    
+
     .inscription-text h2 {
         font-size: 2rem;
     }
@@ -904,6 +905,7 @@
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -916,16 +918,46 @@
     animation: fadeInUp 0.6s ease-out;
 }
 
-.path-card:nth-child(1) { animation-delay: 0.1s; }
-.path-card:nth-child(2) { animation-delay: 0.2s; }
-.path-card:nth-child(3) { animation-delay: 0.3s; }
-.path-card:nth-child(4) { animation-delay: 0.4s; }
+.path-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
 
-.formation-card:nth-child(1) { animation-delay: 0.1s; }
-.formation-card:nth-child(2) { animation-delay: 0.2s; }
-.formation-card:nth-child(3) { animation-delay: 0.3s; }
-.formation-card:nth-child(4) { animation-delay: 0.4s; }
+.path-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
 
-.testimonial-card:nth-child(1) { animation-delay: 0.1s; }
-.testimonial-card:nth-child(2) { animation-delay: 0.2s; }
-.testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+.path-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.path-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.formation-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.formation-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.formation-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.formation-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.testimonial-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.testimonial-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.testimonial-card:nth-child(3) {
+    animation-delay: 0.3s;
+}

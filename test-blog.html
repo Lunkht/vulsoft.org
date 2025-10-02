@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Blog - Vulsoft</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--accent-color), var(--text-secondary));
+            color: white;
+            border-radius: 20px;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .blog-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: var(--accent-color);
+        }
+        
+        .blog-card-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--accent-color), var(--text-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .blog-card-content {
+            padding: 2rem;
+        }
+        
+        .blog-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        .blog-card-excerpt {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .blog-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+        }
+        
+        .test-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .test-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .test-btn.primary {
+            background: var(--accent-color);
+            color: white;
+        }
+        
+        .test-btn.secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .test-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>🧪 Test Blog Vulsoft</h1>
+            <p>Démonstration du système de blog avec contenu par défaut</p>
+        </div>
+
+        <div class="test-actions">
+            <button class="test-btn primary" onclick="loadDefaultContent()">
+                📝 Charger Contenu Par Défaut
+            </button>
+            <button class="test-btn secondary" onclick="window.location.href='pages/blog.html'">
+                🌐 Aller au Blog Réel
+            </button>
+            <button class="test-btn secondary" onclick="window.location.href='pages/admin.html'">
+                🔧 Administration
+            </button>
+        </div>
+
+        <div id="blog-grid" class="blog-grid">
+            <!-- Le contenu sera chargé ici -->
+        </div>
+    </div>
+
+    <script src="js/notifications.js"></script>
+    <script>
+        // Contenu par défaut pour le test
+        const defaultPosts = [
+            {
+                id: 1,
+                title: "Bienvenue sur le blog Vulsoft",
+                content: "Nous sommes ravis de vous accueillir sur notre blog ! Ici, nous partagerons nos connaissances, nos expériences et les dernières tendances en matière de développement logiciel et de transformation digitale.",
+                author: { full_name: "Équipe Vulsoft" },
+                created_at: new Date().toISOString(),
+                is_published: true,
+                emoji: "🎉"
+            },
+            {
+                id: 2,
+                title: "L'avenir du développement web en Afrique",
+                content: "L'Afrique connaît une révolution digitale sans précédent. Les développeurs africains sont à l'avant-garde de l'innovation, créant des solutions qui répondent aux défis locaux tout en ayant un impact global.",
+                author: { full_name: "Équipe Vulsoft" },
+                created_at: new Date(Date.now() - 86400000).toISOString(),
+                is_published: true,
+                emoji: "🌍"
+            },
+            {
+                id: 3,
+                title: "Guide complet des Progressive Web Apps",
+                content: "Les Progressive Web Apps (PWA) représentent l'avenir des applications web. Elles combinent le meilleur du web et du mobile pour offrir une expérience utilisateur exceptionnelle.",
+                author: { full_name: "Équipe Vulsoft" },
+                created_at: new Date(Date.now() - 172800000).toISOString(),
+                is_published: true,
+                emoji: "📱"
+            },
+            {
+                id: 4,
+                title: "FastAPI : La révolution des APIs Python",
+                content: "FastAPI est devenu le framework de référence pour créer des APIs modernes en Python. Découvrez pourquoi nous l'utilisons chez Vulsoft et comment bien commencer.",
+                author: { full_name: "Équipe Vulsoft" },
+                created_at: new Date(Date.now() - 259200000).toISOString(),
+                is_published: true,
+                emoji: "🚀"
+            },
+            {
+                id: 5,
+                title: "Sécurité web : Les essentiels pour 2024",
+                content: "La sécurité web n'a jamais été aussi cruciale. Avec l'augmentation des cyberattaques, voici les mesures essentielles à implémenter pour protéger vos applications.",
+                author: { full_name: "Équipe Vulsoft" },
+                created_at: new Date(Date.now() - 345600000).toISOString(),
+                is_published: true,
+                emoji: "🔒"
+            },
+            {
+                id: 6,
+                title: "Intelligence Artificielle en Afrique",
+                content: "L'Intelligence Artificielle n'est plus de la science-fiction. Elle transforme déjà de nombreux secteurs en Afrique. Découvrez comment votre entreprise peut en bénéficier.",
+                author: { full_name: "Équipe Vulsoft" },
+                created_at: new Date(Date.now() - 432000000).toISOString(),
+                is_published: true,
+                emoji: "🤖"
+            }
+        ];
+
+        function loadDefaultContent() {
+            const blogGrid = document.getElementById('blog-grid');
+            blogGrid.innerHTML = '';
+
+            defaultPosts.forEach(post => {
+                const postElement = createPostElement(post);
+                blogGrid.appendChild(postElement);
+            });
+
+            window.notifications?.success('Contenu par défaut chargé !');
+        }
+
+        function createPostElement(post) {
+            const article = document.createElement('article');
+            article.className = 'blog-card';
+            
+            const excerpt = post.content.length > 150 ? 
+                post.content.substring(0, 150) + '...' : 
+                post.content;
+            
+            const date = new Date(post.created_at).toLocaleDateString('fr-FR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            article.innerHTML = `
+                <div class="blog-card-image">
+                    ${post.emoji}
+                </div>
+                <div class="blog-card-content">
+                    <h2 class="blog-card-title">${post.title}</h2>
+                    <p class="blog-card-excerpt">${excerpt}</p>
+                    <div class="blog-card-meta">
+                        <div class="blog-card-author">
+                            <span>👤 ${post.author?.full_name || 'Équipe Vulsoft'}</span>
+                        </div>
+                        <div class="blog-card-date">${date}</div>
+                    </div>
+                </div>
+            `;
+
+            article.addEventListener('click', () => {
+                showPostModal(post);
+            });
+
+            return article;
+        }
+
+        function showPostModal(post) {
+            const modal = document.createElement('div');
+            modal.className = 'blog-modal';
+            modal.innerHTML = `
+                <div class="blog-modal-content">
+                    <div class="blog-modal-header">
+                        <h1>${post.title}</h1>
+                        <button class="blog-modal-close">&times;</button>
+                    </div>
+                    <div class="blog-modal-meta">
+                        <span>Par ${post.author?.full_name || 'Équipe Vulsoft'}</span>
+                        <span>${new Date(post.created_at).toLocaleDateString('fr-FR')}</span>
+                    </div>
+                    <div class="blog-modal-body">
+                        <p>${post.content}</p>
+                        <p><em>Ceci est un aperçu du contenu. L'article complet sera disponible sur le blog en ligne.</em></p>
+                    </div>
+                </div>
+            `;
+
+            // Styles de la modal
+            if (!document.getElementById('blog-modal-styles')) {
+                const styles = document.createElement('style');
+                styles.id = 'blog-modal-styles';
+                styles.textContent = `
+                    .blog-modal {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.8);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 10000;
+                        padding: 2rem;
+                        box-sizing: border-box;
+                    }
+                    
+                    .blog-modal-content {
+                        background: var(--card-bg);
+                        border-radius: 20px;
+                        max-width: 800px;
+                        max-height: 90vh;
+                        overflow-y: auto;
+                        position: relative;
+                        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+                    }
+                    
+                    .blog-modal-header {
+                        padding: 2rem 2rem 1rem 2rem;
+                        border-bottom: 1px solid var(--border-color);
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-start;
+                    }
+                    
+                    .blog-modal-header h1 {
+                        font-size: 1.75rem;
+                        font-weight: 700;
+                        color: var(--text-primary);
+                        margin: 0;
+                        flex: 1;
+                        margin-right: 1rem;
+                    }
+                    
+                    .blog-modal-close {
+                        background: none;
+                        border: none;
+                        font-size: 2rem;
+                        color: var(--text-secondary);
+                        cursor: pointer;
+                        padding: 0;
+                        width: 40px;
+                        height: 40px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 50%;
+                        transition: all 0.3s ease;
+                    }
+                    
+                    .blog-modal-close:hover {
+                        background: var(--bg-secondary);
+                        color: var(--text-primary);
+                    }
+                    
+                    .blog-modal-meta {
+                        padding: 1rem 2rem;
+                        color: var(--text-secondary);
+                        font-size: 0.875rem;
+                        display: flex;
+                        gap: 2rem;
+                        border-bottom: 1px solid var(--border-color);
+                    }
+                    
+                    .blog-modal-body {
+                        padding: 2rem;
+                        line-height: 1.7;
+                        color: var(--text-primary);
+                    }
+                `;
+                document.head.appendChild(styles);
+            }
+
+            document.body.appendChild(modal);
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal || e.target.classList.contains('blog-modal-close')) {
+                    document.body.removeChild(modal);
+                }
+            });
+        }
+
+        // Charger le contenu par défaut au démarrage
+        document.addEventListener('DOMContentLoaded', () => {
+            loadDefaultContent();
+        });
+    </script>
+</body>
+</html>
