@@ -16,21 +16,14 @@
     
     <link rel="stylesheet" href="../css/main.css">
     <style>
-        .blog-hero {
-            background: linear-gradient(135deg, var(--accent-color), var(--text-secondary));
-            color: white;
-            padding: 8rem 0 4rem 0;
-            text-align: center;
-        }
-        
-        .blog-hero h1 {
+        .hero h1 {
             font-size: 3rem;
             font-weight: 800;
             margin-bottom: 1rem;
             letter-spacing: -0.02em;
         }
         
-        .blog-hero p {
+        .hero p {
             font-size: 1.25rem;
             opacity: 0.9;
             max-width: 600px;
@@ -67,12 +60,13 @@
         
         .blog-card-image {
             height: 200px;
-            background: linear-gradient(135deg, var(--accent-color), var(--text-secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
+            overflow: hidden;
+        }
+
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .blog-card-content {
@@ -175,7 +169,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="blog-hero">
+    <section class="hero">
         <div class="container">
             <h1>Blog Vulsoft</h1>
             <p>Découvrez nos derniers articles sur le développement, la technologie et l'innovation digitale en Afrique</p>
@@ -208,23 +202,147 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <!-- Footer content here -->
+                <!-- Colonne 1: AI & Outils -->
                 <div class="footer-column">
-                    <h4>Vulsoft</h4>
-                    <p>Solutions digitales innovantes pour l'Afrique</p>
-                </div>
-                <div class="footer-column">
-                    <h4>Liens rapides</h4>
+                    <h4>AI</h4>
                     <ul>
-                        <li><a href="../index.html">Accueil</a></li>
-                        <li><a href="about.html">À propos</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Vulsoft AI</a></li>
+                        <li><a href="#">AI Assistant</a></li>
+                        <li><a href="#">Junie</a></li>
+                        <li><a href="#">AI in IDEs</a></li>
+                        <li><a href="#">AI Enterprise</a></li>
+                        <li><a href="#">AI News</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 2: Outils Développeur -->
+                <div class="footer-column">
+                    <h4>Outils Développeur</h4>
+                    <ul>
+                        <li><a href="#">Tous les Produits</a></li>
+                        <li><a href="#">Environnements de Développement</a></li>
+                        <li><a href="#">Développement Web</a></li>
+                        <li><a href="#">Outils d'Équipe</a></li>
+                        <li><a href="#">Marketplace de Plugins</a></li>
+                        <li><a href="#">Application Toolbox</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 3: Solutions -->
+                <div class="footer-column">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="../index.html#services">Entreprises</a></li>
+                        <li><a href="../index.html#services">Données</a></li>
+                        <li><a href="../index.html#services">Services IDE</a></li>
+                        <li><a href="../index.html#services">Développement à Distance</a></li>
+                        <li><a href="../index.html#services">Développement de Jeux</a></li>
+                        <li><a href="../index.html#services">DevOps</a></li>
+                        <li><a href="../index.html#services">Outils Mobiles</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 4: Initiatives -->
+                <div class="footer-column">
+                    <h4>Initiatives</h4>
+                    <ul>
+                        <li><a href="#">Temv</a></li>
+                        <li><a href="#">Open Source</a></li>
+                        <li><a href="#">Recherche Vulsoft</a></li>
+                        <li><a href="#">Vulsoft Mono</a></li>
+                        <li><a href="#">MPS</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 5: Éducation -->
+                <div class="footer-column">
+                    <h4>Éducation</h4>
+                    <ul>
+                        <li><a href="../academie.html">Étudiants</a></li>
+                        <li><a href="../academie.html">Enseignants</a></li>
+                        <li><a href="../academie.html">Bootcamps</a></li>
+                        <li><a href="../academie.html">Équipes</a></li>
+                        <li><a href="../academie.html">Catalogue de Cours</a></li>
+                        <li><a href="../academie.html">Programmes Universitaires</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 6: Boutique -->
+                <div class="footer-column">
+                    <h4>Boutique</h4>
+                    <ul>
+                        <li><a href="../index.html#tarifs">Plans et Tarifs</a></li>
+                        <li><a href="#">Pack Tous Produits</a></li>
+                        <li><a href="#">dotUltimate</a></li>
+                        <li><a href="#">Partenaires et Revendeurs</a></li>
+                        <li><a href="#">Clients et Récompenses</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section Support et Ressources -->
+            <div class="footer-secondary">
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Support Technique</a></li>
+                        <li><a href="contact.html">Contact Commercial</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Compte Vulsoft</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Ressources</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#">Accès Anticipé</a></li>
+                        <li><a href="#">Événements et Livestreams</a></li>
+                        <li><a href="#">Newsletters</a></li>
+                        <li><a href="#">Rapports Sectoriels</a></li>
+                        <li><a href="#">Guide Vulsoft</a></li>
+                        <li><a href="#">Inspectopedia</a></li>
+                        <li><a href="#">Art de Bureau</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Communauté</h4>
+                    <ul>
+                        <li><a href="#">Groupes d'Utilisateurs</a></li>
+                        <li><a href="#">Partenariats Open-Source</a></li>
+                        <li><a href="#">Reconnaissance Développeurs</a></li>
+                        <li><a href="#">Créateurs de Contenu</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Entreprise</h4>
+                    <ul>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="contact.html">Contacts</a></li>
+                        <li><a href="#">Carrières</a></li>
+                        <li><a href="#">Presse et Actualités</a></li>
+                        <li><a href="#">Ressources de Marque</a></li>
+                        <li><a href="#">Marchandises</a></li>
+                        <li><a href="#">Centre de Confiance</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Vulsoft. Tous droits réservés.</p>
+                <div class="footer-legal">
+                    <a href="#">Confidentialité et Sécurité</a>
+                    <a href="#">Avis de Confidentialité</a>
+                    <a href="#">Conditions d'Utilisation</a>
+                    <a href="#">Attributions</a>
+                    <a href="#">Mentions Légales</a>
+                    <a href="#">Outils Authentiques</a>
+                    <a href="#">Désabonnement</a>
+                </div>
+                <div class="footer-copyright">
+                    <p>Copyright © 2000-2024 Vulsoft.Inc</p>
+                    <p>Développé avec passion et Vulsoft IDEA</p>
+                </div>
             </div>
         </div>
     </footer>
@@ -232,5 +350,6 @@
     <script src="../js/notifications.js"></script>
     <script src="../js/api.js"></script>
     <script src="../js/blog.js"></script>
+    
 </body>
 </html>

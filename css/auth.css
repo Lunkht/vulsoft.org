@@ -59,7 +59,6 @@ body {
     padding: 3rem;
     border-radius: 24px;
     border: 1px solid var(--border-color);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
     width: 100%;
     max-width: 550px;
     position: relative;
@@ -132,7 +131,6 @@ body {
     color: var(--text-primary);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-family: inherit;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
 .form-group input:focus,
@@ -140,7 +138,6 @@ body {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
 }
 
@@ -212,7 +209,6 @@ body {
 .auth-button:hover {
     background: var(--text-primary);
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -294,7 +290,6 @@ body {
     border-color: var(--text-secondary);
     color: var(--text-primary);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .auth-divider {
@@ -311,7 +306,8 @@ body {
     background: var(--card-bg);
 }
 
-.auth-divider::before, .auth-divider::after {
+.auth-divider::before,
+.auth-divider::after {
     content: '';
     flex: 1;
     border-bottom: 1px solid var(--border-color);

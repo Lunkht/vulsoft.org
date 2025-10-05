@@ -99,10 +99,10 @@ class BlogManager {
         const article = document.createElement('article');
         article.className = 'blog-card';
         
-        // Générer un emoji aléatoire pour l'image
-        const emojis = ['💻', '🚀', '📱', '🌍', '⚡', '🎯', '🔧', '📊', '🎨', '🔥'];
-        const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-        
+        // Générer une image aléatoire depuis Unsplash
+        const keywords = ['technology', 'code', 'developer', 'workplace', 'abstract', 'nature'];
+        const randomKeyword = keywords[Math.floor(Math.random() * keywords.length)];
+        const imageUrl = `https://source.unsplash.com/600x400/?${randomKeyword}&sig=${post.id}`;
         // Créer un extrait du contenu
         const excerpt = this.createExcerpt(post.content);
         
@@ -114,9 +114,7 @@ class BlogManager {
         });
 
         article.innerHTML = `
-            <div class="blog-card-image">
-                ${randomEmoji}
-            </div>
+            <div class="blog-card-image"><img src="${imageUrl}" alt="${post.title}"></div>
             <div class="blog-card-content">
                 <h2 class="blog-card-title">${post.title}</h2>
                 <p class="blog-card-excerpt">${excerpt}</p>
