@@ -1305,6 +1305,12 @@ body {
         gap: 0.75rem;
     }
 
+    .nav-actions .connexion-btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+        opacity: 0.9;
+    }
+
     .hero {
         padding: 6rem 1rem 4rem;
     }
@@ -1409,10 +1415,19 @@ body {
         width: 100%;
     }
 
-    .nav-actions .connexion-btn,
     .nav-actions .cta-button {
+        width: 100%;
         text-align: center;
         color: var(--text-primary);
+    }
+
+    .nav-actions .connexion-btn {
+        font-size: 0.85rem;
+        padding: 0.4rem 1rem;
+        background: transparent;
+        border: 1px solid var(--border-color);
+        color: var(--text-secondary);
+        width: auto;
     }
 
     .hero h1 {
