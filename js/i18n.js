@@ -75,11 +75,17 @@ class I18nManager {
 
     async switchLanguage(lang) {
         if (!this.supportedLanguages.includes(lang)) return;
+
+        document.body.classList.add('lang-switching');
+        await new Promise(resolve => setTimeout(resolve, 300));
+
         this.currentLanguage = lang;
         localStorage.setItem('vulsoft_lang', lang);
         await this.loadTranslations(lang);
         this.translatePage();
         this.updateSwitcherUI();
+
+        document.body.classList.remove('lang-switching');
     }
 
     setupLanguageSwitcher() {
