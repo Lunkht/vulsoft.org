@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Détails du Projet - Vulsoft</title>
-    
+
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#3b82f6">
     <link rel="manifest" href="/manifest.json">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180x180.png">
@@ -19,6 +20,7 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/project-details.css">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
@@ -34,8 +36,14 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="login.html" class="connexion-btn">Connexion</a>
                 <div class="language-switcher"></div>
+                <a href="dashboard.html" class="user-profile-icon" aria-label="Mon Profil">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
             </div>
         </nav>
     </header>
@@ -62,37 +70,42 @@
     <script src="../js/i18n.js" defer></script>
     <script src="../js/project-details.js" defer></script>
 </body>
+
 </html>
 
 ```
 
 #### 3. Ajout des fichiers CSS et JavaScript
-J'ai créé les fichiers `css/projects.css`, `css/project-details.css`, `js/projects.js` et `js/project-details.js` avec le contenu nécessaire pour afficher la liste des projets et la galerie d'images (y compris une lightbox simple pour visualiser les images en grand).
+J'ai créé les fichiers `css/projects.css`, `css/project-details.css`, `js/projects.js` et `js/project-details.js` avec
+le contenu nécessaire pour afficher la liste des projets et la galerie d'images (y compris une lightbox simple pour
+visualiser les images en grand).
 
 *(Pour la concision, je n'affiche pas le contenu de ces 4 nouveaux fichiers, mais ils ont été ajoutés au projet.)*
 
 ### 🔗 Étape 3 : Mise à jour de la navigation
 
-J'ai ajouté un lien vers la nouvelle page "Projets" dans le menu de navigation des pages principales (`index.html`, `academie.html`, `about.html`, etc.) pour la rendre accessible.
+J'ai ajouté un lien vers la nouvelle page "Projets" dans le menu de navigation des pages principales (`index.html`,
+`academie.html`, `about.html`, etc.) pour la rendre accessible.
 
 ```diff
 --- a/Users/vulsoftinc/Documents/GitHub/Vulsoft/index.html
 +++ b/Users/vulsoftinc/Documents/GitHub/Vulsoft/index.html
 @@ -32,7 +32,7 @@
-             </div>
-             <ul class="nav-links">
-                 <li><a href="#accueil" data-i18n="nav.products">Accueil</a></li>
--                <li><a href="#services" data-i18n="nav.services">Solutions</a></li>
-+                <li><a href="pages/projects.html" data-i18n="nav.projects">Projets</a></li>
-                 <li><a href="academie.html" data-i18n="nav.academy">Académie</a></li>
-                 <li><a href="pages/about.html" data-i18n="nav.about">À propos</a></li>
-                 <li><a href="pages/contact.html" data-i18n="nav.contact">Contact</a></li>
+</div>
+<ul class="nav-links">
+    <li><a href="#accueil" data-i18n="nav.products">Accueil</a></li>
+    - <li><a href="#services" data-i18n="nav.services">Solutions</a></li>
+    + <li><a href="pages/projects.html" data-i18n="nav.projects">Projets</a></li>
+    <li><a href="academie.html" data-i18n="nav.academy">Académie</a></li>
+    <li><a href="pages/about.html" data-i18n="nav.about">À propos</a></li>
+    <li><a href="pages/contact.html" data-i18n="nav.contact">Contact</a></li>
 
-```
+    ```
 
-La galerie de projets est maintenant en place ! Il ne reste plus qu'à ajouter des projets et des images via le backend pour peupler ces nouvelles pages.
+    La galerie de projets est maintenant en place ! Il ne reste plus qu'à ajouter des projets et des images via le
+    backend pour peupler ces nouvelles pages.
 
-<!--
+    <!--
 [PROMPT_SUGGESTION]Comment puis-je ajouter un projet et ses images depuis le panneau d'administration ?[/PROMPT_SUGGESTION]
 [PROMPT_SUGGESTION]Comment pourrions-nous ajouter une authentification via les réseaux sociaux (Google, GitHub) ?[/PROMPT_SUGGESTION]
 -->

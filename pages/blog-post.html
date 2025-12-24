@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Article de Blog - Vulsoft</title>
-    
+
     <!-- PWA Meta Tags & Favicon -->
     <meta name="theme-color" content="#3b82f6">
     <link rel="manifest" href="/manifest.json">
@@ -16,6 +17,7 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/blog-post.css">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
@@ -32,8 +34,14 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="login.html" class="connexion-btn">Connexion</a>
                 <div class="language-switcher"></div>
+                <a href="dashboard.html" class="user-profile-icon" aria-label="Mon Profil">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
             </div>
         </nav>
     </header>
@@ -73,4 +81,5 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="../js/blog-post.js" defer></script>
 </body>
+
 </html>
