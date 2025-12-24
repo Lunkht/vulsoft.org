@@ -2,14 +2,14 @@ User-agent: *
 Allow: /
 
 # Pages importantes
-Allow: /pages/contact.html
-Allow: /pages/about.html
+Allow: /contact.html
+Allow: /about.html
 Allow: /academie.html
 Allow: /demo.html
 
 # Interdire l'accès aux pages d'administration
-Disallow: /pages/admin.html
-Disallow: /pages/dashboard.html
+Disallow: /admin.html
+Disallow: /dashboard.html
 Disallow: /api/admin/
 
 # Interdire l'accès aux fichiers de configuration

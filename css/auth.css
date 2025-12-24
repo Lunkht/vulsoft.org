@@ -37,11 +37,14 @@ body {
     font-weight: 800;
     letter-spacing: -0.02em;
     line-height: 1.1;
+    /* Force le blanc pour la section de gauche */
+    color: #ffffff;
 }
 
 .content-text p {
     font-size: 1.25rem;
-    color: var(--text-secondary);
+    color: #e5e7eb;
+    /* Gris très clair pour la section de gauche */
     line-height: 1.6;
 }
 
@@ -82,7 +85,8 @@ body {
 
 .auth-title {
     font-size: 2.5rem;
-    color: var(--text-primary);
+    color: #111827;
+    /* Force le sombre */
     font-weight: 800;
     letter-spacing: -0.02em;
     margin-bottom: 0.5rem;
@@ -90,7 +94,8 @@ body {
 
 .auth-subtitle {
     font-size: 1.125rem;
-    color: var(--text-secondary);
+    color: #4b5563;
+    /* Force le gris foncé */
     font-weight: 400;
 }
 
@@ -114,7 +119,8 @@ body {
     display: block;
     font-weight: 600;
     margin-bottom: 0.75rem;
-    color: var(--text-primary);
+    color: #374151;
+    /* Force le gris foncé pour les labels */
     font-size: 0.80rem;
     letter-spacing: -0.01em;
 }

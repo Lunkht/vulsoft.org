@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,10 +12,10 @@
     <meta name="apple-mobile-web-app-title" content="Vulsoft">
     <meta name="msapplication-TileColor" content="#3b82f6">
     <meta name="msapplication-config" content="/browserconfig.xml">
-    
+
     <!-- Manifest PWA -->
     <link rel="manifest" href="/manifest.json">
-    
+
     <!-- Apple Touch Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180x180.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32x32.png">
@@ -24,6 +25,7 @@
     <script src="https://js.stripe.com/v3/"></script>
     <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
@@ -38,7 +40,8 @@
                 <li><a href="../academie.html">Academy</a></li>
                 <li><a href="about.html">À propos</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li class="mobile-login"><a href="login.html" class="connexion-btn" data-i18n="nav.login">Connexion</a></li>
+                <li class="mobile-login"><a href="login.html" class="connexion-btn" data-i18n="nav.login">Connexion</a>
+                </li>
             </ul>
             <div class="nav-actions">
                 <div class="language-switcher">
@@ -46,7 +49,11 @@
                     <button type="button" data-lang="en">EN</button>
                 </div>
                 <a href="dashboard.html" class="user-profile-icon" aria-label="Mon Profil">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
                 </a>
                 <button class="menu-toggle" aria-label="Toggle menu">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -160,14 +167,16 @@
                                 <label class="checkbox-container">
                                     <input type="checkbox" id="terms" name="terms" required>
                                     <span class="checkmark"></span>
-                                    J'accepte les <a href="#" class="terms-link">conditions d'utilisation</a> et la <a href="#" class="terms-link">politique de confidentialité</a> *
+                                    J'accepte les <a href="#" class="terms-link">conditions d'utilisation</a> et la <a
+                                        href="#" class="terms-link">politique de confidentialité</a> *
                                 </label>
                             </div>
 
                             <button type="button" class="btn-next" onclick="nextStep()">
                                 <span>Continuer vers le paiement</span>
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
                                 </svg>
                             </button>
                         </form>
@@ -176,7 +185,7 @@
                     <!-- Step 2: Payment Method -->
                     <div class="form-step" id="step-2">
                         <h2>Méthode de paiement</h2>
-                        
+
                         <div class="payment-methods">
                             <div class="payment-method" data-method="orange-money">
                                 <div class="method-header">
@@ -198,15 +207,18 @@
                                     </div>
                                     <div class="payment-info">
                                         <div class="info-item">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <path d="M9 12l2 2 4-4"/>
-                                                <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.12 0 4.07.74 5.61 1.98"/>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M9 12l2 2 4-4" />
+                                                <path
+                                                    d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.12 0 4.07.74 5.61 1.98" />
                                             </svg>
                                             <span>Paiement instantané</span>
                                         </div>
                                         <div class="info-item">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                                             </svg>
                                             <span>100% sécurisé</span>
                                         </div>
@@ -230,7 +242,8 @@
                                 <div class="method-form">
                                     <div class="form-group">
                                         <label for="mtn-phone">Numéro MTN Money *</label>
-                                        <input type="tel" id="mtn-phone" name="mtn-phone" placeholder="+224 6XX XX XX XX">
+                                        <input type="tel" id="mtn-phone" name="mtn-phone"
+                                            placeholder="+224 6XX XX XX XX">
                                     </div>
                                 </div>
                             </div>
@@ -240,9 +253,10 @@
                                     <input type="radio" name="payment-method" id="card" value="card">
                                     <label for="card">
                                         <div class="method-icon card">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
-                                                <line x1="1" y1="10" x2="23" y2="10"/>
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+                                                <line x1="1" y1="10" x2="23" y2="10" />
                                             </svg>
                                         </div>
                                         <div class="method-info">
@@ -255,11 +269,14 @@
                                     <!-- Stripe Payment Element will be inserted here -->
                                     <div id="payment-element"></div>
                                     <!-- Used to display form errors -->
-                                    <div id="payment-message" role="alert" style="color: #ef4444; margin-top: 1rem; font-size: 0.875rem;"></div>
+                                    <div id="payment-message" role="alert"
+                                        style="color: #ef4444; margin-top: 1rem; font-size: 0.875rem;"></div>
 
                                     <div class="card-logos">
-                                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCA0MCAyNCIgZmlsbD0ibm9uZSI+PHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iIzAwNTFBNSIvPjx0ZXh0IHg9IjIwIiB5PSIxNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VklTQTwvdGV4dD48L3N2Zz4=" alt="Visa">
-                                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCA0MCAyNCIgZmlsbD0ibm9uZSI+PHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iI0VCMDAxQiIvPjx0ZXh0IHg9IjIwIiB5PSIxNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjgiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NYXN0ZXJDYXJkPC90ZXh0Pjwvc3ZnPg==" alt="Mastercard">
+                                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCA0MCAyNCIgZmlsbD0ibm9uZSI+PHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iIzAwNTFBNSIvPjx0ZXh0IHg9IjIwIiB5PSIxNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VklTQTwvdGV4dD48L3N2Zz4="
+                                            alt="Visa">
+                                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCA0MCAyNCIgZmlsbD0ibm9uZSI+PHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iI0VCMDAxQiIvPjx0ZXh0IHg9IjIwIiB5PSIxNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjgiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NYXN0ZXJDYXJkPC90ZXh0Pjwvc3ZnPg=="
+                                            alt="Mastercard">
                                     </div>
                                 </div>
                             </div>
@@ -267,15 +284,17 @@
 
                         <div class="payment-actions">
                             <button type="button" class="btn-back" onclick="prevStep()">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M19 12H5M12 19l-7-7 7-7" />
                                 </svg>
                                 <span>Retour</span>
                             </button>
                             <button type="submit" class="btn-next" id="submit-payment-btn">
                                 <span>Procéder au paiement</span>
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                                 </svg>
                             </button>
                         </div>
@@ -285,14 +304,17 @@
                     <div class="form-step" id="step-3">
                         <div class="confirmation-content">
                             <div class="success-icon">
-                                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M9 12l2 2 4-4"/>
-                                    <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.12 0 4.07.74 5.61 1.98"/>
+                                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M9 12l2 2 4-4" />
+                                    <path
+                                        d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.12 0 4.07.74 5.61 1.98" />
                                 </svg>
                             </div>
                             <h2>Paiement confirmé !</h2>
-                            <p>Félicitations ! Votre inscription au cours <strong>"JavaScript Moderne ES6+"</strong> a été confirmée.</p>
-                            
+                            <p>Félicitations ! Votre inscription au cours <strong>"JavaScript Moderne ES6+"</strong> a
+                                été confirmée.</p>
+
                             <div class="next-steps">
                                 <h3>Prochaines étapes :</h3>
                                 <div class="step-item">
@@ -324,8 +346,9 @@
                                 </a>
                                 <a href="login.html" class="btn-primary">
                                     <span>Accéder à mon espace</span>
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
                                     </svg>
                                 </a>
                             </div>
@@ -337,13 +360,14 @@
                 <div class="order-summary">
                     <div class="summary-card">
                         <h3>Récapitulatif de commande</h3>
-                        
+
                         <div class="course-summary">
                             <div class="course-image">
                                 <div class="course-placeholder">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="16,18 22,12 16,6"/>
-                                        <polyline points="8,6 2,12 8,18"/>
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="16,18 22,12 16,6" />
+                                        <polyline points="8,6 2,12 8,18" />
                                     </svg>
                                 </div>
                             </div>
@@ -371,8 +395,9 @@
 
                         <div class="guarantee">
                             <div class="guarantee-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                                 </svg>
                             </div>
                             <div class="guarantee-text">
@@ -385,38 +410,44 @@
                             <h4>Inclus dans ce cours :</h4>
                             <ul>
                                 <li>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12" />
                                     </svg>
                                     <span>8 heures de vidéo HD</span>
                                 </li>
                                 <li>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12" />
                                     </svg>
                                     <span>15 exercices pratiques</span>
                                 </li>
                                 <li>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12" />
                                     </svg>
                                     <span>3 projets complets</span>
                                 </li>
                                 <li>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12" />
                                     </svg>
                                     <span>Accès à vie</span>
                                 </li>
                                 <li>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12" />
                                     </svg>
                                     <span>Support instructeur</span>
                                 </li>
                                 <li>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12" />
                                     </svg>
                                     <span>Certificat de fin</span>
                                 </li>
@@ -426,24 +457,27 @@
 
                     <div class="security-info">
                         <div class="security-item">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                             </svg>
                             <span>Paiement 100% sécurisé</span>
                         </div>
                         <div class="security-item">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M9 12l2 2 4-4"/>
-                                <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.12 0 4.07.74 5.61 1.98"/>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M9 12l2 2 4-4" />
+                                <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.12 0 4.07.74 5.61 1.98" />
                             </svg>
                             <span>Accès immédiat</span>
                         </div>
                         <div class="security-item">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                <circle cx="9" cy="7" r="4"/>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                             </svg>
                             <span>Support 24/7</span>
                         </div>
@@ -635,7 +669,7 @@
 
             // Gérer la sélection de la méthode de paiement
             document.querySelectorAll('input[name="payment-method"]').forEach(radio => {
-                radio.addEventListener('change', function() {
+                radio.addEventListener('change', function () {
                     document.querySelectorAll('.method-form').forEach(form => form.style.display = 'none');
                     const selectedMethod = this.closest('.payment-method');
                     const methodForm = selectedMethod.querySelector('.method-form');
@@ -652,11 +686,13 @@
     </script>
     <script src="../js/pwa.js"></script>
 </body>
+
 </html>
-                }
-            });
-        });
-    </script>
-    <script src="../js/pwa.js"></script>
+}
+});
+});
+</script>
+<script src="../js/pwa.js"></script>
 </body>
+
 </html>
