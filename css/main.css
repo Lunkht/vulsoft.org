@@ -1412,6 +1412,7 @@ body {
     .nav-actions .connexion-btn,
     .nav-actions .cta-button {
         text-align: center;
+        color: var(--text-primary);
     }
 
     .hero h1 {
