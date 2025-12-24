@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,10 +12,10 @@
     <meta name="apple-mobile-web-app-title" content="Vulsoft">
     <meta name="msapplication-TileColor" content="#3b82f6">
     <meta name="msapplication-config" content="/browserconfig.xml">
-    
+
     <!-- Manifest PWA -->
     <link rel="manifest" href="/manifest.json">
-    
+
     <!-- Apple Touch Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180x180.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32x32.png">
@@ -23,6 +24,7 @@
     <link rel="stylesheet" href="../css/course-details.css">
     <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
@@ -32,18 +34,37 @@
             </div>
             <ul class="nav-links">
                 <li><a href="../index.html">Accueil</a></li>
-                <li><a href="../academie.html#formations">Formations</a></li>
-                <li><a href="../academie.html#parcours">Parcours</a></li>
+                <li><a href="projects.html" data-i18n="nav.projects">Projets</a></li>
+                <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+                <li><a href="../academie.html">Académie</a></li>
                 <li><a href="../pages/about.html">À propos</a></li>
                 <li><a href="../pages/contact.html">Contact</a></li>
+                <li class="mobile-login"><a href="login.html" class="connexion-btn" data-i18n="nav.login">Connexion</a>
+                </li>
             </ul>
             <div class="nav-actions">
+                <div class="language-switcher">
+                    <button type="button" data-lang="fr">FR</button>
+                    <button type="button" data-lang="en">EN</button>
+                </div>
                 <a href="dashboard.html" class="user-profile-icon" aria-label="Mon Profil">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
                 </a>
                 <a href="#inscription" class="cta-button">S'inscrire</a>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
             </div>
         </nav>
+        <div class="menu-overlay"></div>
     </header>
 
     <!-- Course Hero -->
@@ -57,7 +78,7 @@
                     <span>›</span>
                     <span>JavaScript Moderne</span>
                 </div>
-                
+
                 <div class="course-header">
                     <div class="course-info">
                         <div class="course-badges">
@@ -65,31 +86,35 @@
                             <span class="course-badge level">Débutant</span>
                         </div>
                         <h1>JavaScript Moderne ES6+</h1>
-                        <p class="course-subtitle">Maîtrisez JavaScript moderne, les frameworks et les bonnes pratiques pour devenir un développeur web compétent</p>
-                        
+                        <p class="course-subtitle">Maîtrisez JavaScript moderne, les frameworks et les bonnes pratiques
+                            pour devenir un développeur web compétent</p>
+
                         <div class="course-meta">
                             <div class="meta-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <polyline points="12,6 12,12 16,14"/>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="12,6 12,12 16,14" />
                                 </svg>
                                 <span>8 semaines</span>
                             </div>
                             <div class="meta-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                    <circle cx="9" cy="7" r="4"/>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                    <circle cx="9" cy="7" r="4" />
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                                 </svg>
                                 <span>245 étudiants</span>
                             </div>
                             <div class="meta-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                    <polyline points="14,2 14,8 20,8"/>
-                                    <line x1="16" y1="13" x2="8" y2="13"/>
-                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14,2 14,8 20,8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
                                 </svg>
                                 <span>Certificat inclus</span>
                             </div>
@@ -104,13 +129,14 @@
                     <div class="course-card">
                         <div class="course-preview">
                             <div class="preview-placeholder">
-                                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polygon points="5,3 19,12 5,21 5,3"/>
+                                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polygon points="5,3 19,12 5,21 5,3" />
                                 </svg>
                                 <span>Aperçu du cours</span>
                             </div>
                         </div>
-                        
+
                         <div class="course-pricing">
                             <div class="price-section">
                                 <span class="current-price">75 000 GNF</span>
@@ -123,13 +149,16 @@
                         <div class="course-actions">
                             <a href="payment.html?course=javascript-moderne" class="btn-primary">
                                 <span>S'inscrire maintenant</span>
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
                                 </svg>
                             </a>
                             <button class="btn-secondary" id="add-to-wishlist">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                                 </svg>
                                 <span>Ajouter aux favoris</span>
                             </button>
@@ -139,38 +168,44 @@
                             <h4>Ce cours inclut :</h4>
                             <ul>
                                 <li>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12" />
                                     </svg>
                                     <span>8 heures de vidéo</span>
                                 </li>
                                 <li>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12" />
                                     </svg>
                                     <span>15 exercices pratiques</span>
                                 </li>
                                 <li>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12" />
                                     </svg>
                                     <span>3 projets complets</span>
                                 </li>
                                 <li>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12" />
                                     </svg>
                                     <span>Accès à vie</span>
                                 </li>
                                 <li>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12" />
                                     </svg>
                                     <span>Support instructeur</span>
                                 </li>
                                 <li>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12" />
                                     </svg>
                                     <span>Certificat de fin</span>
                                 </li>
@@ -198,43 +233,53 @@
                     <div class="overview-content">
                         <div class="overview-main">
                             <h2>Description du cours</h2>
-                            <p>Ce cours complet vous permettra de maîtriser JavaScript moderne (ES6+) et les concepts avancés nécessaires pour devenir un développeur web compétent. Vous apprendrez les dernières fonctionnalités du langage, les bonnes pratiques et comment construire des applications web interactives.</p>
-                            
+                            <p>Ce cours complet vous permettra de maîtriser JavaScript moderne (ES6+) et les concepts
+                                avancés nécessaires pour devenir un développeur web compétent. Vous apprendrez les
+                                dernières fonctionnalités du langage, les bonnes pratiques et comment construire des
+                                applications web interactives.</p>
+
                             <h3>Ce que vous allez apprendre</h3>
                             <div class="learning-objectives">
                                 <div class="objective-item">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12" />
                                     </svg>
-                                    <span>Maîtriser les fonctionnalités ES6+ (let/const, arrow functions, destructuring)</span>
+                                    <span>Maîtriser les fonctionnalités ES6+ (let/const, arrow functions,
+                                        destructuring)</span>
                                 </div>
                                 <div class="objective-item">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12" />
                                     </svg>
                                     <span>Comprendre la programmation asynchrone (Promises, async/await)</span>
                                 </div>
                                 <div class="objective-item">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12" />
                                     </svg>
                                     <span>Manipuler le DOM et gérer les événements</span>
                                 </div>
                                 <div class="objective-item">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12" />
                                     </svg>
                                     <span>Utiliser les modules JavaScript et les outils de build</span>
                                 </div>
                                 <div class="objective-item">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12" />
                                     </svg>
                                     <span>Construire des applications web interactives</span>
                                 </div>
                                 <div class="objective-item">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12" />
                                     </svg>
                                     <span>Appliquer les bonnes pratiques et patterns de développement</span>
                                 </div>
@@ -285,7 +330,7 @@
                     <div class="curriculum-content">
                         <h2>Programme du cours</h2>
                         <p class="curriculum-intro">8 sections • 45 leçons • 8h de contenu vidéo</p>
-                        
+
                         <div class="curriculum-sections">
                             <div class="curriculum-section">
                                 <div class="section-header">
@@ -298,8 +343,9 @@
                                 <div class="section-lessons">
                                     <div class="lesson-item">
                                         <div class="lesson-info">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <polygon points="5,3 19,12 5,21 5,3"/>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <polygon points="5,3 19,12 5,21 5,3" />
                                             </svg>
                                             <span>Bienvenue dans le cours</span>
                                         </div>
@@ -307,8 +353,9 @@
                                     </div>
                                     <div class="lesson-item">
                                         <div class="lesson-info">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <polygon points="5,3 19,12 5,21 5,3"/>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <polygon points="5,3 19,12 5,21 5,3" />
                                             </svg>
                                             <span>Configuration de l'environnement</span>
                                         </div>
@@ -316,8 +363,9 @@
                                     </div>
                                     <div class="lesson-item">
                                         <div class="lesson-info">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <polygon points="5,3 19,12 5,21 5,3"/>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <polygon points="5,3 19,12 5,21 5,3" />
                                             </svg>
                                             <span>Les nouveautés ES6+</span>
                                         </div>
@@ -325,8 +373,9 @@
                                     </div>
                                     <div class="lesson-item">
                                         <div class="lesson-info">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <polygon points="5,3 19,12 5,21 5,3"/>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <polygon points="5,3 19,12 5,21 5,3" />
                                             </svg>
                                             <span>Let, const et portée des variables</span>
                                         </div>
@@ -334,8 +383,9 @@
                                     </div>
                                     <div class="lesson-item">
                                         <div class="lesson-info">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <polygon points="5,3 19,12 5,21 5,3"/>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <polygon points="5,3 19,12 5,21 5,3" />
                                             </svg>
                                             <span>Arrow functions</span>
                                         </div>
@@ -343,9 +393,10 @@
                                     </div>
                                     <div class="lesson-item exercise">
                                         <div class="lesson-info">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                                <polyline points="14,2 14,8 20,8"/>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                                <polyline points="14,2 14,8 20,8" />
                                             </svg>
                                             <span>Exercice : Refactoring avec ES6</span>
                                         </div>
@@ -365,8 +416,9 @@
                                 <div class="section-lessons collapsed">
                                     <div class="lesson-item">
                                         <div class="lesson-info">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <polygon points="5,3 19,12 5,21 5,3"/>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <polygon points="5,3 19,12 5,21 5,3" />
                                             </svg>
                                             <span>Destructuring d'objets</span>
                                         </div>
@@ -374,8 +426,9 @@
                                     </div>
                                     <div class="lesson-item">
                                         <div class="lesson-info">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <polygon points="5,3 19,12 5,21 5,3"/>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <polygon points="5,3 19,12 5,21 5,3" />
                                             </svg>
                                             <span>Destructuring d'arrays</span>
                                         </div>
@@ -406,7 +459,8 @@
                                     <span class="section-duration">1h 45min • 8 leçons</span>
                                 </div>
                                 <div class="section-lessons collapsed">
-                                    <p class="section-preview">Sélection d'éléments, événements, création dynamique...</p>
+                                    <p class="section-preview">Sélection d'éléments, événements, création dynamique...
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -446,9 +500,14 @@
 
                         <div class="instructor-bio">
                             <h3>À propos de l'instructeur</h3>
-                            <p>Hakim Lunkht est un développeur full stack passionné avec plus de 8 ans d'expérience dans le développement web. Fondateur de Vulsoft, il a accompagné de nombreuses entreprises dans leur transformation digitale en Afrique de l'Ouest.</p>
-                            
-                            <p>Expert en JavaScript, React, Node.js et technologies modernes, Hakim partage sa passion pour le code à travers des formations pratiques et accessibles. Il croit fermement que la technologie peut transformer l'Afrique et s'engage à former la prochaine génération de développeurs africains.</p>
+                            <p>Hakim Lunkht est un développeur full stack passionné avec plus de 8 ans d'expérience dans
+                                le développement web. Fondateur de Vulsoft, il a accompagné de nombreuses entreprises
+                                dans leur transformation digitale en Afrique de l'Ouest.</p>
+
+                            <p>Expert en JavaScript, React, Node.js et technologies modernes, Hakim partage sa passion
+                                pour le code à travers des formations pratiques et accessibles. Il croit fermement que
+                                la technologie peut transformer l'Afrique et s'engage à former la prochaine génération
+                                de développeurs africains.</p>
 
                             <h4>Expertise</h4>
                             <div class="instructor-skills">
@@ -509,7 +568,9 @@
                                         <span class="review-date">Il y a 2 semaines</span>
                                     </div>
                                 </div>
-                                <p class="review-text">Excellent cours ! Les explications sont claires et les exercices pratiques permettent de bien assimiler les concepts. Hakim est un très bon pédagogue.</p>
+                                <p class="review-text">Excellent cours ! Les explications sont claires et les exercices
+                                    pratiques permettent de bien assimiler les concepts. Hakim est un très bon
+                                    pédagogue.</p>
                             </div>
 
                             <div class="review-item">
@@ -521,7 +582,8 @@
                                         <span class="review-date">Il y a 1 mois</span>
                                     </div>
                                 </div>
-                                <p class="review-text">Parfait pour débuter avec JavaScript moderne. Le rythme est adapté et les projets sont motivants. Je recommande vivement !</p>
+                                <p class="review-text">Parfait pour débuter avec JavaScript moderne. Le rythme est
+                                    adapté et les projets sont motivants. Je recommande vivement !</p>
                             </div>
 
                             <div class="review-item">
@@ -533,7 +595,8 @@
                                         <span class="review-date">Il y a 1 mois</span>
                                     </div>
                                 </div>
-                                <p class="review-text">Très bon contenu, j'aurais aimé plus d'exercices sur les concepts avancés mais dans l'ensemble c'est une formation de qualité.</p>
+                                <p class="review-text">Très bon contenu, j'aurais aimé plus d'exercices sur les concepts
+                                    avancés mais dans l'ensemble c'est une formation de qualité.</p>
                             </div>
                         </div>
                     </div>
@@ -671,11 +734,11 @@
         tabButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const targetTab = button.dataset.tab;
-                
+
                 // Remove active class from all buttons and panels
                 tabButtons.forEach(btn => btn.classList.remove('active'));
                 tabPanels.forEach(panel => panel.classList.remove('active'));
-                
+
                 // Add active class to clicked button and corresponding panel
                 button.classList.add('active');
                 document.getElementById(targetTab).classList.add('active');
@@ -687,7 +750,7 @@
             header.addEventListener('click', () => {
                 const section = header.parentElement;
                 const lessons = section.querySelector('.section-lessons');
-                
+
                 if (lessons.classList.contains('collapsed')) {
                     lessons.classList.remove('collapsed');
                 } else {
@@ -697,10 +760,10 @@
         });
 
         // Gestion des favoris
-        document.getElementById('add-to-wishlist').addEventListener('click', function() {
+        document.getElementById('add-to-wishlist').addEventListener('click', function () {
             const icon = this.querySelector('svg path');
             const text = this.querySelector('span');
-            
+
             if (this.classList.contains('added')) {
                 this.classList.remove('added');
                 text.textContent = 'Ajouter aux favoris';
@@ -724,4 +787,5 @@
     </script>
     <script src="../js/pwa.js"></script>
 </body>
+
 </html>

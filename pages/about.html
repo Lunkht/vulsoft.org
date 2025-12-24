@@ -33,15 +33,19 @@
                 <img src="../images/logo-Vulsoft-1.svg" alt="Vulsoft Logo">
             </div>
             <ul class="nav-links">
-                <li><a href="../index.html#accueil" data-i18n="nav.products">Accueil</a></li>
-                <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+                <li><a href="../index.html" data-i18n="nav.products">Accueil</a></li>
+                <li><a href="projects.html" data-i18n="nav.projects">Projets</a></li>
+                <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
                 <li><a href="../academie.html" data-i18n="nav.academy">Académie</a></li>
                 <li><a href="#about" class="active" data-i18n="nav.about">À propos</a></li>
                 <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                <li class="mobile-login"><a href="login.html" class="connexion-btn" data-i18n="nav.login">Connexion</a>
+                </li>
             </ul>
             <div class="nav-actions">
                 <div class="language-switcher">
-                    <!-- Buttons will be injected by i18n.js -->
+                    <button type="button" data-lang="fr">FR</button>
+                    <button type="button" data-lang="en">EN</button>
                 </div>
                 <a href="dashboard.html" class="user-profile-icon" aria-label="Mon Profil">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -50,8 +54,16 @@
                         <circle cx="12" cy="7" r="4"></circle>
                     </svg>
                 </a>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
             </div>
         </nav>
+        <div class="menu-overlay"></div>
     </header>
 
     <!-- Hero Section About -->

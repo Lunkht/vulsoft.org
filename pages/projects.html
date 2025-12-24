@@ -31,12 +31,18 @@
             <ul class="nav-links">
                 <li><a href="../index.html">Accueil</a></li>
                 <li><a href="#projects" class="active">Projets</a></li>
+                <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
                 <li><a href="../academie.html">Académie</a></li>
                 <li><a href="about.html">À propos</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li class="mobile-login"><a href="login.html" class="connexion-btn" data-i18n="nav.login">Connexion</a>
+                </li>
             </ul>
             <div class="nav-actions">
-                <div class="language-switcher"></div>
+                <div class="language-switcher">
+                    <button type="button" data-lang="fr">FR</button>
+                    <button type="button" data-lang="en">EN</button>
+                </div>
                 <a href="dashboard.html" class="user-profile-icon" aria-label="Mon Profil">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -44,8 +50,16 @@
                         <circle cx="12" cy="7" r="4"></circle>
                     </svg>
                 </a>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
             </div>
         </nav>
+        <div class="menu-overlay"></div>
     </header>
 
     <!-- Hero Section -->
