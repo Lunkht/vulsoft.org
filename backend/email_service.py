@@ -72,7 +72,9 @@ async def send_contact_notification_to_admin(data: Dict):
     """
     
     if data.get("file_path"):
-        file_url = f"http://localhost:8001/{data.get('file_path')}"
+        # Utilise l'URL de base configurée ou localhost par défaut
+        base_url = getattr(settings, "SERVER_BASE_URL", "http://localhost:8001")
+        file_url = f"{base_url}/{data.get('file_path')}"
         body += f"\n\nPièce jointe: {file_url}"
 
     message = MessageSchema(subject="Nouveau Message de Contact", recipients=[admin_email], body=body, subtype="plain")

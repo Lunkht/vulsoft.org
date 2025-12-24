@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel, EmailStr
 from fastapi.responses import HTMLResponse
 import uvicorn
 from pathlib import Path
@@ -15,6 +16,15 @@ app = FastAPI(
     description="API moderne pour le site Vulsoft",
     version="1.0.0"
 )
+
+# Modèle Pydantic pour la demande de réinitialisation
+class ForgotPasswordRequest(BaseModel):
+    identifier: str # Peut être un nom d'utilisateur ou un email
+
+# Modèle pour la réinitialisation effective
+class ResetPasswordRequest(BaseModel):
+    token: str
+    new_password: str
 
 # Configuration CORS pour production
 app.add_middleware(
@@ -62,6 +72,37 @@ async def startup_event():
 async def health_check():
     """Endpoint de santé pour monitoring"""
     return {"status": "healthy", "service": "Vulsoft API"}
+
+@app.post("/api/auth/forgot-password", tags=["Authentication"])
+async def forgot_password(request: ForgotPasswordRequest):
+    """
+    Lance le processus de réinitialisation de mot de passe.
+    Recherche l'utilisateur par nom ou email et envoie un lien de réinitialisation.
+    """
+    # NOTE: La logique ci-dessous est un exemple et doit être adaptée.
+    # 1. Rechercher l'utilisateur dans la base de données avec request.identifier
+    # user = await get_user_by_username_or_email(request.identifier)
+    # if not user:
+    #     # Ne pas révéler si l'utilisateur existe ou non pour des raisons de sécurité
+    #     return {"message": "Si un compte correspondant existe, un email de réinitialisation a été envoyé."}
+    # 2. Générer un token de réinitialisation sécurisé et le sauvegarder
+    # 3. Envoyer l'email avec le lien contenant le token
+    return {"message": "Si un compte correspondant existe, un email de réinitialisation a été envoyé."}
+
+@app.post("/api/auth/reset-password", tags=["Authentication"])
+async def reset_password(request: ResetPasswordRequest):
+    """
+    Réinitialise le mot de passe de l'utilisateur avec un token valide.
+    """
+    # NOTE: La logique ci-dessous est un exemple et doit être adaptée.
+    # 1. Rechercher le token dans la base de données.
+    # reset_token_record = await get_reset_token(request.token)
+    # if not reset_token_record or is_token_expired(reset_token_record):
+    #     raise HTTPException(status_code=400, detail="Token invalide ou expiré.")
+    # 2. Mettre à jour le mot de passe de l'utilisateur associé au token.
+    # await update_user_password(reset_token_record.user_id, request.new_password)
+    # 3. Invalider le token.
+    return {"message": "Votre mot de passe a été réinitialisé avec succès."}
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
