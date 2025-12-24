@@ -102,3 +102,26 @@
     color: var(--text-tertiary);
     margin-bottom: 1rem;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .blog-hero {
+        padding: 6rem 0 3rem;
+    }
+
+    .blog-grid-section {
+        padding: 4rem 0;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-hero h1 {
+        font-size: 2rem;
+    }
+}

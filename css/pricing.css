@@ -164,3 +164,33 @@
     color: var(--accent-color);
     font-weight: 600;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pricing {
+        padding: 6rem 0;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1.5rem;
+    }
+
+    .pricing-card {
+        padding: 2rem;
+    }
+
+    .pricing-card.featured {
+        transform: none;
+    }
+
+    .pricing-card.featured:hover {
+        transform: translateY(-8px);
+    }
+
+    .pricing-cta {
+        margin-top: 3rem;
+        padding: 2rem;
+    }
+}
