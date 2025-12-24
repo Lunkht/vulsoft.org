@@ -62,7 +62,7 @@ class I18nManager {
                         element.placeholder = placeholderTranslation;
                     }
                 }
-                
+
                 // Translate innerHTML
                 element.innerHTML = translation;
             }
@@ -83,20 +83,25 @@ class I18nManager {
     }
 
     setupLanguageSwitcher() {
-        document.querySelectorAll('.language-switcher').forEach(switcher => {
-            switcher.innerHTML = `
-                <button id="lang-fr" onclick="window.i18nManager.switchLanguage('fr')">FR</button>
-                 / 
-                <button id="lang-en" onclick="window.i18nManager.switchLanguage('en')">EN</button>
-            `;
+        // Attache les événements aux boutons existants dans le HTML
+        document.querySelectorAll('.language-switcher button[data-lang]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = btn.getAttribute('data-lang');
+                this.switchLanguage(lang);
+            });
         });
         this.updateSwitcherUI();
     }
-    
+
     updateSwitcherUI() {
-        document.querySelectorAll('.language-switcher button').forEach(btn => btn.classList.remove('active'));
-        const activeBtn = document.getElementById(`lang-${this.currentLanguage}`);
-        if (activeBtn) activeBtn.classList.add('active');
+        document.querySelectorAll('.language-switcher button').forEach(btn => {
+            if (btn.getAttribute('data-lang') === this.currentLanguage) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
     }
 }
 
