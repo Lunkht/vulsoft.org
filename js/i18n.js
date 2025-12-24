@@ -33,7 +33,7 @@ class I18nManager {
     async loadTranslations(lang) {
         try {
             // Adjust path for pages in subdirectories
-            const path = window.location.pathname.includes('/pages/') ? '../locales' : 'locales';
+            const path = window.location.pathname.includes('/pages/') ? '..' : '.';
             const response = await fetch(`${path}/${lang}.json`);
             if (!response.ok) {
                 throw new Error(`Could not load translation file for ${lang}`);

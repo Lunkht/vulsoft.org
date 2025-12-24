@@ -171,6 +171,10 @@ body.lang-switching {
     background: var(--bg-secondary);
 }
 
+.nav-links li.mobile-login {
+    display: none;
+}
+
 .connexion-btn {
     background: #222;
     color: var(--button-primary-text);
@@ -1374,6 +1378,17 @@ body.lang-switching {
 
     .nav-actions {
         gap: 0.5rem;
+    }
+
+    .nav-actions .connexion-btn,
+    .language-switcher {
+        display: none !important;
+    }
+
+    .nav-links li.mobile-login {
+        display: block;
+        width: 100%;
+        margin-top: 1rem;
     }
 
     .nav-actions .connexion-btn {
