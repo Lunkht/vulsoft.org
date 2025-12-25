@@ -4,21 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Détails du Projet - Vulsoft</title>
+    <title>Nos Projets - Vulsoft</title>
 
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#3b82f6">
     <link rel="manifest" href="/manifest.json">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180x180.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16x16.png">
     <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
 
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/project-details.css">
+    <link rel="stylesheet" href="../css/projects.css">
 </head>
 
 <body>
@@ -30,12 +30,13 @@
             </div>
             <ul class="nav-links">
                 <li><a href="../index.html">Accueil</a></li>
-                <li><a href="projects.html">Projets</a></li>
+                <li><a href="#projects" class="active">Projets</a></li>
                 <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
                 <li><a href="../academie.html">Académie</a></li>
                 <li><a href="about.html">À propos</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li class="mobile-login"><a href="login.html" class="connexion-btn" data-i18n="nav.login">Connexion</a></li>
+                <li class="mobile-login"><a href="login.html" class="connexion-btn" data-i18n="nav.login">Connexion</a>
+                </li>
             </ul>
             <div class="nav-actions">
                 <div class="language-switcher">
@@ -61,18 +62,24 @@
         <div class="menu-overlay"></div>
     </header>
 
-    <main id="project-details-container">
-        <!-- Le contenu du projet sera injecté ici par JavaScript -->
-        <div class="loading">Chargement du projet...</div>
-    </main>
+    <!-- Hero Section -->
+    <section class="projects-hero">
+        <div class="container">
+            <h1>Nos Réalisations</h1>
+            <p>Découvrez une sélection de projets qui illustrent notre savoir-faire et notre passion pour l'innovation
+                technologique.</p>
+        </div>
+    </section>
 
-    <!-- Lightbox pour la galerie -->
-    <div id="lightbox" class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
-        <a class="lightbox-prev">&#10094;</a>
-        <a class="lightbox-next">&#10095;</a>
-    </div>
+    <!-- Projects Grid -->
+    <section class="projects-grid-section">
+        <div class="container">
+            <div id="projects-grid" class="projects-grid">
+                <!-- Les projets seront injectés ici par JavaScript -->
+                <div class="loading">Chargement des projets...</div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -81,44 +88,7 @@
 
     <script src="../js/pwa.js"></script>
     <script src="../js/i18n.js" defer></script>
-    <script src="../js/project-details.js" defer></script>
+    <script src="../js/projects.js" defer></script>
 </body>
 
 </html>
-
-```
-
-#### 3. Ajout des fichiers CSS et JavaScript
-J'ai créé les fichiers `css/projects.css`, `css/project-details.css`, `js/projects.js` et `js/project-details.js` avec
-le contenu nécessaire pour afficher la liste des projets et la galerie d'images (y compris une lightbox simple pour
-visualiser les images en grand).
-
-*(Pour la concision, je n'affiche pas le contenu de ces 4 nouveaux fichiers, mais ils ont été ajoutés au projet.)*
-
-### 🔗 Étape 3 : Mise à jour de la navigation
-
-J'ai ajouté un lien vers la nouvelle page "Projets" dans le menu de navigation des pages principales (`index.html`,
-`academie.html`, `about.html`, etc.) pour la rendre accessible.
-
-```diff
---- a/Users/vulsoftinc/Documents/GitHub/Vulsoft/index.html
-+++ b/Users/vulsoftinc/Documents/GitHub/Vulsoft/index.html
-@@ -32,7 +32,7 @@
-</div>
-<ul class="nav-links">
-    <li><a href="#accueil" data-i18n="nav.products">Accueil</a></li>
-    - <li><a href="#services" data-i18n="nav.services">Solutions</a></li>
-    + <li><a href="pages/projects.html" data-i18n="nav.projects">Projets</a></li>
-    <li><a href="academie.html" data-i18n="nav.academy">Académie</a></li>
-    <li><a href="pages/about.html" data-i18n="nav.about">À propos</a></li>
-    <li><a href="pages/contact.html" data-i18n="nav.contact">Contact</a></li>
-
-    ```
-
-    La galerie de projets est maintenant en place ! Il ne reste plus qu'à ajouter des projets et des images via le
-    backend pour peupler ces nouvelles pages.
-
-    <!--
-[PROMPT_SUGGESTION]Comment puis-je ajouter un projet et ses images depuis le panneau d'administration ?[/PROMPT_SUGGESTION]
-[PROMPT_SUGGESTION]Comment pourrions-nous ajouter une authentification via les réseaux sociaux (Google, GitHub) ?[/PROMPT_SUGGESTION]
--->

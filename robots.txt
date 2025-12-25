@@ -4,12 +4,16 @@ Allow: /
 # Pages importantes
 Allow: /contact.html
 Allow: /about.html
+Allow: /pages/contact.html
+Allow: /pages/about.html
 Allow: /academie.html
 Allow: /demo.html
 
 # Interdire l'accès aux pages d'administration
 Disallow: /admin.html
 Disallow: /dashboard.html
+Disallow: /pages/admin.html
+Disallow: /pages/dashboard.html
 Disallow: /api/admin/
 
 # Interdire l'accès aux fichiers de configuration
