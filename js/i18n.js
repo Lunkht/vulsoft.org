@@ -3,7 +3,7 @@
  */
 class I18nManager {
     constructor(options = {}) {
-        this.supportedLanguages = options.supportedLanguages || ['fr', 'en'];
+        this.supportedLanguages = options.supportedLanguages || ['fr', 'en', 'zh'];
         this.defaultLanguage = options.defaultLanguage || 'fr';
         this.currentLanguage = this.getLanguage();
         this.translations = {};
@@ -85,23 +85,53 @@ class I18nManager {
         this.translatePage();
         this.updateSwitcherUI();
 
+        // Close dropdown if it exists
+        const switcher = document.querySelector('.language-switcher');
+        if (switcher) switcher.classList.remove('open');
+
         document.body.classList.remove('lang-switching');
     }
 
     setupLanguageSwitcher() {
-        // Attache les événements aux boutons existants dans le HTML
-        document.querySelectorAll('.language-switcher button[data-lang]').forEach(btn => {
+        const switcher = document.querySelector('.language-switcher');
+        if (!switcher) return;
+
+        const trigger = switcher.querySelector('.lang-trigger');
+        if (trigger) {
+            trigger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                switcher.classList.toggle('open');
+            });
+        }
+
+        // Language buttons/options
+        switcher.querySelectorAll('[data-lang]').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
+                e.stopPropagation();
                 const lang = btn.getAttribute('data-lang');
                 this.switchLanguage(lang);
             });
         });
+
+        // Close on click outside
+        document.addEventListener('click', () => {
+            switcher.classList.remove('open');
+        });
+
         this.updateSwitcherUI();
     }
 
     updateSwitcherUI() {
-        document.querySelectorAll('.language-switcher button').forEach(btn => {
+        const switcher = document.querySelector('.language-switcher');
+        if (!switcher) return;
+
+        const currentLangDisplay = switcher.querySelector('.current-lang');
+        if (currentLangDisplay) {
+            currentLangDisplay.textContent = this.currentLanguage.toUpperCase();
+        }
+
+        switcher.querySelectorAll('[data-lang]').forEach(btn => {
             if (btn.getAttribute('data-lang') === this.currentLanguage) {
                 btn.classList.add('active');
             } else {

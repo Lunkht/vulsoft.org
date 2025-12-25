@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "products": "项目",
+    "services": "服务",
+    "academy": "学院",
+    "about": "关于",
+    "contact": "联系",
+    "login": "登录",
+    "start": "开始使用"
+  },
+  "index_hero": {
+    "title": "数字<br>创新",
+    "subtitle": "通过我们的定制开发服务，将您的想法变为现实。",
+    "discover_services": "发现我们的服务",
+    "contact_us": "联系我们"
+  },
+  "services_section": {
+    "title": "解决方案",
+    "subtitle": "满足您所有技术需求的完整解决方案",
+    "desktop_apps_title": "桌面应用程序",
+    "desktop_apps_desc": "定制软件开发，优化业务流程并提高生产力。",
+    "mobile_apps_title": "移动应用程序",
+    "mobile_apps_desc": "创建原生和混合 iOS 和 Android 应用程序，扩展您的数字化存在。",
+    "iot_title": "智能物联网",
+    "iot_desc": "设计和开发智能物联网对象，自动化并连接您的环境。",
+    "web_solutions_title": "网页解决方案",
+    "web_solutions_desc": "开发现代、响应式且高性能的网站和网页应用程序。",
+    "consulting_title": "咨询与培训",
+    "consulting_desc": "为您的团队提供新技术方面的技术支持、代码审计和培训。",
+    "maintenance_title": "维护与支持",
+    "maintenance_desc": "为现有应用程序提供持续的技术支持、演进性维护和纠正性维护。"
+  },
+  "about_hero": {
+    "title": "关于 Vulsoft",
+    "subtitle": "一家专注于开发定制软件解决方案的创新公司，将技术挑战转化为增长机会。"
+  },
+  "about_story": {
+    "title": "我们的故事",
+    "intro": "由 <strong>Hakim Lunkht</strong> 创立，Vulsoft 源于一个简单而雄心勃勃的愿景：让西非能够获得尖端技术，并支持公司进行数字化转型。"
+  },
+  "contact_hero": {
+    "title": "联系我们",
+    "subtitle": "让我们讨论您的项目并共同寻找理想的解决方案，将您的想法转化为数字化现实。"
+  },
+  "contact_form": {
+    "title": "向我们发送消息",
+    "subtitle": "向我们描述您的项目，我们会尽快给您回复。",
+    "firstname": "名字 *",
+    "lastname": "姓氏 *",
+    "email": "电子邮件 *",
+    "phone": "电话",
+    "company": "公司",
+    "service_needed": "所需服务",
+    "select_service": "选择一项服务",
+    "budget": "估计预算",
+    "select_budget": "选择一个范围",
+    "message": "消息 *",
+    "message_placeholder": "描述您的项目、您的需求和您的目标...",
+    "newsletter_subscribe": "我想接收 Vulsoft 的时事通讯",
+    "accept_privacy": "我接受 <a href=\"#\" class=\"privacy-link\">隐私政策</a> *",
+    "send_message": "发送消息"
+  }
+}

@@ -2885,29 +2885,94 @@ nimations de chargement modernes */
     }
 }
 
-/* Language Switcher */
+/* Language Switcher Dropdown */
 .language-switcher {
+    position: relative;
+    margin-left: 1rem;
+}
+
+.lang-trigger {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 0.25rem;
-    margin-left: 1rem;
-    color: var(--text-secondary);
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
 }
 
-.language-switcher button {
+.lang-trigger:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--text-secondary);
+}
+
+.lang-trigger::after {
+    content: '▼';
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.language-switcher.open .lang-trigger::after {
+    transform: rotate(180deg);
+}
+
+.lang-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 0.5rem;
+    min-width: 160px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+}
+
+.language-switcher.open .lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    width: 100%;
     background: none;
     border: none;
-    color: inherit;
+    color: var(--text-secondary);
+    text-align: left;
     cursor: pointer;
-    font-weight: 600;
-    padding: 0.25rem;
-    transition: color 0.3s ease;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    font-family: inherit;
 }
 
-.language-switcher button:hover,
-.language-switcher button.active {
+.lang-option:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.lang-option.active {
     color: var(--accent-color);
-    text-decoration: underline;
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.lang-flag {
+    font-size: 1.2rem;
 }
 
 /* 
