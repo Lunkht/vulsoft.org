@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Projets - Vulsoft</title>
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16x16.png">
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/projects.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="../images/logo-Vulsoft-1.svg" alt="Vulsoft Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="#projects" class="active">Projets</a></li>
+                <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+                <li><a href="../academie.html">Académie</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="mobile-login"><a href="login.html" class="connexion-btn" data-i18n="nav.login">Connexion</a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <div class="language-switcher">
+                    <button type="button" data-lang="fr">FR</button>
+                    <button type="button" data-lang="en">EN</button>
+                </div>
+                <a href="dashboard.html" class="user-profile-icon" aria-label="Mon Profil">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <div class="menu-overlay"></div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="projects-hero">
+        <div class="container">
+            <h1>Nos Réalisations</h1>
+            <p>Découvrez une sélection de projets qui illustrent notre savoir-faire et notre passion pour l'innovation
+                technologique.</p>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="projects-grid-section">
+        <div class="container">
+            <div id="projects-grid" class="projects-grid">
+                <!-- Les projets seront injectés ici par JavaScript -->
+                <div class="loading">Chargement des projets...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Contenu du footer standard -->
+    </footer>
+
+    <script src="../js/pwa.js"></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/projects.js" defer></script>
+</body>
+
+</html>
+
+```
+
+#### 2. Création de la page de détails d'un projet (`pages/project-details.html`)
+
+```diff

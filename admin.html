@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administration - Vulsoft</title>
-
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#3b82f6">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -20,71 +19,78 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180x180.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16x16.png">
-
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
     <style>
-        body {
+        .admin-container {
+            display: flex;
+            min-height: 100vh;
             background: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
         }
         
-        .admin-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .admin-sidebar {
+            width: 280px;
+            background: var(--card-bg);
+            border-right: 1px solid var(--border-color);
+            padding: 2rem 0;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        
+        .admin-content {
+            flex: 1;
+            margin-left: 280px;
             padding: 2rem;
         }
         
         .admin-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
+            background: var(--card-bg);
+            padding: 1.5rem 2rem;
             border-bottom: 1px solid var(--border-color);
-        }
-        
-        .admin-title-container {
+            margin: -2rem -2rem 2rem -2rem;
             display: flex;
+            justify-content: between;
             align-items: center;
-            gap: 1rem;
-        }
-        
-        .admin-logo {
-            width: 40px;
-            height: 40px;
-            filter: var(--logo-filter);
-            opacity: 0.9;
         }
         
         .admin-title {
-            font-size: 2rem;
-            font-weight: 600;
+            font-size: 1.75rem;
+            font-weight: 800;
             color: var(--text-primary);
+        }
+        
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
             margin: 0;
         }
         
-        .admin-user-info {
+        .sidebar-nav li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .sidebar-nav a {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.75rem;
+            padding: 0.75rem 2rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-right: 3px solid transparent;
         }
         
-        .admin-logout-btn {
-            background: #ff4d4f;
-            color: #fff;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: background 0.2s;
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            background: var(--bg-secondary);
+            color: var(--accent-color);
+            border-right-color: var(--accent-color);
         }
         
-        .admin-logout-btn:hover {
-            background: #ff7875;
+        .sidebar-icon {
+            font-size: 1.25rem;
+            width: 24px;
+            text-align: center;
         }
         
         .stats-grid {
@@ -95,506 +101,634 @@
         }
         
         .stat-card {
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            padding: 1.5rem;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
             border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
         }
         
-        .stat-title {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-color);
         }
         
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
             color: var(--accent-color);
             margin-bottom: 0.5rem;
         }
         
-        .stat-description {
-            font-size: 0.85rem;
+        .stat-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+        
+        .stat-change {
+            font-size: 0.875rem;
             color: var(--text-tertiary);
         }
         
-        .users-section {
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            padding: 1.5rem;
+        .admin-section {
+            background: var(--card-bg);
+            border-radius: 20px;
             border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            overflow: hidden;
         }
         
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-        }
-        
-        .users-controls {
+        .section-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-color);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-            gap: 1rem;
         }
         
-        .search-input {
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
             color: var(--text-primary);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            width: 300px;
-            max-width: 100%;
         }
         
-        .search-input:focus {
-            outline: none;
-            border-color: var(--accent-color);
+        .section-content {
+            padding: 0;
         }
         
-        .pagination {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-        
-        .pagination button {
-            background: var(--bg-tertiary);
-            color: var(--text-primary);
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        
-        .pagination button:hover:not(:disabled) {
-            background: var(--accent-color);
-        }
-        
-        .pagination button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        
-        .pagination .active {
-            background: var(--accent-color);
-        }
-        
-        .users-table {
+        .data-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 1rem;
         }
         
-        .users-table th,
-        .users-table td {
+        .data-table th,
+        .data-table td {
+            padding: 1rem 2rem;
             text-align: left;
-            padding: 1rem;
             border-bottom: 1px solid var(--border-color);
         }
         
-        .users-table th {
-            background: var(--input-bg);
+        .data-table th {
+            background: var(--bg-secondary);
             font-weight: 600;
             color: var(--text-primary);
-            position: sticky;
-            top: 0;
         }
         
-        .users-table td {
-            color: var(--text-secondary);
+        .data-table tr:hover {
+            background: var(--bg-secondary);
         }
         
-        .user-role {
+        .status-badge {
             display: inline-block;
             padding: 0.25rem 0.75rem;
-            border-radius: 12px;
+            border-radius: 20px;
             font-size: 0.75rem;
-            font-weight: 500;
+            font-weight: 600;
             text-transform: uppercase;
         }
         
-        .user-role.admin {
-            background: #6366f1;
-            color: #fff;
+        .status-badge.nouveau {
+            background: #fef3c7;
+            color: #92400e;
         }
         
-        .user-role.user {
-            background: #333;
-            color: #ccc;
+        .status-badge.lu {
+            background: #dbeafe;
+            color: #1e40af;
         }
         
-        .user-status {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
+        .status-badge.traite {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .status-badge.active {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .status-badge.inactive {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .action-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            cursor: pointer;
             margin-right: 0.5rem;
+            transition: all 0.3s ease;
         }
         
-        .user-status.active {
-            background: #3ecf8e;
+        .action-btn.primary {
+            background: var(--accent-color);
+            color: white;
         }
         
-        .user-status.inactive {
-            background: #ff4d4f;
+        .action-btn.secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .action-btn.danger {
+            background: #ef4444;
+            color: white;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .search-box {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            width: 300px;
         }
         
         .loading {
             text-align: center;
-            padding: 2rem;
-            color: #888;
-        }
-        
-        .error {
-            background: #ff4d4f;
-            color: #fff;
-            padding: 1rem;
-            border-radius: 6px;
-            margin-bottom: 1rem;
+            padding: 3rem;
+            color: var(--text-secondary);
         }
         
         .empty-state {
             text-align: center;
             padding: 3rem;
-            color: #888;
+            color: var(--text-secondary);
         }
         
-        .refresh-btn {
-            background: #6366f1;
-            color: #fff;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: background 0.2s;
-        }
-        
-        .refresh-btn:hover {
-            background: #5855eb;
+        .chart-container {
+            height: 300px;
+            padding: 2rem;
         }
         
         @media (max-width: 768px) {
-            .admin-container {
-                padding: 1rem;
+            .admin-sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
             }
             
-            .admin-header {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: flex-start;
+            .admin-content {
+                margin-left: 0;
             }
             
-            .users-controls {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .search-input {
-                width: 100%;
-            }
-            
-            .users-table {
-                font-size: 0.85rem;
-            }
-            
-            .users-table th,
-            .users-table td {
-                padding: 0.75rem 0.5rem;
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
-    <script src="js/vulsoft-auth.js"></script>
+    <style>
+        /* Styles pour les modales */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background-color: var(--card-bg);
+            margin: 10% auto;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            width: 80%;
+            max-width: 600px;
+            border-radius: 16px;
+            position: relative;
+            animation: slideInModal 0.3s ease-out;
+        }
+        @keyframes slideInModal {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .close-btn {
+            color: var(--text-secondary);
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-btn:hover { color: var(--accent-color); }
+        
+        #project-images-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-top: 1rem;
+        }
+        .gallery-item {
+            position: relative;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .delete-img-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(239, 68, 68, 0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 </head>
 <body>
     <div class="admin-container">
-        <div class="admin-header">
-            <div class="admin-title-container">
-                <img src="images/icone.svg" alt="Vulsoft" class="admin-logo">
-                <h1 class="admin-title">Administration Vulsoft</h1>
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div style="padding: 0 2rem 2rem 2rem;">
+                <h2 style="color: var(--accent-color); margin: 0; font-size: 1.5rem;">🔧 Admin Vulsoft</h2>
             </div>
-            <div class="admin-user-info">
-                <span data-user="name">Chargement...</span>
-                <button class="admin-logout-btn" id="logout-btn">Déconnexion</button>
-            </div>
-        </div>
-        
-        <!-- Statistiques -->
-        <div class="stats-grid" id="stats-grid">
-            <div class="stat-card">
-                <div class="stat-title">Utilisateurs totaux</div>
-                <div class="stat-value" id="total-users">-</div>
-                <div class="stat-description">Comptes créés</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-title">Utilisateurs actifs</div>
-                <div class="stat-value" id="active-users">-</div>
-                <div class="stat-description">Comptes activés</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-title">Nouveaux aujourd'hui</div>
-                <div class="stat-value" id="new-users-today">-</div>
-                <div class="stat-description">Inscriptions du jour</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-title">Connexions aujourd'hui</div>
-                <div class="stat-value" id="login-attempts-today">-</div>
-                <div class="stat-description">Tentatives de connexion</div>
-            </div>
-        </div>
-        
-        <!-- Gestion des utilisateurs -->
-        <div class="users-section">
-            <h2 class="section-title">Gestion des utilisateurs</h2>
             
-            <div class="users-controls">
-                <input type="text" class="search-input" id="search-input" placeholder="Rechercher un utilisateur...">
-                <div class="pagination" id="pagination">
-                    <button id="refresh-btn" class="refresh-btn">Actualiser</button>
+            <nav>
+                <ul class="sidebar-nav">
+                    <li><a href="#dashboard" class="nav-link active" data-section="dashboard">
+                        <span class="sidebar-icon">📊</span>
+                        <span>Tableau de Bord</span>
+                    </a></li>
+                    <li><a href="#users" class="nav-link" data-section="users">
+                        <span class="sidebar-icon">👥</span>
+                        <span>Utilisateurs</span>
+                    </a></li>
+                    <li><a href="#messages" class="nav-link" data-section="messages">
+                        <span class="sidebar-icon">💬</span>
+                        <span>Messages</span>
+                    </a></li>
+                    <li><a href="#projects" class="nav-link" data-section="projects">
+                        <span class="sidebar-icon">🚀</span>
+                        <span>Projets</span>
+                    </a></li>
+                    <li><a href="#blog" class="nav-link" data-section="blog">
+                        <span class="sidebar-icon">📝</span>
+                        <span>Blog</span>
+                    </a></li>
+                    <li><a href="#analytics" class="nav-link" data-section="analytics">
+                        <span class="sidebar-icon">📈</span>
+                        <span>Analytics</span>
+                    </a></li>
+                    <li><a href="#newsletter" class="nav-link" data-section="newsletter">
+                        <span class="sidebar-icon">📰</span>
+                        <span>Newsletter</span>
+                    </a></li>
+                    <li><a href="#blog" class="nav-link" data-section="blog">
+                        <span class="sidebar-icon">✍️</span>
+                        <span>Blog</span>
+                    </a></li>
+                    <li><a href="#settings" class="nav-link" data-section="settings">
+                        <span class="sidebar-icon">⚙️</span>
+                        <span>Paramètres</span>
+                    </a></li>
+                </ul>
+            </nav>
+            
+            <div style="position: absolute; bottom: 2rem; left: 2rem; right: 2rem;">
+                <button class="action-btn secondary" onclick="goToSite()" style="width: 100%;">
+                    🌐 Retour au site
+                </button>
+            </div>
+        </aside>
+
+        <!-- Contenu principal -->
+        <main class="admin-content">
+            <div class="admin-header">
+                <h1 class="admin-title">Administration Vulsoft</h1>
+                <div>
+                    <span id="admin-user">Administrateur</span>
+                    <button class="action-btn danger" onclick="logout()" style="margin-left: 1rem;">
+                        Déconnexion
+                    </button>
                 </div>
             </div>
-            
-            <div id="users-content">
-                <div class="loading">Chargement des utilisateurs...</div>
+
+            <!-- Section Dashboard -->
+            <div id="dashboard-section" class="admin-section-content">
+                <div class="stats-grid" id="stats-grid">
+                    <div class="loading">Chargement des statistiques...</div>
+                </div>
+                
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Activité Récente</h3>
+                    </div>
+                    <div class="section-content">
+                        <div id="recent-activity" class="loading">Chargement...</div>
+                    </div>
+                </div>
             </div>
+
+            <!-- Section Utilisateurs -->
+            <div id="users-section" class="admin-section-content" style="display: none;">
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Gestion des Utilisateurs</h3>
+                        <input type="text" class="search-box" placeholder="Rechercher un utilisateur..." id="users-search">
+                    </div>
+                    <div class="section-content">
+                        <div id="users-table" class="loading">Chargement des utilisateurs...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Messages -->
+            <div id="messages-section" class="admin-section-content" style="display: none;">
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Messages de Contact</h3>
+                        <select id="messages-filter" class="search-box" style="width: auto;">
+                            <option value="">Tous les messages</option>
+                            <option value="nouveau">Nouveaux</option>
+                            <option value="lu">Lus</option>
+                            <option value="traite">Traités</option>
+                        </select>
+                    </div>
+                    <div class="section-content">
+                        <div id="messages-table" class="loading">Chargement des messages...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Projets -->
+            <div id="projects-section" class="admin-section-content" style="display: none;">
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Gestion des Projets</h3>
+                        <button class="action-btn primary" onclick="openCreateProjectModal()">
+                            + Nouveau Projet
+                        </button>
+                    </div>
+                    <div class="section-content">
+                        <div id="projects-table" class="loading">Chargement des projets...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Blog -->
+            <div id="blog-section" class="admin-section-content" style="display: none;">
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Gestion du Blog</h3>
+                        <button class="action-btn primary" onclick="openCreatePostModal()">
+                            + Nouvel Article
+                        </button>
+                    </div>
+                    <div class="section-content">
+                        <div id="blog-table" class="loading">Chargement des articles...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Analytics -->
+            <div id="analytics-section" class="admin-section-content" style="display: none;">
+                <div class="stats-grid" id="analytics-overview">
+                    <div class="loading">Chargement des statistiques...</div>
+                </div>
+
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Pages les plus populaires</h3>
+                    </div>
+                    <div class="section-content">
+                        <div id="top-pages-table" class="loading">Chargement...</div>
+                    </div>
+                </div>
+
+                <!-- Les graphiques existants sont conservés ci-dessous -->
+
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Croissance des Utilisateurs</h3>
+                    </div>
+                    <div class="section-content">
+                        <div id="users-chart" class="chart-container">
+                            <div class="loading">Chargement du graphique...</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Messages par Service</h3>
+                    </div>
+                    <div class="section-content">
+                        <div id="services-chart" class="chart-container">
+                            <div class="loading">Chargement du graphique...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Newsletter -->
+            <div id="newsletter-section" class="admin-section-content" style="display: none;">
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Envoyer une Newsletter</h3>
+                    </div>
+                    <div class="section-content" style="padding: 2rem;">
+                        <form id="newsletter-form">
+                            <div class="form-group">
+                                <label for="newsletter-subject">Sujet</label>
+                                <input type="text" id="newsletter-subject" required class="search-box" style="width: 100%;">
+                            </div>
+                            <div class="form-group">
+                                <label for="newsletter-content">Contenu (HTML autorisé)</label>
+                                <textarea id="newsletter-content" rows="10" required class="search-box" style="width: 100%; font-family: monospace;"></textarea>
+                            </div>
+                            <button type="submit" class="action-btn primary">Envoyer la newsletter</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Abonnés à la Newsletter</h3>
+                    </div>
+                    <div class="section-content">
+                        <div id="subscribers-table" class="loading">Chargement des abonnés...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Blog -->
+            <div id="blog-section" class="admin-section-content" style="display: none;">
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Gestion du Blog</h3>
+                        <button class="action-btn primary" onclick="openCreatePostModal()">
+                            + Nouvel Article
+                        </button>
+                    </div>
+                    <div class="section-content">
+                        <div id="blog-posts-table" class="loading">Chargement des articles...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Paramètres -->
+            <div id="settings-section" class="admin-section-content" style="display: none;">
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Paramètres du Site</h3>
+                    </div>
+                    <div class="section-content" style="padding: 2rem;">
+                        <p>Fonctionnalités de paramètres en développement...</p>
+                        
+                        <div style="margin-top: 2rem;">
+                            <h4>Actions Administrateur</h4>
+                            <button class="action-btn secondary" onclick="exportData()">
+                                📥 Exporter les données
+                            </button>
+                            <button class="action-btn secondary" onclick="viewLogs()">
+                                📋 Voir les logs
+                            </button>
+                            <button class="action-btn danger" onclick="clearCache()">
+                                🗑️ Vider le cache
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal pour créer un projet -->
+    <div id="create-project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeCreateProjectModal()">&times;</span>
+            <h2>Créer un nouveau projet</h2>
+            <form id="create-project-form" style="margin-top: 2rem;">
+                <div class="form-group">
+                    <label for="project-title">Titre</label>
+                    <input type="text" id="project-title" name="title" required class="search-box" style="width: 100%;">
+                </div>
+                <div class="form-group">
+                    <label for="project-description">Description</label>
+                    <textarea id="project-description" name="description" rows="4" class="search-box" style="width: 100%;"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="project-technology">Technologies</label>
+                    <input type="text" id="project-technology" name="technology" placeholder="React, FastAPI, ..." class="search-box" style="width: 100%;">
+                </div>
+                <div class="form-group">
+                    <label for="project-client">Client</label>
+                    <input type="text" id="project-client" name="client" class="search-box" style="width: 100%;">
+                </div>
+                <button type="submit" class="action-btn primary" style="margin-top: 1rem;">Créer le projet</button>
+            </form>
         </div>
     </div>
-    
-    <script>
-        // Vérification de l'authentification et des droits admin
-        const auth = new VulsoftAuth({
-            apiUrl: 'http://localhost:3000/api',
-            onAuthStateChanged: (user) => {
-                if (!user) {
-                    window.location.href = 'auth.html';
-                } else if (user.role !== 'admin') {
-                    alert('Accès refusé. Droits administrateur requis.');
-                    window.location.href = 'index.html';
-                }
-            }
-        });
-        
-        const authUI = new VulsoftAuthUI(auth);
-        
-        // Variables globales
-        let currentPage = 1;
-        let totalPages = 1;
-        let searchTerm = '';
-        
-        // Initialisation
-        document.addEventListener('DOMContentLoaded', async () => {
-            // Vérifier l'authentification
-            if (!auth.isAuthenticated() || !auth.isAdmin()) {
-                window.location.href = 'auth.html';
-                return;
-            }
-            
-            // Mettre à jour l'interface utilisateur
-            authUI.updateAuthState(auth.getCurrentUser());
-            
-            // Charger les données
-            await loadStats();
-            await loadUsers();
-            
-            // Événements
-            setupEventListeners();
-        });
-        
-        // Configuration des événements
-        function setupEventListeners() {
-            // Déconnexion
-            document.getElementById('logout-btn').addEventListener('click', async () => {
-                await auth.logout();
-            });
-            
-            // Recherche
-            const searchInput = document.getElementById('search-input');
-            let searchTimeout;
-            searchInput.addEventListener('input', (e) => {
-                clearTimeout(searchTimeout);
-                searchTimeout = setTimeout(() => {
-                    searchTerm = e.target.value;
-                    currentPage = 1;
-                    loadUsers();
-                }, 500);
-            });
-            
-            // Actualisation
-            document.getElementById('refresh-btn').addEventListener('click', () => {
-                loadStats();
-                loadUsers();
-            });
-        }
-        
-        // Charger les statistiques
-        async function loadStats() {
-            try {
-                const response = await auth.request('/admin/stats');
-                
-                if (response.stats) {
-                    document.getElementById('total-users').textContent = response.stats.totalUsers || 0;
-                    document.getElementById('active-users').textContent = response.stats.activeUsers || 0;
-                    document.getElementById('new-users-today').textContent = response.stats.newUsersToday || 0;
-                    document.getElementById('login-attempts-today').textContent = response.stats.loginAttemptsToday || 0;
-                }
-            } catch (error) {
-                console.error('Erreur chargement statistiques:', error);
-                showError('Erreur lors du chargement des statistiques');
-            }
-        }
-        
-        // Charger la liste des utilisateurs
-        async function loadUsers() {
-            const usersContent = document.getElementById('users-content');
-            usersContent.innerHTML = '<div class="loading">Chargement des utilisateurs...</div>';
-            
-            try {
-                const params = new URLSearchParams({
-                    page: currentPage,
-                    limit: 10
-                });
-                
-                if (searchTerm) {
-                    params.append('search', searchTerm);
-                }
-                
-                const response = await auth.request(`/admin/users?${params}`);
-                
-                if (response.users && response.users.length > 0) {
-                    totalPages = response.pagination.pages;
-                    renderUsersTable(response.users);
-                    renderPagination(response.pagination);
-                } else {
-                    usersContent.innerHTML = '<div class="empty-state">Aucun utilisateur trouvé</div>';
-                }
-            } catch (error) {
-                console.error('Erreur chargement utilisateurs:', error);
-                usersContent.innerHTML = '<div class="error">Erreur lors du chargement des utilisateurs</div>';
-            }
-        }
-        
-        // Afficher le tableau des utilisateurs
-        function renderUsersTable(users) {
-            const usersContent = document.getElementById('users-content');
-            
-            const table = `
-                <table class="users-table">
-                    <thead>
-                        <tr>
-                            <th>Utilisateur</th>
-                            <th>Email</th>
-                            <th>Rôle</th>
-                            <th>Statut</th>
-                            <th>Inscription</th>
-                            <th>Dernière connexion</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${users.map(user => `
-                            <tr>
-                                <td>
-                                    <span class="user-status ${user.isActive ? 'active' : 'inactive'}"></span>
-                                    ${user.firstName} ${user.lastName}
-                                </td>
-                                <td>${user.email}</td>
-                                <td><span class="user-role ${user.role}">${user.role}</span></td>
-                                <td>${user.isActive ? 'Actif' : 'Inactif'}</td>
-                                <td>${formatDate(user.createdAt)}</td>
-                                <td>${user.lastLogin ? formatDate(user.lastLogin) : 'Jamais'}</td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-            `;
-            
-            usersContent.innerHTML = table;
-        }
-        
-        // Afficher la pagination
-        function renderPagination(pagination) {
-            const paginationEl = document.getElementById('pagination');
-            
-            const buttons = [];
-            
-            // Bouton précédent
-            buttons.push(`
-                <button ${currentPage === 1 ? 'disabled' : ''} onclick="changePage(${currentPage - 1})">
-                    Précédent
-                </button>
-            `);
-            
-            // Numéros de page
-            for (let i = Math.max(1, currentPage - 2); i <= Math.min(totalPages, currentPage + 2); i++) {
-                buttons.push(`
-                    <button class="${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">
-                        ${i}
-                    </button>
-                `);
-            }
-            
-            // Bouton suivant
-            buttons.push(`
-                <button ${currentPage === totalPages ? 'disabled' : ''} onclick="changePage(${currentPage + 1})">
-                    Suivant
-                </button>
-            `);
-            
-            // Bouton actualiser
-            buttons.push('<button id="refresh-btn" class="refresh-btn">Actualiser</button>');
-            
-            paginationEl.innerHTML = buttons.join('');
-            
-            // Réattacher l'événement d'actualisation
-            document.getElementById('refresh-btn').addEventListener('click', () => {
-                loadStats();
-                loadUsers();
-            });
-        }
-        
-        // Changer de page
-        function changePage(page) {
-            if (page >= 1 && page <= totalPages) {
-                currentPage = page;
-                loadUsers();
-            }
-        }
-        
-        // Formater une date
-        function formatDate(dateString) {
-            const date = new Date(dateString);
-            return date.toLocaleDateString('fr-FR', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-        }
-        
-        // Afficher une erreur
-        function showError(message) {
-            const errorDiv = document.createElement('div');
-            errorDiv.className = 'error';
-            errorDiv.textContent = message;
-            
-            const container = document.querySelector('.admin-container');
-            container.insertBefore(errorDiv, container.firstChild);
-            
-            setTimeout(() => {
-                errorDiv.remove();
-            }, 5000);
-        }
-    </script>
-    <script src="js/pwa.js"></script>
+
+    <!-- Modal pour gérer les images -->
+    <div id="manage-images-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeManageImagesModal()">&times;</span>
+            <h2 id="manage-images-title">Gérer les images</h2>
+            <div id="project-images-gallery">
+                <!-- Les images existantes seront injectées ici -->
+            </div>
+            <hr style="margin: 2rem 0; border-color: var(--border-color);">
+            <h3>Ajouter une nouvelle image</h3>
+            <form id="upload-image-form" style="margin-top: 1rem;">
+                <input type="hidden" id="upload-project-id" name="project_id">
+                <div class="form-group">
+                    <label for="project-image-file">Fichier image</label>
+                    <input type="file" id="project-image-file" name="file" accept="image/*" required class="search-box" style="width: 100%;">
+                </div>
+                <button type="submit" class="action-btn primary" style="margin-top: 1rem;">Télécharger l'image</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal pour modifier un projet -->
+    <div id="edit-project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeEditProjectModal()">&times;</span>
+            <h2>Modifier le projet</h2>
+            <form id="edit-project-form" style="margin-top: 2rem;">
+                <input type="hidden" id="edit-project-id">
+                <div class="form-group">
+                    <label for="edit-project-title">Titre</label>
+                    <input type="text" id="edit-project-title" name="title" required class="search-box" style="width: 100%;">
+                </div>
+                <div class="form-group">
+                    <label for="edit-project-description">Description</label>
+                    <textarea id="edit-project-description" name="description" rows="4" class="search-box" style="width: 100%;"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="edit-project-technology">Technologies</label>
+                    <input type="text" id="edit-project-technology" name="technology" placeholder="React, FastAPI, ..." class="search-box" style="width: 100%;">
+                </div>
+                <div class="form-group">
+                    <label for="edit-project-client">Client</label>
+                    <input type="text" id="edit-project-client" name="client" class="search-box" style="width: 100%;">
+                </div>
+                <div class="form-group">
+                    <label for="edit-project-status">Statut</label>
+                    <select id="edit-project-status" name="status" class="search-box" style="width: 100%;"><option value="en_cours">En cours</option><option value="terminé">Terminé</option><option value="en_attente">En attente</option></select>
+                </div>
+                <button type="submit" class="action-btn primary" style="margin-top: 1rem;">Enregistrer les modifications</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal pour créer/modifier un article de blog -->
+    <div id="blog-post-modal" class="modal">
+        <div class="modal-content" style="max-width: 800px;">
+            <span class="close-btn" onclick="closeBlogPostModal()">&times;</span>
+            <h2 id="blog-post-modal-title">Nouvel Article</h2>
+            <form id="blog-post-form" style="margin-top: 2rem;">
+                <input type="hidden" id="blog-post-id">
+                <div class="form-group">
+                    <label for="blog-post-title">Titre de l'article</label>
+                    <input type="text" id="blog-post-title" name="title" required class="search-box" style="width: 100%;">
+                </div>
+                <div class="form-group">
+                    <label for="blog-post-content">Contenu (Markdown supporté)</label>
+                    <textarea id="blog-post-content" name="content" rows="15" class="search-box" style="width: 100%; font-family: monospace;"></textarea>
+                </div>
+                <div class="form-group" style="flex-direction: row; align-items: center; gap: 1rem;">
+                    <label for="blog-post-published">Publier l'article</label>
+                    <input type="checkbox" id="blog-post-published" name="is_published" style="width: auto;">
+                </div>
+                <button type="submit" class="action-btn primary" style="margin-top: 1rem;">Enregistrer</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/notifications.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/admin.js"></script>
+    <script src="../js/pwa.js"></script>
 </body>
 </html>
