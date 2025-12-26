@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 id: 3,
                 title: "Logiciel de Gestion pour Clinique Médicale",
                 description: "Un logiciel de bureau pour gérer les dossiers patients, les rendez-vous et la facturation de manière sécurisée.",
-                primary_image_url: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80",
+                primary_image_url: "./images/ovom.png",
                 technology: "Python, Qt, SQLite"
             },
             {
