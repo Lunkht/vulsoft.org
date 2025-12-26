@@ -17,14 +17,46 @@
                 <img src="../images/logo-Vulsoft-1.svg" alt="Vulsoft Logo">
             </div>
             <ul class="nav-links">
-                <li><a href="../index.html#accueil">Accueil</a></li>
-                <li><a href="../index.html#services">Services</a></li>
-                <li><a href="../academie.html">Académie</a></li>
-                <li><a href="#about" class="active">À propos</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="../index.html" data-i18n="nav.products">Accueil</a></li>
+                <li><a href="projects.html" data-i18n="nav.projects">Projets</a></li>
+                <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+                <li><a href="../academie.html" data-i18n="nav.academy">Académie</a></li>
+                <li><a href="#about" class="active" data-i18n="nav.about">À propos</a></li>
+                <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                <li class="mobile-login"><a href="login.html" class="connexion-btn" data-i18n="nav.login">Connexion</a>
+                </li>
             </ul>
             <div class="nav-actions">
-                <a href="login.html" class="connexion-btn">Connexion</a>
+                <div class="language-switcher">
+                    <button type="button" class="lang-trigger">
+                        <span class="current-lang">FR</span>
+                    </button>
+                    <div class="lang-dropdown">
+                        <button type="button" class="lang-option" data-lang="fr">
+                            <span class="lang-flag">🇫🇷</span> Français
+                        </button>
+                        <button type="button" class="lang-option" data-lang="en">
+                            <span class="lang-flag">🇺🇸</span> English
+                        </button>
+                        <button type="button" class="lang-option" data-lang="zh">
+                            <span class="lang-flag">🇨🇳</span> 中文
+                        </button>
+                    </div>
+                </div>
+                <a href="dashboard.html" class="user-profile-icon" aria-label="Mon Profil">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
             </div>
         </nav>
     </header>
@@ -515,16 +547,18 @@
         </div>
     </footer>
 
-    <script></script>a>li></li>
-    </div></a> // Header scroll effect
-    window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 100) {
-    header.classList.add('scrolled');
-    } else {
-    header.classList.remove('scrolled');
-    }
-    });
+    <script src="../js/pwa.js"></script>
+    <script src="../js/i18n.js" defer></script>
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
     </script>
 </body>
 

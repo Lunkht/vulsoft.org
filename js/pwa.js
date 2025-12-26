@@ -16,16 +16,16 @@ class PWAManager {
 
         // Enregistrer le Service Worker
         await this.registerServiceWorker();
-        
+
         // Configurer les événements PWA
         this.setupPWAEvents();
-        
+
         // Vérifier si déjà installé
         this.checkInstallStatus();
-        
+
         // Configurer les notifications
         this.setupNotifications();
-        
+
         // Afficher le statut PWA
         this.showPWAStatus();
     }
@@ -39,9 +39,9 @@ class PWAManager {
             this.swRegistration = await navigator.serviceWorker.register('/sw.js', {
                 scope: '/'
             });
-            
+
             console.log('✅ Service Worker enregistré:', this.swRegistration.scope);
-            
+
             // Écouter les mises à jour
             this.swRegistration.addEventListener('updatefound', () => {
                 const newWorker = this.swRegistration.installing;
@@ -51,7 +51,7 @@ class PWAManager {
                     }
                 });
             });
-            
+
         } catch (error) {
             console.error('❌ Erreur Service Worker:', error);
         }
@@ -84,7 +84,7 @@ class PWAManager {
 
     checkInstallStatus() {
         // Vérifier si l'app est déjà installée
-        if (window.navigator.standalone || 
+        if (window.navigator.standalone ||
             window.matchMedia('(display-mode: standalone)').matches) {
             this.isInstalled = true;
             document.body.classList.add('pwa-installed');
@@ -98,9 +98,7 @@ class PWAManager {
         }
 
         // Vérifier les permissions
-        if (Notification.permission === 'default') {
-            this.showNotificationPrompt();
-        } else if (Notification.permission === 'granted') {
+        if (Notification.permission === 'granted') {
             await this.subscribeToPush();
         }
     }
@@ -117,7 +115,7 @@ class PWAManager {
                 <span>Installer l'App</span>
             `;
             installBtn.addEventListener('click', () => this.installPWA());
-            
+
             // Ajouter le bouton dans la navigation ou en bas de page
             const nav = document.querySelector('.nav-actions');
             if (nav) {
@@ -126,9 +124,9 @@ class PWAManager {
                 document.body.appendChild(installBtn);
             }
         }
-        
+
         installBtn.style.display = 'flex';
-        
+
         // Ajouter les styles CSS
         this.addInstallButtonStyles();
     }
@@ -149,19 +147,19 @@ class PWAManager {
         try {
             // Afficher le prompt d'installation
             this.deferredPrompt.prompt();
-            
+
             // Attendre la réponse de l'utilisateur
             const { outcome } = await this.deferredPrompt.userChoice;
-            
+
             if (outcome === 'accepted') {
                 console.log('✅ PWA: Installation acceptée');
                 window.notifications?.success('Application en cours d\'installation...');
             } else {
                 console.log('❌ PWA: Installation refusée');
             }
-            
+
             this.deferredPrompt = null;
-            
+
         } catch (error) {
             console.error('❌ Erreur installation PWA:', error);
         }
@@ -171,7 +169,7 @@ class PWAManager {
         window.notifications?.success('🎉 Application installée avec succès !', {
             duration: 5000
         });
-        
+
         // Masquer le bouton d'installation
         this.hideInstallButton();
     }
@@ -209,10 +207,10 @@ class PWAManager {
                 </div>
             </div>
         `;
-        
+
         document.body.appendChild(notificationPrompt);
         this.addNotificationPromptStyles();
-        
+
         // Animation d'entrée
         setTimeout(() => {
             notificationPrompt.classList.add('show');
@@ -222,7 +220,7 @@ class PWAManager {
     async enableNotifications() {
         try {
             const permission = await Notification.requestPermission();
-            
+
             if (permission === 'granted') {
                 console.log('✅ Notifications autorisées');
                 window.notifications?.success('Notifications activées !');
@@ -231,11 +229,11 @@ class PWAManager {
                 console.log('❌ Notifications refusées');
                 window.notifications?.warning('Notifications désactivées');
             }
-            
+
         } catch (error) {
             console.error('❌ Erreur notifications:', error);
         }
-        
+
         this.dismissNotificationPrompt();
     }
 
@@ -248,17 +246,17 @@ class PWAManager {
         try {
             // Clé publique VAPID (à générer en production)
             const vapidPublicKey = 'BEl62iUYgUivxIkv69yViEuiBIa40HI80NM9f4LUjqukYiLdyS-FgS5Q0w-1gFybHV-6f7JjVJvpSrtBKHKiF4o';
-            
+
             const subscription = await this.swRegistration.pushManager.subscribe({
                 userVisibleOnly: true,
                 applicationServerKey: this.urlBase64ToUint8Array(vapidPublicKey)
             });
-            
+
             console.log('✅ Abonnement push créé:', subscription);
-            
+
             // Envoyer l'abonnement au serveur (à implémenter)
             // await this.sendSubscriptionToServer(subscription);
-            
+
         } catch (error) {
             console.error('❌ Erreur abonnement push:', error);
         }
@@ -293,14 +291,14 @@ class PWAManager {
         statusIndicator.className = 'pwa-status-indicator';
         statusIndicator.innerHTML = this.isInstalled ? '📱 App' : '🌐 Web';
         statusIndicator.title = this.isInstalled ? 'Mode Application' : 'Mode Navigateur';
-        
+
         document.body.appendChild(statusIndicator);
         this.addStatusIndicatorStyles();
     }
 
     addInstallButtonStyles() {
         if (document.getElementById('pwa-install-styles')) return;
-        
+
         const styles = document.createElement('style');
         styles.id = 'pwa-install-styles';
         styles.textContent = `
@@ -346,7 +344,7 @@ class PWAManager {
 
     addNotificationPromptStyles() {
         if (document.getElementById('notification-prompt-styles')) return;
-        
+
         const styles = document.createElement('style');
         styles.id = 'notification-prompt-styles';
         styles.textContent = `
@@ -424,7 +422,7 @@ class PWAManager {
 
     addStatusIndicatorStyles() {
         if (document.getElementById('pwa-status-styles')) return;
-        
+
         const styles = document.createElement('style');
         styles.id = 'pwa-status-styles';
         styles.textContent = `
@@ -453,22 +451,22 @@ class PWAManager {
 }
 
 // Fonctions globales pour les événements
-window.enableNotifications = function() {
+window.enableNotifications = function () {
     window.pwaManager?.enableNotifications();
 };
 
-window.dismissNotificationPrompt = function() {
+window.dismissNotificationPrompt = function () {
     window.pwaManager?.dismissNotificationPrompt();
 };
 
-window.updatePWA = function() {
+window.updatePWA = function () {
     if (window.pwaManager?.swRegistration) {
         window.pwaManager.swRegistration.waiting?.postMessage({ type: 'SKIP_WAITING' });
         window.location.reload();
     }
 };
 
-window.dismissUpdate = function() {
+window.dismissUpdate = function () {
     // Fermer la notification de mise à jour
     console.log('Mise à jour reportée');
 };
