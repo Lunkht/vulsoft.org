@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             {
                 id: 3,
                 title: "Logiciel de Gestion pour Clinique Médicale",
-                description: "Un logiciel de bureau pour gérer les dossiers patients, les rendez-vous et la facturation de manière sécurisée.",
+                description: "Ovom vous connecte avec des professionnels de santé, vous aide à gérer vos traitements et vous offre des conseils pour une vie plus saine..",
                 primary_image_url: "./images/ovom.png",
                 technology: "Python, Qt, SQLite"
             },
