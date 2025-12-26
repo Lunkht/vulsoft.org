@@ -15,19 +15,11 @@ body {
     align-items: center;
     justify-content: center;
     background: var(--bg-primary);
+    padding: 2rem;
 }
 
 .auth-content-section {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3rem;
-}
-
-.auth-content {
-    max-width: 500px;
-    text-align: center;
+    display: none;
 }
 
 .content-text h2 {
@@ -59,24 +51,16 @@ body {
 
 .auth-form-container {
     background: var(--card-bg);
-    padding: 3rem;
+    padding: 2.5rem;
     border-radius: 24px;
     border: 1px solid var(--border-color);
     width: 100%;
-    max-width: 550px;
+    max-width: 450px;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
 }
 
-.auth-form-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent-color), var(--text-secondary));
-}
 
 .auth-header {
     text-align: center;

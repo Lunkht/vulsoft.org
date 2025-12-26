@@ -25,9 +25,6 @@ class PWAManager {
 
         // Configurer les notifications
         this.setupNotifications();
-
-        // Afficher le statut PWA
-        this.showPWAStatus();
     }
 
     isPWASupported() {
@@ -285,17 +282,6 @@ class PWAManager {
         }
     }
 
-    showPWAStatus() {
-        // Afficher un indicateur discret du statut PWA
-        const statusIndicator = document.createElement('div');
-        statusIndicator.className = 'pwa-status-indicator';
-        statusIndicator.innerHTML = this.isInstalled ? '📱 App' : '🌐 Web';
-        statusIndicator.title = this.isInstalled ? 'Mode Application' : 'Mode Navigateur';
-
-        document.body.appendChild(statusIndicator);
-        this.addStatusIndicatorStyles();
-    }
-
     addInstallButtonStyles() {
         if (document.getElementById('pwa-install-styles')) return;
 
@@ -415,35 +401,6 @@ class PWAManager {
                 background: var(--bg-secondary);
                 color: var(--text-primary);
                 border: 1px solid var(--border-color);
-            }
-        `;
-        document.head.appendChild(styles);
-    }
-
-    addStatusIndicatorStyles() {
-        if (document.getElementById('pwa-status-styles')) return;
-
-        const styles = document.createElement('style');
-        styles.id = 'pwa-status-styles';
-        styles.textContent = `
-            .pwa-status-indicator {
-                position: fixed;
-                bottom: 20px;
-                left: 20px;
-                background: var(--card-bg);
-                border: 1px solid var(--border-color);
-                padding: 0.5rem 0.75rem;
-                border-radius: 20px;
-                font-size: 0.75rem;
-                color: var(--text-secondary);
-                z-index: 1000;
-                backdrop-filter: blur(10px);
-                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            }
-            
-            .pwa-installed .pwa-status-indicator {
-                background: var(--accent-color);
-                color: white;
             }
         `;
         document.head.appendChild(styles);
