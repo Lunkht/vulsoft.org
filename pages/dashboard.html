@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,70 +12,70 @@
     <meta name="apple-mobile-web-app-title" content="Vulsoft">
     <meta name="msapplication-TileColor" content="#3b82f6">
     <meta name="msapplication-config" content="/browserconfig.xml">
-    
+
     <!-- Manifest PWA -->
     <link rel="manifest" href="/manifest.json">
-    
+
     <!-- Apple Touch Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180x180.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16x16.png">
     <link rel="stylesheet" href="../css/main.css">
-       <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
- <style>
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+    <style>
         .dashboard {
             min-height: 100vh;
             background: var(--bg-primary);
             padding: 2rem 0;
         }
-        
+
         .dashboard-header {
             background: var(--card-bg);
             padding: 2rem 0;
             border-bottom: 1px solid var(--border-color);
             margin-bottom: 3rem;
         }
-        
+
         .dashboard-title {
             font-size: 2.5rem;
             font-weight: 800;
             color: var(--text-primary);
             margin-bottom: 0.5rem;
         }
-        
+
         .dashboard-subtitle {
             color: var(--text-secondary);
             font-size: 1.125rem;
         }
-        
+
         .dashboard-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
         }
-        
+
         .dashboard-card {
             background: var(--card-bg);
             padding: 2rem;
             border-radius: 20px;
             border: 1px solid var(--border-color);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         .dashboard-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
-        
+
         .card-header {
             display: flex;
             align-items: center;
             gap: 1rem;
             margin-bottom: 1.5rem;
         }
-        
+
         .card-icon {
             width: 48px;
             height: 48px;
@@ -86,25 +87,25 @@
             color: white;
             font-size: 1.5rem;
         }
-        
+
         .card-title {
             font-size: 1.25rem;
             font-weight: 700;
             color: var(--text-primary);
         }
-        
+
         .card-content {
             color: var(--text-secondary);
             line-height: 1.6;
         }
-        
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
             margin-bottom: 3rem;
         }
-        
+
         .stat-card {
             background: var(--card-bg);
             padding: 1.5rem;
@@ -112,33 +113,33 @@
             border: 1px solid var(--border-color);
             text-align: center;
         }
-        
+
         .stat-number {
             font-size: 2rem;
             font-weight: 800;
             color: var(--accent-color);
             margin-bottom: 0.5rem;
         }
-        
+
         .stat-label {
             color: var(--text-secondary);
             font-size: 0.875rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-        
+
         .recent-activity {
             background: var(--card-bg);
             border-radius: 20px;
             border: 1px solid var(--border-color);
             overflow: hidden;
         }
-        
+
         .activity-header {
             padding: 1.5rem 2rem;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .activity-item {
             padding: 1rem 2rem;
             border-bottom: 1px solid var(--border-color);
@@ -146,11 +147,11 @@
             align-items: center;
             gap: 1rem;
         }
-        
+
         .activity-item:last-child {
             border-bottom: none;
         }
-        
+
         .activity-icon {
             width: 32px;
             height: 32px;
@@ -161,22 +162,22 @@
             justify-content: center;
             font-size: 0.875rem;
         }
-        
+
         .activity-content {
             flex: 1;
         }
-        
+
         .activity-title {
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 0.25rem;
         }
-        
+
         .activity-time {
             font-size: 0.875rem;
             color: var(--text-tertiary);
         }
-        
+
         .logout-btn {
             background: #ef4444;
             color: white;
@@ -187,7 +188,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .logout-btn:hover {
             background: #dc2626;
             transform: translateY(-2px);
@@ -208,6 +209,7 @@
         // ou laisser le système de refresh token gérer les expirations.
     }
 </script>
+
 <body>
     <!-- Header -->
     <header class="header">
@@ -354,41 +356,47 @@
             <span class="close-btn" onclick="close2FAModal()">&times;</span>
             <div id="2fa-setup-step">
                 <h2>Activer l'authentification à deux facteurs (2FA)</h2>
-                <p style="margin-top: 1rem;">Scannez ce QR code avec votre application d'authentification (Google Authenticator, Authy, etc.).</p>
+                <p style="margin-top: 1rem;">Scannez ce QR code avec votre application d'authentification (Google
+                    Authenticator, Authy, etc.).</p>
                 <div id="qr-code-container" style="text-align: center;">
                     <!-- QR code will be loaded here -->
                 </div>
-                <p style="font-size: 0.9rem; color: var(--text-secondary);">Si vous ne pouvez pas scanner le code, entrez manuellement ce secret :</p>
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">Si vous ne pouvez pas scanner le code,
+                    entrez manuellement ce secret :</p>
                 <div id="secret-key-display" class="secret-key-display"></div>
                 <hr style="margin: 2rem 0; border-color: var(--border-color);">
                 <p>Entrez le code à 6 chiffres généré par l'application pour finaliser la configuration.</p>
                 <form id="verify-2fa-form" style="margin-top: 1rem;">
                     <div class="form-group" style="margin-bottom: 1rem;">
                         <label for="otp-code">Code de vérification</label>
-                        <input type="text" id="otp-code" name="otp_code" required pattern="\d{6}" maxlength="6" placeholder="123456" style="text-align: center; font-size: 1.5rem; letter-spacing: 0.5rem;">
+                        <input type="text" id="otp-code" name="otp_code" required pattern="\d{6}" maxlength="6"
+                            placeholder="123456" style="text-align: center; font-size: 1.5rem; letter-spacing: 0.5rem;">
                     </div>
                     <button type="submit" class="cta-button primary" style="width: 100%;">Activer et Vérifier</button>
                 </form>
             </div>
             <div id="2fa-manage-step" style="display:none;">
-                 <h2>Gérer l'authentification à deux facteurs</h2>
-                 <p style="margin-top: 1rem;">La 2FA est <strong>activée</strong> sur votre compte.</p>
-                 <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">Pour la désactiver, veuillez entrer votre mot de passe actuel.</p>
-                 <form id="disable-2fa-form" style="margin-top: 1rem;">
+                <h2>Gérer l'authentification à deux facteurs</h2>
+                <p style="margin-top: 1rem;">La 2FA est <strong>activée</strong> sur votre compte.</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">Pour la désactiver,
+                    veuillez entrer votre mot de passe actuel.</p>
+                <form id="disable-2fa-form" style="margin-top: 1rem;">
                     <div class="form-group" style="margin-bottom: 1rem;">
                         <label for="current-password">Mot de passe actuel</label>
                         <input type="password" id="current-password" name="password" required>
                     </div>
                     <button type="submit" class="cta-button danger" style="width: 100%;">Désactiver la 2FA</button>
-                 </form>
+                </form>
             </div>
         </div>
     </div>
 
     <script src="../js/notifications.js"></script>
     <script src="../js/api.js"></script>
+    <script src="../js/navigation.js"></script>
     <script src="../js/pwa.js"></script>
     <script src="../js/vulsoft-auth.js"></script>
     <script src="../js/dashboard.js" defer></script>
 </body>
+
 </html>

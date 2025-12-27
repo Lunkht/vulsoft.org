@@ -1,4 +1,4 @@
-// Blog JavaScript pour Vulsoft
+// Navigation logic handled by js/navigation.js
 class BlogManager {
     constructor() {
         this.posts = [];
@@ -23,19 +23,19 @@ class BlogManager {
 
     async loadPosts() {
         if (this.loading) return;
-        
+
         this.loading = true;
         this.showLoading();
 
         try {
             const response = await fetch(`http://localhost:8002/api/blog/posts?skip=${this.currentPage * this.postsPerPage}&limit=${this.postsPerPage}`);
-            
+
             if (!response.ok) {
                 throw new Error('Erreur lors du chargement des articles');
             }
 
             const posts = await response.json();
-            
+
             if (posts.length === 0 && this.currentPage === 0) {
                 this.showEmpty();
                 return;
@@ -51,7 +51,7 @@ class BlogManager {
 
         } catch (error) {
             console.error('Erreur blog:', error);
-            
+
             // Si c'est la première page et qu'il y a une erreur, afficher du contenu par défaut
             if (this.currentPage === 0) {
                 this.showDefaultContent();
@@ -75,7 +75,7 @@ class BlogManager {
 
         // Afficher la grille
         blogGrid.style.display = 'grid';
-        
+
         // Vider la grille si c'est la première page
         if (this.currentPage === 0) {
             blogGrid.innerHTML = '';
@@ -98,14 +98,14 @@ class BlogManager {
     createPostElement(post) {
         const article = document.createElement('article');
         article.className = 'blog-card';
-        
+
         // Générer une image aléatoire depuis Unsplash
         const keywords = ['technology', 'code', 'developer', 'workplace', 'abstract', 'nature'];
         const randomKeyword = keywords[Math.floor(Math.random() * keywords.length)];
         const imageUrl = `https://source.unsplash.com/600x400/?${randomKeyword}&sig=${post.id}`;
         // Créer un extrait du contenu
         const excerpt = this.createExcerpt(post.content);
-        
+
         // Formater la date
         const date = new Date(post.created_at).toLocaleDateString('fr-FR', {
             year: 'numeric',
@@ -138,7 +138,7 @@ class BlogManager {
 
     createExcerpt(content) {
         if (!content) return 'Découvrez cet article passionnant...';
-        
+
         // Supprimer les balises HTML et limiter à 150 caractères
         const plainText = content.replace(/<[^>]*>/g, '');
         return plainText.length > 150 ? plainText.substring(0, 150) + '...' : plainText;
@@ -328,7 +328,7 @@ class BlogManager {
         const loading = document.getElementById('blog-loading');
         const grid = document.getElementById('blog-grid');
         const empty = document.getElementById('blog-empty');
-        
+
         loading.style.display = 'block';
         grid.style.display = 'none';
         empty.style.display = 'none';
@@ -343,7 +343,7 @@ class BlogManager {
         const loading = document.getElementById('blog-loading');
         const grid = document.getElementById('blog-grid');
         const empty = document.getElementById('blog-empty');
-        
+
         loading.style.display = 'none';
         grid.style.display = 'none';
         empty.style.display = 'block';
