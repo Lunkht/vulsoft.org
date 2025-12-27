@@ -9,20 +9,20 @@
     "start": "Get Started"
   },
   "index_hero": {
-    "title": "Digital<br>Innovations",
-    "subtitle": "Turn your ideas into reality with our custom development services.",
+    "title": "Digital Solutions<br>& Cybersecurity",
+    "subtitle": "Expertise in secure development and systems audit to propel your business towards technological excellence.",
     "discover_services": "Discover our services",
     "contact_us": "Contact us"
   },
   "services_section": {
     "title": "Solutions",
     "subtitle": "Complete solutions for all your technological needs",
-    "desktop_apps_title": "Desktop Applications",
-    "desktop_apps_desc": "Development of custom software to optimize your business processes and improve your productivity.",
+    "desktop_apps_title": "Enterprise Software",
+    "desktop_apps_desc": "Design robust and secure enterprise software solutions to automate your processes and maximize operational efficiency.",
     "mobile_apps_title": "Mobile Applications",
-    "mobile_apps_desc": "Creation of native and hybrid iOS and Android applications to extend your digital presence.",
-    "iot_title": "Connected Objects",
-    "iot_desc": "Design and development of smart IoT objects to automate and connect your environment.",
+    "mobile_apps_desc": "Developing smooth and secure native mobile experiences (iOS & Android) to engage your users wherever they are.",
+    "iot_title": "IoT & Embedded Systems",
+    "iot_desc": "Integration of smart IoT solutions to connect your assets and transform your data into strategic decisions.",
     "web_solutions_title": "Web Solutions",
     "web_solutions_desc": "Development of modern, responsive, and high-performance websites and web applications.",
     "consulting_title": "Consulting & Training",

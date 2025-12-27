@@ -9,20 +9,20 @@
     "start": "开始使用"
   },
   "index_hero": {
-    "title": "数字<br>创新",
-    "subtitle": "通过我们的定制开发服务，将您的想法变为现实。",
+    "title": "数字解决方案<br>& 网络安全",
+    "subtitle": "安全开发与系统审计专家，助力您的企业实现卓越技术。",
     "discover_services": "发现我们的服务",
     "contact_us": "联系我们"
   },
   "services_section": {
     "title": "解决方案",
     "subtitle": "满足您所有技术需求的完整解决方案",
-    "desktop_apps_title": "桌面应用程序",
-    "desktop_apps_desc": "定制软件开发，优化业务流程并提高生产力。",
+    "desktop_apps_title": "企业软件",
+    "desktop_apps_desc": "设计稳健且安全的企业软件解决方案，自动化您的流程并最大限度地提高运营效率。",
     "mobile_apps_title": "移动应用程序",
-    "mobile_apps_desc": "创建原生和混合 iOS 和 Android 应用程序，扩展您的数字化存在。",
-    "iot_title": "智能物联网",
-    "iot_desc": "设计和开发智能物联网对象，自动化并连接您的环境。",
+    "mobile_apps_desc": "开发流畅且安全的原生移动体验（iOS 和 Android），随时随地吸引您的用户。",
+    "iot_title": "物联网 & 嵌入式系统",
+    "iot_desc": "集成智能物联网解决方案，连接您的资产并将数据转化为战略决策。",
     "web_solutions_title": "网页解决方案",
     "web_solutions_desc": "开发现代、响应式且高性能的网站和网页应用程序。",
     "consulting_title": "咨询与培训",

@@ -9,20 +9,20 @@
     "start": "Commencer"
   },
   "index_hero": {
-    "title": "Innovations<br>Digitales",
-    "subtitle": "Transformez vos idées en réalité avec nos services de développement sur mesure.",
+    "title": "Solutions Digitales<br>& Cybersécurité",
+    "subtitle": "Expertise en développement sécurisé et audit de systèmes pour propulser votre entreprise vers l'excellence technologique.",
     "discover_services": "Découvrir nos services",
     "contact_us": "Nous contacter"
   },
   "services_section": {
     "title": "Solutions",
     "subtitle": "Des solutions complètes pour tous vos besoins technologiques",
-    "desktop_apps_title": "Applications Bureautiques",
-    "desktop_apps_desc": "Développement de logiciels sur mesure pour optimiser vos processus métier et améliorer votre productivité.",
+    "desktop_apps_title": "Logiciels Métier",
+    "desktop_apps_desc": "Concevez des solutions logicielles robustes et sécurisées pour automatiser vos processus et maximiser votre efficacité opérationnelle.",
     "mobile_apps_title": "Applications Mobiles",
-    "mobile_apps_desc": "Création d'applications iOS et Android natives et hybrides pour étendre votre présence digitale.",
-    "iot_title": "Objets Connectés",
-    "iot_desc": "Conception et développement d'objets intelligents IoT pour automatiser et connecter votre environnement.",
+    "mobile_apps_desc": "Développement d'expériences mobiles natives (iOS & Android) fluides et sécurisées pour engager vos utilisateurs où qu'ils soient.",
+    "iot_title": "IoT & Systèmes Embarqués",
+    "iot_desc": "Intégration de solutions IoT intelligentes pour connecter vos actifs et transformer vos données en décisions stratégiques.",
     "web_solutions_title": "Solutions Web",
     "web_solutions_desc": "Développement de sites web et applications web modernes, responsives et performantes.",
     "consulting_title": "Conseil & Formation",
