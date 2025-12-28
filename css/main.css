@@ -2133,6 +2133,23 @@ body.lang-switching {
 
 }
 
+@media (max-width: 768px) {
+    .valkunt {
+        padding: 3rem 1rem;
+    }
+
+    .valkunt-logo {
+        width: 130px;
+        height: 200px;
+        border-width: 25px;
+        border-radius: 75px;
+    }
+
+    .valkunt-title {
+        font-size: 15vw;
+    }
+}
+
 /* Contact Page Styles */
 .contact-hero {
     padding: 8rem 0 4rem;
