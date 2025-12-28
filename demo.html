@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +17,7 @@
             margin: 0 auto;
             padding: 2rem;
         }
-        
+
         .demo-header {
             text-align: center;
             margin-bottom: 4rem;
@@ -25,18 +26,18 @@
             border-radius: 24px;
             color: white;
         }
-        
+
         .demo-title {
             font-size: 3rem;
             font-weight: 800;
             margin-bottom: 1rem;
         }
-        
+
         .demo-subtitle {
             font-size: 1.25rem;
             opacity: 0.9;
         }
-        
+
         .demo-section {
             background: var(--card-bg);
             padding: 2rem;
@@ -44,21 +45,21 @@
             margin-bottom: 2rem;
             border: 1px solid var(--border-color);
         }
-        
+
         .demo-section h3 {
             color: var(--accent-color);
             margin-bottom: 1rem;
             font-size: 1.5rem;
             font-weight: 700;
         }
-        
+
         .demo-buttons {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
             margin: 1rem 0;
         }
-        
+
         .demo-btn {
             padding: 1rem 1.5rem;
             border: none;
@@ -68,38 +69,38 @@
             transition: all 0.3s ease;
             text-align: center;
         }
-        
+
         .demo-btn.primary {
             background: var(--accent-color);
             color: white;
         }
-        
+
         .demo-btn.secondary {
             background: var(--bg-secondary);
             color: var(--text-primary);
             border: 1px solid var(--border-color);
         }
-        
+
         .demo-btn.success {
             background: #10b981;
             color: white;
         }
-        
+
         .demo-btn.error {
             background: #ef4444;
             color: white;
         }
-        
+
         .demo-btn.warning {
             background: #f59e0b;
             color: white;
         }
-        
+
         .demo-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
-        
+
         .api-status {
             display: flex;
             align-items: center;
@@ -108,19 +109,19 @@
             border-radius: 12px;
             margin-bottom: 2rem;
         }
-        
+
         .api-status.online {
             background: #d1fae5;
             color: #065f46;
             border: 1px solid #10b981;
         }
-        
+
         .api-status.offline {
             background: #fee2e2;
             color: #991b1b;
             border: 1px solid #ef4444;
         }
-        
+
         .status-dot {
             width: 12px;
             height: 12px;
@@ -128,26 +129,26 @@
             background: currentColor;
             animation: pulse 2s infinite;
         }
-        
+
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin: 2rem 0;
         }
-        
+
         .feature-card {
             background: var(--bg-secondary);
             padding: 1.5rem;
             border-radius: 16px;
             border: 1px solid var(--border-color);
         }
-        
+
         .feature-icon {
             font-size: 2rem;
             margin-bottom: 1rem;
         }
-        
+
         .code-block {
             background: #1e293b;
             color: #e2e8f0;
@@ -158,13 +159,21 @@
             overflow-x: auto;
             margin: 1rem 0;
         }
-        
+
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="demo-container">
         <div class="demo-header">
@@ -182,7 +191,7 @@
         <div class="demo-section">
             <h3>🔔 Système de Notifications Modernes</h3>
             <p>Testez notre système de notifications avec animations fluides et design moderne.</p>
-            
+
             <div class="demo-buttons">
                 <button class="demo-btn success" onclick="testNotification('success')">
                     ✅ Notification Succès
@@ -206,7 +215,7 @@
         <div class="demo-section">
             <h3>🔗 Tests API FastAPI</h3>
             <p>Testez les endpoints de notre API backend moderne.</p>
-            
+
             <div class="demo-buttons">
                 <button class="demo-btn primary" onclick="testHealthCheck()">
                     🏥 Health Check
@@ -226,38 +235,38 @@
         <!-- Section Fonctionnalités -->
         <div class="demo-section">
             <h3>✨ Fonctionnalités Modernes</h3>
-            
+
             <div class="feature-grid">
                 <div class="feature-card">
                     <div class="feature-icon">🎨</div>
                     <h4>Design System Moderne</h4>
                     <p>Interface inspirée de Spaceship.com avec animations fluides et micro-interactions.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
                     <h4>FastAPI Backend</h4>
                     <p>API REST moderne avec validation automatique et documentation interactive.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">🔒</div>
                     <h4>Authentification Sécurisée</h4>
                     <p>Système d'auth avec hashage des mots de passe et gestion des sessions.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">📱</div>
                     <h4>Responsive Design</h4>
                     <p>Interface adaptative qui fonctionne parfaitement sur tous les appareils.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">🚀</div>
                     <h4>Performance Optimisée</h4>
                     <p>Chargement rapide avec animations CSS et JavaScript optimisé.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">🛠️</div>
                     <h4>Outils de Développement</h4>
@@ -270,31 +279,31 @@
         <div class="demo-section">
             <h3>💻 Exemple de Code API</h3>
             <p>Voici comment utiliser notre client API JavaScript moderne :</p>
-            
+
             <div class="code-block">
-// Utilisation simple du client API
-const api = new VulsoftAPI();
+                // Utilisation simple du client API
+                const api = new VulsoftAPI();
 
-// Soumettre un formulaire de contact
-await api.submitContactForm({
-    firstName: "John",
-    lastName: "Doe", 
-    email: "john@example.com",
-    message: "Hello Vulsoft!",
-    privacy: true
-});
+                // Soumettre un formulaire de contact
+                await api.submitContactForm({
+                firstName: "John",
+                lastName: "Doe",
+                email: "john@example.com",
+                message: "Hello Vulsoft!",
+                privacy: true
+                });
 
-// Obtenir les statistiques des projets
-const stats = await api.getProjectStats();
-console.log(`Projets actifs: ${stats.active}`);
+                // Obtenir les statistiques des projets
+                const stats = await api.getProjectStats();
+                console.log(`Projets actifs: ${stats.active}`);
 
-// Inscription utilisateur
-await api.register({
-    username: "johndoe",
-    email: "john@example.com",
-    full_name: "John Doe",
-    password: "securepassword"
-});
+                // Inscription utilisateur
+                await api.register({
+                username: "johndoe",
+                email: "john@example.com",
+                full_name: "John Doe",
+                password: "securepassword"
+                });
             </div>
         </div>
 
@@ -302,7 +311,7 @@ await api.register({
         <div class="demo-section">
             <h3>🧭 Navigation du Site</h3>
             <p>Explorez toutes les pages de notre site moderne :</p>
-            
+
             <div class="demo-buttons">
                 <button class="demo-btn primary" onclick="window.location.href='index.html'">
                     🏠 Accueil
@@ -344,7 +353,7 @@ await api.register({
                 info: 'Information : le serveur API est en ligne.',
                 loading: 'Chargement en cours, veuillez patienter...'
             };
-            
+
             if (type === 'loading') {
                 const notification = window.notifications.loading(messages[type]);
                 setTimeout(() => {
@@ -407,7 +416,7 @@ await api.register({
         // Vérifier le statut de l'API au chargement
         async function checkAPIStatus() {
             const statusEl = document.getElementById('api-status');
-            
+
             try {
                 const response = await fetch('http://localhost:8001/health');
                 if (response.ok) {
@@ -431,7 +440,7 @@ await api.register({
         // Initialisation
         document.addEventListener('DOMContentLoaded', () => {
             checkAPIStatus();
-            
+
             // Animation d'entrée
             document.querySelectorAll('.demo-section').forEach((el, index) => {
                 el.style.opacity = '0';
@@ -442,7 +451,7 @@ await api.register({
                     el.style.transform = 'translateY(0)';
                 }, index * 200);
             });
-            
+
             // Message de bienvenue
             setTimeout(() => {
                 window.notifications.info('Bienvenue dans la démonstration Vulsoft ! 🚀');
@@ -451,23 +460,25 @@ await api.register({
     </script>
     <script src="js/pwa.js"></script>
 </body>
-</html>         
-            // Animation d'entrée
-            document.querySelectorAll('.demo-section').forEach((el, index) => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, index * 200);
-            });
-            
-            // Message de bienvenue
-            setTimeout(() => {
-                window.notifications.info('Bienvenue dans la démonstration Vulsoft ! 🚀');
-            }, 1000);
-        });
-    </script>
+
+</html>
+// Animation d'entrée
+document.querySelectorAll('.demo-section').forEach((el, index) => {
+el.style.opacity = '0';
+el.style.transform = 'translateY(20px)';
+setTimeout(() => {
+el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+el.style.opacity = '1';
+el.style.transform = 'translateY(0)';
+}, index * 200);
+});
+
+// Message de bienvenue
+setTimeout(() => {
+window.notifications.info('Bienvenue dans la démonstration Vulsoft ! 🚀');
+}, 1000);
+});
+</script>
 </body>
+
 </html>
