@@ -50,49 +50,49 @@ document.addEventListener('DOMContentLoaded', () => {
                 id: 1,
                 title: "Plateforme E-commerce pour Artisanat Local",
                 description: "Une solution complète pour permettre aux artisans de vendre leurs créations en ligne, avec un système de paiement intégré.",
-                primary_image_url: "../images/projet-malick-boutique.png",
+                primary_image_url: "images/projet-malick-boutique.png",
                 technology: "React, FastAPI, Stripe"
             },
             {
                 id: 2,
                 title: "Application Mobile de Gestion Agricole",
                 description: "Application mobile cross-platform pour aider les agriculteurs à suivre leurs cultures, la météo et les prix du marché.",
-                primary_image_url: "../images/projet-ebg.png",
+                primary_image_url: "images/projet-ebg.png",
                 technology: "Flutter, Firebase"
             },
             {
                 id: 3,
                 title: "Logiciel de Gestion pour Clinique Médicale",
                 description: "Ovom vous connecte avec des professionnels de santé, vous aide à gérer vos traitements et vous offre des conseils pour une vie plus saine..",
-                primary_image_url: "../images/ovom.png",
+                primary_image_url: "images/ovom.png",
                 technology: "Python, Qt, SQLite"
             },
             {
                 id: 4,
                 title: "Site Vitrine pour Cabinet de shopping et services",
                 description: "Un site web moderne et professionnel pour présenter les services du cabinet et attirer de nouveaux clients.",
-                primary_image_url: "../images/projet-stopsgo.png",
+                primary_image_url: "images/projet-stopsgo.png",
                 technology: "HTML5, CSS3, JavaScript"
             },
             {
                 id: 5,
                 title: "Système de Réservation pour Hôtel",
                 description: "Une application web permettant aux clients de réserver des chambres en ligne avec une disponibilité en temps réel.",
-                primary_image_url: "../images/projet-stopsgo.png",
+                primary_image_url: "images/projet-stopsgo.png",
                 technology: "Vue.js, Node.js, PostgreSQL"
             },
             {
                 id: 6,
                 title: "Dashboard d'Analyse de Données",
                 description: "Un tableau de bord interactif pour visualiser les indicateurs de performance clés (KPIs) d'une entreprise.",
-                primary_image_url: "../images/projet-opg.png",
+                primary_image_url: "images/projet-opg.png",
                 technology: "D3.js, Python, Pandas"
             },
             {
                 id: 7,
                 title: "Dashboard d'Analyse de Données",
                 description: "Un tableau de bord interactif pour visualiser les indicateurs de performance clés (KPIs) d'une entreprise.",
-                primary_image_url: "../images/projet-opg.png",
+                primary_image_url: "images/projet-opg.png",
                 technology: "D3.js, Python, Pandas"
             }
         ];

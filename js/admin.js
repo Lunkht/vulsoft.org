@@ -1,7 +1,7 @@
 // Client API Admin pour Vulsoft
 class AdminAPI extends VulsoftAuth {
     constructor() {
-        super({ apiUrl: 'http://localhost:8002/api' });
+        super({ apiUrl: 'http://localhost:8001/api' });
     }
 
     // Méthodes Admin
@@ -311,7 +311,7 @@ class AdminNavigation {
 
     renderUsersTable(users) {
         const tableEl = document.getElementById('users-table');
-        
+
         if (users.length === 0) {
             tableEl.innerHTML = '<div class="empty-state">Aucun utilisateur trouvé</div>';
             return;
@@ -362,7 +362,7 @@ class AdminNavigation {
                 </tbody>
             </table>
         `;
-        
+
         tableEl.innerHTML = tableHTML;
     }
 
@@ -377,7 +377,7 @@ class AdminNavigation {
 
     renderMessagesTable(messages) {
         const tableEl = document.getElementById('messages-table');
-        
+
         if (messages.length === 0) {
             tableEl.innerHTML = '<div class="empty-state">Aucun message trouvé</div>';
             return;
@@ -427,7 +427,7 @@ class AdminNavigation {
                 </tbody>
             </table>
         `;
-        
+
         tableEl.innerHTML = tableHTML;
     }
 
@@ -442,7 +442,7 @@ class AdminNavigation {
 
     renderProjectsTable(projects) {
         const tableEl = document.getElementById('projects-table');
-        
+
         if (projects.length === 0) {
             tableEl.innerHTML = '<div class="empty-state">Aucun projet trouvé</div>';
             return;
@@ -492,7 +492,7 @@ class AdminNavigation {
                 </tbody>
             </table>
         `;
-        
+
         tableEl.innerHTML = tableHTML;
     }
 
@@ -559,7 +559,7 @@ class AdminNavigation {
 
     renderUsersChart(data) {
         const chartEl = document.getElementById('users-chart');
-        
+
         // Graphique simple en ASCII (remplacer par Chart.js en production)
         const chartHTML = `
             <div style="padding: 2rem;">
@@ -577,15 +577,15 @@ class AdminNavigation {
                 </div>
             </div>
         `;
-        
+
         chartEl.innerHTML = chartHTML;
     }
 
     renderServicesChart(data) {
         const chartEl = document.getElementById('services-chart');
-        
+
         const total = data.reduce((sum, item) => sum + item.count, 0);
-        
+
         const chartHTML = `
             <div style="padding: 2rem;">
                 <h4>Répartition des demandes par service</h4>
@@ -602,7 +602,7 @@ class AdminNavigation {
                 </div>
             </div>
         `;
-        
+
         chartEl.innerHTML = chartHTML;
     }
 }
@@ -618,7 +618,7 @@ async function loadNewsletter() {
 
 function renderSubscribersTable(subscribers) {
     const tableEl = document.getElementById('subscribers-table');
-    
+
     if (!subscribers || subscribers.length === 0) {
         tableEl.innerHTML = '<div class="empty-state">Aucun abonné trouvé</div>';
         return;
@@ -650,7 +650,7 @@ function renderSubscribersTable(subscribers) {
             </tbody>
         </table>
     `;
-    
+
     tableEl.innerHTML = tableHTML;
 }
 
@@ -794,10 +794,10 @@ function clearCache() {
 // Initialisation
 document.addEventListener('DOMContentLoaded', () => {
     window.adminNav = new AdminNavigation();
-    
+
     // Vérifier si l'utilisateur est admin (simulation)
     // En production, vérifier avec un token JWT
-    
+
     // Remplacer la fonction placeholder
     window.editProject = (projectId, projectTitle) => {
         openEditProjectModal(projectId, projectTitle);
@@ -806,7 +806,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.deleteProject = (projectId) => deleteProject(projectId);
 
     // Gérer la fermeture des modales
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target.classList.contains('modal')) {
             event.target.style.display = "none";
         }
@@ -838,7 +838,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const form = e.target;
         const projectId = form.project_id.value;
         const fileInput = form.file;
-        
+
         if (fileInput.files.length === 0) {
             window.notifications?.warning('Veuillez sélectionner un fichier.');
             return;
@@ -932,22 +932,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.notifications?.success('Interface d\'administration chargée');
-});// Fonctio
-ns de gestion du blog
+});// Fonctions de gestion du blog
 async function loadBlogPosts() {
     try {
         const posts = await window.adminAPI.getBlogPosts();
         renderBlogTable(posts);
     } catch (error) {
         console.error('Erreur lors du chargement des articles:', error);
-        document.getElementById('blog-table').innerHTML = 
+        document.getElementById('blog-table').innerHTML =
             '<div class="empty-state">Erreur lors du chargement des articles</div>';
     }
 }
 
 function renderBlogTable(posts) {
     const tableEl = document.getElementById('blog-table');
-    
+
     if (posts.length === 0) {
         tableEl.innerHTML = '<div class="empty-state">Aucun article trouvé</div>';
         return;
@@ -996,7 +995,7 @@ function renderBlogTable(posts) {
             </tbody>
         </table>
     `;
-    
+
     tableEl.innerHTML = tableHTML;
 }
 
@@ -1056,7 +1055,7 @@ function openCreatePostModal() {
     // Gestion du formulaire
     document.getElementById('create-post-form').addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         const formData = new FormData(e.target);
         const postData = {
             title: formData.get('title'),
@@ -1245,7 +1244,7 @@ function closeModal() {
 // Ajouter le blog au gestionnaire de navigation
 const originalLoadSectionData = window.adminNav?.loadSectionData;
 if (window.adminNav && originalLoadSectionData) {
-    window.adminNav.loadSectionData = function(sectionName) {
+    window.adminNav.loadSectionData = function (sectionName) {
         if (sectionName === 'blog') {
             loadBlogPosts();
         } else {

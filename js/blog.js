@@ -28,7 +28,7 @@ class BlogManager {
         this.showLoading();
 
         try {
-            const response = await fetch(`http://localhost:8002/api/blog/posts?skip=${this.currentPage * this.postsPerPage}&limit=${this.postsPerPage}`);
+            const response = await fetch(`http://localhost:8001/api/blog/posts?skip=${this.currentPage * this.postsPerPage}&limit=${this.postsPerPage}`);
 
             if (!response.ok) {
                 throw new Error('Erreur lors du chargement des articles');
@@ -102,7 +102,7 @@ class BlogManager {
         // Générer une image aléatoire depuis Unsplash
         const keywords = ['technology', 'code', 'developer', 'workplace', 'abstract', 'nature'];
         const randomKeyword = keywords[Math.floor(Math.random() * keywords.length)];
-        const imageUrl = `https://source.unsplash.com/600x400/?${randomKeyword}&sig=${post.id}`;
+        const imageUrl = post.image_url || `https://source.unsplash.com/600x400/?${randomKeyword}&sig=${post.id}`;
         // Créer un extrait du contenu
         const excerpt = this.createExcerpt(post.content);
 
