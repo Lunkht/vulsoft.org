@@ -2076,6 +2076,58 @@ body.lang-switching {
     flex-wrap: wrap;
 }
 
+
+.valkunt {
+    background: #000000;
+    padding: 90px;
+    color: #fff;
+    display: block;
+    align-items: center;
+}
+
+.valkunt-logo {
+    border-radius: 150px;
+    width: 260px;
+    height: 400px;
+    border: 50px solid transparent;
+    margin: 0 auto;
+    background: linear-gradient(#000, #000) padding-box,
+        linear-gradient(135deg, #000 0%, #fff 50%, #000 100%) border-box;
+    background-size: 200% 200%;
+    animation: valkuntGradient 3s ease infinite;
+}
+
+
+@keyframes valkuntGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.valkunt-title {
+    text-align: center;
+    margin-top: 6px;
+    font-size: 21rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #8c8b8b 0%, #fff 50%, #bbbbbb 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: valkuntGradient 3s ease infinite;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
 /* Contact Page Styles */
 .contact-hero {
     padding: 8rem 0 4rem;
