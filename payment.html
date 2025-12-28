@@ -20,10 +20,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180x180.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16x16.png">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/payment.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/payment.css">
     <script src="https://js.stripe.com/v3/"></script>
-    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 </head>
 
 <body>
@@ -31,20 +31,26 @@
     <header class="header">
         <nav class="nav">
             <div class="logo">
-                <img src="../images/logo-Vulsoft-1.svg" alt="Vulsoft Academy">
+                <img src="images/logo-Vulsoft-1.svg" alt="Vulsoft Academy">
             </div>
             <ul class="nav-links">
-                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="index.html">Accueil</a></li>
                 <li><a href="projects.html" data-i18n="nav.projects">Projets</a></li>
                 <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
-                <li><a href="../academie.html">Academy</a></li>
+                <li><a href="academie.html">Academy</a></li>
                 <li><a href="about.html">À propos</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li class="mobile-login"><a href="login.html" class="connexion-btn" data-i18n="nav.login">Connexion</a>
                 </li>
             </ul>
             <div class="nav-actions">
-                <div class="language-switcher"><button type="button" class="lang-trigger"><span class="current-lang">FR</span></button><div class="lang-dropdown"><button type="button" class="lang-option" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</button><button type="button" class="lang-option" data-lang="en"><span class="lang-flag">��🇸</span> English</button><button type="button" class="lang-option" data-lang="zh"><span class="lang-flag">🇨🇳</span> 中文</button></div></div>
+                <div class="language-switcher"><button type="button" class="lang-trigger"><span
+                            class="current-lang">FR</span></button>
+                    <div class="lang-dropdown"><button type="button" class="lang-option" data-lang="fr"><span
+                                class="lang-flag">🇫🇷</span> Français</button><button type="button" class="lang-option"
+                            data-lang="en"><span class="lang-flag">��🇸</span> English</button><button type="button"
+                            class="lang-option" data-lang="zh"><span class="lang-flag">🇨🇳</span> 中文</button></div>
+                </div>
                 <a href="dashboard.html" class="user-profile-icon" aria-label="Mon Profil">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -68,7 +74,7 @@
     <section class="payment-hero">
         <div class="container">
             <div class="payment-breadcrumb">
-                <a href="../academie.html">Academy</a>
+                <a href="academie.html">Academy</a>
                 <span>›</span>
                 <a href="course-details.html">JavaScript Moderne</a>
                 <span>›</span>
@@ -338,7 +344,7 @@
                             </div>
 
                             <div class="confirmation-actions">
-                                <a href="../academie.html" class="btn-secondary">
+                                <a href="academie.html" class="btn-secondary">
                                     <span>Découvrir d'autres cours</span>
                                 </a>
                                 <a href="login.html" class="btn-primary">
@@ -491,8 +497,8 @@
                 <div class="footer-column">
                     <h4>Academy</h4>
                     <ul>
-                        <li><a href="../academie.html">Toutes les formations</a></li>
-                        <li><a href="../academie.html#parcours">Parcours d'apprentissage</a></li>
+                        <li><a href="academie.html">Toutes les formations</a></li>
+                        <li><a href="academie.html#parcours">Parcours d'apprentissage</a></li>
                         <li><a href="#">Certificats</a></li>
                     </ul>
                 </div>
@@ -604,7 +610,7 @@
             const { error } = await stripe.confirmPayment({
                 elements,
                 confirmParams: {
-                    return_url: `${window.location.origin}/pages/payment.html`,
+                    return_url: `${window.location.origin}/payment.html`,
                 },
             });
 
@@ -681,7 +687,7 @@
             document.querySelector('.payment-method[data-method="card"] .method-form').style.display = 'block';
         });
     </script>
-    <script src="../js/pwa.js"></script>
+    <script src="js/pwa.js"></script>
 </body>
 
 </html>

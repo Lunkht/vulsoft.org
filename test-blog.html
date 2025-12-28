@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
             margin: 0 auto;
             padding: 2rem;
         }
-        
+
         .test-header {
             text-align: center;
             margin-bottom: 3rem;
@@ -20,30 +21,30 @@
             color: white;
             border-radius: 20px;
         }
-        
+
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
         }
-        
+
         .blog-card {
             background: var(--card-bg);
             border-radius: 20px;
             overflow: hidden;
             border: 1px solid var(--border-color);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             cursor: pointer;
         }
-        
+
         .blog-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
             border-color: var(--accent-color);
         }
-        
+
         .blog-card-image {
             height: 200px;
             background: linear-gradient(135deg, var(--accent-color), var(--text-secondary));
@@ -53,11 +54,11 @@
             font-size: 3rem;
             color: white;
         }
-        
+
         .blog-card-content {
             padding: 2rem;
         }
-        
+
         .blog-card-title {
             font-size: 1.5rem;
             font-weight: 700;
@@ -65,13 +66,13 @@
             margin-bottom: 1rem;
             line-height: 1.3;
         }
-        
+
         .blog-card-excerpt {
             color: var(--text-secondary);
             line-height: 1.6;
             margin-bottom: 1.5rem;
         }
-        
+
         .blog-card-meta {
             display: flex;
             justify-content: space-between;
@@ -79,14 +80,14 @@
             font-size: 0.875rem;
             color: var(--text-tertiary);
         }
-        
+
         .test-actions {
             display: flex;
             gap: 1rem;
             justify-content: center;
             margin: 2rem 0;
         }
-        
+
         .test-btn {
             padding: 0.75rem 1.5rem;
             border: none;
@@ -95,24 +96,25 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .test-btn.primary {
             background: var(--accent-color);
             color: white;
         }
-        
+
         .test-btn.secondary {
             background: var(--bg-secondary);
             color: var(--text-primary);
             border: 1px solid var(--border-color);
         }
-        
+
         .test-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
     </style>
 </head>
+
 <body>
     <div class="test-container">
         <div class="test-header">
@@ -124,10 +126,10 @@
             <button class="test-btn primary" onclick="loadDefaultContent()">
                 📝 Charger Contenu Par Défaut
             </button>
-            <button class="test-btn secondary" onclick="window.location.href='pages/blog.html'">
+            <button class="test-btn secondary" onclick="window.location.href='blog.html'">
                 🌐 Aller au Blog Réel
             </button>
-            <button class="test-btn secondary" onclick="window.location.href='pages/admin.html'">
+            <button class="test-btn secondary" onclick="window.location.href='admin.html'">
                 🔧 Administration
             </button>
         </div>
@@ -212,11 +214,11 @@
         function createPostElement(post) {
             const article = document.createElement('article');
             article.className = 'blog-card';
-            
-            const excerpt = post.content.length > 150 ? 
-                post.content.substring(0, 150) + '...' : 
+
+            const excerpt = post.content.length > 150 ?
+                post.content.substring(0, 150) + '...' :
                 post.content;
-            
+
             const date = new Date(post.created_at).toLocaleDateString('fr-FR', {
                 year: 'numeric',
                 month: 'long',
@@ -367,4 +369,5 @@
         });
     </script>
 </body>
+
 </html>

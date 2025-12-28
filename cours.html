@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,11 +13,11 @@
     <meta name="apple-mobile-web-app-title" content="Vulsoft">
     <meta name="msapplication-TileColor" content="#3b82f6">
     <meta name="msapplication-config" content="/browserconfig.xml">
-        <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 
     <!-- Manifest PWA -->
     <link rel="manifest" href="/manifest.json">
-    
+
     <!-- Apple Touch Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180x180.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32x32.png">
@@ -37,6 +38,7 @@
             margin: 0;
             padding: 0;
         }
+
         .cours-main-title {
             text-align: center;
             font-size: 2.2rem;
@@ -45,6 +47,7 @@
             letter-spacing: 0.5px;
             color: var(--text-primary);
         }
+
         .cours-categories-bar {
             display: flex;
             overflow-x: auto;
@@ -53,7 +56,11 @@
             margin-bottom: 1.5rem;
             scrollbar-width: none;
         }
-        .cours-categories-bar::-webkit-scrollbar { display: none; }
+
+        .cours-categories-bar::-webkit-scrollbar {
+            display: none;
+        }
+
         .cours-category-btn {
             background: var(--bg-secondary);
             color: var(--text-primary);
@@ -68,13 +75,17 @@
             box-shadow: 0 2px 8px var(--shadow-light);
             border: 1px solid var(--border-color);
         }
-        .cours-category-btn.active, .cours-category-btn:hover {
+
+        .cours-category-btn.active,
+        .cours-category-btn:hover {
             background: var(--button-primary-bg);
             color: var(--button-primary-text);
         }
+
         .cours-section {
             margin-bottom: 2.5rem;
         }
+
         .cours-list-scroll {
             display: flex;
             overflow-x: auto;
@@ -82,7 +93,11 @@
             padding: 0 1.5rem 0.5rem 1.5rem;
             scroll-snap-type: x mandatory;
         }
-        .cours-list-scroll::-webkit-scrollbar { display: none; }
+
+        .cours-list-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
         .cours-card {
             flex: 0 0 320px;
             background: var(--bg-secondary);
@@ -96,11 +111,13 @@
             transition: transform 0.18s, box-shadow 0.18s;
             border: 1.5px solid var(--border-color);
         }
+
         .cours-card:hover {
             transform: translateY(-4px) scale(1.03);
             box-shadow: 0 10px 32px var(--shadow-color);
             border-color: var(--accent-color);
         }
+
         .cours-card-img {
             width: 100%;
             height: 160px;
@@ -108,34 +125,40 @@
             border-radius: 18px 18px 0 0;
             background: var(--bg-tertiary);
         }
+
         .cours-card-content {
             padding: 1.1rem 1.2rem 1rem 1.2rem;
             display: flex;
             flex-direction: column;
             flex: 1;
         }
+
         .cours-card-title {
             font-size: 1.13rem;
             font-weight: 700;
             margin-bottom: 0.4rem;
             color: var(--text-primary);
         }
+
         .cours-card-author {
             color: var(--text-secondary);
             font-size: 0.98rem;
             margin-bottom: 0.7rem;
         }
+
         .cours-card-rating {
             color: #ffd700;
             font-size: 1.02rem;
             margin-bottom: 0.5rem;
         }
+
         .cours-card-price {
             font-weight: 700;
             color: var(--text-primary);
             font-size: 1.08rem;
             margin-bottom: 0.5rem;
         }
+
         .cours-card-badge {
             display: inline-block;
             background: #3ecf8e;
@@ -146,21 +169,26 @@
             padding: 0.25rem 0.7rem;
             margin-bottom: 0.5rem;
         }
+
         .cours-card-badge.premium {
             background: var(--accent-color);
             color: var(--text-primary);
         }
+
         .cours-card-badge.top {
             background: #ffb703;
             color: var(--bg-secondary);
         }
+
         .cours-card-badge.best {
             background: #e0f2fe;
             color: var(--bg-secondary);
         }
+
         .cours-card-footer {
             margin-top: auto;
         }
+
         .cours-section-btn {
             display: block;
             margin: 1.2rem auto 0 auto;
@@ -174,20 +202,24 @@
             cursor: pointer;
             transition: background 0.18s, color 0.18s;
         }
+
         .cours-section-btn:hover {
             background: var(--accent-color);
             color: var(--button-primary-text);
         }
+
         @media (max-width: 700px) {
             .cours-card {
                 flex: 0 0 85vw;
                 min-width: 220px;
             }
+
             .cours-list-scroll {
                 gap: 0.7rem;
                 padding-left: 0.7rem;
                 padding-right: 0.7rem;
             }
+
             .cours-categories-bar {
                 gap: 0.5rem;
                 padding-left: 0.5rem;
@@ -196,6 +228,7 @@
         }
     </style>
 </head>
+
 <body>
     <h1 class="cours-main-title">Nos Cours</h1>
     <div class="cours-categories-bar">
@@ -211,41 +244,53 @@
     <section class="cours-section">
         <div class="cours-list-scroll">
             <div class="cours-card">
-                <img class="cours-card-img" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Cours IA">
+                <img class="cours-card-img"
+                    src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80"
+                    alt="Cours IA">
                 <div class="cours-card-content">
                     <div class="cours-card-title">ChatGPT, GPT4, Midjourney | Formation IA Complète 2025</div>
                     <div class="cours-card-author">Jonathan Roux | IA ChatGPT | Python</div>
-                    <div class="cours-card-rating">4,6 ★★★★★ <span style="color:#aaa; font-size:0.95em;">(3590)</span></div>
+                    <div class="cours-card-rating">4,6 ★★★★★ <span style="color:#aaa; font-size:0.95em;">(3590)</span>
+                    </div>
                     <div class="cours-card-price">24,99 $US</div>
                     <div class="cours-card-badge best">Meilleure vente</div>
                 </div>
             </div>
             <div class="cours-card">
-                <img class="cours-card-img" src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Cours ChatGPT">
+                <img class="cours-card-img"
+                    src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
+                    alt="Cours ChatGPT">
                 <div class="cours-card-content">
                     <div class="cours-card-title">ChatGPT & IA : Formation complète ChatGPT, Dall-e</div>
                     <div class="cours-card-author">Yassine Rochd</div>
-                    <div class="cours-card-rating">4,7 ★★★★★ <span style="color:#aaa; font-size:0.95em;">(544)</span></div>
+                    <div class="cours-card-rating">4,7 ★★★★★ <span style="color:#aaa; font-size:0.95em;">(544)</span>
+                    </div>
                     <div class="cours-card-price">24,99 $US</div>
                     <div class="cours-card-badge top">Les mieux notés</div>
                 </div>
             </div>
             <div class="cours-card">
-                <img class="cours-card-img" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Cours Python">
+                <img class="cours-card-img"
+                    src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80"
+                    alt="Cours Python">
                 <div class="cours-card-content">
                     <div class="cours-card-title">ChatGPT pour Programmeurs : Applications Python sans Codage</div>
                     <div class="cours-card-author">Ing.Seif | Europe Innovation</div>
-                    <div class="cours-card-rating">4,3 ★★★★☆ <span style="color:#aaa; font-size:0.95em;">(78)</span></div>
+                    <div class="cours-card-rating">4,3 ★★★★☆ <span style="color:#aaa; font-size:0.95em;">(78)</span>
+                    </div>
                     <div class="cours-card-price">24,99 $US</div>
                     <div class="cours-card-badge top">Les mieux notés</div>
                 </div>
             </div>
             <div class="cours-card">
-                <img class="cours-card-img" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Cours Hacking">
+                <img class="cours-card-img"
+                    src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+                    alt="Cours Hacking">
                 <div class="cours-card-content">
                     <div class="cours-card-title">ChatGPT Hacking Éthique : Le Cours Complet</div>
                     <div class="cours-card-author">Dr. Firas | Europe Innovation</div>
-                    <div class="cours-card-rating">4,5 ★★★★★ <span style="color:#aaa; font-size:0.95em;">(67)</span></div>
+                    <div class="cours-card-rating">4,5 ★★★★★ <span style="color:#aaa; font-size:0.95em;">(67)</span>
+                    </div>
                     <div class="cours-card-price">24,99 $US</div>
                     <div class="cours-card-badge premium">Premium</div>
                 </div>
@@ -255,4 +300,5 @@
     </section>
     <script src="js/pwa.js"></script>
 </body>
+
 </html>

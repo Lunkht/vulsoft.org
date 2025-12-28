@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,21 +13,25 @@
             padding: 2rem;
             background: #f8fafc;
         }
+
         .container {
             background: white;
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
         }
+
         .form-group {
             margin-bottom: 1rem;
         }
+
         label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
         }
+
         input {
             width: 100%;
             padding: 0.75rem;
@@ -35,6 +40,7 @@
             font-size: 1rem;
             box-sizing: border-box;
         }
+
         button {
             background: #3b82f6;
             color: white;
@@ -46,31 +52,38 @@
             margin-right: 1rem;
             margin-bottom: 1rem;
         }
+
         button:hover {
             background: #2563eb;
         }
+
         button.danger {
             background: #ef4444;
         }
+
         button.danger:hover {
             background: #dc2626;
         }
+
         .status {
             padding: 1rem;
             margin: 1rem 0;
             border-radius: 8px;
             text-align: center;
         }
+
         .status.success {
             background: #d1fae5;
             color: #065f46;
             border: 1px solid #10b981;
         }
+
         .status.error {
             background: #fee2e2;
             color: #991b1b;
             border: 1px solid #ef4444;
         }
+
         .results {
             background: #f8fafc;
             padding: 1rem;
@@ -83,10 +96,11 @@
     </style>
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 </head>
+
 <body>
     <div class="container">
         <h1>🔧 Test Administration Vulsoft</h1>
-        
+
         <div id="server-status" class="status">Vérification du serveur...</div>
 
         <h3>1. Créer le premier administrateur</h3>
@@ -114,7 +128,7 @@
         <button onclick="testGetMessages()">💬 Test Messages</button>
         <button onclick="testGetProjects()">🚀 Test Projets</button>
         <button onclick="openAdminPanel()">🔧 Ouvrir Panel Admin</button>
-        
+
         <div id="test-results" class="results" style="display: none;"></div>
     </div>
 
@@ -124,7 +138,7 @@
 
         async function checkServerStatus() {
             const statusEl = document.getElementById('server-status');
-            
+
             try {
                 const response = await fetch('http://localhost:8001/health');
                 if (response.ok) {
@@ -142,10 +156,10 @@
         // Créer un admin
         document.getElementById('create-admin-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             const formData = new FormData(e.target);
             const data = Object.fromEntries(formData.entries());
-            
+
             try {
                 const response = await fetch(`${API_BASE}/admin/create-admin`, {
                     method: 'POST',
@@ -156,7 +170,7 @@
                 });
 
                 const result = await response.json();
-                
+
                 if (response.ok) {
                     showResult(`✅ Admin créé avec succès!\nID: ${result.user_id}\nEmail: ${data.email}`, 'success');
                 } else {
@@ -171,7 +185,7 @@
             try {
                 const response = await fetch(`${API_BASE}/admin/stats`);
                 const data = await response.json();
-                
+
                 if (response.ok) {
                     showResult(`📊 Statistiques Admin:\n${JSON.stringify(data, null, 2)}`, 'success');
                 } else {
@@ -186,7 +200,7 @@
             try {
                 const response = await fetch(`${API_BASE}/admin/users`);
                 const data = await response.json();
-                
+
                 if (response.ok) {
                     showResult(`👥 Utilisateurs (${data.length}):\n${JSON.stringify(data, null, 2)}`, 'success');
                 } else {
@@ -201,7 +215,7 @@
             try {
                 const response = await fetch(`${API_BASE}/admin/messages`);
                 const data = await response.json();
-                
+
                 if (response.ok) {
                     showResult(`💬 Messages (${data.length}):\n${JSON.stringify(data, null, 2)}`, 'success');
                 } else {
@@ -216,7 +230,7 @@
             try {
                 const response = await fetch(`${API_BASE}/admin/projects`);
                 const data = await response.json();
-                
+
                 if (response.ok) {
                     showResult(`🚀 Projets (${data.length}):\n${JSON.stringify(data, null, 2)}`, 'success');
                 } else {
@@ -245,28 +259,29 @@
     </script>
     <script src="js/pwa.js"></script>
 </body>
+
 </html>t(`❌ Erreur projets: ${data.detail}`, 'error');
-                }
-            } catch (error) {
-                showResult(`❌ Erreur: ${error.message}`, 'error');
-            }
-        }
+}
+} catch (error) {
+showResult(`❌ Erreur: ${error.message}`, 'error');
+}
+}
 
-        function openAdminPanel() {
-            window.open('pages/admin.html', '_blank');
-        }
+function openAdminPanel() {
+window.open('
 
-        function showResult(message, type) {
-            const resultsEl = document.getElementById('test-results');
-            resultsEl.style.display = 'block';
-            resultsEl.textContent = message;
-            resultsEl.className = `results ${type}`;
-        }
+function showResult(message, type) {
+const resultsEl = document.getElementById('test-results');
+resultsEl.style.display = 'block';
+resultsEl.textContent = message;
+resultsEl.className = `results ${type}`;
+}
 
-        // Initialisation
-        document.addEventListener('DOMContentLoaded', () => {
-            checkServerStatus();
-        });
-    </script>
+// Initialisation
+document.addEventListener('DOMContentLoaded', () => {
+checkServerStatus();
+});
+</script>
 </body>
+
 </html>
