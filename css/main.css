@@ -1467,7 +1467,7 @@ body.lang-switching {
 
     .apps-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 2rem;
     }
 
     .app-card {
@@ -1768,8 +1768,8 @@ body.lang-switching {
 
 .apps-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
     margin-bottom: 3rem;
 }
 
