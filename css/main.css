@@ -429,6 +429,11 @@ body.lang-switching {
     background: var(--bg-primary);
 }
 
+.hero.hero-page {
+    min-height: 50vh;
+    padding: 10rem 2rem 5rem;
+}
+
 .hero::before {
     content: '';
     position: absolute;
@@ -2125,7 +2130,7 @@ body.lang-switching {
     animation: valkuntGradient 3s ease infinite;
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
     font-family: Arial, Helvetica, sans-serif;
-    
+
 }
 
 /* Contact Page Styles */
@@ -3053,28 +3058,6 @@ nimations de chargement modernes */
 /* 
 Styles compacts pour la page contact */
 
-/* Hero compact */
-.hero-compact {
-    padding: 4rem 0 2rem 0;
-    background: var(--bg-primary);
-    text-align: center;
-}
-
-.hero-compact .hero-content h1 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--text-primary);
-    margin-bottom: 0.75rem;
-    letter-spacing: -0.02em;
-}
-
-.hero-compact .hero-content p {
-    font-size: 1.125rem;
-    color: var(--text-secondary);
-    max-width: 500px;
-    margin: 0 auto;
-}
-
 /* Section contact principale compacte */
 .contact-main {
     padding: 3rem 0;
@@ -3279,15 +3262,6 @@ Styles compacts pour la page contact */
 
 /* Responsive pour les éléments compacts */
 @media (max-width: 768px) {
-    .hero-compact {
-        padding: 3rem 0 1.5rem 0;
-    }
-
-    .hero-compact .hero-content h1 {
-        font-size: 2rem;
-    }
-
-
 
     .contact-form .form-row {
         grid-template-columns: 1fr;
