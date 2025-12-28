@@ -291,6 +291,19 @@
                         <p>Est une application d'alertedanger pour vous prevenue des danger environnementales</p>
                     </div>
                 </div>
+
+                <div class="app-card">
+                    <div class="app-badge"></div>
+                    <div class="app-icon">
+                        <div class="icon-bg rider">
+                            <span class="icon-text">BC</span>
+                        </div>
+                    </div>
+                    <div class="app-info">
+                        <h3>BkClay</h3>
+                        <p>Est une application de forum pour vous</p>
+                    </div>
+                </div>
             </div>
 
             <div class="apps-cta">
@@ -760,15 +773,14 @@
                 <p>Téléchargez notre application pour une meilleure expérience</p>
             </div>
             <div class="app-banner-actions">
-                <button class="btn-install"
-                    onclick="window.pwaManager ? window.pwaManager.installPWA() : alert('Installation bientôt disponible')">
+                <a href="apk/vulsoft.apk" class="btn-install" download>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                         <polyline points="7 10 12 15 17 10" />
                         <line x1="12" y1="15" x2="12" y2="3" />
                     </svg>
-                    <span>Installer</span>
-                </button>
+                    <span>Télécharger</span>
+                </a>
                 <button class="btn-close" onclick="document.getElementById('appBanner').style.display='none'"
                     aria-label="Fermer">&times;</button>
             </div>

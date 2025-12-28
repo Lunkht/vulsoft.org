@@ -3374,6 +3374,7 @@ Styles compacts pour la page contact */
     align-items: center;
     gap: 0.5rem;
     transition: all 0.2s ease;
+    text-decoration: none;
 }
 
 .app-banner .btn-install:hover {
