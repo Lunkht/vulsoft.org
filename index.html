@@ -749,6 +749,32 @@
         </div>
     </footer>
 
+    <!-- App Download Banner -->
+    <div class="app-banner" id="appBanner">
+        <div class="app-banner-content">
+            <div class="app-banner-icon">
+                <img src="images/icon-192x192.png" alt="Vulsoft App" onerror="this.style.display='none'">
+            </div>
+            <div class="app-banner-text">
+                <h4>Application Vulsoft</h4>
+                <p>Téléchargez notre application pour une meilleure expérience</p>
+            </div>
+            <div class="app-banner-actions">
+                <button class="btn-install"
+                    onclick="window.pwaManager ? window.pwaManager.installPWA() : alert('Installation bientôt disponible')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    <span>Installer</span>
+                </button>
+                <button class="btn-close" onclick="document.getElementById('appBanner').style.display='none'"
+                    aria-label="Fermer">&times;</button>
+            </div>
+        </div>
+    </div>
+
     <script src="js/notifications.js"></script>
     <script src="js/pwa.js"></script>
     <script src="js/navigation.js"></script>
