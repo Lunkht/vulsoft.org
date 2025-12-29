@@ -25,9 +25,35 @@
     --hero-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #ffffff 100%);
 }
 
-/* Mode sombre automatique */
+/* Mode sombre (attribut ou automatique) */
+[data-theme="dark"] {
+    --bg-primary: #000000;
+    --bg-secondary: #111111;
+    --bg-tertiary: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --text-tertiary: #999999;
+    --border-color: #333333;
+    --accent-color: #ffffff;
+    --header-bg: rgba(10, 10, 10, 0.95);
+    --header-bg-scrolled: rgba(10, 10, 10, 0.98);
+    --card-bg: #1a1a1a;
+    --shadow-color: rgba(255, 255, 255, 0.1);
+    --shadow-light: rgba(255, 255, 255, 0.05);
+    --input-bg: #1a1a1a;
+    --button-primary-bg: #ffffff;
+    --button-primary-text: #000000;
+    --button-primary-hover-bg: #cccccc;
+    --button-primary-hover-text: #000000;
+    --footer-text: #cccccc;
+    --footer-border: rgba(255, 255, 255, 0.2);
+    --logo-filter: invert(1);
+    --shimmer-color: rgba(255, 255, 255, 0.03);
+    --hero-gradient: linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #1a1a1a 100%);
+}
+
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
         --bg-primary: #000000;
         --bg-secondary: #111111;
         --bg-tertiary: #1a1a1a;
@@ -52,6 +78,32 @@
         --shimmer-color: rgba(255, 255, 255, 0.03);
         --hero-gradient: linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #1a1a1a 100%);
     }
+}
+
+[data-theme="dark"] {
+    --bg-primary: #000000;
+    --bg-secondary: #111111;
+    --bg-tertiary: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --text-tertiary: #999999;
+    --border-color: #333333;
+    --accent-color: #ffffff;
+    --header-bg: rgba(10, 10, 10, 0.95);
+    --header-bg-scrolled: rgba(10, 10, 10, 0.98);
+    --card-bg: #1a1a1a;
+    --shadow-color: rgba(255, 255, 255, 0.1);
+    --shadow-light: rgba(255, 255, 255, 0.05);
+    --input-bg: #1a1a1a;
+    --button-primary-bg: #ffffff;
+    --button-primary-text: #000000;
+    --button-primary-hover-bg: #cccccc;
+    --button-primary-hover-text: #000000;
+    --footer-text: #cccccc;
+    --footer-border: rgba(255, 255, 255, 0.2);
+    --logo-filter: invert(1);
+    --shimmer-color: rgba(255, 255, 255, 0.03);
+    --hero-gradient: linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #1a1a1a 100%);
 }
 
 /* Reset et base */
@@ -181,6 +233,92 @@ body.lang-switching {
     display: flex;
     align-items: center;
     gap: 1rem;
+}
+
+/* Theme Switcher */
+.theme-switcher {
+    position: relative;
+}
+
+.theme-trigger {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+}
+
+.theme-trigger:hover {
+    background: var(--bg-tertiary);
+    transform: translateY(-1px);
+}
+
+.theme-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: var(--header-bg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 0.5rem;
+    min-width: 150px;
+    display: none;
+    flex-direction: column;
+    gap: 0.25rem;
+    box-shadow: 0 10px 25px var(--shadow-color);
+    z-index: 1001;
+    animation: dropdownFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-switcher.active .theme-dropdown {
+    display: flex;
+}
+
+.theme-option {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.2s ease;
+    width: 100%;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.theme-option:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.theme-option.active {
+    background: var(--bg-secondary);
+    color: var(--accent-color);
+}
+
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .menu-toggle {
@@ -3319,8 +3457,15 @@ Styles compacts pour la page contact */
 }
 
 @keyframes slideUpBanner {
-    from { transform: translate(-50%, 100%); opacity: 0; }
-    to { transform: translate(-50%, 0); opacity: 1; }
+    from {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
 }
 
 .app-banner-content {
@@ -3379,7 +3524,7 @@ Styles compacts pour la page contact */
 
 .app-banner .btn-install:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .app-banner .btn-close {
