@@ -5,6 +5,7 @@
     "academy": "Academy",
     "about": "About",
     "contact": "Contact",
+    "projects": "Projects",
     "login": "Login",
     "start": "Get Started"
   },
@@ -42,6 +43,17 @@
     "title": "Contact Us",
     "subtitle": "Let's discuss your project and find the ideal solution together to turn your ideas into digital reality."
   },
+  "projects_hero": {
+    "title": "Our Achievements",
+    "subtitle": "Explore a selection of projects that illustrate our expertise and passion for technological innovation."
+  },
+  "projects": {
+    "loading": "Loading projects...",
+    "filter_all": "All",
+    "filter_web": "Web Development",
+    "filter_mobile": "Mobile Applications",
+    "filter_desktop": "Business Software"
+  },
   "contact_form": {
     "title": "Send us a message",
     "subtitle": "Describe your project to us and we will get back to you quickly.",
@@ -59,5 +71,226 @@
     "newsletter_subscribe": "I want to receive the Vulsoft newsletter",
     "accept_privacy": "I accept the <a href=\"#\" class=\"privacy-link\">privacy policy</a> *",
     "send_message": "Send message"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "change": "Change theme"
+  },
+  "apps_showcase": {
+    "title": "Enjoy our applications in your daily life",
+    "subtitle": "A rich suite of tools offering an exceptional experience",
+    "kuntron": {
+      "title": "Kuntron",
+      "desc": "Secure key and password generator for your digital protection."
+    },
+    "ovom": {
+      "title": "Ovom",
+      "desc": "Online medical appointment booking with health professionals."
+    },
+    "rogo": {
+      "title": "Rogo",
+      "desc": "Multimedia streaming platform."
+    },
+    "liqid": {
+      "title": "LiQid",
+      "desc": "Banking solution to facilitate your transactions in Africa."
+    },
+    "valert": {
+      "title": "Valert",
+      "desc": "Alert application for environmental hazards."
+    },
+    "bkclay": {
+      "title": "BkClay",
+      "desc": "Community platform and exchange forum."
+    },
+    "cta": "Explore Vulsoft tools and our development solutions →"
+  },
+  "pricing": {
+    "title": "Pricing",
+    "subtitle": "Solutions adapted to all budgets, from startups to enterprises",
+    "web": {
+      "title": "Websites",
+      "desc": "Showcase sites, e-commerce, and web applications",
+      "vitrine": "Showcase Site",
+      "ecommerce": "E-commerce",
+      "app": "Web Application"
+    },
+    "mobile": {
+      "title": "Mobile Applications",
+      "desc": "iOS, Android, and cross-platform solutions",
+      "simple": "Simple App",
+      "advanced": "Advanced App",
+      "complex": "Complex App"
+    },
+    "software": {
+      "title": "Desktop Software",
+      "desc": "Custom desktop applications",
+      "simple": "Simple Software",
+      "advanced": "Advanced Software",
+      "full": "Complete Suite"
+    },
+    "hosting": {
+      "title": "Hosting & Maintenance",
+      "desc": "Hosting solutions and technical support",
+      "basic": "Basic Hosting",
+      "pro": "Pro Hosting",
+      "maintenance": "Maintenance"
+    },
+    "quote_title": "Need a custom quote?",
+    "quote_desc": "Every project is unique. Contact us for an adapted quote.",
+    "request_quote": "Request a quote",
+    "contact_us": "Contact us",
+    "most_requested": "Most requested"
+  },
+  "footer": {
+    "stay_informed": "Stay informed",
+    "newsletter_desc": "Subscribe to receive the latest news.",
+    "email_placeholder": "Your email address",
+    "subscribe": "Subscribe",
+    "ai": "AI",
+    "dev_tools": "Developer Tools",
+    "solutions": "Solutions",
+    "initiatives": "Initiatives",
+    "education": "Education",
+    "store": "Store",
+    "support": "Support",
+    "resources": "Resources",
+    "community": "Community",
+    "company": "Company",
+    "legal_privacy": "Privacy and Security",
+    "legal_notice": "Privacy Notice",
+    "legal_terms": "Terms of Use",
+    "legal_attributions": "Attributions",
+    "legal_mentions": "Legal Mentions",
+    "legal_authentic": "Authentic Tools",
+    "legal_unsubscribe": "Unsubscribe",
+    "copyright": "Copyright © 2000-2024 Vulsoft",
+    "made_with": "Developed with passion"
+  },
+  "about_details": {
+    "story_title": "Our Story",
+    "timeline": {
+      "2019_title": "The beginnings",
+      "2019_desc": "Creation of Vulsoft, first web projects.",
+      "2020_title": "Expansion",
+      "2020_desc": "Opening of the Conakry office, mobile expertise.",
+      "2022_title": "Innovation",
+      "2022_desc": "Launch of Vulsoft Academy and AI.",
+      "2024_title": "Today",
+      "2024_desc": "Over 50 projects and a team of experts."
+    },
+    "values": {
+      "title": "Our Values",
+      "subtitle": "The principles that guide our approach.",
+      "excellence_title": "Excellence",
+      "excellence_desc": "Solutions of the highest quality.",
+      "innovation_title": "Innovation",
+      "innovation_desc": "At the cutting edge of technology.",
+      "collaboration_title": "Collaboration",
+      "collaboration_desc": "The strength of teamwork.",
+      "impact_title": "Impact",
+      "impact_desc": "Positive and lasting impact.",
+      "integrity_title": "Integrity",
+      "integrity_desc": "Transparency and honesty.",
+      "passion_title": "Passion",
+      "passion_desc": "Love for technology."
+    },
+    "stats": {
+      "projects": "Projects completed",
+      "clients": "Satisfied clients",
+      "countries": "Countries of operation",
+      "years": "Years of experience",
+      "satisfaction": "Satisfaction rate",
+      "technologies": "Mastered technologies"
+    },
+    "cta_title": "Ready to turn your ideas into reality?",
+    "cta_subtitle": "Join the companies that trust us.",
+    "cta_button_project": "Discuss your project",
+    "cta_button_services": "Discover our services"
+  },
+  "academy": {
+    "hero_title": "Become a digital expert with Vulsoft Academy",
+    "hero_subtitle": "Your gateway to the world of technology.",
+    "stats_students": "Students",
+    "stats_courses": "Courses",
+    "stats_success": "Success",
+    "pedagogy": {
+      "title": "Action-Oriented Pedagogy",
+      "subtitle": "Learn by doing for fast professional integration",
+      "projects_title": "Concrete Projects",
+      "projects_desc": "Apply your knowledge to real projects.",
+      "mentor_title": "Expert Mentoring",
+      "mentor_desc": "Guidance from experienced instructors.",
+      "collab_title": "Collaborative Learning",
+      "collab_desc": "Work in teams and exchange ideas.",
+      "cert_title": "Recognized Certification",
+      "cert_desc": "Get a certification that proves your skills."
+    },
+    "environment": {
+      "title": "A Framework for Excellence",
+      "subtitle": "Our campuses are modern and inspiring spaces, equipped to offer you the best learning experience.",
+      "school_life_title": "More than a school, a place of life",
+      "school_life_desc": "At Vulsoft Academy, we offer much more than just courses. Our spaces are designed to stimulate creativity and encourage meetings.",
+      "benefit_classrooms": "Modern and air-conditioned classrooms.",
+      "benefit_internet": "High-speed and stable internet connection.",
+      "benefit_coworking": "Co-working spaces for your projects.",
+      "benefit_hardware": "Latest generation computing equipment.",
+      "benefit_relax": "Cafeteria and relaxation areas to exchange.",
+      "visit_campus": "Visit our campus"
+    },
+    "paths": {
+      "title": "Choose your learning path",
+      "subtitle": "Structured training for all levels, adapted to the African market",
+      "fullstack_title": "Full Stack Developer",
+      "fullstack_desc": "Master modern web development from A to Z",
+      "mobile_title": "Mobile Developer",
+      "mobile_desc": "Create native and cross-platform mobile applications",
+      "uiux_title": "UI/UX Designer",
+      "uiux_desc": "Design exceptional user experiences",
+      "initiation_title": "Digital Initiation",
+      "initiation_desc": "Discover computing and digital tools"
+    },
+    "formations": {
+      "title": "Explore our courses",
+      "subtitle": "Over 50 courses in 6 fields of expertise",
+      "cat_all": "All",
+      "cat_dev": "Development",
+      "cat_design": "Design",
+      "cat_digital": "Digital",
+      "cat_languages": "Languages",
+      "view_all": "View all courses",
+      "level_beginner": "Beginner",
+      "level_intermediate": "Intermediate",
+      "level_advanced": "Advanced",
+      "badge_new": "New",
+      "badge_popular": "Popular",
+      "f1_title": "Digital Literacy",
+      "f1_desc": "Discover computing and browse with confidence",
+      "f2_title": "Modern JavaScript",
+      "f2_desc": "Master ES6+, modern frameworks and best practices",
+      "f3_title": "Design System & Figma",
+      "f3_desc": "Create consistent and professional design systems",
+      "f4_title": "React & Next.js",
+      "f4_desc": "Develop high-performance and modern web applications"
+    },
+    "testimonials": {
+      "title": "What our students say",
+      "subtitle": "Thousands of learners have transformed their careers with Vulsoft Academy",
+      "t1_name": "Mamady Camara",
+      "t1_role": "Web Developer at Orange",
+      "t1_text": "Thanks to Vulsoft Academy, I was able to acquire the skills necessary to become a web developer. Mentoring was key in my journey.",
+      "t2_name": "Fatoumata Diallo",
+      "t2_role": "Freelance UI/UX Designer",
+      "t2_text": "An incredible experience. Concrete projects allowed me to build a solid portfolio and find my first clients.",
+      "t3_name": "Ibrahima Sory",
+      "t3_role": "Digital Entrepreneur",
+      "t3_text": "Digital initiation opened my eyes to the opportunities of digital. I now manage my own online store."
+    }
+  },
+  "contact": {
+    "horaires": "Hours",
+    "horaires_val": "Mon - Fri: 8am - 6pm"
   }
 }

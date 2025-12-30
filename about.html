@@ -28,11 +28,12 @@
             </ul>
             <div class="nav-actions">
                 <div class="theme-switcher">
-                    <button type="button" class="theme-trigger" aria-label="Changer le thème">
+                    <button type="button" class="theme-trigger" aria-label="Changer le thème"
+                        data-i18n-label="theme.change">
                         <!-- Icon will be injected by theme.js -->
                     </button>
                     <div class="theme-dropdown">
-                        <button type="button" class="theme-option" data-theme="light">
+                        <button type="button" class="theme-option" data-theme="light" data-i18n="theme.light">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -48,7 +49,7 @@
                             </svg>
                             Clair
                         </button>
-                        <button type="button" class="theme-option" data-theme="dark">
+                        <button type="button" class="theme-option" data-theme="dark" data-i18n="theme.dark">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -56,7 +57,7 @@
                             </svg>
                             Sombre
                         </button>
-                        <button type="button" class="theme-option" data-theme="system">
+                        <button type="button" class="theme-option" data-theme="system" data-i18n="theme.system">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -105,8 +106,9 @@
     <!-- Hero Section About -->
     <section class="hero hero-page">
         <div class="container">
-            <h1>Vulsoft</h1>
-            <p class="hero-subtitle">Une société innovante spécialisée dans le développement de solutions logicielles
+            <h1 data-i18n="about_hero.title">Vulsoft</h1>
+            <p class="hero-subtitle" data-i18n="about_hero.subtitle">Une société innovante spécialisée dans le
+                développement de solutions logicielles
                 sur mesure,
                 transformant les défis technologiques en opportunités de croissance.</p>
         </div>
@@ -117,8 +119,8 @@
         <div class="container">
             <div class="story-content">
                 <div class="story-text">
-                    <h2>Notre Histoire</h2>
-                    <p class="story-intro">
+                    <h2 data-i18n="about_details.story_title">Notre Histoire</h2>
+                    <p class="story-intro" data-i18n="about_story.intro">
                         Fondée par <strong>Hakim Lunkht</strong>, Vulsoft est née d'une vision simple mais ambitieuse :
                         démocratiser l'accès aux technologies de pointe en Afrique de l'Ouest et accompagner les
                         entreprises
@@ -129,8 +131,9 @@
                         <div class="timeline-item">
                             <div class="timeline-year">2019</div>
                             <div class="timeline-content">
-                                <h3>Les débuts</h3>
-                                <p>Création de Vulsoft avec une équipe de 2 développeurs passionnés, premiers projets en
+                                <h3 data-i18n="about_details.timeline.2019_title">Les débuts</h3>
+                                <p data-i18n="about_details.timeline.2019_desc">Création de Vulsoft avec une équipe de 2
+                                    développeurs passionnés, premiers projets en
                                     développement web.</p>
                             </div>
                         </div>
@@ -138,8 +141,9 @@
                         <div class="timeline-item">
                             <div class="timeline-year">2020</div>
                             <div class="timeline-content">
-                                <h3>Expansion</h3>
-                                <p>Ouverture du bureau de Conakry, développement de notre expertise en applications
+                                <h3 data-i18n="about_details.timeline.2020_title">Expansion</h3>
+                                <p data-i18n="about_details.timeline.2020_desc">Ouverture du bureau de Conakry,
+                                    développement de notre expertise en applications
                                     mobiles.</p>
                             </div>
                         </div>
@@ -147,8 +151,9 @@
                         <div class="timeline-item">
                             <div class="timeline-year">2022</div>
                             <div class="timeline-content">
-                                <h3>Innovation</h3>
-                                <p>Lancement de Vulsoft Academy et intégration de l'IA dans nos solutions de
+                                <h3 data-i18n="about_details.timeline.2022_title">Innovation</h3>
+                                <p data-i18n="about_details.timeline.2022_desc">Lancement de Vulsoft Academy et
+                                    intégration de l'IA dans nos solutions de
                                     développement.</p>
                             </div>
                         </div>
@@ -156,8 +161,9 @@
                         <div class="timeline-item">
                             <div class="timeline-year">2024</div>
                             <div class="timeline-content">
-                                <h3>Aujourd'hui</h3>
-                                <p>Plus de 50 projets réalisés, une équipe de 10+ experts, et une présence établie dans
+                                <h3 data-i18n="about_details.timeline.2024_title">Aujourd'hui</h3>
+                                <p data-i18n="about_details.timeline.2024_desc">Plus de 50 projets réalisés, une équipe
+                                    de 10+ experts, et une présence établie dans
                                     2 pays.</p>
                             </div>
                         </div>
@@ -193,8 +199,9 @@
     <section class="about-values">
         <div class="container">
             <div class="section-header">
-                <h2>Nos Valeurs</h2>
-                <p>Les principes qui guident notre approche et définissent notre culture d'entreprise</p>
+                <h2 data-i18n="about_details.values.title">Nos Valeurs</h2>
+                <p data-i18n="about_details.values.subtitle">Les principes qui guident notre approche et définissent
+                    notre culture d'entreprise</p>
             </div>
 
             <div class="values-grid">
@@ -206,8 +213,9 @@
                                 d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                         </svg>
                     </div>
-                    <h3>Excellence</h3>
-                    <p>Nous nous efforçons de livrer des solutions de la plus haute qualité, en utilisant les meilleures
+                    <h3 data-i18n="about_details.values.excellence_title">Excellence</h3>
+                    <p data-i18n="about_details.values.excellence_desc">Nous nous efforçons de livrer des solutions de
+                        la plus haute qualité, en utilisant les meilleures
                         pratiques et technologies du marché.</p>
                 </div>
 
@@ -218,8 +226,9 @@
                             <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                         </svg>
                     </div>
-                    <h3>Innovation</h3>
-                    <p>Nous restons à la pointe de la technologie, explorant constamment de nouvelles approches pour
+                    <h3 data-i18n="about_details.values.innovation_title">Innovation</h3>
+                    <p data-i18n="about_details.values.innovation_desc">Nous restons à la pointe de la technologie,
+                        explorant constamment de nouvelles approches pour
                         résoudre les défis complexes.</p>
                 </div>
 
@@ -233,8 +242,9 @@
                             <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                         </svg>
                     </div>
-                    <h3>Collaboration</h3>
-                    <p>Nous croyons en la force du travail d'équipe, tant en interne qu'avec nos clients et partenaires.
+                    <h3 data-i18n="about_details.values.collaboration_title">Collaboration</h3>
+                    <p data-i18n="about_details.values.collaboration_desc">Nous croyons en la force du travail d'équipe,
+                        tant en interne qu'avec nos clients et partenaires.
                     </p>
                 </div>
 
@@ -245,8 +255,9 @@
                             <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
                         </svg>
                     </div>
-                    <h3>Impact</h3>
-                    <p>Chaque projet que nous réalisons vise à créer un impact positif et durable pour nos clients et
+                    <h3 data-i18n="about_details.values.impact_title">Impact</h3>
+                    <p data-i18n="about_details.values.impact_desc">Chaque projet que nous réalisons vise à créer un
+                        impact positif et durable pour nos clients et
                         leur communauté.</p>
                 </div>
 
@@ -257,8 +268,9 @@
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                         </svg>
                     </div>
-                    <h3>Intégrité</h3>
-                    <p>Nous agissons avec transparence, honnêteté et respect dans toutes nos interactions
+                    <h3 data-i18n="about_details.values.integrity_title">Intégrité</h3>
+                    <p data-i18n="about_details.values.integrity_desc">Nous agissons avec transparence, honnêteté et
+                        respect dans toutes nos interactions
                         professionnelles.</p>
                 </div>
 
@@ -272,8 +284,9 @@
                             <line x1="15" y1="9" x2="15.01" y2="9" />
                         </svg>
                     </div>
-                    <h3>Passion</h3>
-                    <p>Notre amour pour la technologie et le développement se reflète dans chaque ligne de code que nous
+                    <h3 data-i18n="about_details.values.passion_title">Passion</h3>
+                    <p data-i18n="about_details.values.passion_desc">Notre amour pour la technologie et le développement
+                        se reflète dans chaque ligne de code que nous
                         écrivons.</p>
                 </div>
             </div>
@@ -292,7 +305,7 @@
                         </svg>
                     </div>
                     <div class="stat-number">50+</div>
-                    <div class="stat-label">Projets réalisés</div>
+                    <div class="stat-label" data-i18n="about_details.stats.projects">Projets réalisés</div>
                     <div class="stat-description">Applications web, mobiles et logiciels sur mesure</div>
                 </div>
 
@@ -307,7 +320,7 @@
                         </svg>
                     </div>
                     <div class="stat-number">30+</div>
-                    <div class="stat-label">Clients satisfaits</div>
+                    <div class="stat-label" data-i18n="about_details.stats.clients">Clients satisfaits</div>
                     <div class="stat-description">Startups, PME et grandes entreprises</div>
                 </div>
 
@@ -320,7 +333,7 @@
                         </svg>
                     </div>
                     <div class="stat-number">2</div>
-                    <div class="stat-label">Pays d'implantation</div>
+                    <div class="stat-label" data-i18n="about_details.stats.countries">Pays d'implantation</div>
                     <div class="stat-description">Côte d'Ivoire et Guinée</div>
                 </div>
 
@@ -333,7 +346,7 @@
                         </svg>
                     </div>
                     <div class="stat-number">5+</div>
-                    <div class="stat-label">Années d'expérience</div>
+                    <div class="stat-label" data-i18n="about_details.stats.years">Années d'expérience</div>
                     <div class="stat-description">Innovation continue depuis 2019</div>
                 </div>
 
@@ -346,7 +359,7 @@
                         </svg>
                     </div>
                     <div class="stat-number">100%</div>
-                    <div class="stat-label">Taux de satisfaction</div>
+                    <div class="stat-label" data-i18n="about_details.stats.satisfaction">Taux de satisfaction</div>
                     <div class="stat-description">Clients recommandant nos services</div>
                 </div>
 
@@ -362,7 +375,7 @@
                         </svg>
                     </div>
                     <div class="stat-number">15+</div>
-                    <div class="stat-label">Technologies maîtrisées</div>
+                    <div class="stat-label" data-i18n="about_details.stats.technologies">Technologies maîtrisées</div>
                     <div class="stat-description">Stack moderne et évolutive</div>
                 </div>
             </div>
@@ -373,12 +386,15 @@
     <section class="about-cta">
         <div class="container">
             <div class="cta-content">
-                <h2>Prêt à transformer vos idées en réalité ?</h2>
-                <p>Rejoignez les entreprises qui nous font confiance pour leurs projets technologiques les plus
+                <h2 data-i18n="about_details.cta_title">Prêt à transformer vos idées en réalité ?</h2>
+                <p data-i18n="about_details.cta_subtitle">Rejoignez les entreprises qui nous font confiance pour leurs
+                    projets technologiques les plus
                     ambitieux.</p>
                 <div class="cta-actions">
-                    <a href="contact.html" class="cta-button primary">Discuter de votre projet</a>
-                    <a href="../index.html#services" class="cta-button secondary">Découvrir nos services</a>
+                    <a href="contact.html" class="cta-button primary"
+                        data-i18n="about_details.cta_button_project">Discuter de votre projet</a>
+                    <a href="../index.html#services" class="cta-button secondary"
+                        data-i18n="about_details.cta_button_services">Découvrir nos services</a>
                 </div>
             </div>
         </div>
@@ -390,39 +406,32 @@
             <div class="footer-content">
                 <!-- Colonne 1: AI & Outils -->
                 <div class="footer-column">
-                    <h4>AI</h4>
+                    <h4 data-i18n="footer.ai">AI</h4>
                     <ul>
                         <li><a href="#">Vulsoft AI</a></li>
                         <li><a href="#">AI Assistant</a></li>
-                        <li><a href="#">Junie</a></li>
-                        <li><a href="#">AI in IDEs</a></li>
-                        <li><a href="#">AI Enterprise</a></li>
-                        <li><a href="#">AI News</a></li>
                     </ul>
                 </div>
 
                 <!-- Colonne 2: Outils Développeur -->
                 <div class="footer-column">
-                    <h4>Outils Développeur</h4>
+                    <h4 data-i18n="footer.dev_tools">Outils Développeur</h4>
                     <ul>
                         <li><a href="#">Tous les Produits</a></li>
-                        <li><a href="#">Environnements de Développement</a>
+                        <li><a href="#">Environnements de Développement</a></li>
                         <li><a href="#">Développement Web</a></li>
                         <li><a href="#">Outils d'Équipe</a></li>
-                        <li><a href="#">Marketplace de Plugins</a></li>
                         <li><a href="#">Application Toolbox</a></li>
                     </ul>
                 </div>
 
                 <!-- Colonne 3: Solutions -->
                 <div class="footer-column">
-                    <h4>Solutions</h4>
+                    <h4 data-i18n="footer.solutions">Solutions</h4>
                     <ul>
                         <li><a href="../index.html#services">Entreprises</a></li>
-                        <li><a href="../index.html#services">Données</a></li>
                         <li><a href="../index.html#services">Services IDE</a></li>
                         <li><a href="../index.html#services">Développement à Distance</a></li>
-                        <li><a href="../index.html#services">Développement de Jeux</a></li>
                         <li><a href="../index.html#services">DevOps</a></li>
                         <li><a href="../index.html#services">Outils Mobiles</a></li>
                     </ul>
@@ -430,38 +439,33 @@
 
                 <!-- Colonne 4: Initiatives -->
                 <div class="footer-column">
-                    <h4>Initiatives</h4>
+                    <h4 data-i18n="footer.initiatives">Initiatives</h4>
                     <ul>
                         <li><a href="#">Temv</a></li>
                         <li><a href="#">Open Source</a></li>
                         <li><a href="#">Recherche Vulsoft</a></li>
                         <li><a href="#">Vulsoft Mono</a></li>
-                        <li><a href="#">MPS</a></li>
                     </ul>
                 </div>
 
                 <!-- Colonne 5: Éducation -->
                 <div class="footer-column">
-                    <h4>Éducation</h4>
+                    <h4 data-i18n="footer.education">Éducation</h4>
                     <ul>
                         <li><a href="../academie.html">Étudiants</a></li>
                         <li><a href="../academie.html">Enseignants</a></li>
-                        <li><a href="../academie.html">Bootcamps</a></li>
                         <li><a href="../academie.html">Équipes</a></li>
                         <li><a href="../academie.html">Catalogue de Cours</a></li>
-                        <li><a href="../academie.html">Programmes Universitaires</a></li>
                     </ul>
                 </div>
 
                 <!-- Colonne 6: Boutique -->
                 <div class="footer-column">
-                    <h4>Boutique</h4>
+                    <h4 data-i18n="footer.store">Boutique</h4>
                     <ul>
                         <li><a href="../index.html#tarifs">Plans et Tarifs</a></li>
-                        <li><a href="#">Pack Tous Produits</a></li>
                         <li><a href="#">dotUltimate</a></li>
                         <li><a href="#">Partenaires et Revendeurs</a></li>
-                        <li><a href="#">Clients et Récompenses</a></li>
                     </ul>
                 </div>
             </div>
@@ -469,7 +473,7 @@
             <!-- Section Support et Ressources -->
             <div class="footer-secondary">
                 <div class="footer-column">
-                    <h4>Support</h4>
+                    <h4 data-i18n="footer.support">Support</h4>
                     <ul>
                         <li><a href="contact.html">Support Technique</a></li>
                         <li><a href="contact.html">Contact Commercial</a></li>
@@ -479,7 +483,7 @@
                 </div>
 
                 <div class="footer-column">
-                    <h4>Ressources</h4>
+                    <h4 data-i18n="footer.resources">Ressources</h4>
                     <ul>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Accès Anticipé</a></li>
@@ -493,7 +497,7 @@
                 </div>
 
                 <div class="footer-column">
-                    <h4>Communauté</h4>
+                    <h4 data-i18n="footer.community">Communauté</h4>
                     <ul>
                         <li><a href="#">Groupes d'Utilisateurs</a></li>
                         <li><a href="#">Partenariats Open-Source</a></li>
@@ -503,9 +507,9 @@
                 </div>
 
                 <div class="footer-column">
-                    <h4>Entreprise</h4>
+                    <h4 data-i18n="footer.company">Entreprise</h4>
                     <ul>
-                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">À Propos</a></li>
                         <li><a href="contact.html">Contacts</a></li>
                         <li><a href="#">Carrières</a></li>
                         <li><a href="#">Presse et Actualités</a></li>
@@ -571,17 +575,17 @@
             <!-- Footer bottom -->
             <div class="footer-bottom">
                 <div class="footer-legal">
-                    <a href="#">Confidentialité et Sécurité</a>
-                    <a href="#">Avis de Confidentialité</a>
-                    <a href="#">Conditions d'Utilisation</a>
-                    <a href="#">Attributions</a>
-                    <a href="#">Mentions Légales</a>
-                    <a href="#">Outils Authentiques</a>
-                    <a href="#">Désabonnement</a>
+                    <a href="#" data-i18n="footer.legal_privacy">Confidentialité et Sécurité</a>
+                    <a href="#" data-i18n="footer.legal_notice">Avis de Confidentialité</a>
+                    <a href="#" data-i18n="footer.legal_terms">Conditions d'Utilisation</a>
+                    <a href="#" data-i18n="footer.legal_attributions">Attributions</a>
+                    <a href="#" data-i18n="footer.legal_mentions">Mentions Légales</a>
+                    <a href="#" data-i18n="footer.legal_authentic">Outils Authentiques</a>
+                    <a href="#" data-i18n="footer.legal_unsubscribe">Désabonnement</a>
                 </div>
                 <div class="footer-copyright">
-                    <p>Copyright © 2000-2024 Vulsoft.Inc</p>
-                    <p>Développé avec passion et Vulsoft IDEA</p>
+                    <p data-i18n="footer.copyright">Copyright © 2000-2024 Vulsoft</p>
+                    <p data-i18n="footer.made_with">Développé avec passion</p>
                 </div>
             </div>
         </div>

@@ -68,11 +68,12 @@
             </ul>
             <div class="nav-actions">
                 <div class="theme-switcher">
-                    <button type="button" class="theme-trigger" aria-label="Changer le thème">
+                    <button type="button" class="theme-trigger" aria-label="Changer le thème"
+                        data-i18n-label="theme.change">
                         <!-- Icon will be injected by theme.js -->
                     </button>
                     <div class="theme-dropdown">
-                        <button type="button" class="theme-option" data-theme="light">
+                        <button type="button" class="theme-option" data-theme="light" data-i18n="theme.light">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -88,7 +89,7 @@
                             </svg>
                             Clair
                         </button>
-                        <button type="button" class="theme-option" data-theme="dark">
+                        <button type="button" class="theme-option" data-theme="dark" data-i18n="theme.dark">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -96,7 +97,7 @@
                             </svg>
                             Sombre
                         </button>
-                        <button type="button" class="theme-option" data-theme="system">
+                        <button type="button" class="theme-option" data-theme="system" data-i18n="theme.system">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -207,8 +208,8 @@
                         </svg>
                     </div>
                     <div class="contact-details">
-                        <h4>Horaires</h4>
-                        <p>Lun - Ven: 8h - 18h</p>
+                        <h4 data-i18n="contact.horaires">Horaires</h4>
+                        <p data-i18n="contact.horaires_val">Lun - Ven: 8h - 18h</p>
                     </div>
                 </div>
             </div>
@@ -223,21 +224,25 @@
                     <div class="form-container">
                         <form id="contact-form">
                             <div class="form-group" style="display: flex; gap: 1rem;">
-                                <input type="text" id="name" name="name" required placeholder="Nom complet">
-                                <input type="email" id="email" name="email" required placeholder="Email">
+                                <input type="text" id="name" name="name" required placeholder="Nom complet"
+                                    data-i18n-placeholder="contact_form.name">
+                                <input type="email" id="email" name="email" required placeholder="Email"
+                                    data-i18n-placeholder="contact_form.email">
                             </div>
 
                             <div class="form-group">
-                                <input type="text" id="subject" name="subject" placeholder="Sujet">
+                                <input type="text" id="subject" name="subject" placeholder="Sujet"
+                                    data-i18n-placeholder="contact_form.subject">
                             </div>
 
                             <div class="form-group">
-                                <label for="message">Message *</label>
+                                <label for="message" data-i18n="contact_form.message_label">Message *</label>
                                 <textarea id="message" name="message" rows="6" required
-                                    placeholder="Décrivez votre projet, vos besoins et vos objectifs..."></textarea>
+                                    placeholder="Décrivez votre projet, vos besoins et vos objectifs..."
+                                    data-i18n-placeholder="contact_form.message"></textarea>
                             </div>
 
-                            <button type="submit" class="submit-btn">
+                            <button type="submit" class="submit-btn" data-i18n="contact_form.submit">
                                 <span>Envoyer le message</span>
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2">
@@ -262,78 +267,66 @@
             <div class="footer-content">
                 <!-- Colonne 1: AI & Outils -->
                 <div class="footer-column">
-                    <h4>AI</h4>
+                    <h4 data-i18n="footer.ai">AI</h4>
                     <ul>
-                        <li></li>Vulsoft AI</a></li>
+                        <li><a href="#">Vulsoft AI</a></li>
                         <li><a href="#">AI Assistant</a></li>
-                        <li><a href="#">Junie</a></li>
-                        <li><a href="#">AI in IDEs</a></li>
-                        <li><a href="#">AI Enterprise</a></li>
-                        <li><a href="#">AI News</a></li>
                     </ul>
                 </div>
 
                 <!-- Colonne 2: Outils Développeur -->
                 <div class="footer-column">
-                    <h4>Outils Développeur</h4>
+                    <h4 data-i18n="footer.dev_tools">Outils Développeur</h4>
                     <ul>
                         <li><a href="#">Tous les Produits</a></li>
                         <li><a href="#">Environnements de Développement</a></li>
                         <li><a href="#">Développement Web</a></li>
                         <li><a href="#">Outils d'Équipe</a></li>
-                        <li><a href="#">Marketplace de Plugins</a></li>
                         <li><a href="#">Application Toolbox</a></li>
                     </ul>
                 </div>
 
                 <!-- Colonne 3: Solutions -->
                 <div class="footer-column">
-                    <h4>Solutions</h4>
+                    <h4 data-i18n="footer.solutions">Solutions</h4>
                     <ul>
-                        <li><a href="#services">Entreprises</a></li>
-                        <li><a href="#services">Données</a></li>
-                        <li><a href="#services">Services IDE</a></li>
-                        <li><a href="#services">Développement à Distance</a></li>
-                        <li><a href="#services">Développement de Jeux</a></li>
-                        <li><a href="#services">DevOps</a></li>
-                        <li><a href="#services">Outils Mobiles</a></li>
+                        <li><a href="index.html#services">Entreprises</a></li>
+                        <li><a href="index.html#services">Services IDE</a></li>
+                        <li><a href="index.html#services">Développement à Distance</a></li>
+                        <li><a href="index.html#services">DevOps</a></li>
+                        <li><a href="index.html#services">Outils Mobiles</a></li>
                     </ul>
                 </div>
 
                 <!-- Colonne 4: Initiatives -->
                 <div class="footer-column">
-                    <h4>Initiatives</h4>
+                    <h4 data-i18n="footer.initiatives">Initiatives</h4>
                     <ul>
                         <li><a href="#">Temv</a></li>
                         <li><a href="#">Open Source</a></li>
                         <li><a href="#">Recherche Vulsoft</a></li>
                         <li><a href="#">Vulsoft Mono</a></li>
-                        <li><a href="#">MPS</a></li>
                     </ul>
                 </div>
 
                 <!-- Colonne 5: Éducation -->
                 <div class="footer-column">
-                    <h4>Éducation</h4>
+                    <h4 data-i18n="footer.education">Éducation</h4>
                     <ul>
-                        <li><a href="../academie.html">Étudiants</a></li>
-                        <li><a href="../academie.html">Enseignants</a></li>
-                        <li><a href="../academie.html">Bootcamps</a></li>
-                        <li><a href="../academie.html">Équipes</a></li>
-                        <li><a href="../academie.html">Catalogue de Cours</a></li>
-                        <li><a href="../academie.html">Programmes Universitaires</a></li>
+                        <li><a href="academie.html">Étudiants</a></li>
+                        <li><a href="academie.html">Enseignants</a></li>
+                        <li><a href="academie.html">Équipes</a></li>
+                        <li><a href="academie.html">Catalogue de Cours</a></li>
                     </ul>
                 </div>
 
                 <!-- Colonne 6: Boutique -->
                 <div class="footer-column">
-                    <h4>Boutique</h4>
+                    <h4 data-i18n="footer.store">Boutique</h4>
                     <ul>
-                        <li><a href="#tarifs">Plans et Tarifs</a></li>
-                        <li><a href="#">Pack Tous Produits</a></li>
+                        <li><a href="index.html#tarifs">Plans et Tarifs</a></li>
                         <li><a href="#">dotUltimate</a></li>
                         <li><a href="#">Partenaires et Revendeurs</a></li>
-                        <li><a href="#">Clients et Récompenses</a></li>
                     </ul>
                 </div>
             </div>
@@ -341,7 +334,7 @@
             <!-- Section Support et Ressources -->
             <div class="footer-secondary">
                 <div class="footer-column">
-                    <h4>Support</h4>
+                    <h4 data-i18n="footer.support">Support</h4>
                     <ul>
                         <li><a href="contact.html">Support Technique</a></li>
                         <li><a href="contact.html">Contact Commercial</a></li>
@@ -351,9 +344,9 @@
                 </div>
 
                 <div class="footer-column">
-                    <h4>Ressources</h4>
+                    <h4 data-i18n="footer.resources">Ressources</h4>
                     <ul>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                         <li><a href="#">Accès Anticipé</a></li>
                         <li><a href="#">Événements et Livestreams</a></li>
                         <li><a href="#">Newsletters</a></li>
@@ -365,7 +358,7 @@
                 </div>
 
                 <div class="footer-column">
-                    <h4>Communauté</h4>
+                    <h4 data-i18n="footer.community">Communauté</h4>
                     <ul>
                         <li><a href="#">Groupes d'Utilisateurs</a></li>
                         <li><a href="#">Partenariats Open-Source</a></li>
@@ -375,9 +368,9 @@
                 </div>
 
                 <div class="footer-column">
-                    <h4>Entreprise</h4>
+                    <h4 data-i18n="footer.company">Entreprise</h4>
                     <ul>
-                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">À Propos</a></li>
                         <li><a href="contact.html">Contacts</a></li>
                         <li><a href="#">Carrières</a></li>
                         <li><a href="#">Presse et Actualités</a></li>
@@ -439,17 +432,17 @@
             <!-- Footer bottom -->
             <div class="footer-bottom">
                 <div class="footer-legal">
-                    <a href="#">Confidentialité et Sécurité</a>
-                    <a href="#">Avis de Confidentialité</a>
-                    <a href="#">Conditions d'Utilisation</a>
-                    <a href="#">Attributions</a>
-                    <a href="#">Mentions Légales</a>
-                    <a href="#">Outils Authentiques</a>
-                    <a href="#">Désabonnement</a>
+                    <a href="#" data-i18n="footer.legal_privacy">Confidentialité et Sécurité</a>
+                    <a href="#" data-i18n="footer.legal_notice">Avis de Confidentialité</a>
+                    <a href="#" data-i18n="footer.legal_terms">Conditions d'Utilisation</a>
+                    <a href="#" data-i18n="footer.legal_attributions">Attributions</a>
+                    <a href="#" data-i18n="footer.legal_mentions">Mentions Légales</a>
+                    <a href="#" data-i18n="footer.legal_authentic">Outils Authentiques</a>
+                    <a href="#" data-i18n="footer.legal_unsubscribe">Désabonnement</a>
                 </div>
                 <div class="footer-copyright">
-                    <p>Copyright © 2000-2024 Vulsoft.Inc</p>
-                    <p>Développé avec passion et Vulsoft IDEA</p>
+                    <p data-i18n="footer.copyright">Copyright © 2000-2024 Vulsoft</p>
+                    <p data-i18n="footer.made_with">Développé avec passion</p>
                 </div>
             </div>
         </div>

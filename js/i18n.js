@@ -50,21 +50,30 @@ class I18nManager {
     }
 
     translatePage() {
+        // Translate innerHTML
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
             const translation = this.getTranslation(key);
             if (translation) {
-                // Check for attributes to translate, e.g., data-i18n-placeholder
-                const placeholderKey = element.getAttribute('data-i18n-placeholder');
-                if (placeholderKey) {
-                    const placeholderTranslation = this.getTranslation(placeholderKey);
-                    if (placeholderTranslation) {
-                        element.placeholder = placeholderTranslation;
-                    }
-                }
-
-                // Translate innerHTML
                 element.innerHTML = translation;
+            }
+        });
+
+        // Translate placeholders
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+            const key = element.getAttribute('data-i18n-placeholder');
+            const translation = this.getTranslation(key);
+            if (translation) {
+                element.placeholder = translation;
+            }
+        });
+
+        // Translate aria-labels
+        document.querySelectorAll('[data-i18n-label]').forEach(element => {
+            const key = element.getAttribute('data-i18n-label');
+            const translation = this.getTranslation(key);
+            if (translation) {
+                element.setAttribute('aria-label', translation);
             }
         });
     }

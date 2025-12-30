@@ -1,16 +1,17 @@
 {
   "nav": {
-    "products": "项目",
+    "products": "产品",
     "services": "服务",
     "academy": "学院",
     "about": "关于",
-    "contact": "联系",
+    "contact": "联系我们",
+    "projects": "项目",
     "login": "登录",
-    "start": "开始使用"
+    "start": "开始"
   },
   "index_hero": {
     "title": "数字解决方案<br>& 网络安全",
-    "subtitle": "安全开发与系统审计专家，助力您的企业实现卓越技术。",
+    "subtitle": "安全开发和系统审计方面的专业知识，推动您的业务走向技术卓越。",
     "discover_services": "发现我们的服务",
     "contact_us": "联系我们"
   },
@@ -18,33 +19,44 @@
     "title": "解决方案",
     "subtitle": "满足您所有技术需求的完整解决方案",
     "desktop_apps_title": "企业软件",
-    "desktop_apps_desc": "设计稳健且安全的企业软件解决方案，自动化您的流程并最大限度地提高运营效率。",
-    "mobile_apps_title": "移动应用程序",
-    "mobile_apps_desc": "开发流畅且安全的原生移动体验（iOS 和 Android），随时随地吸引您的用户。",
-    "iot_title": "物联网 & 嵌入式系统",
+    "desktop_apps_desc": "设计稳健、安全的业务软件解决方案，以实现流程自动化并最大化运营效率。",
+    "mobile_apps_title": "移动应用",
+    "mobile_apps_desc": "开发流畅且安全的原生移动体验 (iOS & Android)，随时随地吸引您的用户。",
+    "iot_title": "物联网与嵌入式系统",
     "iot_desc": "集成智能物联网解决方案，连接您的资产并将数据转化为战略决策。",
-    "web_solutions_title": "网页解决方案",
-    "web_solutions_desc": "开发现代、响应式且高性能的网站和网页应用程序。",
+    "web_solutions_title": "Web解决方案",
+    "web_solutions_desc": "开发现代、响应式且高性能的网站和 Web 应用程序。",
     "consulting_title": "咨询与培训",
-    "consulting_desc": "为您的团队提供新技术方面的技术支持、代码审计和培训。",
+    "consulting_desc": "技术支持、代码审计、针对新技术的团队培训。",
     "maintenance_title": "维护与支持",
-    "maintenance_desc": "为现有应用程序提供持续的技术支持、演进性维护和纠正性维护。"
+    "maintenance_desc": "持续的技术支持、对您现有应用程序的主动维护和纠偏维护。"
   },
   "about_hero": {
     "title": "关于 Vulsoft",
-    "subtitle": "一家专注于开发定制软件解决方案的创新公司，将技术挑战转化为增长机会。"
+    "subtitle": "一家专注于定制软件解决方案开发的创新公司，将技术挑战转化为增长机遇。"
   },
   "about_story": {
     "title": "我们的故事",
-    "intro": "由 <strong>Hakim Lunkht</strong> 创立，Vulsoft 源于一个简单而雄心勃勃的愿景：让西非能够获得尖端技术，并支持公司进行数字化转型。"
+    "intro": "Vulsoft 由 <strong>Hakim Lunkht</strong> 创立，源于一个简单而雄心勃勃的愿景：在西非普及尖端技术，并支持企业的数字化转型。"
   },
   "contact_hero": {
     "title": "联系我们",
-    "subtitle": "让我们讨论您的项目并共同寻找理想的解决方案，将您的想法转化为数字化现实。"
+    "subtitle": "讨论您的项目，共同寻找将您的想法转化为数字现实的理想解决方案。"
+  },
+  "projects_hero": {
+    "title": "我们的成就",
+    "subtitle": "探索精选项目，展示我们在技术创新方面的专业知识和激情。"
+  },
+  "projects": {
+    "loading": "项目加载中...",
+    "filter_all": "全部",
+    "filter_web": "Web 开发",
+    "filter_mobile": "移动应用",
+    "filter_desktop": "企业软件"
   },
   "contact_form": {
-    "title": "向我们发送消息",
-    "subtitle": "向我们描述您的项目，我们会尽快给您回复。",
+    "title": "给我们留言",
+    "subtitle": "描述您的项目，我们会尽快给您回复。",
     "firstname": "名字 *",
     "lastname": "姓氏 *",
     "email": "电子邮件 *",
@@ -52,12 +64,233 @@
     "company": "公司",
     "service_needed": "所需服务",
     "select_service": "选择一项服务",
-    "budget": "估计预算",
+    "budget": "预算估计",
     "select_budget": "选择一个范围",
-    "message": "消息 *",
-    "message_placeholder": "描述您的项目、您的需求和您的目标...",
-    "newsletter_subscribe": "我想接收 Vulsoft 的时事通讯",
+    "message": "留言 *",
+    "message_placeholder": "描述您的项目、需求和目标...",
+    "newsletter_subscribe": "我希望订阅 Vulsoft 时事通讯",
     "accept_privacy": "我接受 <a href=\"#\" class=\"privacy-link\">隐私政策</a> *",
     "send_message": "发送消息"
+  },
+  "theme": {
+    "light": "浅色",
+    "dark": "深色",
+    "system": "系统",
+    "change": "更改主题"
+  },
+  "apps_showcase": {
+    "title": "在日常生活中享受我们的应用",
+    "subtitle": "丰富的工具套件，提供卓越体验",
+    "kuntron": {
+      "title": "Kuntron",
+      "desc": "安全的密钥和密码生成器，为您的数字安全提供保障。"
+    },
+    "ovom": {
+      "title": "Ovom",
+      "desc": "在线医疗预约，与医疗专业人员预约。"
+    },
+    "rogo": {
+      "title": "Rogo",
+      "desc": "多媒体流媒体平台。"
+    },
+    "liqid": {
+      "title": "LiQid",
+      "desc": "银行业务解决方案，方便您在非洲的交易。"
+    },
+    "valert": {
+      "title": "Valert",
+      "desc": "环境危险预警应用。"
+    },
+    "bkclay": {
+      "title": "BkClay",
+      "desc": "社区平台和交流论坛。"
+    },
+    "cta": "探索 Vulsoft 工具和开发解决方案 →"
+  },
+  "pricing": {
+    "title": "价格",
+    "subtitle": "针对各类预算的解决方案，从初创公司到大型企业",
+    "web": {
+      "title": "网站",
+      "desc": "展示网站、电子商务和 Web 应用程序",
+      "vitrine": "展示网站",
+      "ecommerce": "电子商务",
+      "app": "Web 应用程序"
+    },
+    "mobile": {
+      "title": "移动应用",
+      "desc": "iOS、Android 和跨平台解决方案",
+      "simple": "简单应用",
+      "advanced": "高级应用",
+      "complex": "复杂应用"
+    },
+    "software": {
+      "title": "桌面软件",
+      "desc": "定制桌面应用程序",
+      "simple": "简单软件",
+      "advanced": "高级软件",
+      "full": "完整套件"
+    },
+    "hosting": {
+      "title": "托管与维护",
+      "desc": "托管解决方案和技术支持",
+      "basic": "基础托管",
+      "pro": "专业托管",
+      "maintenance": "维护"
+    },
+    "quote_title": "需要定制报价？",
+    "quote_desc": "每个项目都是独特的。联系我们获取相应的报价。",
+    "request_quote": "获取报价",
+    "contact_us": "联系我们",
+    "most_requested": "需求最高"
+  },
+  "footer": {
+    "stay_informed": "保持联系",
+    "newsletter_desc": "订阅以获取最新资讯。",
+    "email_placeholder": "您的电子邮箱",
+    "subscribe": "订阅",
+    "ai": "人工智能",
+    "dev_tools": "开发者工具",
+    "solutions": "解决方案",
+    "initiatives": "计划",
+    "education": "教育",
+    "store": "商店",
+    "support": "支持",
+    "resources": "资源",
+    "community": "社区",
+    "company": "公司",
+    "legal_privacy": "隐私与安全",
+    "legal_notice": "隐私声明",
+    "legal_terms": "使用条款",
+    "legal_attributions": "署名",
+    "legal_mentions": "法律声明",
+    "legal_authentic": "正版工具",
+    "legal_unsubscribe": "取消订阅",
+    "copyright": "版权所有 © 2000-2024 Vulsoft",
+    "made_with": "用心开发"
+  },
+  "about_details": {
+    "story_title": "我们的故事",
+    "timeline": {
+      "2019_title": "开始",
+      "2019_desc": "Vulsoft 成立，第一个 Web 项目。",
+      "2020_title": "扩张",
+      "2020_desc": "科纳克里办事处开业，移动端专业知识。",
+      "2022_title": "创新",
+      "2022_desc": "推出 Vulsoft Academy 和人工智能。",
+      "2024_title": "今天",
+      "2024_desc": "50 多个项目和专家团队。"
+    },
+    "values": {
+      "title": "我们的价值观",
+      "subtitle": "指导我们工作方式的原则。",
+      "excellence_title": "卓越",
+      "excellence_desc": "提供最高质量的解决方案。",
+      "innovation_title": "创新",
+      "innovation_desc": "处于技术的最前沿。",
+      "collaboration_title": "协作",
+      "collaboration_desc": "团队合作的力量。",
+      "impact_title": "影响力",
+      "impact_desc": "积极且持久的影响。",
+      "integrity_title": "诚信",
+      "integrity_desc": "透明和诚实。",
+      "passion_title": "激情",
+      "passion_desc": "对技术的热爱。"
+    },
+    "stats": {
+      "projects": "已完成项目",
+      "clients": "满意客户",
+      "countries": "业务覆盖国家",
+      "years": "经验年长",
+      "satisfaction": "满意度",
+      "technologies": "掌握的技术"
+    },
+    "cta_title": "准备好将您的想法变为现实了吗？",
+    "cta_subtitle": "加入信任我们的企业行列。",
+    "cta_button_project": "讨论您的项目",
+    "cta_button_services": "发现我们的服务"
+  },
+  "academy": {
+    "hero_title": "通过 Vulsoft Academy 成为数字专家",
+    "hero_subtitle": "您通往技术世界的门户。",
+    "stats_students": "学生",
+    "stats_courses": "课程",
+    "stats_success": "成功率",
+    "pedagogy": {
+      "title": "以实践为导向的教学法",
+      "subtitle": "通过实践学习，快速融入专业环境",
+      "projects_title": "具体项目",
+      "projects_desc": "将所学知识应用于真实项目。",
+      "mentor_title": "专家导师",
+      "mentor_desc": "经验丰富的讲师全程指导。",
+      "collab_title": "协作学习",
+      "collab_desc": "在团队中工作，交流想法，共同进步。",
+      "cert_title": "认可认证",
+      "cert_desc": "获得证明您技能并提升个人价值的证书。"
+    },
+    "environment": {
+      "title": "卓越的成长环境",
+      "subtitle": "我们的校区空间现代且充满启发性，为您提供最佳的学习体验。",
+      "school_life_title": "不只是学校，更是一个生活场所",
+      "school_life_desc": "在 Vulsoft Academy，我们不仅提供课程。我们的空间旨在激发创造力并促进交流。",
+      "benefit_classrooms": "现代化的空调教室。",
+      "benefit_internet": "高速且稳定的网络连接。",
+      "benefit_coworking": "用于项目的协作空间。",
+      "benefit_hardware": "最新一代的计算设备。",
+      "benefit_relax": "用于交流的咖啡厅和休息区。",
+      "visit_campus": "参观我们的校区"
+    },
+    "paths": {
+      "title": "选择您的学习路径",
+      "subtitle": "针对各级别的系统培训，适配非洲市场",
+      "fullstack_title": "全栈开发人员",
+      "fullstack_desc": "从 A 到 Z 掌握现代 Web 开发",
+      "mobile_title": "移动开发人员",
+      "mobile_desc": "创建原生和跨平台移动应用",
+      "uiux_title": "UI/UX 设计师",
+      "uiux_desc": "设计卓越的用户体验",
+      "initiation_title": "数字入门",
+      "initiation_desc": "探索计算机和数字工具"
+    },
+    "formations": {
+      "title": "探索我们的课程",
+      "subtitle": "涵盖 6 个专业领域的 50 多门课程",
+      "cat_all": "全部",
+      "cat_dev": "开发",
+      "cat_design": "设计",
+      "cat_digital": "数字",
+      "cat_languages": "语言",
+      "view_all": "查看所有课程",
+      "level_beginner": "初学者",
+      "level_intermediate": "中级",
+      "level_advanced": "高级",
+      "badge_new": "新品",
+      "badge_popular": "热门",
+      "f1_title": "数字素养",
+      "f1_desc": "探索计算机并充满信心地浏览",
+      "f2_title": "现代 JavaScript",
+      "f2_desc": "掌握 ES6+、现代框架及最佳实践",
+      "f3_title": "设计系统与 Figma",
+      "f3_desc": "创建一致且专业的设计系统",
+      "f4_title": "React & Next.js",
+      "f4_desc": "开发高性能且现代的 Web 应用程序"
+    },
+    "testimonials": {
+      "title": "学生心声",
+      "subtitle": "成千上万的学习者通过 Vulsoft Academy 改变了他们的职业生涯",
+      "t1_name": "Mamady Camara",
+      "t1_role": "Orange 公司 Web 开发人员",
+      "t1_text": "感谢 Vulsoft Academy，我获得了成为 Web 开发人员所需的技能。导师制是我成长过程中的关键。",
+      "t2_name": "Fatoumata Diallo",
+      "t2_role": "自由职业 UI/UX 设计师",
+      "t2_text": "一段难以置信的经历。具体项目让我建立了一个强大的作品集并找到了我的第一批客户。",
+      "t3_name": "Ibrahima Sory",
+      "t3_role": "数字企业家",
+      "t3_text": "数字入门让我看到了数字化的机遇。我现在经营自己的在线商店。"
+    }
+  },
+  "contact": {
+    "horaires": "营业时间",
+    "horaires_val": "周一至周五：上午 8 点至下午 6 点"
   }
 }

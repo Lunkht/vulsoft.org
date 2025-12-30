@@ -46,11 +46,12 @@
             </ul>
             <div class="nav-actions">
                 <div class="theme-switcher">
-                    <button type="button" class="theme-trigger" aria-label="Changer le thème">
+                    <button type="button" class="theme-trigger" aria-label="Changer le thème"
+                        data-i18n-label="theme.change">
                         <!-- Icon will be injected by theme.js -->
                     </button>
                     <div class="theme-dropdown">
-                        <button type="button" class="theme-option" data-theme="light">
+                        <button type="button" class="theme-option" data-theme="light" data-i18n="theme.light">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -66,7 +67,7 @@
                             </svg>
                             Clair
                         </button>
-                        <button type="button" class="theme-option" data-theme="dark">
+                        <button type="button" class="theme-option" data-theme="dark" data-i18n="theme.dark">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -74,7 +75,7 @@
                             </svg>
                             Sombre
                         </button>
-                        <button type="button" class="theme-option" data-theme="system">
+                        <button type="button" class="theme-option" data-theme="system" data-i18n="theme.system">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -124,8 +125,9 @@
     <!-- Hero Section -->
     <section class="hero" id="accueil">
         <div class="container">
-            <h1>Devenez un expert du numérique avec <span class="highlight">Vulsoft Academy</span></h1>
-            <p class="hero-subtitle">
+            <h1 data-i18n="academy.hero_title">Devenez un expert du numérique avec <span class="highlight">Vulsoft
+                    Academy</span></h1>
+            <p class="hero-subtitle" data-i18n="academy.hero_subtitle">
                 Votre porte d'entrée vers le monde de la technologie. Que vous soyez débutant ou expert, nos
                 parcours sont conçus pour vous transformer en professionnel compétent et recherché sur le marché du
                 travail.
@@ -133,15 +135,15 @@
             <div class="hero-stats">
                 <div class="stat-item">
                     <span class="stat-number">1000+</span>
-                    <span class="stat-label">Étudiants</span>
+                    <span class="stat-label" data-i18n="academy.stats_students">Étudiants</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">50+</span>
-                    <span class="stat-label">Cours</span>
+                    <span class="stat-label" data-i18n="academy.stats_courses">Cours</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">95%</span>
-                    <span class="stat-label">Réussite</span>
+                    <span class="stat-label" data-i18n="academy.stats_success">Réussite</span>
                 </div>
             </div>
             <div class="hero-actions">
@@ -159,33 +161,38 @@
     <section class="pedagogy-section">
         <div class="container">
             <div class="section-header">
-                <h2>Une Pédagogie Axée sur la Pratique</h2>
-                <p>Nous croyons en l'apprentissage par l'action. Nos programmes sont conçus pour vous donner une
+                <h2 data-i18n="academy.pedagogy.title">Une Pédagogie Axée sur la Pratique</h2>
+                <p data-i18n="academy.pedagogy.subtitle">Nous croyons en l'apprentissage par l'action. Nos programmes
+                    sont conçus pour vous donner une
                     expérience concrète et vous préparer au monde professionnel.</p>
             </div>
             <div class="pedagogy-grid">
                 <div class="pedagogy-card">
                     <div class="pedagogy-icon">🚀</div>
-                    <h3>Projets Concrets</h3>
-                    <p>Appliquez vos connaissances sur des projets réels, du brief client à la mise en production, pour
+                    <h3 data-i18n="academy.pedagogy.projects_title">Projets Concrets</h3>
+                    <p data-i18n="academy.pedagogy.projects_desc">Appliquez vos connaissances sur des projets réels, du
+                        brief client à la mise en production, pour
                         construire un portfolio solide.</p>
                 </div>
                 <div class="pedagogy-card">
                     <div class="pedagogy-icon">👨‍🏫</div>
-                    <h3>Mentorat d'Experts</h3>
-                    <p>Bénéficiez de l'accompagnement d'instructeurs expérimentés, actifs dans l'industrie et passionnés
+                    <h3 data-i18n="academy.pedagogy.mentor_title">Mentorat d'Experts</h3>
+                    <p data-i18n="academy.pedagogy.mentor_desc">Bénéficiez de l'accompagnement d'instructeurs
+                        expérimentés, actifs dans l'industrie et passionnés
                         par la transmission.</p>
                 </div>
                 <div class="pedagogy-card">
                     <div class="pedagogy-icon">🤝</div>
-                    <h3>Apprentissage Collaboratif</h3>
-                    <p>Travaillez en équipe, échangez avec vos pairs et rejoignez une communauté dynamique d'apprenants
+                    <h3 data-i18n="academy.pedagogy.collab_title">Apprentissage Collaboratif</h3>
+                    <p data-i18n="academy.pedagogy.collab_desc">Travaillez en équipe, échangez avec vos pairs et
+                        rejoignez une communauté dynamique d'apprenants
                         et de professionnels.</p>
                 </div>
                 <div class="pedagogy-card">
                     <div class="pedagogy-icon">🏆</div>
-                    <h3>Certification Reconnue</h3>
-                    <p>Développez votre portfolio, préparez vos entretiens et obtenez une certification qui atteste de
+                    <h3 data-i18n="academy.pedagogy.cert_title">Certification Reconnue</h3>
+                    <p data-i18n="academy.pedagogy.cert_desc">Développez votre portfolio, préparez vos
+                        entretiens et obtenez une certification qui atteste de
                         vos compétences sur le marché.</p>
                 </div>
             </div>
@@ -202,18 +209,29 @@
             </div>
             <div class="environment-content">
                 <div class="environment-text">
-                    <h3>Plus qu'une école, un lieu de vie</h3>
-                    <p>Chez Vulsoft Academy, nous offrons bien plus que des cours. Nos espaces sont pensés pour stimuler
+                    <h3 data-i18n="academy.environment.school_life_title">Plus qu'une école, un lieu de vie</h3>
+                    <p data-i18n="academy.environment.school_life_desc">Chez Vulsoft Academy, nous offrons bien plus que
+                        des cours. Nos espaces sont pensés pour stimuler
                         la créativité et encourager les rencontres.</p>
                     <ul>
-                        <li><span class="benefit-icon">✅</span> Salles de classe modernes et climatisées.</li>
-                        <li><span class="benefit-icon">✅</span> Connexion internet haut débit et stable.</li>
-                        <li><span class="benefit-icon">✅</span> Espaces de co-working pour vos projets.</li>
-                        <li><span class="benefit-icon">✅</span> Matériel informatique de dernière génération.</li>
-                        <li><span class="benefit-icon">✅</span> Cafétéria et zones de détente pour échanger.</li>
+                        <li><span class="benefit-icon">✅</span> <span
+                                data-i18n="academy.environment.benefit_classrooms">Salles de classe modernes et
+                                climatisées.</span></li>
+                        <li><span class="benefit-icon">✅</span> <span
+                                data-i18n="academy.environment.benefit_internet">Connexion internet haut débit et
+                                stable.</span></li>
+                        <li><span class="benefit-icon">✅</span> <span
+                                data-i18n="academy.environment.benefit_coworking">Espaces de co-working pour vos
+                                projets.</span></li>
+                        <li><span class="benefit-icon">✅</span> <span
+                                data-i18n="academy.environment.benefit_hardware">Matériel informatique de dernière
+                                génération.</span></li>
+                        <li><span class="benefit-icon">✅</span> <span
+                                data-i18n="academy.environment.benefit_relax">Cafétéria et zones de détente pour
+                                échanger.</span></li>
                     </ul>
                     <a href="contact.html" class="cta-button primary" style="margin-top: 2rem;">
-                        <span>Visiter nos locaux</span>
+                        <span data-i18n="academy.environment.visit_campus">Visiter nos locaux</span>
                     </a>
                 </div>
                 <div class="environment-gallery">
@@ -231,15 +249,17 @@
     <section class="learning-paths" id="parcours">
         <div class="container">
             <div class="section-header">
-                <h2>Choisissez votre parcours d'apprentissage</h2>
-                <p>Des formations structurées pour tous les niveaux, adaptées au marché africain</p>
+                <h2 data-i18n="academy.paths.title">Choisissez votre parcours d'apprentissage</h2>
+                <p data-i18n="academy.paths.subtitle">Des formations structurées pour tous les niveaux, adaptées au
+                    marché africain</p>
             </div>
 
             <div class="paths-grid">
                 <div class="path-card featured">
-                    <div class="path-badge">Le plus populaire</div>
-                    <h3>Développeur Full Stack</h3>
-                    <p class="path-description">Maîtrisez le développement web moderne de A à Z</p>
+                    <div class="path-badge" data-i18n="pricing.most_requested">Le plus populaire</div>
+                    <h3 data-i18n="academy.paths.fullstack_title">Développeur Full Stack</h3>
+                    <p class="path-description" data-i18n="academy.paths.fullstack_desc">Maîtrisez le développement web
+                        moderne de A à Z</p>
                     <div class="path-details">
                         <div class="detail-item">
                             <span class="detail-icon">⏱️</span>
@@ -269,8 +289,9 @@
                 </div>
 
                 <div class="path-card">
-                    <h3>Développeur Mobile</h3>
-                    <p class="path-description">Créez des applications mobiles natives et cross-platform</p>
+                    <h3 data-i18n="academy.paths.mobile_title">Développeur Mobile</h3>
+                    <p class="path-description" data-i18n="academy.paths.mobile_desc">Créez des applications mobiles
+                        natives et cross-platform</p>
                     <div class="path-details">
                         <div class="detail-item">
                             <span class="detail-icon">⏱️</span>
@@ -299,8 +320,9 @@
                 </div>
 
                 <div class="path-card">
-                    <h3>Designer UI/UX</h3>
-                    <p class="path-description">Concevez des expériences utilisateur exceptionnelles</p>
+                    <h3 data-i18n="academy.paths.uiux_title">Designer UI/UX</h3>
+                    <p class="path-description" data-i18n="academy.paths.uiux_desc">Concevez des expériences utilisateur
+                        exceptionnelles</p>
                     <div class="path-details">
                         <div class="detail-item">
                             <span class="detail-icon">⏱️</span>
@@ -329,8 +351,9 @@
                 </div>
 
                 <div class="path-card">
-                    <h3>Initiation Numérique</h3>
-                    <p class="path-description">Découvrez l'informatique et les outils numériques</p>
+                    <h3 data-i18n="academy.paths.initiation_title">Initiation Numérique</h3>
+                    <p class="path-description" data-i18n="academy.paths.initiation_desc">Découvrez l'informatique et
+                        les outils numériques</p>
                     <div class="path-details">
                         <div class="detail-item">
                             <span class="detail-icon">⏱️</span>
@@ -365,16 +388,21 @@
     <section class="formations-categories" id="formations">
         <div class="container">
             <div class="section-header">
-                <h2>Explorez nos formations</h2>
-                <p>Plus de 50 cours dans 6 domaines d'expertise</p>
+                <h2 data-i18n="academy.formations.title">Explorez nos formations</h2>
+                <p data-i18n="academy.formations.subtitle">Plus de 50 cours dans 6 domaines d'expertise</p>
             </div>
 
             <div class="categories-tabs">
-                <button class="category-tab active" data-category="all">Toutes</button>
-                <button class="category-tab" data-category="dev">Développement</button>
-                <button class="category-tab" data-category="design">Design</button>
-                <button class="category-tab" data-category="digital">Numérique</button>
-                <button class="category-tab" data-category="languages">Langues</button>
+                <button class="category-tab active" data-category="all"
+                    data-i18n="academy.formations.cat_all">Toutes</button>
+                <button class="category-tab" data-category="dev"
+                    data-i18n="academy.formations.cat_dev">Développement</button>
+                <button class="category-tab" data-category="design"
+                    data-i18n="academy.formations.cat_design">Design</button>
+                <button class="category-tab" data-category="digital"
+                    data-i18n="academy.formations.cat_digital">Numérique</button>
+                <button class="category-tab" data-category="languages"
+                    data-i18n="academy.formations.cat_languages">Langues</button>
             </div>
 
             <div class="formations-grid">
@@ -382,12 +410,13 @@
                     <div class="formation-image">
                         <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=600&auto=format&fit=crop"
                             alt="JavaScript Moderne">
-                        <div class="formation-badge">Nouveau</div>
-                        <div class="formation-level">Débutant</div>
+                        <div class="formation-badge" data-i18n="academy.formations.badge_new">Nouveau</div>
+                        <div class="formation-level" data-i18n="academy.formations.level_beginner">Débutant</div>
                     </div>
                     <div class="formation-content">
-                        <h3>JavaScript Moderne</h3>
-                        <p>Maîtrisez ES6+, les frameworks modernes et les bonnes pratiques</p>
+                        <h3 data-i18n="academy.formations.f2_title">JavaScript Moderne</h3>
+                        <p data-i18n="academy.formations.f2_desc">Maîtrisez ES6+, les frameworks modernes et les bonnes
+                            pratiques</p>
                         <div class="formation-meta">
                             <span class="meta-item">8 semaines</span>
                             <span class="meta-item">245 étudiants</span>
@@ -407,11 +436,13 @@
                     <div class="formation-image">
                         <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=600&auto=format&fit=crop"
                             alt="Design System & Figma">
-                        <div class="formation-level">Intermédiaire</div>
+                        <div class="formation-level" data-i18n="academy.formations.level_intermediate">Intermédiaire
+                        </div>
                     </div>
                     <div class="formation-content">
-                        <h3>Design System & Figma</h3>
-                        <p>Créez des systèmes de design cohérents et professionnels</p>
+                        <h3 data-i18n="academy.formations.f3_title">Design System & Figma</h3>
+                        <p data-i18n="academy.formations.f3_desc">Créez des systèmes de design cohérents et
+                            professionnels</p>
                         <div class="formation-meta">
                             <span class="meta-item">6 semaines</span>
                             <span class="meta-item">189 étudiants</span>
@@ -430,12 +461,13 @@
                     <div class="formation-image">
                         <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=600&auto=format&fit=crop"
                             alt="React & Next.js">
-                        <div class="formation-badge">Populaire</div>
-                        <div class="formation-level">Avancé</div>
+                        <div class="formation-badge" data-i18n="academy.formations.badge_popular">Populaire</div>
+                        <div class="formation-level" data-i18n="academy.formations.level_advanced">Avancé</div>
                     </div>
                     <div class="formation-content">
-                        <h3>React & Next.js</h3>
-                        <p>Développez des applications web performantes et modernes</p>
+                        <h3 data-i18n="academy.formations.f4_title">React & Next.js</h3>
+                        <p data-i18n="academy.formations.f4_desc">Développez des applications web performantes et
+                            modernes</p>
                         <div class="formation-meta">
                             <span class="meta-item">12 semaines</span>
                             <span class="meta-item">412 étudiants</span>
@@ -454,11 +486,12 @@
                     <div class="formation-image">
                         <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop"
                             alt="Alphabétisation Numérique">
-                        <div class="formation-level">Débutant</div>
+                        <div class="formation-level" data-i18n="academy.formations.level_beginner">Débutant</div>
                     </div>
                     <div class="formation-content">
-                        <h3>Alphabétisation Numérique</h3>
-                        <p>Découvrez l'informatique et naviguez en toute confiance</p>
+                        <h3 data-i18n="academy.formations.f1_title">Alphabétisation Numérique</h3>
+                        <p data-i18n="academy.formations.f1_desc">Découvrez l'informatique et naviguez en toute
+                            confiance</p>
                         <div class="formation-meta">
                             <span class="meta-item">4 semaines</span>
                             <span class="meta-item">156 étudiants</span>
@@ -492,7 +525,8 @@
                 <div class="testimonial-card">
                     <div class="testimonial-content">
                         <div class="testimonial-rating">★★★★★</div>
-                        <p>"Grâce à Vulsoft Academy, j'ai pu apprendre le développement web et décrocher un emploi en
+                        <p data-i18n="academy.testimonials.t1_text">"Grâce à Vulsoft Academy, j'ai pu apprendre le
+                            développement web et décrocher un emploi en
                             tant que développeur junior. Les cours sont excellents et les instructeurs très
                             disponibles."</p>
                     </div>
@@ -501,8 +535,8 @@
                             <span>AM</span>
                         </div>
                         <div class="author-info">
-                            <h4>Amadou Diallo</h4>
-                            <p>Développeur Web - Conakry</p>
+                            <h4 data-i18n="academy.testimonials.t1_name">Amadou Diallo</h4>
+                            <p data-i18n="academy.testimonials.t1_role">Développeur Web - Conakry</p>
                         </div>
                     </div>
                 </div>
@@ -510,7 +544,8 @@
                 <div class="testimonial-card">
                     <div class="testimonial-content">
                         <div class="testimonial-rating">★★★★★</div>
-                        <p>"Les formations sont très pratiques et adaptées au marché local. J'ai pu créer ma propre
+                        <p data-i18n="academy.testimonials.t2_text">"Les formations sont très pratiques et adaptées au
+                            marché local. J'ai pu créer ma propre
                             agence de design après avoir suivi le parcours UI/UX."</p>
                     </div>
                     <div class="testimonial-author">
@@ -518,8 +553,8 @@
                             <span>FK</span>
                         </div>
                         <div class="author-info">
-                            <h4>Fatou Koné</h4>
-                            <p>Designer UI/UX - Abidjan</p>
+                            <h4 data-i18n="academy.testimonials.t2_name">Fatou Koné</h4>
+                            <p data-i18n="academy.testimonials.t2_role">Designer UI/UX - Abidjan</p>
                         </div>
                     </div>
                 </div>
@@ -527,7 +562,8 @@
                 <div class="testimonial-card">
                     <div class="testimonial-content">
                         <div class="testimonial-rating">★★★★★</div>
-                        <p>"L'accompagnement personnalisé et la qualité des projets m'ont permis de développer des
+                        <p data-i18n="academy.testimonials.t3_text">"L'accompagnement personnalisé et la qualité des
+                            projets m'ont permis de développer des
                             compétences solides. Je recommande vivement Vulsoft Academy."</p>
                     </div>
                     <div class="testimonial-author">
@@ -535,8 +571,8 @@
                             <span>IB</span>
                         </div>
                         <div class="author-info">
-                            <h4>Ibrahim Bah</h4>
-                            <p>Développeur Mobile - Conakry</p>
+                            <h4 data-i18n="academy.testimonials.t3_name">Ibrahim Bah</h4>
+                            <p data-i18n="academy.testimonials.t3_role">Développeur Mobile - Conakry</p>
                         </div>
                     </div>
                 </div>
@@ -548,11 +584,11 @@
     <section class="inscription-cta" id="inscription">
         <div class="container">
             <div class="cta-content">
-                <h2>Prêt à commencer votre transformation ?</h2>
-                <p>Rejoignez des milliers d'apprenants qui ont déjà transformé leur carrière avec nos formations.</p>
+                <h2 data-i18n="about_details.cta_title">Prêt à transformer vos idées en réalité ?</h2>
+                <p data-i18n="about_details.cta_subtitle">Rejoignez les entreprises qui nous font confiance.</p>
                 <div class="cta-actions">
-                    <a href="signup.html" class="cta-button primary">S'inscrire maintenant</a>
-                    <a href="contact.html" class="cta-button secondary">Nous contacter</a>
+                    <a href="signup.html" class="cta-button primary" data-i18n="nav.start">S'inscrire maintenant</a>
+                    <a href="contact.html" class="cta-button secondary" data-i18n="nav.contact">Nous contacter</a>
                 </div>
             </div>
         </div>
@@ -564,39 +600,32 @@
             <div class="footer-content">
                 <!-- Colonne 1: AI & Outils -->
                 <div class="footer-column">
-                    <h4>AI</h4>
+                    <h4 data-i18n="footer.ai">AI</h4>
                     <ul>
-                        <li></li>Vulsoft AI</a></li>
+                        <li><a href="#">Vulsoft AI</a></li>
                         <li><a href="#">AI Assistant</a></li>
-                        <li><a href="#">Junie</a></li>
-                        <li><a href="#">AI in IDEs</a></li>
-                        <li><a href="#">AI Enterprise</a></li>
-                        <li><a href="#">AI News</a></li>
                     </ul>
                 </div>
 
                 <!-- Colonne 2: Outils Développeur -->
                 <div class="footer-column">
-                    <h4>Outils Développeur</h4>
+                    <h4 data-i18n="footer.dev_tools">Outils Développeur</h4>
                     <ul>
                         <li><a href="#">Tous les Produits</a></li>
                         <li><a href="#">Environnements de Développement</a></li>
                         <li><a href="#">Développement Web</a></li>
                         <li><a href="#">Outils d'Équipe</a></li>
-                        <li><a href="#">Marketplace de Plugins</a></li>
                         <li><a href="#">Application Toolbox</a></li>
                     </ul>
                 </div>
 
                 <!-- Colonne 3: Solutions -->
                 <div class="footer-column">
-                    <h4>Solutions</h4>
+                    <h4 data-i18n="footer.solutions">Solutions</h4>
                     <ul>
                         <li><a href="index.html#services">Entreprises</a></li>
-                        <li><a href="index.html#services">Données</a></li>
                         <li><a href="index.html#services">Services IDE</a></li>
                         <li><a href="index.html#services">Développement à Distance</a></li>
-                        <li><a href="index.html#services">Développement de Jeux</a></li>
                         <li><a href="index.html#services">DevOps</a></li>
                         <li><a href="index.html#services">Outils Mobiles</a></li>
                     </ul>
@@ -604,38 +633,33 @@
 
                 <!-- Colonne 4: Initiatives -->
                 <div class="footer-column">
-                    <h4>Initiatives</h4>
+                    <h4 data-i18n="footer.initiatives">Initiatives</h4>
                     <ul>
                         <li><a href="#">Temv</a></li>
                         <li><a href="#">Open Source</a></li>
                         <li><a href="#">Recherche Vulsoft</a></li>
                         <li><a href="#">Vulsoft Mono</a></li>
-                        <li><a href="#">MPS</a></li>
                     </ul>
                 </div>
 
                 <!-- Colonne 5: Éducation -->
                 <div class="footer-column">
-                    <h4>Éducation</h4>
+                    <h4 data-i18n="footer.education">Éducation</h4>
                     <ul>
                         <li><a href="academie.html">Étudiants</a></li>
                         <li><a href="academie.html">Enseignants</a></li>
-                        <li><a href="academie.html">Bootcamps</a></li>
                         <li><a href="academie.html">Équipes</a></li>
                         <li><a href="academie.html">Catalogue de Cours</a></li>
-                        <li><a href="academie.html">Programmes Universitaires</a></li>
                     </ul>
                 </div>
 
                 <!-- Colonne 6: Boutique -->
                 <div class="footer-column">
-                    <h4>Boutique</h4>
+                    <h4 data-i18n="footer.store">Boutique</h4>
                     <ul>
                         <li><a href="index.html#tarifs">Plans et Tarifs</a></li>
-                        <li><a href="#">Pack Tous Produits</a></li>
                         <li><a href="#">dotUltimate</a></li>
                         <li><a href="#">Partenaires et Revendeurs</a></li>
-                        <li><a href="#">Clients et Récompenses</a></li>
                     </ul>
                 </div>
             </div>
@@ -643,7 +667,7 @@
             <!-- Section Support et Ressources -->
             <div class="footer-secondary">
                 <div class="footer-column">
-                    <h4>Support</h4>
+                    <h4 data-i18n="footer.support">Support</h4>
                     <ul>
                         <li><a href="contact.html">Support Technique</a></li>
                         <li><a href="contact.html">Contact Commercial</a></li>
@@ -653,7 +677,7 @@
                 </div>
 
                 <div class="footer-column">
-                    <h4>Ressources</h4>
+                    <h4 data-i18n="footer.resources">Ressources</h4>
                     <ul>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="#">Accès Anticipé</a></li>
@@ -667,7 +691,7 @@
                 </div>
 
                 <div class="footer-column">
-                    <h4>Communauté</h4>
+                    <h4 data-i18n="footer.community">Communauté</h4>
                     <ul>
                         <li><a href="#">Groupes d'Utilisateurs</a></li>
                         <li><a href="#">Partenariats Open-Source</a></li>
@@ -677,9 +701,9 @@
                 </div>
 
                 <div class="footer-column">
-                    <h4>Entreprise</h4>
+                    <h4 data-i18n="footer.company">Entreprise</h4>
                     <ul>
-                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">À Propos</a></li>
                         <li><a href="contact.html">Contacts</a></li>
                         <li><a href="#">Carrières</a></li>
                         <li><a href="#">Presse et Actualités</a></li>
@@ -745,17 +769,17 @@
             <!-- Footer bottom -->
             <div class="footer-bottom">
                 <div class="footer-legal">
-                    <a href="#">Confidentialité et Sécurité</a>
-                    <a href="#">Avis de Confidentialité</a>
-                    <a href="#">Conditions d'Utilisation</a>
-                    <a href="#">Attributions</a>
-                    <a href="#">Mentions Légales</a>
-                    <a href="#">Outils Authentiques</a>
-                    <a href="#">Désabonnement</a>
+                    <a href="#" data-i18n="footer.legal_privacy">Confidentialité et Sécurité</a>
+                    <a href="#" data-i18n="footer.legal_notice">Avis de Confidentialité</a>
+                    <a href="#" data-i18n="footer.legal_terms">Conditions d'Utilisation</a>
+                    <a href="#" data-i18n="footer.legal_attributions">Attributions</a>
+                    <a href="#" data-i18n="footer.legal_mentions">Mentions Légales</a>
+                    <a href="#" data-i18n="footer.legal_authentic">Outils Authentiques</a>
+                    <a href="#" data-i18n="footer.legal_unsubscribe">Désabonnement</a>
                 </div>
                 <div class="footer-copyright">
-                    <p>Copyright © 2000-2024 Vulsoft.Inc</p>
-                    <p>Développé avec passion et Vulsoft IDEA</p>
+                    <p data-i18n="footer.copyright">Copyright © 2000-2024 Vulsoft</p>
+                    <p data-i18n="footer.made_with">Développé avec passion</p>
                 </div>
             </div>
         </div>

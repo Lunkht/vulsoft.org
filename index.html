@@ -70,11 +70,12 @@
             </ul>
             <div class="nav-actions">
                 <div class="theme-switcher">
-                    <button type="button" class="theme-trigger" aria-label="Changer le thème">
+                    <button type="button" class="theme-trigger" aria-label="Changer le thème"
+                        data-i18n-label="theme.change">
                         <!-- Icon will be injected by theme.js -->
                     </button>
                     <div class="theme-dropdown">
-                        <button type="button" class="theme-option" data-theme="light">
+                        <button type="button" class="theme-option" data-theme="light" data-i18n="theme.light">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -90,7 +91,7 @@
                             </svg>
                             Clair
                         </button>
-                        <button type="button" class="theme-option" data-theme="dark">
+                        <button type="button" class="theme-option" data-theme="dark" data-i18n="theme.dark">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -98,7 +99,7 @@
                             </svg>
                             Sombre
                         </button>
-                        <button type="button" class="theme-option" data-theme="system">
+                        <button type="button" class="theme-option" data-theme="system" data-i18n="theme.system">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -262,8 +263,9 @@
         <div class="container">
             <div class="apps-header">
                 <div class="apps-badge"></div>
-                <h2>Profitez de nos applications dans vos cotidient</h2>
-                <p>Une suite riche d'outils qui offrent une expérience exceptionnelle</p>
+                <h2 data-i18n="apps_showcase.title">Profitez de nos applications dans vos cotidient</h2>
+                <p data-i18n="apps_showcase.subtitle">Une suite riche d'outils qui offrent une expérience exceptionnelle
+                </p>
             </div>
 
             <div class="apps-grid">
@@ -275,8 +277,9 @@
                         </div>
                     </div>
                     <div class="app-info">
-                        <h3>Kuntron</h3>
-                        <p>Kuntron est une application mobile de Generation de clé et de mot de passe, pour votre
+                        <h3 data-i18n="apps_showcase.kuntron.title">Kuntron</h3>
+                        <p data-i18n="apps_showcase.kuntron.desc">Kuntron est une application mobile de Generation de
+                            clé et de mot de passe, pour votre
                             sécurité numerique</p>
                     </div>
                 </div>
@@ -288,8 +291,9 @@
                         </div>
                     </div>
                     <div class="app-info">
-                        <h3>Ovom</h3>
-                        <p>Notre application pour vous aider a prendre des rendez-vous médicals avec des professionnel
+                        <h3 data-i18n="apps_showcase.ovom.title">Ovom</h3>
+                        <p data-i18n="apps_showcase.ovom.desc">Notre application pour vous aider a prendre des
+                            rendez-vous médicals avec des professionnel
                             de santée en ligne en guine </p>
                     </div>
                 </div>
@@ -301,8 +305,8 @@
                         </div>
                     </div>
                     <div class="app-info">
-                        <h3>Rogo</h3>
-                        <p>Application de streaming</p>
+                        <h3 data-i18n="apps_showcase.rogo.title">Rogo</h3>
+                        <p data-i18n="apps_showcase.rogo.desc">Application de streaming</p>
                     </div>
                 </div>
 
@@ -315,8 +319,9 @@
                         </div>
                     </div>
                     <div class="app-info">
-                        <h3>LiQid</h3>
-                        <p>Une application bancaire pour faciliter la gestion de vos transactions en Afrique</p>
+                        <h3 data-i18n="apps_showcase.liqid.title">LiQid</h3>
+                        <p data-i18n="apps_showcase.liqid.desc">Une application bancaire pour faciliter la gestion de
+                            vos transactions en Afrique</p>
                     </div>
                 </div>
 
@@ -328,8 +333,9 @@
                         </div>
                     </div>
                     <div class="app-info">
-                        <h3>Valert</h3>
-                        <p>Est une application d'alertedanger pour vous prevenue des danger environnementales</p>
+                        <h3 data-i18n="apps_showcase.valert.title">Valert</h3>
+                        <p data-i18n="apps_showcase.valert.desc">Est une application d'alertedanger pour vous prevenue
+                            des danger environnementales</p>
                     </div>
                 </div>
 
@@ -341,14 +347,14 @@
                         </div>
                     </div>
                     <div class="app-info">
-                        <h3>BkClay</h3>
-                        <p>Est une application de forum pour vous</p>
+                        <h3 data-i18n="apps_showcase.bkclay.title">BkClay</h3>
+                        <p data-i18n="apps_showcase.bkclay.desc">Est une application de forum pour vous</p>
                     </div>
                 </div>
             </div>
 
             <div class="apps-cta">
-                <a href="#" class="apps-link">
+                <a href="#" class="apps-link" data-i18n="apps_showcase.cta">
                     Explorez les outils Vulsoft et les solutions de développement →
                 </a>
             </div>
@@ -359,8 +365,9 @@
     <section class="pricing" id="tarifs">
         <div class="container">
             <div class="section-header">
-                <h2>Tarifs</h2>
-                <p>Des solutions adaptées à tous les budgets, de la startup à l'entreprise</p>
+                <h2 data-i18n="pricing.title">Tarifs</h2>
+                <p data-i18n="pricing.subtitle">Des solutions adaptées à tous les budgets, de la startup à l'entreprise
+                </p>
             </div>
 
             <div class="pricing-grid">
@@ -376,8 +383,9 @@
                                 <line x1="12" y1="22.08" x2="12" y2="12" />
                             </svg>
                         </div>
-                        <h3>Sites Web</h3>
-                        <p class="pricing-description">Sites vitrine, e-commerce et applications web</p>
+                        <h3 data-i18n="pricing.web.title">Sites Web</h3>
+                        <p class="pricing-description" data-i18n="pricing.web.desc">Sites vitrine, e-commerce et
+                            applications web</p>
                     </div>
                     <div class="pricing-plans">
                         <div class="plan-item">
@@ -415,7 +423,7 @@
 
                 <!-- Applications Mobiles -->
                 <div class="pricing-card featured">
-                    <div class="pricing-badge">Le plus demandé</div>
+                    <div class="pricing-badge" data-i18n="pricing.most_requested">Le plus demandé</div>
                     <div class="pricing-header">
                         <div class="pricing-icon">
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -424,8 +432,9 @@
                                 <line x1="12" y1="18" x2="12.01" y2="18" />
                             </svg>
                         </div>
-                        <h3>Applications Mobiles</h3>
-                        <p class="pricing-description">iOS, Android et applications cross-platform</p>
+                        <h3 data-i18n="pricing.mobile.title">Applications Mobiles</h3>
+                        <p class="pricing-description" data-i18n="pricing.mobile.desc">iOS, Android et applications
+                            cross-platform</p>
                     </div>
                     <div class="pricing-plans">
                         <div class="plan-item">
@@ -472,8 +481,9 @@
                                 <line x1="12" y1="17" x2="12" y2="21" />
                             </svg>
                         </div>
-                        <h3>Logiciels Bureautiques</h3>
-                        <p class="pricing-description">Applications desktop sur mesure</p>
+                        <h3 data-i18n="pricing.software.title">Logiciels Bureautiques</h3>
+                        <p class="pricing-description" data-i18n="pricing.software.desc">Applications desktop sur mesure
+                        </p>
                     </div>
                     <div class="pricing-plans">
                         <div class="plan-item">
@@ -520,8 +530,9 @@
                                 <path d="M2 12l10 5 10-5" />
                             </svg>
                         </div>
-                        <h3>Hébergement & Maintenance</h3>
-                        <p class="pricing-description">Solutions d'hébergement et support technique</p>
+                        <h3 data-i18n="pricing.hosting.title">Hébergement & Maintenance</h3>
+                        <p class="pricing-description" data-i18n="pricing.hosting.desc">Solutions d'hébergement et
+                            support technique</p>
                     </div>
                     <div class="pricing-plans">
                         <div class="plan-item">
@@ -560,12 +571,15 @@
 
             <div class="pricing-cta">
                 <div class="cta-content">
-                    <h3>Besoin d'un devis personnalisé ?</h3>
-                    <p>Chaque projet est unique. Contactez-nous pour obtenir un devis adapté à vos besoins spécifiques.
+                    <h3 data-i18n="pricing.quote_title">Besoin d'un devis personnalisé ?</h3>
+                    <p data-i18n="pricing.quote_desc">Chaque projet est unique. Contactez-nous pour obtenir un devis
+                        adapté à vos besoins spécifiques.
                     </p>
                     <div class="cta-actions">
-                        <a href="contact.html" class="cta-button primary">Demander un devis</a>
-                        <a href="contact.html" class="cta-button secondary">Nous contacter</a>
+                        <a href="contact.html" class="cta-button primary" data-i18n="pricing.request_quote">Demander un
+                            devis</a>
+                        <a href="contact.html" class="cta-button secondary" data-i18n="pricing.contact_us">Nous
+                            contacter</a>
                     </div>
                 </div>
             </div>
@@ -596,33 +610,36 @@
         <div class="container">
             <div class="valkunt-logo"></div>
             <h1 class="valkunt-title">Valkunt</h1>
-            <p class="valkunt-desc">valkunt.com/div>
+            <p class="valkunt-desc">valkunt.com</p>
+        </div>
     </section>
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-newsletter">
-                <h4>Restez informé</h4>
-                <p>Abonnez-vous à notre newsletter pour recevoir les dernières actualités et offres.</p>
+                <h4 data-i18n="footer.stay_informed">Restez informé</h4>
+                <p data-i18n="footer.newsletter_desc">Abonnez-vous à notre newsletter pour recevoir les dernières
+                    actualités et offres.</p>
                 <form id="footer-newsletter-form">
-                    <input type="email" name="email" placeholder="Votre adresse email" required>
-                    <button type="submit">S'abonner</button>
+                    <input type="email" name="email" placeholder="Votre adresse email"
+                        data-i18n-placeholder="footer.email_placeholder" required>
+                    <button type="submit" data-i18n="footer.subscribe">S'abonner</button>
                 </form>
             </div>
 
             <div class="footer-content">
                 <!-- Colonne 1: AI & Outils -->
                 <div class="footer-column">
-                    <h4>AI</h4>
+                    <h4 data-i18n="footer.ai">AI</h4>
                     <ul>
-                        <li></li>Vulsoft AI</a></li>
+                        <li><a href="#">Vulsoft AI</a></li>
                         <li><a href="#">AI Assistant</a></li>
                     </ul>
                 </div>
 
                 <!-- Colonne 2: Outils Développeur -->
                 <div class="footer-column">
-                    <h4>Outils Développeur</h4>
+                    <h4 data-i18n="footer.dev_tools">Outils Développeur</h4>
                     <ul>
                         <li><a href="#">Tous les Produits</a></li>
                         <li><a href="#">Environnements de Développement</a></li>
@@ -634,7 +651,7 @@
 
                 <!-- Colonne 3: Solutions -->
                 <div class="footer-column">
-                    <h4>Solutions</h4>
+                    <h4 data-i18n="footer.solutions">Solutions</h4>
                     <ul>
                         <li><a href="#services">Entreprises</a></li>
                         <li><a href="#services">Services IDE</a></li>
@@ -646,7 +663,7 @@
 
                 <!-- Colonne 4: Initiatives -->
                 <div class="footer-column">
-                    <h4>Initiatives</h4>
+                    <h4 data-i18n="footer.initiatives">Initiatives</h4>
                     <ul>
                         <li><a href="#">Temv</a></li>
                         <li><a href="#">Open Source</a></li>
@@ -657,7 +674,7 @@
 
                 <!-- Colonne 5: Éducation -->
                 <div class="footer-column">
-                    <h4>Éducation</h4>
+                    <h4 data-i18n="footer.education">Éducation</h4>
                     <ul>
                         <li><a href="academie.html">Étudiants</a></li>
                         <li><a href="academie.html">Enseignants</a></li>
@@ -668,7 +685,7 @@
 
                 <!-- Colonne 6: Boutique -->
                 <div class="footer-column">
-                    <h4>Boutique</h4>
+                    <h4 data-i18n="footer.store">Boutique</h4>
                     <ul>
                         <li><a href="#tarifs">Plans et Tarifs</a></li>
                         <li><a href="#">dotUltimate</a></li>
@@ -680,7 +697,7 @@
             <!-- Section Support et Ressources -->
             <div class="footer-secondary">
                 <div class="footer-column">
-                    <h4>Support</h4>
+                    <h4 data-i18n="footer.support">Support</h4>
                     <ul>
                         <li><a href="contact.html">Support Technique</a></li>
                         <li><a href="contact.html">Contact Commercial</a></li>
@@ -690,7 +707,7 @@
                 </div>
 
                 <div class="footer-column">
-                    <h4>Ressources</h4>
+                    <h4 data-i18n="footer.resources">Ressources</h4>
                     <ul>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="#">Accès Anticipé</a></li>
@@ -704,7 +721,7 @@
                 </div>
 
                 <div class="footer-column">
-                    <h4>Communauté</h4>
+                    <h4 data-i18n="footer.community">Communauté</h4>
                     <ul>
                         <li><a href="#">Groupes d'Utilisateurs</a></li>
                         <li><a href="#">Partenariats Open-Source</a></li>
@@ -714,7 +731,7 @@
                 </div>
 
                 <div class="footer-column">
-                    <h4>Entreprise</h4>
+                    <h4 data-i18n="footer.company">Entreprise</h4>
                     <ul>
                         <li><a href="about.html">À Propos</a></li>
                         <li><a href="contact.html">Contacts</a></li>
@@ -782,17 +799,17 @@
             <!-- Footer bottom -->
             <div class="footer-bottom">
                 <div class="footer-legal">
-                    <a href="#">Confidentialité et Sécurité</a>
-                    <a href="#">Avis de Confidentialité</a>
-                    <a href="#">Conditions d'Utilisation</a>
-                    <a href="#">Attributions</a>
-                    <a href="#">Mentions Légales</a>
-                    <a href="#">Outils Authentiques</a>
-                    <a href="#">Désabonnement</a>
+                    <a href="#" data-i18n="footer.legal_privacy">Confidentialité et Sécurité</a>
+                    <a href="#" data-i18n="footer.legal_notice">Avis de Confidentialité</a>
+                    <a href="#" data-i18n="footer.legal_terms">Conditions d'Utilisation</a>
+                    <a href="#" data-i18n="footer.legal_attributions">Attributions</a>
+                    <a href="#" data-i18n="footer.legal_mentions">Mentions Légales</a>
+                    <a href="#" data-i18n="footer.legal_authentic">Outils Authentiques</a>
+                    <a href="#" data-i18n="footer.legal_unsubscribe">Désabonnement</a>
                 </div>
                 <div class="footer-copyright">
-                    <p>Copyright © 2000-2024 Vulsoft</p>
-                    <p>Développé avec passion et Vulsoft int</p>
+                    <p data-i18n="footer.copyright">Copyright © 2000-2024 Vulsoft</p>
+                    <p data-i18n="footer.made_with">Développé avec passion</p>
                 </div>
             </div>
         </div>

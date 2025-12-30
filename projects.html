@@ -29,21 +29,22 @@
                 <img src="images/logo-Vulsoft-1.svg" alt="Vulsoft Logo">
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="#projects" class="active">Projets</a></li>
+                <li><a href="index.html" data-i18n="nav.products">Accueil</a></li>
+                <li><a href="#projects" class="active" data-i18n="nav.projects">Projets</a></li>
                 <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
-                <li><a href="academie.html">Académie</a></li>
-                <li><a href="about.html">À propos</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="academie.html" data-i18n="nav.academy">Académie</a></li>
+                <li><a href="about.html" data-i18n="nav.about">À propos</a></li>
+                <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
                 <li class="mobile-login"><a href="login.html" class="connexion-btn" data-i18n="nav.login">Connexion</a>
                 </li>
             </ul>
             <div class="theme-switcher">
-                <button type="button" class="theme-trigger" aria-label="Changer le thème">
+                <button type="button" class="theme-trigger" aria-label="Changer le thème"
+                    data-i18n-label="theme.change">
                     <!-- Icon will be injected by theme.js -->
                 </button>
                 <div class="theme-dropdown">
-                    <button type="button" class="theme-option" data-theme="light">
+                    <button type="button" class="theme-option" data-theme="light" data-i18n="theme.light">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="5"></circle>
@@ -58,14 +59,14 @@
                         </svg>
                         Clair
                     </button>
-                    <button type="button" class="theme-option" data-theme="dark">
+                    <button type="button" class="theme-option" data-theme="dark" data-i18n="theme.dark">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                         </svg>
                         Sombre
                     </button>
-                    <button type="button" class="theme-option" data-theme="system">
+                    <button type="button" class="theme-option" data-theme="system" data-i18n="theme.system">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
@@ -112,8 +113,9 @@
     <!-- Hero Section -->
     <section class="hero hero-page">
         <div class="container">
-            <h1>Nos Réalisations</h1>
-            <p class="hero-subtitle">Découvrez une sélection de projets qui illustrent notre savoir-faire et notre
+            <h1 data-i18n="projects_hero.title">Nos Réalisations</h1>
+            <p class="hero-subtitle" data-i18n="projects_hero.subtitle">Découvrez une sélection de projets qui
+                illustrent notre savoir-faire et notre
                 passion pour l'innovation
                 technologique.</p>
         </div>
@@ -124,14 +126,148 @@
         <div class="container">
             <div id="projects-grid" class="projects-grid">
                 <!-- Les projets seront injectés ici par JavaScript -->
-                <div class="loading">Chargement des projets...</div>
+                <div class="loading" data-i18n="projects.loading">Chargement des projets...</div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <!-- Contenu du footer standard -->
+        <div class="container">
+            <div class="footer-content">
+                <!-- Colonne 1: AI & Outils -->
+                <div class="footer-column">
+                    <h4 data-i18n="footer.ai">AI</h4>
+                    <ul>
+                        <li><a href="#">Vulsoft AI</a></li>
+                        <li><a href="#">AI Assistant</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 2: Outils Développeur -->
+                <div class="footer-column">
+                    <h4 data-i18n="footer.dev_tools">Outils Développeur</h4>
+                    <ul>
+                        <li><a href="#">Tous les Produits</a></li>
+                        <li><a href="#">Environnements de Développement</a></li>
+                        <li><a href="#">Développement Web</a></li>
+                        <li><a href="#">Outils d'Équipe</a></li>
+                        <li><a href="#">Application Toolbox</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 3: Solutions -->
+                <div class="footer-column">
+                    <h4 data-i18n="footer.solutions">Solutions</h4>
+                    <ul>
+                        <li><a href="index.html#services">Entreprises</a></li>
+                        <li><a href="index.html#services">Services IDE</a></li>
+                        <li><a href="index.html#services">Développement à Distance</a></li>
+                        <li><a href="index.html#services">DevOps</a></li>
+                        <li><a href="index.html#services">Outils Mobiles</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 4: Initiatives -->
+                <div class="footer-column">
+                    <h4 data-i18n="footer.initiatives">Initiatives</h4>
+                    <ul>
+                        <li><a href="#">Temv</a></li>
+                        <li><a href="#">Open Source</a></li>
+                        <li><a href="#">Recherche Vulsoft</a></li>
+                        <li><a href="#">Vulsoft Mono</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 5: Éducation -->
+                <div class="footer-column">
+                    <h4 data-i18n="footer.education">Éducation</h4>
+                    <ul>
+                        <li><a href="academie.html">Étudiants</a></li>
+                        <li><a href="academie.html">Enseignants</a></li>
+                        <li><a href="academie.html">Équipes</a></li>
+                        <li><a href="academie.html">Catalogue de Cours</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 6: Boutique -->
+                <div class="footer-column">
+                    <h4 data-i18n="footer.store">Boutique</h4>
+                    <ul>
+                        <li><a href="index.html#tarifs">Plans et Tarifs</a></li>
+                        <li><a href="#">dotUltimate</a></li>
+                        <li><a href="#">Partenaires et Revendeurs</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section Support et Ressources -->
+            <div class="footer-secondary">
+                <div class="footer-column">
+                    <h4 data-i18n="footer.support">Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Support Technique</a></li>
+                        <li><a href="contact.html">Contact Commercial</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Compte Vulsoft</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-i18n="footer.resources">Ressources</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#">Accès Anticipé</a></li>
+                        <li><a href="#">Événements et Livestreams</a></li>
+                        <li><a href="#">Newsletters</a></li>
+                        <li><a href="#">Rapports Sectoriels</a></li>
+                        <li><a href="#">Guide Vulsoft</a></li>
+                        <li><a href="#">Inspectopedia</a></li>
+                        <li><a href="#">Art de Bureau</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-i18n="footer.community">Communauté</h4>
+                    <ul>
+                        <li><a href="#">Groupes d'Utilisateurs</a></li>
+                        <li><a href="#">Partenariats Open-Source</a></li>
+                        <li><a href="#">Reconnaissance Développeurs</a></li>
+                        <li><a href="#">Créateurs de Contenu</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-i18n="footer.company">Entreprise</h4>
+                    <ul>
+                        <li><a href="about.html" data-i18n="nav.about">À Propos</a></li>
+                        <li><a href="contact.html">Contacts</a></li>
+                        <li><a href="#">Carrières</a></li>
+                        <li><a href="#">Presse et Actualités</a></li>
+                        <li><a href="#">Ressources de Marque</a></li>
+                        <li><a href="#">Marchandises</a></li>
+                        <li><a href="#">Centre de Confiance</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer bottom -->
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <a href="#" data-i18n="footer.legal_privacy">Confidentialité et Sécurité</a>
+                    <a href="#" data-i18n="footer.legal_notice">Avis de Confidentialité</a>
+                    <a href="#" data-i18n="footer.legal_terms">Conditions d'Utilisation</a>
+                    <a href="#" data-i18n="footer.legal_attributions">Attributions</a>
+                    <a href="#" data-i18n="footer.legal_mentions">Mentions Légales</a>
+                    <a href="#" data-i18n="footer.legal_authentic">Outils Authentiques</a>
+                    <a href="#" data-i18n="footer.legal_unsubscribe">Désabonnement</a>
+                </div>
+                <div class="footer-copyright">
+                    <p data-i18n="footer.copyright">Copyright © 2000-2024 Vulsoft</p>
+                    <p data-i18n="footer.made_with">Développé avec passion</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="js/theme.js"></script>
