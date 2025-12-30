@@ -2240,6 +2240,11 @@ body.lang-switching {
     animation: valkuntGradient 3s ease infinite;
 }
 
+.valkunt-desc {
+    text-align: center;
+    margin: 8px;
+    font-size: 20px;
+}
 
 @keyframes valkuntGradient {
     0% {
