@@ -66,7 +66,7 @@
     "select_service": "选择一项服务",
     "budget": "预算估计",
     "select_budget": "选择一个范围",
-    "message": "留言 *",
+    "留言": "留言 *",
     "message_placeholder": "描述您的项目、需求和目标...",
     "newsletter_subscribe": "我希望订阅 Vulsoft 时事通讯",
     "accept_privacy": "我接受 <a href=\"#\" class=\"privacy-link\">隐私政策</a> *",
@@ -292,5 +292,14 @@
   "contact": {
     "horaires": "营业时间",
     "horaires_val": "周一至周五：上午 8 点至下午 6 点"
+  },
+  "cookies": {
+    "title": "您对数据的选择",
+    "desc1": "为了向您提供 Vulsoft 的网站和移动应用程序，我们使用 Cookie 或类似技术，使我们能够收集您设备上的信息。",
+    "desc2": "其中一些技术是我们的服务正常运行所必需的：您不能拒绝它们。其他技术是可选的，但有助于让您的阅读体验更轻松，并在某种程度上支持 Vulsoft：您可以随时给予或撤回您的同意。",
+    "question": "您是否同意 Vulsoft 使用对其运行有用的 Cookie 或类似技术？",
+    "refuse": "拒绝",
+    "accept": "接受",
+    "settings": "精确我的选择"
   }
 }

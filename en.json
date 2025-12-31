@@ -292,5 +292,14 @@
   "contact": {
     "horaires": "Hours",
     "horaires_val": "Mon - Fri: 8am - 6pm"
+  },
+  "cookies": {
+    "title": "Your choice for your data",
+    "desc1": "To make Vulsoft's website and mobile application available to you, we use cookies or similar technologies that allow us to collect information on your device.",
+    "desc2": "Some of these technologies are necessary for our services to function correctly: you cannot refuse them. Others are optional but contribute to making your reading experience easier and in some way support Vulsoft: you can give or withdraw your consent at any time.",
+    "question": "Do you agree that Vulsoft uses cookies or similar technologies useful for its operation?",
+    "refuse": "Refuse",
+    "accept": "Accept",
+    "settings": "Refine my choices"
   }
 }

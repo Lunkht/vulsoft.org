@@ -17,15 +17,15 @@
   },
   "services_section": {
     "title": "Solutions",
-    "subtitle": "Des solutions complètes pour tous vos besoins technologiques",
+    "subtitle": "Des solutions complètes pour tous vos biotechnologiques",
     "desktop_apps_title": "Logiciels Métier",
     "desktop_apps_desc": "Concevez des solutions logicielles robustes et sécurisées pour automatiser vos processus et maximiser votre efficacité opérationnelle.",
     "mobile_apps_title": "Applications Mobiles",
     "mobile_apps_desc": "Développement d'expériences mobiles natives (iOS & Android) fluides et sécurisées pour engager vos utilisateurs où qu'ils soient.",
     "iot_title": "IoT & Systèmes Embarqués",
     "iot_desc": "Intégration de solutions IoT intelligentes pour connecter vos actifs et transformer vos données en décisions stratégiques.",
-    "web_solutions_title": "Solutions Web",
-    "web_solutions_desc": "Développement de sites web et applications web modernes, responsives et performantes.",
+    "bit_solutions_title": "Solutions Web",
+    "bit_solutions_desc": "Développement de sites web et applications web modernes, responsives et performantes.",
     "consulting_title": "Conseil & Formation",
     "consulting_desc": "Accompagnement technique, audit de code, formation de vos équipes aux nouvelles technologies.",
     "maintenance_title": "Maintenance & Support",
@@ -292,5 +292,14 @@
   "contact": {
     "horaires": "Horaires",
     "horaires_val": "Lun - Ven: 8h - 18h"
+  },
+  "cookies": {
+    "title": "Votre choix pour vos données",
+    "desc1": "Pour mettre le site et l'application mobile de Vulsoft à votre disposition nous utilisons des cookies ou technologies similaires qui nous permettent de collecter des informations sur votre appareil.",
+    "desc2": "Certaines de ces technologies sont nécessaires pour faire fonctionner nos services correctement : vous ne pouvez pas les refuser. D'autres sont optionnelles mais contribuent à faciliter votre expérience de lecture et d'une certaine façon à soutenir Vulsoft : vous pouvez à tout moment donner ou retirer votre consentement.",
+    "question": "Acceptez-vous que Vulsoft emploie des cookies ou technologies similaires utiles à son fonctionnement ?",
+    "refuse": "Refuser",
+    "accept": "Accepter",
+    "settings": "Affiner mes choix"
   }
 }
