@@ -1973,26 +1973,28 @@ body.lang-switching {
 }
 
 .icon-bg {
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
+    width: 68px;
+    height: 68px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    padding: 8px;
 }
 
 /* Couleurs spécifiques pour chaque IDE */
-.intellij {
-    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+.val {
+    background: linear-gradient(135deg, #000000 0%, #000000 100%);
+    border: 1px solid #fff;
 }
 
 .pycharm {
-    background: linear-gradient(135deg, #21d789 0%, #2ecc71 100%);
+    background: linear-gradient(135deg, #aeb4b1 0%, #acbeb3 100%);
 }
 
 .resharper {
-    background: linear-gradient(135deg, #c92d39 0%, #e74c3c 100%);
+    background: #e84b03;
 }
 
 .webstorm {
@@ -2000,7 +2002,12 @@ body.lang-switching {
 }
 
 .rider {
-    background: linear-gradient(135deg, #c92d39 0%, #e74c3c 100%);
+    background: linear-gradient(135deg, #ff0015 0%, #ff1900 100%);
+}
+
+.bc {
+    background: linear-gradient(135deg, #000000 0%, #000000 100%);
+    border: 1px solid #fff;
 }
 
 .clion {
