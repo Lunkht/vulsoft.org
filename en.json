@@ -10,7 +10,9 @@
     "start": "Get Started"
   },
   "index_hero": {
-    "title": "Digital Solutions<br>& Cybersecurity",
+    "title1": "Digital Solutions<br>& Cybersecurity",
+    "title2": "Web Development<br>Expertise",
+    "title3": "Cloud Audit<br>& Security",
     "subtitle": "Expertise in secure development and systems audit to propel your business towards technological excellence.",
     "discover_services": "Discover our services",
     "contact_us": "Contact us"

@@ -10,7 +10,9 @@
     "start": "开始"
   },
   "index_hero": {
-    "title": "数字解决方案<br>& 网络安全",
+    "title1": "数字解决方案<br>& 网络安全",
+    "title2": "网页开发<br>专业知识",
+    "title3": "云端审计<br>& 安全性",
     "subtitle": "安全开发和系统审计方面的专业知识，推动您的业务走向技术卓越。",
     "discover_services": "发现我们的服务",
     "contact_us": "联系我们"
