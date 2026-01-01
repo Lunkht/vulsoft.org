@@ -401,8 +401,19 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+     <footer class="footer">
         <div class="container">
+            <div class="footer-newsletter">
+                <h4 data-i18n="footer.stay_informed">Restez informé</h4>
+                <p data-i18n="footer.newsletter_desc">Abonnez-vous à notre newsletter pour recevoir les dernières
+                    actualités et offres.</p>
+                <form id="footer-newsletter-form">
+                    <input type="email" name="email" placeholder="Votre adresse email"
+                        data-i18n-placeholder="footer.email_placeholder" required>
+                    <button type="submit" data-i18n="footer.subscribe">S'abonner</button>
+                </form>
+            </div>
+
             <div class="footer-content">
                 <!-- Colonne 1: AI & Outils -->
                 <div class="footer-column">
@@ -429,11 +440,11 @@
                 <div class="footer-column">
                     <h4 data-i18n="footer.solutions">Solutions</h4>
                     <ul>
-                        <li><a href="../index.html#services">Entreprises</a></li>
-                        <li><a href="../index.html#services">Services IDE</a></li>
-                        <li><a href="../index.html#services">Développement à Distance</a></li>
-                        <li><a href="../index.html#services">DevOps</a></li>
-                        <li><a href="../index.html#services">Outils Mobiles</a></li>
+                        <li><a href="#services">Entreprises</a></li>
+                        <li><a href="#services">Services IDE</a></li>
+                        <li><a href="#services">Développement à Distance</a></li>
+                        <li><a href="#services">DevOps</a></li>
+                        <li><a href="#services">Outils Mobiles</a></li>
                     </ul>
                 </div>
 
@@ -452,10 +463,10 @@
                 <div class="footer-column">
                     <h4 data-i18n="footer.education">Éducation</h4>
                     <ul>
-                        <li><a href="../academie.html">Étudiants</a></li>
-                        <li><a href="../academie.html">Enseignants</a></li>
-                        <li><a href="../academie.html">Équipes</a></li>
-                        <li><a href="../academie.html">Catalogue de Cours</a></li>
+                        <li><a href="academie.html">Étudiants</a></li>
+                        <li><a href="academie.html">Enseignants</a></li>
+                        <li><a href="academie.html">Équipes</a></li>
+                        <li><a href="academie.html">Catalogue de Cours</a></li>
                     </ul>
                 </div>
 
@@ -463,7 +474,7 @@
                 <div class="footer-column">
                     <h4 data-i18n="footer.store">Boutique</h4>
                     <ul>
-                        <li><a href="../index.html#tarifs">Plans et Tarifs</a></li>
+                        <li><a href="#tarifs">Plans et Tarifs</a></li>
                         <li><a href="#">dotUltimate</a></li>
                         <li><a href="#">Partenaires et Revendeurs</a></li>
                     </ul>
@@ -485,13 +496,9 @@
                 <div class="footer-column">
                     <h4 data-i18n="footer.resources">Ressources</h4>
                     <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Accès Anticipé</a></li>
-                        <li><a href="#">Événements et Livestreams</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                         <li><a href="#">Newsletters</a></li>
-                        <li><a href="#">Rapports Sectoriels</a></li>
                         <li><a href="#">Guide Vulsoft</a></li>
-                        <li><a href="#">Inspectopedia</a></li>
                         <li><a href="#">Art de Bureau</a></li>
                     </ul>
                 </div>
@@ -509,7 +516,7 @@
                 <div class="footer-column">
                     <h4 data-i18n="footer.company">Entreprise</h4>
                     <ul>
-                        <li><a href="about.html" data-i18n="nav.about">À Propos</a></li>
+                        <li><a href="about.html">À Propos</a></li>
                         <li><a href="contact.html">Contacts</a></li>
                         <li><a href="#">Carrières</a></li>
                         <li><a href="#">Presse et Actualités</a></li>
@@ -590,6 +597,7 @@
             </div>
         </div>
     </footer>
+
 
     <script src="js/theme.js"></script>
     <script src="js/pwa.js"></script>
