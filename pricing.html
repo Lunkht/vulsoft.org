@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarifs - Vulsoft</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/pricing.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="images/logo-Vulsoft-1.svg" alt="Vulsoft Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="nav.products">Accueil</a></li>
+                <li><a href="projects.html" data-i18n="nav.projects">Projets</a></li>
+                <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+                <li><a href="academie.html" data-i18n="nav.academy">Académie</a></li>
+                <li><a href="about.html" data-i18n="nav.about">À propos</a></li>
+                <li><a href="pricing.html" class="active" data-i18n="nav.pricing">Tarifs</a></li>
+                <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                <li class="mobile-login"><a href="login.html" class="connexion-btn" data-i18n="nav.login">Connexion</a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <div class="theme-switcher">
+                    <button type="button" class="theme-trigger" aria-label="Changer le thème"
+                        data-i18n-label="theme.change">
+                        <!-- Icon will be injected by theme.js -->
+                    </button>
+                    <div class="theme-dropdown">
+                        <button type="button" class="theme-option" data-theme="light" data-i18n="theme.light">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            Clair
+                        </button>
+                        <button type="button" class="theme-option" data-theme="dark" data-i18n="theme.dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                            Sombre
+                        </button>
+                        <button type="button" class="theme-option" data-theme="system" data-i18n="theme.system">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                            Système
+                        </button>
+                    </div>
+                </div>
+                <div class="language-switcher">
+                    <button type="button" class="lang-trigger">
+                        <span class="current-lang">FR</span>
+                    </button>
+                    <div class="lang-dropdown">
+                        <button type="button" class="lang-option" data-lang="fr">
+                            <span class="lang-flag">🇫🇷</span> Français
+                        </button>
+                        <button type="button" class="lang-option" data-lang="en">
+                            <span class="lang-flag">🇺🇸</span> English
+                        </button>
+                        <button type="button" class="lang-option" data-lang="zh">
+                            <span class="lang-flag">🇨🇳</span> 中文
+                        </button>
+                    </div>
+                </div>
+                <a href="dashboard.html" class="user-profile-icon" aria-label="Mon Profil">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero hero-page">
+        <div class="container">
+            <h1 data-i18n="pricing.title">Tarifs</h1>
+            <p class="hero-subtitle" data-i18n="pricing.subtitle">Des solutions adaptées à tous les budgets, de la
+                startup à l'entreprise</p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="tarifs" style="padding-top: 0;">
+        <div class="container">
+            <div class="pricing-grid">
+                <!-- Site Web -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                                <polyline points="3.27,6.96 12,12.01 20.73,6.96" />
+                                <line x1="12" y1="22.08" x2="12" y2="12" />
+                            </svg>
+                        </div>
+                        <h3 data-i18n="pricing.web.title">Sites Web</h3>
+                        <p class="pricing-description" data-i18n="pricing.web.desc">Sites vitrine, e-commerce et
+                            applications web</p>
+                    </div>
+                    <div class="pricing-plans">
+                        <div class="plan-item">
+                            <div class="plan-name">Site Vitrine</div>
+                            <div class="plan-price">8 000 000 - 25 000 000 GNF</div>
+                            <div class="plan-features">
+                                <span>5-10 pages</span>
+                                <span>Design responsive</span>
+                                <span>SEO de base</span>
+                                <span>Formulaire de contact</span>
+                            </div>
+                        </div>
+                        <div class="plan-item">
+                            <div class="plan-name">E-commerce</div>
+                            <div class="plan-price">35 000 000 - 80 000 000 GNF</div>
+                            <div class="plan-features">
+                                <span>Boutique en ligne</span>
+                                <span>Paiement sécurisé</span>
+                                <span>Gestion des stocks</span>
+                                <span>Dashboard admin</span>
+                            </div>
+                        </div>
+                        <div class="plan-item">
+                            <div class="plan-name">Application Web</div>
+                            <div class="plan-price">50 000 000 - 150 000 000 GNF</div>
+                            <div class="plan-features">
+                                <span>Fonctionnalités avancées</span>
+                                <span>Base de données</span>
+                                <span>API intégrées</span>
+                                <span>Sécurité renforcée</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Applications Mobiles -->
+                <div class="pricing-card featured">
+                    <div class="pricing-badge" data-i18n="pricing.most_requested">Le plus demandé</div>
+                    <div class="pricing-header">
+                        <div class="pricing-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                                <line x1="12" y1="18" x2="12.01" y2="18" />
+                            </svg>
+                        </div>
+                        <h3 data-i18n="pricing.mobile.title">Applications Mobiles</h3>
+                        <p class="pricing-description" data-i18n="pricing.mobile.desc">iOS, Android et applications
+                            cross-platform</p>
+                    </div>
+                    <div class="pricing-plans">
+                        <div class="plan-item">
+                            <div class="plan-name">App Simple</div>
+                            <div class="plan-price">25 000 000 - 50 000 000 GNF</div>
+                            <div class="plan-features">
+                                <span>5-10 écrans</span>
+                                <span>Design natif</span>
+                                <span>Fonctionnalités de base</span>
+                                <span>Publication stores</span>
+                            </div>
+                        </div>
+                        <div class="plan-item">
+                            <div class="plan-name">App Avancée</div>
+                            <div class="plan-price">50 000 000 - 120 000 000 GNF</div>
+                            <div class="plan-features">
+                                <span>Authentification</span>
+                                <span>API backend</span>
+                                <span>Notifications push</span>
+                                <span>Géolocalisation</span>
+                            </div>
+                        </div>
+                        <div class="plan-item">
+                            <div class="plan-name">App Complexe</div>
+                            <div class="plan-price">120 000 000 - 300 000 000 GNF</div>
+                            <div class="plan-features">
+                                <span>Fonctionnalités avancées</span>
+                                <span>IA intégrée</span>
+                                <span>Paiements intégrés</span>
+                                <span>Analytics avancés</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Logiciels -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                                <line x1="8" y1="21" x2="16" y2="21" />
+                                <line x1="12" y1="17" x2="12" y2="21" />
+                            </svg>
+                        </div>
+                        <h3 data-i18n="pricing.software.title">Logiciels Bureautiques</h3>
+                        <p class="pricing-description" data-i18n="pricing.software.desc">Applications desktop sur mesure
+                        </p>
+                    </div>
+                    <div class="pricing-plans">
+                        <div class="plan-item">
+                            <div class="plan-name">Logiciel Simple</div>
+                            <div class="plan-price">30 000 000 - 80 000 000 GNF</div>
+                            <div class="plan-features">
+                                <span>Interface utilisateur</span>
+                                <span>Base de données locale</span>
+                                <span>Rapports de base</span>
+                                <span>Installation simple</span>
+                            </div>
+                        </div>
+                        <div class="plan-item">
+                            <div class="plan-name">Logiciel Avancé</div>
+                            <div class="plan-price">80 000 000 - 200 000 000 GNF</div>
+                            <div class="plan-features">
+                                <span>Multi-utilisateurs</span>
+                                <span>Synchronisation cloud</span>
+                                <span>Rapports avancés</span>
+                                <span>Sécurité renforcée</span>
+                            </div>
+                        </div>
+                        <div class="plan-item">
+                            <div class="plan-name">Suite Complète</div>
+                            <div class="plan-price">200 000 000 - 500 000 000 GNF</div>
+                            <div class="plan-features">
+                                <span>Modules intégrés</span>
+                                <span>API personnalisées</span>
+                                <span>Support 24/7</span>
+                                <span>Formation incluse</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hébergement -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                                <path d="M2 17l10 5 10-5" />
+                                <path d="M2 12l10 5 10-5" />
+                            </svg>
+                        </div>
+                        <h3 data-i18n="pricing.hosting.title">Hébergement & Maintenance</h3>
+                        <p class="pricing-description" data-i18n="pricing.hosting.desc">Solutions d'hébergement et
+                            support technique</p>
+                    </div>
+                    <div class="pricing-plans">
+                        <div class="plan-item">
+                            <div class="plan-name">Hébergement Basic</div>
+                            <div class="plan-price">800 000 - 2 000 000 GNF/mois</div>
+                            <div class="plan-features">
+                                <span>Serveur partagé</span>
+                                <span>SSL inclus</span>
+                                <span>Sauvegardes quotidiennes</span>
+                                <span>Support email</span>
+                            </div>
+                        </div>
+                        <div class="plan-item">
+                            <div class="plan-name">Hébergement Pro</div>
+                            <div class="plan-price">3 000 000 - 8 000 000 GNF/mois</div>
+                            <div class="plan-features">
+                                <span>Serveur dédié</span>
+                                <span>CDN inclus</span>
+                                <span>Monitoring 24/7</span>
+                                <span>Support prioritaire</span>
+                            </div>
+                        </div>
+                        <div class="plan-item">
+                            <div class="plan-name">Maintenance</div>
+                            <div class="plan-price">1 500 000 - 5 000 000 GNF/mois</div>
+                            <div class="plan-features">
+                                <span>Mises à jour</span>
+                                <span>Corrections bugs</span>
+                                <span>Optimisations</span>
+                                <span>Support technique</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-cta">
+                <div class="cta-content">
+                    <h3 data-i18n="pricing.quote_title">Besoin d'un devis personnalisé ?</h3>
+                    <p data-i18n="pricing.quote_desc">Chaque projet est unique. Contactez-nous pour obtenir un devis
+                        adapté à vos besoins spécifiques.
+                    </p>
+                    <div class="cta-actions">
+                        <a href="contact.html" class="cta-button primary" data-i18n="pricing.request_quote">Demander un
+                            devis</a>
+                        <a href="contact.html" class="cta-button secondary" data-i18n="pricing.contact_us">Nous
+                            contacter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-newsletter">
+                <h4 data-i18n="footer.stay_informed">Restez informé</h4>
+                <p data-i18n="footer.newsletter_desc">Abonnez-vous à notre newsletter pour recevoir les dernières
+                    actualités et offres.</p>
+                <form id="footer-newsletter-form">
+                    <input type="email" name="email" placeholder="Votre adresse email"
+                        data-i18n-placeholder="footer.email_placeholder" required>
+                    <button type="submit" data-i18n="footer.subscribe">S'abonner</button>
+                </form>
+            </div>
+
+            <div class="footer-content">
+                <!-- Colonne 1: AI & Outils -->
+                <div class="footer-column">
+                    <h4 data-i18n="footer.ai">AI</h4>
+                    <ul>
+                        <li><a href="#">Vulsoft AI</a></li>
+                        <li><a href="#">AI Assistant</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 2: Outils Développeur -->
+                <div class="footer-column">
+                    <h4 data-i18n="footer.dev_tools">Outils Développeur</h4>
+                    <ul>
+                        <li><a href="#">Tous les Produits</a></li>
+                        <li><a href="#">Environnements de Développement</a></li>
+                        <li><a href="#">Développement Web</a></li>
+                        <li><a href="#">Outils d'Équipe</a></li>
+                        <li><a href="#">Application Toolbox</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 3: Solutions -->
+                <div class="footer-column">
+                    <h4 data-i18n="footer.solutions">Solutions</h4>
+                    <ul>
+                        <li><a href="index.html#services">Entreprises</a></li>
+                        <li><a href="index.html#services">Services IDE</a></li>
+                        <li><a href="index.html#services">Développement à Distance</a></li>
+                        <li><a href="index.html#services">DevOps</a></li>
+                        <li><a href="index.html#services">Outils Mobiles</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 4: Initiatives -->
+                <div class="footer-column">
+                    <h4 data-i18n="footer.initiatives">Initiatives</h4>
+                    <ul>
+                        <li><a href="#">Temv</a></li>
+                        <li><a href="#">Open Source</a></li>
+                        <li><a href="#">Recherche Vulsoft</a></li>
+                        <li><a href="#">Vulsoft Mono</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 5: Éducation -->
+                <div class="footer-column">
+                    <h4 data-i18n="footer.education">Éducation</h4>
+                    <ul>
+                        <li><a href="academie.html">Étudiants</a></li>
+                        <li><a href="academie.html">Enseignants</a></li>
+                        <li><a href="academie.html">Équipes</a></li>
+                        <li><a href="academie.html">Catalogue de Cours</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 6: Boutique -->
+                <div class="footer-column">
+                    <h4 data-i18n="footer.store">Boutique</h4>
+                    <ul>
+                        <li><a href="pricing.html" data-i18n="nav.pricing">Plans et Tarifs</a></li>
+                        <li><a href="#">dotUltimate</a></li>
+                        <li><a href="#">Partenaires et Revendeurs</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-secondary">
+                <div class="footer-column">
+                    <h4 data-i18n="footer.support">Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Support Technique</a></li>
+                        <li><a href="contact.html">Contact Commercial</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Compte Vulsoft</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-i18n="footer.resources">Ressources</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#">Newsletters</a></li>
+                        <li><a href="#">Guide Vulsoft</a></li>
+                        <li><a href="#">Art de Bureau</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-i18n="footer.community">Communauté</h4>
+                    <ul>
+                        <li><a href="#">Groupes d'Utilisateurs</a></li>
+                        <li><a href="#">Partenariats Open-Source</a></li>
+                        <li><a href="#">Reconnaissance Développeurs</a></li>
+                        <li><a href="#">Créateurs de Contenu</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-i18n="footer.company">Entreprise</h4>
+                    <ul>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="contact.html">Contacts</a></li>
+                        <li><a href="#">Carrières</a></li>
+                        <li><a href="#">Presse et Actualités</a></li>
+                        <li><a href="#">Ressources de Marque</a></li>
+                        <li><a href="#">Marchandises</a></li>
+                        <li><a href="#">Centre de Confiance</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-social">
+                <div class="social-links">
+                    <!-- Social icons same as about.html -->
+                    <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg></a>
+                    <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path
+                                d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                        </svg></a>
+                    <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg></a>
+                </div>
+
+                <div class="footer-locale">
+                    <div class="locale-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                        </svg>
+                        <span>Guinée</span>
+                    </div>
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <span>Français</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <a href="#" data-i18n="footer.legal_privacy">Confidentialité et Sécurité</a>
+                    <a href="#" data-i18n="footer.legal_notice">Avis de Confidentialité</a>
+                    <a href="#" data-i18n="footer.legal_terms">Conditions d'Utilisation</a>
+                    <a href="#" data-i18n="footer.legal_attributions">Attributions</a>
+                    <a href="#" data-i18n="footer.legal_mentions">Mentions Légales</a>
+                    <a href="#" data-i18n="footer.legal_authentic">Outils Authentiques</a>
+                    <a href="#" data-i18n="footer.legal_unsubscribe">Désabonnement</a>
+                </div>
+                <div class="footer-copyright">
+                    <p data-i18n="footer.copyright">Copyright © 2000-2024 Vulsoft</p>
+                    <p data-i18n="footer.made_with">Développé avec passion</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/pwa.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/i18n.js" defer></script>
+    <script src="js/cookies.js" defer></script>
+</body>
+
+</html>
