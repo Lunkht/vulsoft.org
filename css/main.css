@@ -1262,8 +1262,8 @@ body.lang-switching {
     top: 0;
     left: 0;
     width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--accent-color), var(--text-secondary), transparent);
+    height: 1px;
+    background: #2e2d2d;
 }
 
 .footer-newsletter {
@@ -1941,17 +1941,39 @@ body.lang-switching {
 .app-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: all 0.3s ease;
+    border-radius: 24px;
+    padding: 40px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .app-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-10px);
     border-color: var(--accent-color);
-    box-shadow: 0 8px 32px var(--shadow-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
 }
+
+.app-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.app-card:hover::after {
+    opacity: 1;
+}
+
 
 .app-badge {
     position: absolute;
@@ -1974,13 +1996,19 @@ body.lang-switching {
 .icon-bg {
     width: 68px;
     height: 68px;
-    border-radius: 12px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     padding: 8px;
+    transition: transform 0.4s ease;
 }
+
+.app-card:hover .icon-bg {
+    transform: scale(1.1) rotate(5deg);
+}
+
 
 /* Couleurs spécifiques pour chaque IDE */
 .val {
@@ -3722,6 +3750,7 @@ Styles compacts pour la page contact */
         grid-template-columns: 1fr;
     }
 }
+
 /* Hardware Section */
 .hardware {
     padding: 100px 0;
@@ -3834,11 +3863,11 @@ Styles compacts pour la page contact */
     .hardware {
         padding: 60px 0;
     }
-    
+
     .hardware-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .hardware-card {
         padding: 30px;
     }
