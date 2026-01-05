@@ -44,6 +44,28 @@
     "node_title": "SecureNode",
     "node_desc": "安全物联网中心，集中并保护您的联网设备。"
   },
+  "valkunt_products": {
+    "title": "Valkunt 配件",
+    "subtitle": "为您数字日常生活的风格与性能",
+    "charger_title": "快速充电器",
+    "charger_desc": "适用于智能手机和平板电脑的高性能充电器。",
+    "powerbank_title": "移动电源",
+    "powerbank_desc": "海量容量，永不断电。",
+    "usb_title": "安全 USB 闪存盘",
+    "usb_desc": "超高速存储，集成硬件加密。",
+    "hdd_title": "移动硬盘",
+    "hdd_desc": "适用于大型备份的稳健解决方案。",
+    "backpack_title": "科技背包",
+    "backpack_desc": "人体工学设计，集成充电端口。",
+    "laptop_bag_title": "笔记本电脑包",
+    "laptop_bag_desc": "为您办公工具提供的优质保护。",
+    "watch_title": "智能手表 Pro",
+    "watch_desc": "腕间的健康追踪和智能通知。",
+    "solar_title": "迷你太阳能电池板",
+    "solar_desc": "为您的户外探险提供清洁能源。",
+    "station_title": "充电站",
+    "station_desc": "适用于办公室和家庭的多设备中心。"
+  },
   "about_hero": {
     "title": "关于 Vulsoft",
     "subtitle": "一家专注于定制软件解决方案开发的创新公司，将技术挑战转化为增长机遇。"

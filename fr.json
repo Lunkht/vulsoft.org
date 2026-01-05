@@ -44,6 +44,28 @@
     "node_title": "SecureNode",
     "node_desc": "Hub IoT sécurisé pour centraliser et protéger vos objets connectés."
   },
+  "valkunt_products": {
+    "title": "Accessoires Valkunt",
+    "subtitle": "Le style et la performance pour votre quotidien digital",
+    "charger_title": "Chargeur Rapide",
+    "charger_desc": "Chargeur haute performance pour smartphones et tablettes.",
+    "powerbank_title": "Batterie Externe",
+    "powerbank_desc": "Capacité massive pour ne jamais tomber à court d'énergie.",
+    "usb_title": "Clé USB Sécurisée",
+    "usb_desc": "Stockage ultra-rapide avec cryptage matériel intégré.",
+    "hdd_title": "Disque Dur Externe",
+    "hdd_desc": "Solution robuste pour vos sauvegardes volumineuses.",
+    "backpack_title": "Sac à Dos Tech",
+    "backpack_desc": "Design ergonomique avec ports de charge intégrés.",
+    "laptop_bag_title": "Sacoche Ordinateur",
+    "laptop_bag_desc": "Protection premium pour vos outils de travail.",
+    "watch_title": "Smartwatch Pro",
+    "watch_desc": "Suivi de santé et notifications intelligentes au poignet.",
+    "solar_title": "Mini Panneau Solaire",
+    "solar_desc": "Énergie propre pour vos aventures en extérieur.",
+    "station_title": "Station de Charge",
+    "station_desc": "Hub multi-appareils pour bureau et maison."
+  },
   "about_hero": {
     "title": "À propos de Vulsoft",
     "subtitle": "Une société innovante spécialisée dans le développement de solutions logicielles sur mesure, transformant les défis technologiques en opportunités de croissance."
