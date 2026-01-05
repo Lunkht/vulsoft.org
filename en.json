@@ -34,6 +34,16 @@
     "maintenance_title": "Maintenance & Support",
     "maintenance_desc": "Continuous technical support, and evolutionary and corrective maintenance of your existing applications."
   },
+  "hardware_section": {
+    "title": "Vulsoft Hardware",
+    "subtitle": "Physical solutions for absolute digital security",
+    "shield_title": "Vulsoft Shield",
+    "shield_desc": "High-performance hardware firewall to protect your local network.",
+    "key_title": "Kuntron Key",
+    "key_desc": "Physical security key for unhackable multi-factor authentication.",
+    "node_title": "SecureNode",
+    "node_desc": "Secure IoT hub to centralize and protect your connected objects."
+  },
   "about_hero": {
     "title": "About Vulsoft",
     "subtitle": "An innovative company specializing in the development of custom software solutions, turning technological challenges into growth opportunities."

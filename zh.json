@@ -34,6 +34,16 @@
     "maintenance_title": "维护与支持",
     "maintenance_desc": "持续的技术支持、对您现有应用程序的主动维护和纠偏维护。"
   },
+  "hardware_section": {
+    "title": "Vulsoft 硬件",
+    "subtitle": "绝对数字安全的物理解决方案",
+    "shield_title": "Vulsoft Shield",
+    "shield_desc": "高性能硬件防火墙，保护您的本地网络。",
+    "key_title": "Kuntron Key",
+    "key_desc": "物理安全密钥，实现不可破解的多因素身份验证。",
+    "node_title": "SecureNode",
+    "node_desc": "安全物联网中心，集中并保护您的联网设备。"
+  },
   "about_hero": {
     "title": "关于 Vulsoft",
     "subtitle": "一家专注于定制软件解决方案开发的创新公司，将技术挑战转化为增长机遇。"
