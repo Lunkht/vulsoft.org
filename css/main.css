@@ -3829,11 +3829,24 @@ Styles compacts pour la page contact */
     color: var(--accent-color);
     margin-bottom: 10px;
     transition: transform 0.4s ease;
+    overflow: hidden;
+}
+
+.hardware-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
 }
 
 .hardware-card:hover .hardware-icon {
     transform: scale(1.1) rotate(5deg);
 }
+
+.hardware-card:hover .hardware-icon img {
+    transform: scale(1.1);
+}
+
 
 .hardware-content h3 {
     font-size: 1.5rem;
@@ -3872,6 +3885,7 @@ Styles compacts pour la page contact */
         padding: 30px;
     }
 }
+
 /* Valkunt Products Section */
 .valkunt-products {
     padding: 100px 0;
@@ -3944,13 +3958,25 @@ Styles compacts pour la page contact */
     justify-content: center;
     color: var(--accent-color);
     transition: transform 0.4s ease;
+    overflow: hidden;
+    /* Added to clip images */
+}
+
+.product-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
 }
 
 .product-card:hover .product-icon {
     transform: scale(1.1) rotate(5deg);
-    background: var(--accent-color);
-    color: white;
 }
+
+.product-card:hover .product-icon img {
+    transform: scale(1.1);
+}
+
 
 .product-info h3 {
     font-size: 1.25rem;
@@ -3968,7 +3994,7 @@ Styles compacts pour la page contact */
     .valkunt-products {
         padding: 60px 0;
     }
-    
+
     .products-grid {
         grid-template-columns: 1fr;
     }
