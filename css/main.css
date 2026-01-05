@@ -455,8 +455,8 @@ body.lang-switching {
 /* Partners Section - Style Spaceship */
 .partners {
     padding: 8rem 0;
-    background: var(--bg-secondary);
     position: relative;
+    margin-top: 2rem;
 }
 
 .partners-grid {
