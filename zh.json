@@ -39,7 +39,7 @@
     "subtitle": "绝对数字安全的物理解决方案",
     "shield_title": "Vulsoft Shield",
     "shield_desc": "高性能硬件防火墙，保护您的本地网络。",
-    "key_title": "Kuntron Key",
+    "key_title": "Valkunt Key",
     "key_desc": "物理安全密钥，实现不可破解的多因素身份验证。",
     "node_title": "SecureNode",
     "node_desc": "安全物联网中心，集中并保护您的联网设备。"
@@ -94,8 +94,8 @@
   "apps_showcase": {
     "title": "在日常生活中享受我们的应用",
     "subtitle": "丰富的工具套件，提供卓越体验",
-    "kuntron": {
-      "title": "Kuntron",
+    "valkunt": {
+      "title": "Valkunt",
       "desc": "安全的密钥和密码生成器，为您的数字安全提供保障。"
     },
     "ovom": {

@@ -39,7 +39,7 @@
     "subtitle": "Physical solutions for absolute digital security",
     "shield_title": "Vulsoft Shield",
     "shield_desc": "High-performance hardware firewall to protect your local network.",
-    "key_title": "Kuntron Key",
+    "key_title": "Valkunt Key",
     "key_desc": "Physical security key for unhackable multi-factor authentication.",
     "node_title": "SecureNode",
     "node_desc": "Secure IoT hub to centralize and protect your connected objects."
@@ -94,8 +94,8 @@
   "apps_showcase": {
     "title": "Enjoy our applications in your daily life",
     "subtitle": "A rich suite of tools offering an exceptional experience",
-    "kuntron": {
-      "title": "Kuntron",
+    "valkunt": {
+      "title": "Valkunt",
       "desc": "Secure key and password generator for your digital protection."
     },
     "ovom": {

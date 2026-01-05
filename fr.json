@@ -39,12 +39,11 @@
     "subtitle": "Solutions physiques pour une sécurité numérique absolue",
     "shield_title": "Vulsoft Shield",
     "shield_desc": "Pare-feu matériel haute performance pour protéger votre réseau local.",
-    "key_title": "Kuntron Key",
+    "key_title": "Valkunt Key",
     "key_desc": "Clé de sécurité physique pour une authentification multi-facteurs inviolable.",
     "node_title": "SecureNode",
     "node_desc": "Hub IoT sécurisé pour centraliser et protéger vos objets connectés."
   },
-
   "about_hero": {
     "title": "À propos de Vulsoft",
     "subtitle": "Une société innovante spécialisée dans le développement de solutions logicielles sur mesure, transformant les défis technologiques en opportunités de croissance."
@@ -95,8 +94,8 @@
   "apps_showcase": {
     "title": "Profitez de nos applications au quotidien",
     "subtitle": "Une suite riche d'outils offrant une expérience exceptionnelle",
-    "kuntron": {
-      "title": "Kuntron",
+    "valkunt": {
+      "title": "Valkunt",
       "desc": "Générateur sécurisé de clés et mots de passe pour votre protection numérique."
     },
     "ovom": {
