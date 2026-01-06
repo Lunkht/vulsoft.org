@@ -3998,3 +3998,62 @@ Styles compacts pour la page contact */
         grid-template-columns: 1fr;
     }
 }
+/* --- Page Transitions --- */
+:root {
+    --transition-speed: 0.6s;
+    --transition-ease: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.page-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--bg-primary);
+    z-index: 10000;
+    pointer-events: none;
+    transform: translateY(0);
+    transition: transform var(--transition-speed) var(--transition-ease);
+}
+
+.page-transition-overlay.is-hidden {
+    transform: translateY(-100%);
+}
+
+.page-transition-overlay.is-visible {
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+/* Shutter effect variant */
+.page-transition-shutter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--accent-primary);
+    z-index: 10001;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform var(--transition-speed) var(--transition-ease);
+    pointer-events: none;
+}
+
+.page-transition-shutter.is-active {
+    transform: scaleY(1);
+    transform-origin: bottom;
+}
+
+/* Page content fade */
+.page-fade-enter {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.page-fade-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s var(--transition-ease);
+}
